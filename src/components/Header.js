@@ -24,6 +24,11 @@ const Header = () => {
             (user ? (
               <React.Fragment>
                 <li>
+                  <Link href="/publish">
+                    <a>Publish</a>
+                  </Link>
+                </li>
+                <li>
                   {user.nickname} : <a href="/api/logout">Logout</a>
                 </li>
               </React.Fragment>

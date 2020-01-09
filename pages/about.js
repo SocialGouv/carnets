@@ -1,17 +1,8 @@
 import React from "react";
+import fetch from "isomorphic-unfetch";
 
 import Layout from "../src/components/Layout";
 import { useFetchUser, useUser } from "../src/lib/user";
-
-const publish = data => {
-  fetch("/api/publish", {
-    method: "POST",
-    body: JSON.stringify(data)
-  })
-    .then(r => r.json())
-    .then(console.log)
-    .catch(console.log);
-};
 
 export default function Home() {
   const { user, loading } = useFetchUser();
@@ -24,3 +15,8 @@ export default function Home() {
     </Layout>
   );
 }
+
+Home.getInitialProps = async (req, res) => {
+  console.log("req, res", req, res);
+  fetch(`/api/fetch?year=2020&month=01`).then(r => r.json());
+};

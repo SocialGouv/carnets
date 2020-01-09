@@ -1,20 +1,32 @@
-const GitHubPublisher = require("github-publish");
+import GitHubPublisher from "github-publish";
 
-const token = "---";
-const org = "revolunet";
-const repo = "LEDPole";
-const branch = "test";
+import { isAllowedToPost } from "../../src/isAllowedToPost";
+import auth0 from "../../src/lib/auth0";
+
+const token = process.env.GH_TOKEN;
+
+const org = process.env.GH_ORG;
+const repo = process.env.GH_REPO;
+const branch = process.env.GH_BRANCH;
+const path = process.env.GH_PATH || "content";
+
+const sanitize = name => name.replace(/[\s/;:,!?#]/g, "-").toLowerCase();
+
+const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
 
 const getNormalizedDate = () => {
   const dte = new Date();
-  return `${dte.getFullYear()}${dte.getMonth()}${dte.getDate()}_${dte.getHours()}${dte.getMinutes()}${dte.getSeconds()}`;
+  return `${dte.getFullYear()}${pad(dte.getMonth() + 1)}${pad(
+    dte.getDate()
+  )}_${pad(dte.getHours())}${pad(dte.getMinutes())}${pad(dte.getSeconds())}`;
 };
-
-const sanitize = name => name.replace(/[\s/;:,!?#]/g, "-");
 
 const publishData = ({ author, message, data }) => {
   const publisher = new GitHubPublisher(token, org, repo, branch);
-  const newFileName = `src/${sanitize(
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = pad(now.getMonth() + 1);
+  const newFileName = `${path}/${year}/${month}/${sanitize(
     author.name
   )}-${getNormalizedDate()}.json`;
   return (
@@ -33,29 +45,29 @@ const publishData = ({ author, message, data }) => {
   );
 };
 
-const publish = (req, res) => {
-  const { data, name, email } = JSON.parse(req.body);
-  const message = "Some commit message 2";
-  publishData({
-    author: {
-      name,
-      email
-    },
-    message,
-    data
-  })
-    .then(sha => res.json({ success: true, sha }))
-    .catch(() => res.json({ success: false }));
-};
+export default async (req, res) => {
+  if (req.method === "POST") {
+    const session = await auth0.getSession(req);
+    if (session && session.user) {
+      const granted = true; //await isAllowedToPost(session.user.nickname);
+      if (granted) {
+        console.log("granted", granted);
+        const message = "Some commit message";
+        return await publishData({
+          author: {
+            name: session.user.name,
+            email: session.user.email
+          },
+          message,
+          data: req.body
+        })
+          .then(sha => res.json({ success: true, sha }))
+          .catch(e => console.log(e) || res.json({ success: false }));
+      } else {
+        console.log(`ERROR: use ${session.user.name} not granted to ${org}`);
+      }
+    }
+  }
 
-// todo: securize
-// publish(
-//   { body: '{"data":"pouet", "name":"my name", "email":"email@email.com"}' },
-//   { json: data => console.log(data) }
-// );
-
-export default (req, res) => {
-  console.log(req.method);
-  console.log(req.body.data);
-  res.json({ success: true });
+  res.json({ success: false });
 };

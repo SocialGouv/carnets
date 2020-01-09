@@ -3,16 +3,6 @@ import React from "react";
 import Layout from "../src/components/Layout";
 import { useFetchUser, useUser } from "../src/lib/user";
 
-const publish = data => {
-  fetch("/api/publish", {
-    method: "POST",
-    body: JSON.stringify(data)
-  })
-    .then(r => r.json())
-    .then(console.log)
-    .catch(console.log);
-};
-
 export default function Home() {
   const { user, loading } = useFetchUser();
 
@@ -39,7 +29,6 @@ export default function Home() {
           <pre>{JSON.stringify(user, null, 2)}</pre>
         </React.Fragment>
       )}
-      <button onClick={() => publish({ pouet: 42 })}>CLICK</button>
     </Layout>
   );
 }
