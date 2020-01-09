@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import Layout from "../src/components/Layout";
 import { useFetchUser, useUser } from "../src/lib/user";
@@ -8,26 +9,27 @@ export default function Home() {
 
   return (
     <Layout user={user} loading={loading}>
-      <h1>Next.js and Auth0 Example</h1>
+      <h3>Carnet de bord des startups @SocialGouv</h3>
 
-      {loading && <p>Loading login info...</p>}
+      {loading && <p>Chargement....</p>}
 
       {!loading && !user && (
         <React.Fragment>
           <p>
-            To test the login click in <i>Login</i>
-          </p>
-          <p>
-            Once you have logged in you should be able to click in{" "}
-            <i>Profile</i> and <i>Logout</i>
+            Pour poster une nouvelle,{" "}
+            <Link href="/api/login" passHref>
+              <a>connectez-vous</a>
+            </Link>
           </p>
         </React.Fragment>
       )}
       {user && (
-        <React.Fragment>
-          <h4>Rendered user info on the client</h4>
-          <pre>{JSON.stringify(user, null, 2)}</pre>
-        </React.Fragment>
+        <div style={{ marginTop: 40 }}>
+          <h4>Bienvenue {user.name}</h4>
+          <Link href="/publish">
+            <button className="btn btn-primary">Publier une nouvelle</button>
+          </Link>
+        </div>
       )}
     </Layout>
   );

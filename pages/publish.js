@@ -21,13 +21,18 @@ export default function Home() {
 
   return (
     <Layout user={user} loading={loading}>
-      <h1>Publish</h1>
+      <h1>Publier une nouvelle</h1>
 
       {loading && <p>Loading login info...</p>}
 
       {user && (
         <div>
-          <button onClick={() => publish({ hello: "world" })}>PUBLISH</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => publish({ hello: "world" })}
+          >
+            Publier
+          </button>
         </div>
       )}
     </Layout>
