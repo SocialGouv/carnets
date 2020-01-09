@@ -1,0 +1,18 @@
+{
+  "name": "carnets-github",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^0.9.0",
+    "dotenv": "^8.2.0",
+    "github-publish": "^3.0.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.1.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
