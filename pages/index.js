@@ -37,10 +37,10 @@ Home.getInitialProps = async ({ req }) => {
   const { year = now.getFullYear(), month = now.getMonth() + 1 } =
     (req && req.query) || {};
 
-  const { host } = absoluteUrl(req);
-  const url = `http://${host}/api/fetchPosts?year=${year}&month=${month}`;
+  // const { host } = absoluteUrl(req);
+  // const url = `http://${host}/api/fetchPosts?year=${year}&month=${month}`;
 
-  const payload = await fetch(url);
-  const data = await payload.json();
-  return { data };
+  // const payload = await fetch(url);
+  // const data = await payload.json();
+  return {};
 };
