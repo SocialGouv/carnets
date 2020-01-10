@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "lint": "eslint src/* pages/*",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {

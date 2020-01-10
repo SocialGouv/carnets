@@ -2,5 +2,12 @@
   "extends": [
     "@socialgouv/eslint-config-recommended",
     "@socialgouv/eslint-config-react"
-  ]
+  ],
+  "rules": {
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    "react/prop-types": "off"
+  }
 }

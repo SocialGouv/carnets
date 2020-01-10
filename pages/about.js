@@ -2,7 +2,7 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 
 import Layout from "../src/components/Layout";
-import { useFetchUser, useUser } from "../src/lib/user";
+import { useFetchUser } from "../src/lib/user";
 
 export default function Home() {
   const { user, loading } = useFetchUser();

@@ -17,7 +17,7 @@ const publish = data => {
     .catch(console.log);
 };
 
-const onPublish = () => publish({ date: new Date(), hello: "world" });
+//const onPublish = () => publish({ date: new Date(), hello: "world" });
 
 export default function Home() {
   const { user, loading } = useFetchUser();
@@ -30,7 +30,9 @@ export default function Home() {
   return (
     <Layout user={user} loading={loading}>
       <h1>Publier une nouvelle</h1>
-      <p>Faites le point sur la semaine qui vient de s'écouler, en 5 minutes</p>
+      <p>
+        Faites le point sur la semaine qui vient de s&apos;écouler, en 5 minutes
+      </p>
       <p>&nbsp;</p>
       {loading && <p>Loading login info...</p>}
 

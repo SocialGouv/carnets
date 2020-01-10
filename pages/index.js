@@ -7,6 +7,7 @@ import { useFetchUser } from "../src/lib/user";
 
 export default function Home({ data }) {
   const { user, loading } = useFetchUser();
+  console.log("data", data);
   return (
     <Layout user={user} loading={loading}>
       <h3>Carnet de bord des startups @SocialGouv</h3>
@@ -30,13 +31,13 @@ export default function Home({ data }) {
   );
 }
 
-Home.getInitialProps = async ({ err, req, res }) => {
+Home.getInitialProps = async ({ req }) => {
   // fetch data for given month
   const now = new Date();
   const { year = now.getFullYear(), month = now.getMonth() + 1 } =
     (req && req.query) || {};
 
-  const { protocol, host } = absoluteUrl(req);
+  const { host } = absoluteUrl(req);
   const url = `http://${host}/api/fetchPosts?year=${year}&month=${month}`;
 
   const payload = await fetch(url);
