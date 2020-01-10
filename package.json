@@ -7,7 +7,8 @@
     "dev": "next dev",
     "lint": "eslint src/* pages/*",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "exit 0"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.9.0",
