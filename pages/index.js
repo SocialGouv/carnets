@@ -31,7 +31,7 @@ export default function Home({ data }) {
   );
 }
 
-Home.getInitialProps = async ({}) => {
+Home.getInitialProps = async () => {
   // fetch data for given month
   // const now = new Date();
   // const { year = now.getFullYear(), month = now.getMonth() + 1 } =
