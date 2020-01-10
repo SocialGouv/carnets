@@ -1,0 +1,67 @@
+# Default values for Mas webapp. https://github.com/SocialGouv/helm-charts/blob/master/charts/webapp/values.yaml
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+---
+image:
+  repository: registry.gitlab.factory.social.gouv.fr/socialgouv/standup
+
+deployment:
+  port: ${PORT}
+
+  livenessProbe:
+    path: /
+  readinessProbe:
+    path: /
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
+
+  env:
+    - name: PORT
+      value: "${PORT}"
+    - name: AUTH0_DOMAIN
+      value: "${AUTH0_DOMAIN}"
+    - name: AUTH0_CLIENT_ID
+      value: "${AUTH0_CLIENT_ID}"
+    - name: AUTH0_CLIENT_SECRET
+      value: "${AUTH0_CLIENT_SECRET}"
+    - name: REDIRECT_URI
+      value: "${REDIRECT_URI}"
+    - name: POST_LOGOUT_REDIRECT_URI
+      value: "${POST_LOGOUT_REDIRECT_URI}"
+    - name: SESSION_COOKIE_SECRET
+      value: "${SESSION_COOKIE_SECRET}"
+    - name: GH_TOKEN
+      value: "${GH_TOKEN}"
+    - name: GH_ORG
+      value: "${GH_ORG}"
+    - name: GH_REPO
+      value: "${GH_REPO}"
+    - name: GH_BRANCH
+      value: "${GH_BRANCH}"
+    - name: GH_PATH
+      value: "${GH_PATH}"
+
+service:
+  port: ${PORT}
+  targetPort: ${PORT}
+
+ingress:
+  enabled: true
+  annotations:
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/ingress.class: "azure/application-gateway"
+  hosts:
+    - host: "carnets.dev.fabrique.social.gouv.fr"
+      paths:
+        - path: /
+          servicePort: ${PORT}
+  tls:
+    - hosts:
+        - "carnets.dev.fabrique.social.gouv.fr"
+      secretName: carnets-crt

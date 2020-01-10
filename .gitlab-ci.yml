@@ -1,0 +1,10 @@
+---
+include:
+  - project: SocialGouv/gitlab-ci-yml
+    file: /autodevops_simple_app.yml
+    ref: v4.6.0
+
+variables:
+  PROJECT: "standup"
+  PORT: 80
+  VALUES_FILE: ./.k8s/app.values.yml
