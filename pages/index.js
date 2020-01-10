@@ -24,9 +24,7 @@ export default function Home({ data }) {
           </p>
         </React.Fragment>
       )}
-      {data.map(d => (
-        <div key={d.file.name}>{d.file.name}</div>
-      ))}
+      {data && data.map(d => <div key={d.file.name}>{d.file.name}</div>)}
     </Layout>
   );
 }
