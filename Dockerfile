@@ -13,4 +13,4 @@ USER node
 
 ENV NODE_ENV=production
 
-ENTRYPOINT ["yarn", "start"]
+ENTRYPOINT ["yarn", "build-start"]

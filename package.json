@@ -8,6 +8,7 @@
     "lint": "eslint src/* pages/*",
     "build": "next build",
     "start": "next start",
+    "build-start": "next build && next start",
     "test": "exit 0"
   },
   "dependencies": {
