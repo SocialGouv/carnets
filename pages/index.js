@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import fetch from "isomorphic-unfetch";
-import absoluteUrl from "next-absolute-url";
+//import fetch from "isomorphic-unfetch";
+//import absoluteUrl from "next-absolute-url";
 import Layout from "../src/components/Layout";
 import { useFetchUser } from "../src/lib/user";
 
@@ -31,11 +31,11 @@ export default function Home({ data }) {
   );
 }
 
-Home.getInitialProps = async ({ req }) => {
+Home.getInitialProps = async ({}) => {
   // fetch data for given month
-  const now = new Date();
-  const { year = now.getFullYear(), month = now.getMonth() + 1 } =
-    (req && req.query) || {};
+  // const now = new Date();
+  // const { year = now.getFullYear(), month = now.getMonth() + 1 } =
+  //   (req && req.query) || {};
 
   // const { host } = absoluteUrl(req);
   // const url = `http://${host}/api/fetchPosts?year=${year}&month=${month}`;
