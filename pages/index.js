@@ -3,12 +3,10 @@ import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import absoluteUrl from "next-absolute-url";
 import Layout from "../src/components/Layout";
-import { useFetchUser, useUser } from "../src/lib/user";
-import { fetchPosts } from "./api/fetchPosts";
+import { useFetchUser } from "../src/lib/user";
 
 export default function Home({ data }) {
   const { user, loading } = useFetchUser();
-  console.log("data", data);
   return (
     <Layout user={user} loading={loading}>
       <h3>Carnet de bord des startups @SocialGouv</h3>
@@ -26,7 +24,7 @@ export default function Home({ data }) {
         </React.Fragment>
       )}
       {data.map(d => (
-        <div>{d.file.name}</div>
+        <div key={d.file.name}>{d.file.name}</div>
       ))}
     </Layout>
   );

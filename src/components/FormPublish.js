@@ -10,7 +10,6 @@ import {
   Label,
   FormFeedback,
   Input,
-  FormText,
   Row
 } from "reactstrap";
 
@@ -94,7 +93,6 @@ const FormPublish = ({ onSubmit }) => {
         errors,
         touched,
         handleChange,
-        handleBlur,
         handleSubmit,
         isSubmitting
         /* and other goodies */

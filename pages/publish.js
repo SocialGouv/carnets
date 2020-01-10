@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Col, Button, Row } from "reactstrap";
+import React from "react";
 
 import Layout from "../src/components/Layout";
 import FormPublish from "../src/components/FormPublish";
-import { useFetchUser, useUser } from "../src/lib/user";
+import { useFetchUser } from "../src/lib/user";
 
 const publish = data => {
   fetch("/api/publish", {
