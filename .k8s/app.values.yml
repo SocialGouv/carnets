@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 ---
 image:
-  repository: registry.gitlab.factory.social.gouv.fr/socialgouv/standup
+  repository: registry.gitlab.factory.social.gouv.fr/socialgouv/carnets
 
 deployment:
   port: ${PORT}
