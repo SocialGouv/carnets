@@ -10,7 +10,7 @@ const fetchJson = url => fetch(url).then(r => r.json());
 
 const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
 
-const isNum = num => num && num.match(/^\d+$/);
+const isNum = num => num && ("" + num).match(/^\d+$/);
 
 const fetchFile = async file => ({
   file,
@@ -36,13 +36,16 @@ const fetchAllFiles = filesPath =>
         )
     );
 
+const fetchPosts = (year, month) => {
+  if (isNum(year) && isNum(month)) {
+    return fetchAllFiles(`/${pad(year)}/${pad(month)}`);
+  }
+};
+
+// API route
 export default (req, res) => {
   const { year, month } = req.query;
-  if (isNum(year) && isNum(month)) {
-    return fetchAllFiles(`/${pad(year)}/${pad(month)}`).then(j =>
-      res.json(j || { success: false })
-    );
-  }
-
-  res.json({ success: false });
+  return fetchPosts(year, month)
+    .then(r => res.json(r || { success: false }))
+    .catch(e => res.json({ success: false, error: e.message }));
 };

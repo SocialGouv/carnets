@@ -18,5 +18,7 @@ export default function Home() {
 
 Home.getInitialProps = async (req, res) => {
   console.log("req, res", req, res);
-  fetch(`/api/fetch?year=2020&month=01`).then(r => r.json());
+  const data = await fetch(`/api/fetch?year=2020&month=01`).then(r => r.json());
+  console.log("data", data);
+  return { data };
 };

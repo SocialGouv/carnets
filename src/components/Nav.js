@@ -14,7 +14,7 @@ const Nav = () => {
           <a>@SocialGouv/carnets</a>
         </Link>
         <div className="navbar-baseline" href="#">
-          Carnet de bord de la startup
+          Carnet de bord des produits
         </div>
       </div>
       <button
@@ -31,18 +31,27 @@ const Nav = () => {
       <div id="navbarSupportedContent" className="navbar-collapse collapse">
         <ul className="navbar-nav mr-auto"></ul>
         <ul className="navbar-nav">
-          <li className="nav-item">
-            {!loading &&
-              (user ? (
-                <Link href="/publish" passHref>
-                  <a className="nav-link">Publier</a>
-                </Link>
-              ) : (
+          {!loading &&
+            (user ? (
+              <React.Fragment>
+                <li className="nav-item">
+                  <Link href="/publish" passHref>
+                    <a className="nav-link">Publier</a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/api/logout" passHref>
+                    <a className="nav-link">Logout</a>
+                  </Link>
+                </li>
+              </React.Fragment>
+            ) : (
+              <li className="nav-item">
                 <Link href="/api/login" passHref>
                   <a className="nav-link">Login</a>
                 </Link>
-              ))}
-          </li>
+              </li>
+            ))}
         </ul>
       </div>
     </nav>
