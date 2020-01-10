@@ -9,8 +9,6 @@ COPY . .
 RUN yarn --frozen-lockfile
 RUN yarn build
 
-USER node
-
 ENV NODE_ENV=production
 
-ENTRYPOINT ["yarn", "build-start"]
+ENTRYPOINT ["yarn", "run", "build-start"]
