@@ -49,7 +49,7 @@ export default async (req, res) => {
   if (req.method === "POST") {
     const session = await auth0.getSession(req);
     if (session && session.user) {
-      const granted = true; //await isAllowedToPost(session.user.nickname);
+      const granted = await isAllowedToPost(session.user.nickname);
       if (granted) {
         console.log("granted", granted);
         const message = "Some commit message";
