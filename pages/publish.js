@@ -1,8 +1,8 @@
 import React from "react";
-
+import Link from "next/link";
+import { useFetchUser } from "../src/lib/user";
 import Layout from "../src/components/Layout";
 import FormPublish from "../src/components/FormPublish";
-import { useFetchUser } from "../src/lib/user";
 
 const publish = data => {
   fetch("/api/publish", {
@@ -17,11 +17,10 @@ const publish = data => {
     .catch(console.log);
 };
 
-//const onPublish = () => publish({ date: new Date(), hello: "world" });
-
 export default function Home() {
   const { user, loading } = useFetchUser();
   const onSubmit = data => {
+    console.log("onSubmit", data);
     publish({
       ...data,
       date: new Date()
@@ -29,14 +28,26 @@ export default function Home() {
   };
   return (
     <Layout user={user} loading={loading}>
-      <h1>Publier une nouvelle</h1>
+      <h3>Publier une nouvelle</h3>
       <p>
-        Faites le point sur la semaine qui vient de s&apos;écouler, en 5 minutes
+        Faites le point sur la semaine qui vient de s&apos;écouler, en 5
+        minutes.
       </p>
-      <p>&nbsp;</p>
+
       {loading && <p>Loading login info...</p>}
 
-      {user && (
+      {!loading && !user && (
+        <div className="card text-center bg-light">
+          <div className="card-body">
+            <h5 className="card-title">Pour poster une nouvelle</h5>
+            <Link href="/api/login" passHref>
+              <a className="btn btn-primary">connectez-vous</a>
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {!loading && user && (
         <div>
           <FormPublish onSubmit={onSubmit} />
         </div>

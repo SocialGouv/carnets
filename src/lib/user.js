@@ -24,7 +24,7 @@ export const UserProvider = ({ value, children }) => {
     if (!userState && user) {
       userState = user;
     }
-  }, []);
+  }, [user]);
 
   return <User.Provider value={value}>{children}</User.Provider>;
 };
@@ -54,7 +54,7 @@ export const useFetchUser = () => {
     return () => {
       isMounted = false;
     };
-  }, [userState]);
+  }, []);
 
   return data;
 };

@@ -18,8 +18,6 @@ const fetchFile = async file => ({
 });
 
 const fetchAllFiles = filesPath =>
-  //console.log("fetchAllFiles", filesPath);
-
   fetch(
     `https://${token}@api.github.com/repos/${org}/${repo}/contents/${path}${filesPath ||
       ""}?ref=${ref}`
@@ -27,7 +25,6 @@ const fetchAllFiles = filesPath =>
     .then(r => r.json())
     .then(
       json =>
-        //console.log(json) ||
         json.filter &&
         Promise.all(
           json
