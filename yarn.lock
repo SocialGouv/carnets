@@ -33,10 +33,10 @@
   resolved "https://registry.yarnpkg.com/@ampproject/toolbox-script-csp/-/toolbox-script-csp-1.1.1.tgz#0b049a1c86c99f300162a10e1b9ce83c6e354a45"
   integrity sha512-gACGfsVKinCy/977FSrlVgo6jxTZ0lcTCvCnRlNwvSOcxJVm+jJR3sP7/F43fpak9Gsq/EwFaatfnNMbunPc+w==
 
-"@auth0/nextjs-auth0@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@auth0/nextjs-auth0/-/nextjs-auth0-0.9.0.tgz#4bf7357dc6174e892121fdf33daf697b8bc3a20c"
-  integrity sha512-VqJZ1PTmXfo9HINe/DHxAOzlWumM+VF/e7qIutEHUCQwm/AOWUTzKkzROB5xPSTDmpjneYd3gIUcDiwlEZ+5WA==
+"@auth0/nextjs-auth0@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@auth0/nextjs-auth0/-/nextjs-auth0-0.10.0.tgz#36013db491fc319291f83d8b008fc7dacc3ebf3e"
+  integrity sha512-dVz30H4LcLkphOsm9ptWsZgaOx8hrnDOndFQeqr4LlZp5tj/J3hLRczfoHNKYH8Zn34U0iNNx3JTHcZlGJA3uQ==
   dependencies:
     "@hapi/iron" "^5.1.4"
     base64url "^3.0.1"
