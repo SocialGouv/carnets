@@ -1,0 +1,9 @@
+{
+  "team": "medle",
+  "mood": null,
+  "priorities": "wwwww A cookie associated with a cross-site resource at <URL> was set without the `SameSite` attribute. It has been blocked, as Chrome now only delivers cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at <URL> and <URL>.",
+  "kpis": "wwwww A cookie associated with a cross-site resource at <URL> was set without the `SameSite` attribute. It has been blocked, as Chrome now only delivers cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at <URL> and <URL>.",
+  "term": "wwwww A cookie associated with a cross-site resource at <URL> was set without the `SameSite` attribute. It has been blocked, as Chrome now only delivers cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at <URL> and <URL>.",
+  "needs": "wwwww A cookie associated with a cross-site resource at <URL> was set without the `SameSite` attribute. It has been blocked, as Chrome now only delivers cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at <URL> and <URL>.",
+  "date": "2020-01-21T20:17:10.749Z"
+}
