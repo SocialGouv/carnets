@@ -951,7 +951,7 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@socialgouv/eslint-config-react@^0.13.0":
+"@socialgouv/eslint-config-react@0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-react/-/eslint-config-react-0.13.0.tgz#485d6d60f2dc421d9f0b2b58a3cc7bf97f043b8d"
   integrity sha512-JlPkYG+pB8RhHlE5FEs87W7k1ODvDjKQJlIqWS09LYAi0SxxH99HErpieb/2bZX6LDJ94h6gbnMZaCNkQg+Ang==
@@ -962,7 +962,7 @@
     eslint-plugin-react "~7.17.0"
     eslint-plugin-react-hooks "~2.3.0"
 
-"@socialgouv/eslint-config-recommended@^0.13.0":
+"@socialgouv/eslint-config-recommended@0.13.0", "@socialgouv/eslint-config-recommended@^0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-0.13.0.tgz#4d468e6fdaf51179cb3e5c1172cfe6bda91b8d05"
   integrity sha512-6WBD0KlOwPezz4YnhDvB4ogYBGhH2LHHLcaamDKvAh18OxAu+Ik03B9zDKn5m1NGOZepwWy/zj9Z8/Jh2xaidg==
@@ -2793,7 +2793,7 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@^6.8.0:
+eslint@6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.8.0.tgz#62262d6729739f9275723824302fb227c8c93ffb"
   integrity sha512-K+Iayyo2LtyYhDSYwz5D5QdWw0hCacNzyq1Y821Xna2xSJj7cijoLLYmLxTQgcgZ9mC61nryMy9S7GRbYpI5Ig==
@@ -5445,7 +5445,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^1.19.1:
+prettier@1.19.1:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
