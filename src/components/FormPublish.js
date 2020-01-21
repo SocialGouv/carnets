@@ -110,7 +110,7 @@ const FormPublish = ({ onSubmit }) => {
                 id="team"
                 onChange={handleChange}
                 onBlur={handleChange}
-                value={values.team}
+                value={values.team || ""}
               >
                 <option value="">----</option>
                 {teams.map(team => (
