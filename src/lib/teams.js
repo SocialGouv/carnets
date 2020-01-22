@@ -21,13 +21,10 @@ export const sanitize = name =>
     .replace(/[\s/;:,!?#]/g, "-")
     .toLowerCase();
 
-teams = teams.reduce((teams, team) => {
-  teams.push({
-    name: team,
-    id: sanitize(team)
-  });
-  return teams;
-}, []);
+teams = teams.map(team => ({
+  name: team,
+  id: sanitize(team)
+}));
 
 teams.getById = id => teams.find(item => item.id === id);
 
