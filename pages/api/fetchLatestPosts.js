@@ -8,19 +8,14 @@ const path = process.env.GH_PATH;
 
 const fetchJson = url => fetch(url).then(r => r.json());
 
-const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
-
-const isNum = num => num && ("" + num).match(/^\d+$/);
-
 const fetchFile = async file => ({
   file,
   content: await fetchJson(file.download_url)
 });
 
-const fetchAllFiles = filesPath =>
+const fetchAllFiles = () =>
   fetch(
-    `https://${token}@api.github.com/repos/${org}/${repo}/contents/${path}${filesPath ||
-      ""}?ref=${ref}`
+    `https://${token}@api.github.com/repos/${org}/${repo}/contents/${path}/latest?ref=${ref}`
   )
     .then(r => r.json())
     .then(
@@ -33,16 +28,13 @@ const fetchAllFiles = filesPath =>
         )
     );
 
-const fetchPosts = (year, month) => {
-  if (isNum(year) && isNum(month)) {
-    return fetchAllFiles(`/${pad(year)}/${pad(month)}`);
-  }
+const fetchPosts = () => {
+  return fetchAllFiles();
 };
 
 // API route
 export default (req, res) => {
-  const { year, month } = req.query;
-  return fetchPosts(year, month)
+  return fetchPosts()
     .then(r => res.json(r || { success: false }))
     .catch(e => res.json({ success: false, error: e.message }));
 };
