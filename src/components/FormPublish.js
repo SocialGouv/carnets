@@ -96,11 +96,10 @@ const FormPublish = ({ onSubmit }) => {
 
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(async () => {
-          await onSubmit(values);
-          setSubmitting(false);
-        }, 400);
+      onSubmit={async (values, { setSubmitting }) => {
+        setSubmitting(true);
+        await onSubmit(values);
+        setSubmitting(false);
       }}
     >
       {({
