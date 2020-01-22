@@ -19,7 +19,7 @@ const NewsCard = ({ data }) => {
             <span className="mood">{data.content.mood || "😁"}</span>
             <TeamLink id={data.content.team} />
           </div>
-          <span>{formatDate(data.content.date)}</span>
+          <span className="text-muted">{formatDate(data.content.date)}</span>
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
