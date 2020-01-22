@@ -226,13 +226,7 @@ const FormPublish = ({ onSubmit, className }) => {
           <Row>
             <Col sm={{ size: 10, offset: 2 }}>
               {!isSubmitting ? (
-                <Button
-                  disabled={isSubmitting}
-                  size="lg"
-                  block
-                  color="primary"
-                  onClick={handleSubmit}
-                >
+                <Button size="lg" block color="primary" onClick={handleSubmit}>
                   Publier
                 </Button>
               ) : (
