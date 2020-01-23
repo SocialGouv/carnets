@@ -1,11 +1,12 @@
 import React from "react";
 import teams from "../lib/teams";
 import TeamLink from "./TeamLink";
+import styled from "styled-components";
 
 const TeamsList = () => {
   return (
     <>
-      <ul className="list-group list-group-flush">
+      <ListWrapper className="list-group list-group-flush">
         {teams &&
           teams.map &&
           teams.map(team => (
@@ -13,14 +14,13 @@ const TeamsList = () => {
               <TeamLink id={team.id} name={team.name} />
             </li>
           ))}
-      </ul>
-      <style jsx>{`
-        .list-group {
-          margin: 40px 0 20px 0;
-        }
-      `}</style>
+      </ListWrapper>
     </>
   );
 };
+
+const ListWrapper = styled.ul`
+  margin: 40px 0 20px 0;
+`;
 
 export default TeamsList;

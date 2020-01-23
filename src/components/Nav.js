@@ -1,7 +1,19 @@
 import React from "react";
 import Link from "next/link";
-
 import { useUser } from "../lib/user";
+// import styled from "styled-components";
+
+// const NavWrapper = styled.nav`
+//   padding: 1em !important;
+// `;
+//
+// const LogoWrapper = styled.div`
+//   background-color: transparent;
+// `;
+//
+// const BrandWrapper = styled.div`
+//   flex: auto;
+// `;
 
 const Nav = () => {
   const { user, loading } = useUser();
