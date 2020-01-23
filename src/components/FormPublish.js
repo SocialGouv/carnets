@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-
 import { Formik } from "formik";
+import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 
 import {
   Col,
@@ -13,40 +13,50 @@ import {
   Row
 } from "reactstrap";
 
-const teams = [
-  "Archifiltre",
-  "Code du travail numérique",
-  "DomiFa",
-  "e-MJPM",
-  "EgaPro",
-  "FCE",
-  "Maraudes",
-  "MedLé",
-  "Ops",
-  "Pass Préservatif / Tumeplay",
-  "RAMSES",
-  "Siao Data",
-  "TextStyle",
-  "Work In France"
-];
+import teams from "../lib/teams";
 
-const Selector = ({ value, values }) => {
+const StyledLabel = styled(Label)`
+  white-space: nowrap;
+`;
+
+const Selector = ({ value, values, onChange }) => {
   const [selection, setSelection] = useState(value);
   const selectedStyle = {
-    border: "1 px solid silver",
-    filter: null
+    filter: null,
+    border: "1px solid silver"
   };
+
+  useEffect(() => {
+    if (selection) {
+      onChange({
+        persist: () => {},
+        target: {
+          type: "change",
+          id: "mood",
+          name: "mood",
+          value: selection
+        }
+      });
+    }
+  }, [selection, onChange]);
 
   return (
     <React.Fragment>
-      {values.map(v => {
+      {values.map((v, i) => {
         const style = {
           cursor: "pointer",
           filter: "grayscale(80%)",
           ...(v === selection && selectedStyle)
         };
         return (
-          <span key={v} style={style} onClick={() => setSelection(v)}>
+          <span
+            key={v}
+            tabIndex={i}
+            style={style}
+            role="menuitem"
+            onClick={() => setSelection(v)}
+            onKeyPress={() => setSelection(v)}
+          >
             {v}
           </span>
         );
@@ -56,6 +66,12 @@ const Selector = ({ value, values }) => {
 };
 
 const FormPublish = ({ onSubmit }) => {
+  const buttonStyle = {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  };
   return (
     <Formik
       initialValues={{
@@ -81,9 +97,8 @@ const FormPublish = ({ onSubmit }) => {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          onSubmit(values);
+        setTimeout(async () => {
+          await onSubmit(values);
           setSubmitting(false);
         }, 400);
       }}
@@ -99,9 +114,9 @@ const FormPublish = ({ onSubmit }) => {
       }) => (
         <Form onSubmit={handleSubmit}>
           <FormGroup row>
-            <Label for="team" sm={2}>
+            <StyledLabel for="team" sm={2}>
               Equipe
-            </Label>
+            </StyledLabel>
             <Col sm={10}>
               <Input
                 invalid={touched.team && !!errors.team}
@@ -114,7 +129,7 @@ const FormPublish = ({ onSubmit }) => {
               >
                 <option value="">----</option>
                 {teams.map(team => (
-                  <option key={team}>{team}</option>
+                  <option key={team.id}>{team.name}</option>
                 ))}
               </Input>
               {touched.team && errors.team && (
@@ -124,10 +139,11 @@ const FormPublish = ({ onSubmit }) => {
           </FormGroup>
 
           <FormGroup row>
-            <Label sm={2}>Mood</Label>
+            <StyledLabel sm={2}>Mood</StyledLabel>
             <Col sm={10} style={{ fontSize: 40 }}>
               <Selector
-                values={["😓", "😤", "😐", "😁", "🤩"]}
+                name="mood"
+                values={["😤", "😓", "😐", "😁", "🤩"]}
                 onChange={handleChange}
                 onBlur={handleChange}
                 value={values.mood}
@@ -136,9 +152,9 @@ const FormPublish = ({ onSubmit }) => {
           </FormGroup>
 
           <FormGroup row>
-            <Label for="priorities" sm={2}>
+            <StyledLabel for="priorities" sm={2}>
               Priorités
-            </Label>
+            </StyledLabel>
             <Col sm={10}>
               <Input
                 type="textarea"
@@ -157,9 +173,9 @@ const FormPublish = ({ onSubmit }) => {
           </FormGroup>
 
           <FormGroup row>
-            <Label for="kpis" sm={2}>
+            <StyledLabel for="kpis" sm={2}>
               KPIs / OKR
-            </Label>
+            </StyledLabel>
             <Col sm={10}>
               <Input
                 onChange={handleChange}
@@ -178,9 +194,9 @@ const FormPublish = ({ onSubmit }) => {
           </FormGroup>
 
           <FormGroup row>
-            <Label for="term" sm={2}>
+            <StyledLabel for="term" sm={2}>
               Échéances
-            </Label>
+            </StyledLabel>
             <Col sm={10}>
               <Input
                 onChange={handleChange}
@@ -195,9 +211,9 @@ const FormPublish = ({ onSubmit }) => {
           </FormGroup>
 
           <FormGroup row>
-            <Label for="needs" sm={2}>
+            <StyledLabel for="needs" sm={2}>
               Besoins
-            </Label>
+            </StyledLabel>
             <Col sm={10}>
               <Input
                 onChange={handleChange}
@@ -212,15 +228,27 @@ const FormPublish = ({ onSubmit }) => {
           </FormGroup>
           <Row>
             <Col sm={{ size: 10, offset: 2 }}>
-              <Button
-                disabled={isSubmitting}
-                size="lg"
-                block
-                color="primary"
-                onClick={handleSubmit}
-              >
-                Publier
-              </Button>
+              {!isSubmitting ? (
+                <Button size="lg" block color="primary" onClick={handleSubmit}>
+                  Publier
+                </Button>
+              ) : (
+                <Button
+                  style={buttonStyle}
+                  size="lg"
+                  color="primary"
+                  type="button"
+                  disabled
+                >
+                  <span
+                    className="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                    style={{ marginRight: "4px" }}
+                  ></span>
+                  <span>Publishing...</span>
+                </Button>
+              )}
             </Col>
           </Row>
         </Form>
