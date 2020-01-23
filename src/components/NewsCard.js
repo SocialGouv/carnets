@@ -1,5 +1,6 @@
 import React from "react";
 import TeamLink from "./TeamLink";
+import styled from "styled-components";
 
 const NewsCard = ({ data }) => {
   const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
@@ -13,7 +14,7 @@ const NewsCard = ({ data }) => {
 
   return (
     <>
-      <div className="card" key={data.file.name}>
+      <CardWrapper className="card" key={data.file.name}>
         <div className="card-header">
           <div>
             <span className="mood">{data.content.mood || "😁"}</span>
@@ -47,21 +48,21 @@ const NewsCard = ({ data }) => {
             </dl>
           </li>
         </ul>
-      </div>
-      <style jsx>{`
-        .card {
-          margin-top: 40px;
-        }
-        .card-header {
-          display: flex;
-          justify-content: space-between;
-        }
-        .mood {
-          margin-right: 4px;
-        }
-      `}</style>
+      </CardWrapper>
     </>
   );
 };
+
+const CardWrapper = styled.div`
+  margin-top: 40px;
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .mood {
+    margin-right: 4px;
+  }
+`;
 
 export default NewsCard;

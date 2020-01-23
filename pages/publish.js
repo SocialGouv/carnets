@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import styled from "styled-components";
 import { useFetchUser } from "../src/lib/user";
 import Layout from "../src/components/Layout";
 import FormPublish from "../src/components/FormPublish";
@@ -29,18 +30,18 @@ export default function Home() {
       {loading && <p>Loading login info...</p>}
 
       {!loading && !user && (
-        <div className="card text-center bg-light">
+        <CardWrapper className="card text-center bg-light">
           <div className="card-body">
             <h4 className="card-title">Pour poster une nouvelle</h4>
             <Link href="/api/login" passHref>
               <a className="btn btn-primary">connectez-vous</a>
             </Link>
           </div>
-        </div>
+        </CardWrapper>
       )}
 
       {!loading && user && (
-        <div className="card">
+        <CardWrapper className="card">
           <div className="card-header">
             <h4>
               <div>Publier une nouvelle</div>
@@ -53,13 +54,12 @@ export default function Home() {
           <div className="card-body">
             <FormPublish onSubmit={onSubmit} />
           </div>
-        </div>
+        </CardWrapper>
       )}
-      <style jsx>{`
-        .card {
-          margin-bottom: 20px;
-        }
-      `}</style>
     </Layout>
   );
 }
+
+const CardWrapper = styled.div`
+  margin-bottom: 20px;
+`;
