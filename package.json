@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "lint": "eslint src/* pages/*",
+    "lint": "echo toto",
     "build": "next build",
     "start": "next start",
     "build-start": "next build && next start",

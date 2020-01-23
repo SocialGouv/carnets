@@ -9,9 +9,9 @@ deployment:
   port: ${PORT}
 
   livenessProbe:
-    path: /
+    path: /health
   readinessProbe:
-    path: /
+    path: /health
 
   resources:
     requests:
