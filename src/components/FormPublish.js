@@ -1,4 +1,5 @@
 import { Formik } from "formik";
+import Router from "next/router";
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 
@@ -100,6 +101,7 @@ const FormPublish = ({ onSubmit }) => {
         setSubmitting(true);
         await onSubmit(values);
         setSubmitting(false);
+        Router.push("/teams/[team]", `/teams/${values.team}`);
       }}
     >
       {({
@@ -128,7 +130,9 @@ const FormPublish = ({ onSubmit }) => {
               >
                 <option value="">----</option>
                 {teams.map(team => (
-                  <option key={team.id}>{team.name}</option>
+                  <option key={team.id} value={team.id}>
+                    {team.name}
+                  </option>
                 ))}
               </Input>
               {touched.team && errors.team && (

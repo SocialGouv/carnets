@@ -14,7 +14,6 @@ const publish = data =>
     body: JSON.stringify(data)
   })
     .then(r => r.json())
-    .then(console.log)
     .catch(console.log);
 
 export default function Home() {
