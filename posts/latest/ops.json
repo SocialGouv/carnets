@@ -1,9 +1,9 @@
 {
   "team": "ops",
-  "mood": null,
-  "priorities": "Progress components are built with two HTML elements, some CSS to set the width, and a few attributes. We don’t use the HTML5 <progress> element, ensuring you can stack progress bars, animate them, and place text labels over them.",
-  "kpis": "Progress components are built with two HTML elements, some CSS to set the width, and a few attributes. We don’t use the HTML5 <progress> element, ensuring you can stack progress bars, animate them, and place text labels over them.",
-  "term": "Progress components are built with two HTML elements, some CSS to set the width, and a few attributes. We don’t use the HTML5 <progress> element, ensuring you can stack progress bars, animate them, and place text labels over them.",
-  "needs": "Progress components are built with two HTML elements, some CSS to set the width, and a few attributes. We don’t use the HTML5 <progress> element, ensuring you can stack progress bars, animate them, and place text labels over them.",
-  "date": "2020-01-22T01:10:00.141Z"
+  "mood": "😐",
+  "priorities": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+  "kpis": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+  "term": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+  "needs": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+  "date": "2020-01-27T18:40:33.259Z"
 }
