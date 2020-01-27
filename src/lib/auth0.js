@@ -5,8 +5,6 @@ const redirectUri = `${
   config.DOMAIN.includes("carnets") ? "https" : "http"
 }://${config.DOMAIN}/api/callback`;
 
-console.log("initAuth0", redirectUri);
-
 export default initAuth0({
   clientId: config.AUTH0_CLIENT_ID,
   clientSecret: config.AUTH0_CLIENT_SECRET,

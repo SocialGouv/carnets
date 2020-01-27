@@ -4,7 +4,6 @@ import { sanitize } from "../../src/lib/teams";
 import { isAllowedToPost } from "../../src/isAllowedToPost";
 
 const token = process.env.GH_TOKEN;
-
 const org = process.env.GH_ORG;
 const repo = process.env.GH_REPO;
 const branch = process.env.GH_BRANCH;
