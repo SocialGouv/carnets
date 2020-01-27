@@ -25,26 +25,26 @@ const NewsCard = ({ data }) => {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
             <dl className="row">
-              <dt className="col-sm-2">Priorités:</dt>
-              <dd className="col-sm-10">{data.content.priorities}</dd>
+              <dt className="col-md-2 col-sm-3">Priorités:</dt>
+              <dd className="col-md-10 col-sm-9">{data.content.priorities}</dd>
             </dl>
           </li>
           <li className="list-group-item">
             <dl className="row">
-              <dt className="col-sm-2">KPIs / OKR:</dt>
-              <dd className="col-sm-10">{data.content.kpis}</dd>
+              <dt className="col-md-2 col-sm-3">KPIs / OKR:</dt>
+              <dd className="col-md-10 col-sm-9">{data.content.kpis}</dd>
             </dl>
           </li>
           <li className="list-group-item">
             <dl className="row">
-              <dt className="col-sm-2">Échéances:</dt>
-              <dd className="col-sm-10">{data.content.needs}</dd>
+              <dt className="col-md-2 col-sm-3">Échéances:</dt>
+              <dd className="col-md-10 col-sm-9">{data.content.needs}</dd>
             </dl>
           </li>
           <li className="list-group-item">
             <dl className="row">
-              <dt className="col-sm-2">Besoins:</dt>
-              <dd className="col-sm-10">{data.content.term}</dd>
+              <dt className="col-md-2 col-sm-3">Besoins:</dt>
+              <dd className="col-md-10 col-sm-9">{data.content.term}</dd>
             </dl>
           </li>
         </ul>
@@ -62,6 +62,9 @@ const CardWrapper = styled.div`
   }
   .mood {
     margin-right: 4px;
+  }
+  dt {
+    white-space: nowrap;
   }
 `;
 

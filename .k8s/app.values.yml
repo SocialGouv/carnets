@@ -46,6 +46,8 @@ deployment:
       value: "${GH_BRANCH}"
     - name: GH_PATH
       value: "${GH_PATH}"
+    - name: DOMAIN
+      value: "${DOMAIN}"
 
 service:
   port: ${PORT}

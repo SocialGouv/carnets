@@ -13,11 +13,11 @@ export default function Home({ data }) {
 
       {!loading && data && data.map && (
         <div className="row">
-          <dd className="col-sm-3">
+          <dd className="col-md-3 col-sm-4">
             <h4>Produits</h4>
             <TeamsList />
           </dd>
-          <dd className="col-sm-9">
+          <dd className="col-md-9 col-sm-8">
             <h4>Nouvelles</h4>
             {data.map(d => (
               <NewsCard data={d} key={d.content.team} />
