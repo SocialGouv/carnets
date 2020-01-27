@@ -1,9 +1,9 @@
 {
   "team": "domifa",
-  "mood": "😓",
-  "priorities": "Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our various sizing options.",
-  "kpis": "Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our various sizing options.",
-  "term": "Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our various sizing options.",
-  "needs": "Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element. This is easily customized with our various sizing options.",
-  "date": "2020-01-21T22:41:04.230Z"
+  "mood": null,
+  "priorities": "fds",
+  "kpis": "fds",
+  "term": "fds",
+  "needs": "fds",
+  "date": "2020-01-27T18:53:19.313Z"
 }
