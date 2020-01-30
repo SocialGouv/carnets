@@ -31,10 +31,13 @@ Page.getInitialProps = async ({ req, query }) => {
 
   const payload = await fetch(url);
   const data = await payload.json();
-  data.sort(
-    (a, b) =>
-      new Date(b.content.date).getTime() - new Date(a.content.date).getTime()
-  );
+
+  data &&
+    data.success &&
+    data.sort(
+      (a, b) =>
+        new Date(b.content.date).getTime() - new Date(a.content.date).getTime()
+    );
 
   return { data, team: query.team };
 };
