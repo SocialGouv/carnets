@@ -1,9 +1,9 @@
 {
   "team": "archifiltre",
-  "mood": "😐",
-  "priorities": "prio 1",
-  "kpis": "plus de monde",
-  "term": "un jour",
-  "needs": "besoin de rien",
-  "date": "2020-01-30T09:47:31.667Z"
+  "mood": null,
+  "priorities": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+  "kpis": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+  "term": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+  "needs": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+  "date": "2020-01-30T13:33:19.083Z"
 }
