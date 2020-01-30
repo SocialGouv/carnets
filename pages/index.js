@@ -3,7 +3,7 @@ import fetch from "isomorphic-unfetch";
 import Layout from "../src/components/Layout";
 import { useFetchUser } from "../src/lib/user";
 import NewsCard from "../src/components/NewsCard";
-import TeamsList from "../src/components/TeamsList";
+import StyledTeamsList from "../src/components/TeamsList";
 
 export default function Home({ data }) {
   const { user, loading } = useFetchUser();
@@ -14,8 +14,7 @@ export default function Home({ data }) {
       {!loading && data && data.map && (
         <div className="row">
           <dd className="col-md-3 col-sm-4">
-            <h4>Produits</h4>
-            <TeamsList />
+            <StyledTeamsList />
           </dd>
           <dd className="col-md-9 col-sm-8">
             <h4>Nouvelles</h4>
