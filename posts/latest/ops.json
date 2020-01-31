@@ -1,9 +1,9 @@
 {
   "team": "ops",
-  "mood": "🤩",
-  "priorities": "Connection entre gitlab.com => cluster dev",
-  "kpis": "Pas de KPIs",
-  "term": " Pas d'échéances",
-  "needs": " Pas de besoins",
-  "date": "2020-01-31T09:42:36.778Z"
+  "mood": "😓",
+  "priorities": "Priorités",
+  "kpis": "KPIs / OKR",
+  "term": "Échéances",
+  "needs": "Besoins",
+  "date": "2020-01-31T10:09:26.153Z"
 }
