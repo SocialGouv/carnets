@@ -17,7 +17,6 @@ export default function Home({ data }) {
             <StyledTeamsList />
           </dd>
           <dd className="col-md-9 col-sm-8">
-            <h4>Nouvelles</h4>
             {data.map(d => (
               <NewsCard data={d} key={d.content.team} />
             ))}
