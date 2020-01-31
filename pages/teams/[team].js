@@ -27,10 +27,8 @@ const Page = ({ data, team }) => (
         <TeamsList />
       </dd>
       <dd className="col-sm-8 col-md-9">
-        {data && !data.success && <StyledNoContent />}
-        {data &&
-          data.success &&
-          data.map((d, i) => <NewsCard data={d} key={team + i} />)}
+        {data && !data.length && <StyledNoContent />}
+        {data && data.map((d, i) => <NewsCard data={d} key={team + i} />)}
       </dd>
     </div>
   </Layout>
@@ -47,15 +45,14 @@ Page.getInitialProps = async ({ req, query }) => {
 
   const payload = await fetch(url);
   const data = await payload.json();
-
+  console.log("DATA", data);
   data &&
-    data.success &&
     data.sort(
       (a, b) =>
         new Date(b.content.date).getTime() - new Date(a.content.date).getTime()
     );
 
-  return { data, team: team };
+  return { data, team };
 };
 
 export default Page;
