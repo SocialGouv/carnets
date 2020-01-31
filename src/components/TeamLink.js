@@ -5,7 +5,7 @@ import teams from "../lib/teams";
 const NewsCard = ({ name, id }) => {
   return (
     <Link href="/teams/[team]" as={`/teams/${id}`} passHref>
-      <a>{name || (teams.getById(id) || {}).name || id}</a>
+      <a className="team">{name || (teams.getById(id) || {}).name || id}</a>
     </Link>
   );
 };

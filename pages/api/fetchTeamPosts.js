@@ -31,6 +31,6 @@ const fetchAllFiles = team =>
 // API route
 export default (req, res) => {
   return fetchAllFiles(req.query.team)
-    .then(r => res.json(r || { success: false }))
-    .catch(e => res.json({ success: false, error: e.message }));
+    .then(r => res.json(r || []))
+    .catch(e => res.json({ success: false, error: e.message, toto: 43 }));
 };

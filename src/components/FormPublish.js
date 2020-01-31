@@ -23,8 +23,8 @@ const StyledLabel = styled(Label)`
 const Selector = ({ value, values, onChange }) => {
   const [selection, setSelection] = useState(value);
   const selectedStyle = {
-    filter: null,
-    border: "1px solid silver"
+    opacity: "1",
+    filter: null
   };
 
   useEffect(() => {
@@ -45,6 +45,7 @@ const Selector = ({ value, values, onChange }) => {
     <React.Fragment>
       {values.map((v, i) => {
         const style = {
+          opacity: "0.8",
           cursor: "pointer",
           filter: "grayscale(80%)",
           ...(v === selection && selectedStyle)
@@ -115,10 +116,8 @@ const FormPublish = ({ onSubmit }) => {
       }) => (
         <Form onSubmit={handleSubmit}>
           <FormGroup row>
-            <StyledLabel for="team" sm={2}>
-              Equipe
-            </StyledLabel>
-            <Col sm={10}>
+            <Col sm={2}></Col>
+            <Col sm={5}>
               <Input
                 invalid={touched.team && !!errors.team}
                 type="select"
@@ -128,7 +127,7 @@ const FormPublish = ({ onSubmit }) => {
                 onBlur={handleChange}
                 value={values.team || ""}
               >
-                <option value="">----</option>
+                <option value="">Equipe</option>
                 {teams.map(team => (
                   <option key={team.id} value={team.id}>
                     {team.name}
@@ -139,18 +138,22 @@ const FormPublish = ({ onSubmit }) => {
                 <FormFeedback>{errors.team}</FormFeedback>
               )}
             </Col>
-          </FormGroup>
-
-          <FormGroup row>
-            <StyledLabel sm={2}>Mood</StyledLabel>
-            <Col sm={10} style={{ fontSize: 40 }}>
-              <Selector
-                name="mood"
-                values={["😤", "😓", "😐", "😁", "🤩"]}
-                onChange={handleChange}
-                onBlur={handleChange}
-                value={values.mood}
-              />
+            <Col
+              sm={5}
+              className="d-flex align-items-center justify-content-center"
+            >
+              <Col
+                style={{ fontSize: 35, lineHeight: "35px" }}
+                className=" d-flex justify-content-center"
+              >
+                <Selector
+                  name="mood"
+                  value={values.mood}
+                  onBlur={handleChange}
+                  onChange={handleChange}
+                  values={["😤", "😓", "😐", "😁", "🤩"]}
+                />
+              </Col>
             </Col>
           </FormGroup>
 
@@ -162,7 +165,7 @@ const FormPublish = ({ onSubmit }) => {
               <Input
                 type="textarea"
                 invalid={touched.priorities && !!errors.priorities}
-                rows="5"
+                rows="3"
                 name="priorities"
                 id="priorities"
                 onChange={handleChange}
@@ -186,7 +189,7 @@ const FormPublish = ({ onSubmit }) => {
                 onBlur={handleChange}
                 value={values.kpis}
                 type="textarea"
-                rows="5"
+                rows="3"
                 name="kpis"
                 id="kpis"
               />
@@ -206,7 +209,7 @@ const FormPublish = ({ onSubmit }) => {
                 onBlur={handleChange}
                 value={values.term}
                 type="textarea"
-                rows="5"
+                rows="3"
                 name="term"
                 id="term"
               />
@@ -223,7 +226,7 @@ const FormPublish = ({ onSubmit }) => {
                 onBlur={handleChange}
                 value={values.needs}
                 type="textarea"
-                rows="5"
+                rows="3"
                 name="needs"
                 id="needs"
               />

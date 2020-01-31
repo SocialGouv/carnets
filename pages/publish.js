@@ -32,6 +32,7 @@ export default function Home() {
         <CardWrapper className="card text-center bg-light">
           <div className="card-body">
             <h4 className="card-title">Pour poster une nouvelle</h4>
+            <br />
             <Link href="/api/login" passHref>
               <a className="btn btn-primary">connectez-vous</a>
             </Link>
@@ -60,5 +61,17 @@ export default function Home() {
 }
 
 const CardWrapper = styled.div`
-  margin-bottom: 20px;
+  width: 600px;
+  border: none;
+  margin: 0 auto 20px;
+  box-shadow: rgb(201, 211, 223) 0px 1px 4px;
+
+  h4 {
+    margin: 0;
+    color: rgba(28, 28, 28, 0.5);
+  }
+
+  small {
+    font-size: 0.7em;
+  }
 `;

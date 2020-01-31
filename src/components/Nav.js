@@ -1,25 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import { useUser } from "../lib/user";
-// import styled from "styled-components";
+import styled from "styled-components";
 
-// const NavWrapper = styled.nav`
-//   padding: 1em !important;
-// `;
-//
-// const LogoWrapper = styled.div`
-//   background-color: transparent;
-// `;
-//
-// const BrandWrapper = styled.div`
-//   flex: auto;
-// `;
-
-const Nav = () => {
+const Nav = ({ className }) => {
   const { user, loading } = useUser();
 
   return (
-    <nav className="navbar sgb-navbar-marianne navbar-expand-lg navbar-light bg-light">
+    <nav
+      className={`navbar sgb-navbar-marianne navbar-expand-lg navbar-light bg-light ${className}`}
+    >
       <div className="sgb-marianne"></div>
       <div className="navbar-brand">
         <Link href="/" passHref>
@@ -57,19 +47,21 @@ const Nav = () => {
           )}
         </ul>
       </div>
-      <style jsx>{`
-        .navbar-brand {
-          flex: auto;
-        }
-        .sgb-marianne {
-          background-color: transparent;
-        }
-        .navbar.sgb-navbar-marianne {
-          padding: 1em;
-        }
-      `}</style>
     </nav>
   );
 };
 
-export default Nav;
+const StyledNav = styled(Nav)`
+  padding: 1em !important;
+  box-shadow: rgb(201, 211, 223) 0px 1px 4px;
+
+  .navbar-brand {
+    flex: auto;
+  }
+
+  .sgb-marianne {
+    background-color: transparent;
+  }
+`;
+
+export default StyledNav;
