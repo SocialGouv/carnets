@@ -37,13 +37,13 @@ const NewsCard = ({ data, className }) => {
         <li className="list-group-item">
           <dl className="row">
             <dt className="col-md-2 col-sm-3">Échéances:</dt>
-            <dd className="col-md-10 col-sm-9">{data.content.needs}</dd>
+            <dd className="col-md-10 col-sm-9">{data.content.term}</dd>
           </dl>
         </li>
         <li className="list-group-item">
           <dl className="row">
             <dt className="col-md-2 col-sm-3">Besoins:</dt>
-            <dd className="col-md-10 col-sm-9">{data.content.term}</dd>
+            <dd className="col-md-10 col-sm-9">{data.content.needs}</dd>
           </dl>
         </li>
       </ul>
