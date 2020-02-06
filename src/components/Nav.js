@@ -15,7 +15,7 @@ const Nav = ({ className }) => {
         <Link href="/" passHref>
           <a>@SocialGouv/carnets</a>
         </Link>
-        <div className="navbar-baseline" href="#">
+        <div className="navbar-baseline text-muted" href="#">
           Carnets de bord des produits
         </div>
       </div>

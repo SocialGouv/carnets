@@ -71,9 +71,6 @@ export default async (req, res) => {
           name: session.user.name,
           email: session.user.email
         };
-        // req.body.team = sanitize(req.body.team);
-        // req.body.team = req.body.team.slug;
-
         const params = { author, message, data: req.body };
         return Promise.all([
           await publishTeam(params),

@@ -121,7 +121,7 @@ const Post = ({ post, className }) => {
 
         {post.content.term && (
           <div className="block">
-            <h6 className="text-muted">Échéances:</h6>
+            <h6 className="text-muted">Échéances / Événements:</h6>
             <p>{post.content.term}</p>
           </div>
         )}

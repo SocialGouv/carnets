@@ -8,6 +8,11 @@ const Icon = styled.span`
   cursor: pointer;
   font-size: 1.6em;
 
+  @media (max-width: 576px) {
+    top: 20px;
+    position: relative;
+  }
+
   &:hover {
     opacity: 0.8;
   }
