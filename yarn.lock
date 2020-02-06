@@ -1085,12 +1085,12 @@
     eslint-plugin-react "~7.18.0"
     eslint-plugin-react-hooks "~2.3.0"
 
-"@socialgouv/eslint-config-recommended@0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-0.14.0.tgz#e102c264e75561bb92b125123a8d9bf3731cfacb"
-  integrity sha512-hvR+IlxMVGBlIqDilJmA71Nh3hjF9OZ8S9T1GvAeUqLPq+IKcZLx18WC7BGtrmGx1OCC7jwCM/TFeJzkqtmjCA==
+"@socialgouv/eslint-config-recommended@0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-0.16.0.tgz#12009fce089a85ecba9b13ffed540a3f6714f793"
+  integrity sha512-miNkLTmYYT0lVHTn3sUMH6t9N4H6rEKBAUMhSgi6ZeWL0HYBsvZlMDSlATeTcmD7HvJJ5F/LuF5uWOTtR+1cAQ==
   dependencies:
-    eslint-config-prettier "~6.9.0"
+    eslint-config-prettier "~6.10.0"
     eslint-plugin-import "~2.20.0"
     eslint-plugin-jest "~23.6.0"
     eslint-plugin-prettier "~3.1.2"
@@ -2926,6 +2926,13 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
+
+eslint-config-prettier@~6.10.0:
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.10.0.tgz#7b15e303bf9c956875c948f6b21500e48ded6a7f"
+  integrity sha512-AtndijGte1rPILInUdHjvKEGbIV06NuvPrqlIEaEaWtbtvJh464mDeyGMdZEQMsGvC0ZVkiex1fSNcC4HAbRGg==
+  dependencies:
+    get-stdin "^6.0.0"
 
 eslint-config-prettier@~6.9.0:
   version "6.9.0"
