@@ -1,0 +1,27 @@
+{
+  "team": {
+    "slug": "core-team",
+    "name": "Core Team",
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3071815?s=400&v=4",
+    "description": "Support et accompagnement des SE au sein de la Fabrique Numérique."
+  },
+  "term": "",
+  "needs": "",
+  "mood": "😐",
+  "priorities": "njnmn",
+  "kpis": [
+    {
+      "name": "KPI 1",
+      "value": "42"
+    },
+    {
+      "name": "Un  PKI de folie !",
+      "value": "4242"
+    },
+    {
+      "name": "C'est un tres joli KPI que voila :)",
+      "value": "424242"
+    }
+  ],
+  "date": "2020-02-06T17:00:36.597Z"
+}
