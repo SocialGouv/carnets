@@ -1,9 +1,27 @@
 {
-  "team": "egapro",
+  "team": {
+    "slug": "egapro",
+    "name": "EgaPro",
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3071815?s=400&v=4",
+    "description": "Support et accompagnement des SE au sein de la Fabrique Numérique."
+  },
   "mood": "😁",
   "priorities": "Déclaration après simulation",
-  "kpis": "Taux de satisfaction : 81%",
   "term": "07/02 -> mise en prod de la déclaration",
   "needs": "",
+  "kpis": [
+    {
+      "name": "Taux de satisfaction",
+      "value": "81%"
+    },
+    {
+      "name": "",
+      "value": ""
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
   "date": "2020-02-04T09:52:25.465Z"
 }

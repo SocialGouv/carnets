@@ -1,9 +1,27 @@
 {
-  "team": "medle",
+  "team": {
+    "slug": "medle",
+    "name": "Medlé",
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3071815?s=400&v=4",
+    "description": "Support et accompagnement des SE au sein de la Fabrique Numérique."
+  },
   "mood": "😁",
   "priorities": "Design tableau de bord\nBackup base de données",
-  "kpis": "596 actes rentrés sur la semaine",
   "term": "Fin mars, 7 structures supplémentaires",
   "needs": "",
+  "kpis": [
+    {
+      "name": "actes rentrés sur la semaine",
+      "value": "596"
+    },
+    {
+      "name": "",
+      "value": ""
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
   "date": "2020-02-04T10:34:51.705Z"
 }

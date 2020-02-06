@@ -1,0 +1,41 @@
+.publish-form .col-form-label {
+  white-space: nowrap;
+}
+
+.publish-form .mood {
+  font-size: 35px;
+  line-height: 35px;
+}
+
+.publish-form .kpis > div {
+  margin-bottom: 10px;
+}
+
+.publish-form .kpis > div:last-child {
+  margin-bottom: 0;
+}
+
+.publish-form .kpis > div > input:first-child {
+  margin-right: 5px;
+}
+
+.publish-form .kpis > div > input:last-child {
+  margin-left: 5px;
+}
+
+@media (max-width: 576px) {
+  .sgb-marianne {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+  }
+
+  .navbar.sgb-navbar-marianne .navbar-brand {
+    font-size: 1.3em;
+  }
+
+  .publish-form .mood {
+    top: 20px;
+    position: relative;
+  }
+}

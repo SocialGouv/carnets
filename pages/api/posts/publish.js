@@ -1,15 +1,20 @@
-import auth0 from "../../src/lib/auth0";
+import auth0 from "../../../src/lib/auth0";
 import GitHubPublisher from "github-publish";
-import { sanitize } from "../../src/lib/teams";
-import { isAllowedToPost } from "../../src/isAllowedToPost";
+import { isAllowedToPost } from "../../../src/isAllowedToPost";
 
-const token = process.env.GH_TOKEN;
 const org = process.env.GH_ORG;
 const repo = process.env.GH_REPO;
+const token = process.env.GH_TOKEN;
 const branch = process.env.GH_BRANCH;
 const path = process.env.GH_PATH || "content";
 
 const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
+
+const sanitize = name =>
+  name
+    .replace(/[éè]/g, "e")
+    .replace(/[\s/;:,!?#]/g, "-")
+    .toLowerCase();
 
 const getNormalizedDate = () => {
   const dte = new Date();
@@ -24,13 +29,13 @@ const publishTeam = async (...args) => {
     args[0].author.name
   )}-${getNormalizedDate()}.json`;
 
-  args[0].filePath = `${path}/${args[0].data.team}/${fileName}`;
+  args[0].filePath = `${path}/${args[0].data.team.slug}/${fileName}`;
 
   return await publishData(...args);
 };
 
 const publishLatest = async (...args) => {
-  args[0].filePath = `${path}/latest/${args[0].data.team}.json`;
+  args[0].filePath = `${path}/latest/${args[0].data.team.slug}.json`;
 
   return await publishData(...args);
 };
@@ -61,13 +66,11 @@ export default async (req, res) => {
     if (session && session.user) {
       const granted = await isAllowedToPost(session.user.nickname);
       if (granted) {
-        const message = "Some commit message";
+        const message = "News publish";
         const author = {
           name: session.user.name,
           email: session.user.email
         };
-        req.body.team = sanitize(req.body.team);
-
         const params = { author, message, data: req.body };
         return Promise.all([
           await publishTeam(params),

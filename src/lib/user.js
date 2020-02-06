@@ -1,5 +1,6 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
+// import { fetchTeams } from "./teams";
 
 // Use a global to save the user, so we don't have to fetch it again after page navigations
 let userState;
@@ -46,6 +47,7 @@ export const useFetchUser = () => {
 
     fetchUser().then(user => {
       // Only set the user if the component is still mounted
+      // user.teams = fetchTeams(user);
       if (isMounted) {
         setUser({ user, loading: false });
       }
