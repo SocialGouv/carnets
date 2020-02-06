@@ -27,20 +27,12 @@ const PostWrapper = styled.div`
     white-space: nowrap;
   }
 
-  .text-muted {
-    font-size: 16px;
-  }
-
-  .team {
-    font-size: 24px;
-  }
-
   .kpi {
     flex: 1;
     padding: 5px;
     border-radius: 4px;
     margin-right: 10px;
-    border: 1px solid #efefef;
+    border: 1px solid rgba(28, 28, 28, 0.125);
   }
 
   .kpi:last-child {
@@ -53,13 +45,14 @@ const PostWrapper = styled.div`
   }
 
   .kpi .value {
+    font-size: 1.6em;
     font-weight: bold;
   }
 
   .block {
     padding: 10px;
     margin: 10px 0;
-    background-color: #efefef;
+    background-color: #f8f9fa;
   }
 
   .block:last-child {
@@ -68,12 +61,15 @@ const PostWrapper = styled.div`
 
   .block p {
     margin: 0;
+    padding: 5px;
     font-size: 0.8em;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: 1px solid rgba(28, 28, 28, 0.1);
   }
 `;
 
 const Post = ({ post, className }) => {
-  console.log("POST", post);
   const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
 
   const formatDate = date => {
@@ -101,9 +97,9 @@ const Post = ({ post, className }) => {
             post.content &&
             post.content.kpis &&
             post.content.kpis.map((kpi, i) => (
-              <>
+              <React.Fragment key={i}>
                 {kpi.name && kpi.value && (
-                  <div key={i} className="kpi d-flex flex-column">
+                  <div className="kpi d-flex flex-column">
                     <div className="value d-flex flex-fill justify-content-center">
                       {kpi.value}
                     </div>
@@ -112,7 +108,7 @@ const Post = ({ post, className }) => {
                     </div>
                   </div>
                 )}
-              </>
+              </React.Fragment>
             ))}
         </div>
 
@@ -137,32 +133,6 @@ const Post = ({ post, className }) => {
           </div>
         )}
       </div>
-      {/*<ul className="list-group list-group-flush">
-        <li className="list-group-item">
-          <dl className="row">
-            <dt className="col-md-2 col-sm-3">Priorités:</dt>
-            <dd className="col-md-10 col-sm-9">{post.content.priorities}</dd>
-          </dl>
-        </li>
-        <li className="list-group-item">
-          <dl className="row">
-            <dt className="col-md-2 col-sm-3">KPIs / OKR:</dt>
-            <dd className="col-md-10 col-sm-9">{post.content.kpis}</dd>
-          </dl>
-        </li>
-        <li className="list-group-item">
-          <dl className="row">
-            <dt className="col-md-2 col-sm-3">Échéances:</dt>
-            <dd className="col-md-10 col-sm-9">{post.content.term}</dd>
-          </dl>
-        </li>
-        <li className="list-group-item">
-          <dl className="row">
-            <dt className="col-md-2 col-sm-3">Besoins:</dt>
-            <dd className="col-md-10 col-sm-9">{post.content.needs}</dd>
-          </dl>
-        </li>
-      </ul>*/}
     </PostWrapper>
   );
 };

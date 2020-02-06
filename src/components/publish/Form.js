@@ -49,8 +49,7 @@ const PublishForm = ({ teams, onSubmit }) => {
       initialValues={initialValues}
       validationSchema={validationSchema}
     >
-      {({ values, errors, touched, isSubmitting }) =>
-      console.log("values", values) || console.log("errors", errors) || (
+      {({ values, errors, touched, isSubmitting }) => (
         <Form>
           <div className="form-group row">
             <div className="col-sm-8">
