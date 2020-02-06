@@ -1,13 +1,18 @@
 {
-  "team": "archifiltre",
+  "team": {
+    "slug": "archifiltre",
+    "name": "Archifiltre",
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3071815?s=400&v=4",
+    "description": "Support et accompagnement des SE au sein de la Fabrique Numérique."
+  },
+  "term": "",
+  "needs": "",
   "mood": "😐",
-  "priorities": "OpenLab : 2 mars",
-  "term": "Présentation à la Réunion",
-  "needs": "Trouver une solution de documentation et d'accompagnement des utilisateurs",
+  "priorities": "fdsfds",
   "kpis": [
     {
-      "name": "téléchargements de la v2",
-      "value": "452"
+      "name": "fdsfds",
+      "value": "fdsfds"
     },
     {
       "name": "",
@@ -18,5 +23,5 @@
       "value": ""
     }
   ],
-  "date": "2020-02-04T10:26:02.956Z"
+  "date": "2020-02-06T01:43:51.634Z"
 }

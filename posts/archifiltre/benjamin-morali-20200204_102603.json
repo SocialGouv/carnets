@@ -1,5 +1,10 @@
 {
-  "team": "archifiltre",
+  "team": {
+    "slug": "archifiltre",
+    "name": "Archifiltre",
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3071815?s=400&v=4",
+    "description": "Support et accompagnement des SE au sein de la Fabrique Numérique."
+  },
   "mood": "😐",
   "priorities": "OpenLab : 2 mars",
   "term": "Présentation à la Réunion",
