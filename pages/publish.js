@@ -7,6 +7,8 @@ import Form from "../src/components/publish/Form";
 
 const publish = async (values, { setSubmitting }) => {
   setSubmitting(true);
+  // ugly as ****
+  values.team = JSON.parse(values.team);
 
   const options = {
     method: "POST",
@@ -15,7 +17,7 @@ const publish = async (values, { setSubmitting }) => {
   };
 
   try {
-    const payload = await fetch("/api/publish", options);
+    const payload = await fetch("/api/posts/publish", options);
     return await payload.json();
   } catch (e) {
     console.log(e);
@@ -92,7 +94,7 @@ const fetchData = async (url, req) => {
 };
 
 Page.getInitialProps = async ({ req }) => {
-  const teams = await fetchData("/api/fetchTeams", req);
+  const teams = await fetchData("/api/teams", req);
   return { teams };
 };
 

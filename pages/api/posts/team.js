@@ -3,6 +3,7 @@ import { GraphQLClient } from "graphql-request";
 const org = process.env.GH_ORG;
 const user = process.env.GH_USER;
 const token = process.env.GH_TOKEN;
+const branch = process.env.GH_BRANCH;
 const url = "https://api.github.com/graphql";
 const auth = Buffer.from(`${user}:${token}`).toString("base64");
 
@@ -10,7 +11,7 @@ export default async (req, res) => {
   const query = `
     query {
       repository(owner: "${org}", name: "carnets") {
-        files: object(expression: "master:posts/${req.query.slug}/") {
+        files: object(expression: "${branch}:posts/${req.query.slug}/") {
           ... on Tree {
             entries {
               name

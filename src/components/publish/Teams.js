@@ -13,8 +13,8 @@ const Teams = ({ teams, errors, touched }) => (
   >
     <option value="">Equipe</option>
     {teams &&
-      teams.map(({ node: team }) => (
-        <option key={team.slug} value={team.slug}>
+      teams.map(({ node: team }, index) => (
+        <option key={index} value={JSON.stringify(team)}>
           {team.name}
         </option>
       ))}

@@ -9,6 +9,7 @@ import { Formik, Form, Field } from "formik";
 const PublishForm = ({ teams, onSubmit }) => {
   const initialValues = {
     team: "",
+    // team: { name: "", slug: "" },
     term: "",
     needs: "",
     mood: "😐",
@@ -23,6 +24,12 @@ const PublishForm = ({ teams, onSubmit }) => {
   const validationSchema = Yup.object().shape({
     mood: Yup.string().required("Mood obligatoire"),
     team: Yup.string().required("Equipe obligatoire"),
+    // team: Yup.object()
+    //   .shape({
+    //     name: Yup.string(),
+    //     slug: Yup.string()
+    //   })
+    //   .required("Equipe obligatoire"),
     priorities: Yup.string().required("Priorités obligatoire"),
     kpis: Yup.array().of(
       Yup.object()
@@ -42,7 +49,8 @@ const PublishForm = ({ teams, onSubmit }) => {
       initialValues={initialValues}
       validationSchema={validationSchema}
     >
-      {({ values, errors, touched, isSubmitting }) => (
+      {({ values, errors, touched, isSubmitting }) =>
+      console.log("values", values) || console.log("errors", errors) || (
         <Form>
           <div className="form-group row">
             <div className="col-sm-8">

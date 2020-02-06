@@ -35,6 +35,7 @@ const StyledTeamsList = styled(TeamsList)`
   .avatar {
     width: 20px;
     height: 20px;
+    min-width: 20px;
     border-radius: 50%;
     background-size: contain;
     background-repeat: no-repeat;
@@ -45,7 +46,10 @@ const StyledTeamsList = styled(TeamsList)`
   }
 
   a {
+    overflow: hidden;
     margin-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 `;
 
