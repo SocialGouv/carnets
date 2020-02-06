@@ -1,7 +1,6 @@
-import auth0 from "../../src/lib/auth0";
+import auth0 from "../../../src/lib/auth0";
 import GitHubPublisher from "github-publish";
-import { sanitize } from "../../src/lib/teams";
-import { isAllowedToPost } from "../../src/isAllowedToPost";
+import { isAllowedToPost } from "../../../src/isAllowedToPost";
 
 const token = process.env.GH_TOKEN;
 const org = process.env.GH_ORG;
@@ -10,6 +9,12 @@ const branch = process.env.GH_BRANCH;
 const path = process.env.GH_PATH || "content";
 
 const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
+
+const sanitize = name =>
+  name
+    .replace(/[éè]/g, "e")
+    .replace(/[\s/;:,!?#]/g, "-")
+    .toLowerCase();
 
 const getNormalizedDate = () => {
   const dte = new Date();
