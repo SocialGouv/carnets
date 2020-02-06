@@ -1,13 +1,13 @@
 {
   "team": "archifiltre",
-  "term": "",
-  "needs": "",
   "mood": "😐",
-  "priorities": "fdsfds",
+  "priorities": "OpenLab : 2 mars",
+  "term": "Présentation à la Réunion",
+  "needs": "Trouver une solution de documentation et d'accompagnement des utilisateurs",
   "kpis": [
     {
-      "name": "fdsfds",
-      "value": "fdsfds"
+      "name": "téléchargements de la v2",
+      "value": "452"
     },
     {
       "name": "",
@@ -18,5 +18,5 @@
       "value": ""
     }
   ],
-  "date": "2020-02-06T01:43:51.634Z"
+  "date": "2020-02-04T10:26:02.956Z"
 }

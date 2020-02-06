@@ -2,8 +2,21 @@
   "team": "archifiltre",
   "mood": "😐",
   "priorities": "OpenLab : 2 mars",
-  "kpis": "452 téléchargements de la v2\n",
   "term": "Présentation à la Réunion",
   "needs": "Trouver une solution de documentation et d'accompagnement des utilisateurs",
+  "kpis": [
+    {
+      "name": "téléchargements de la v2",
+      "value": "452"
+    },
+    {
+      "name": "",
+      "value": ""
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
   "date": "2020-02-04T10:26:02.956Z"
 }

@@ -2,8 +2,21 @@
   "team": "code-du-travail-numerique",
   "mood": "😐",
   "priorities": "Nouvelle organisation de l'équipe. Définition priorités 2020 notamment administration et veille du site. ",
-  "kpis": "41 523 visites la semaine dernière. \n+ 66% ",
   "term": "Fin février organisation et priorités définis.",
   "needs": "",
+  "kpis": [
+    {
+      "name": "visites la semaine dernière",
+      "value": "41 523"
+    },
+    {
+      "name": "évolution des visites",
+      "value": "+66%"
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
   "date": "2020-02-04T09:56:02.993Z"
 }

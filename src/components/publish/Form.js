@@ -36,18 +36,6 @@ const PublishForm = ({ teams, onSubmit }) => {
     )
   });
 
-  // const sleep = milliseconds => {
-  //   return new Promise(resolve => setTimeout(resolve, milliseconds));
-  // };
-  //
-  // const onSubmit = async (values, { setSubmitting }) => {
-  //   console.log("onSubmit", values);
-  //   setSubmitting(true);
-  //   await sleep(5000);
-  //   // await publish(values);
-  //   // setSubmitting(false);
-  // };
-
   return (
     <Formik
       onSubmit={onSubmit}
