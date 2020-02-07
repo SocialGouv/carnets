@@ -1,0 +1,27 @@
+{
+  "team": {
+    "slug": "ramses",
+    "name": "Ramses",
+    "avatarUrl": "https://avatars3.githubusercontent.com/t/3642187?s=400&v=4",
+    "description": "Réguler et Accompagner la Masse Salariale et l’Emploi du Secteur social et médico-social."
+  },
+  "term": "",
+  "needs": "",
+  "mood": "😐",
+  "priorities": "plup",
+  "kpis": [
+    {
+      "name": "KPI 3",
+      "value": "47"
+    },
+    {
+      "name": "",
+      "value": ""
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
+  "date": "2020-02-07T18:11:35.508Z"
+}
