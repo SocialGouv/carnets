@@ -8,11 +8,11 @@
   "term": "",
   "needs": "",
   "mood": "😐",
-  "priorities": "plop",
+  "priorities": "plip",
   "kpis": [
     {
-      "name": "KPI 1",
-      "value": "42"
+      "name": "KPI 2",
+      "value": "43"
     },
     {
       "name": "",
@@ -23,5 +23,5 @@
       "value": ""
     }
   ],
-  "date": "2020-02-07T18:01:25.155Z"
+  "date": "2020-02-07T18:10:09.985Z"
 }
