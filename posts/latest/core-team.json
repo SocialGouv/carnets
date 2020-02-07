@@ -8,20 +8,20 @@
   "term": "",
   "needs": "",
   "mood": "😐",
-  "priorities": "njnmn",
+  "priorities": "plop",
   "kpis": [
     {
       "name": "KPI 1",
       "value": "42"
     },
     {
-      "name": "Un  PKI de folie !",
-      "value": "4242"
+      "name": "",
+      "value": ""
     },
     {
-      "name": "C'est un tres joli KPI que voila :)",
-      "value": "424242"
+      "name": "",
+      "value": ""
     }
   ],
-  "date": "2020-02-06T17:00:36.597Z"
+  "date": "2020-02-07T18:01:25.155Z"
 }
