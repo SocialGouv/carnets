@@ -8,7 +8,7 @@
   "term": "",
   "needs": "",
   "mood": "😐",
-  "priorities": "RGPD : mise en conformité",
+  "priorities": "DB : Recette Indicateurs par la DGCS suite à une nouvelle règle de calcul\nRGPD : mise en conformité",
   "kpis": [
     {
       "name": "Utilisateurs cartographie (moy. hebdo)",
@@ -23,5 +23,5 @@
       "value": "16"
     }
   ],
-  "date": "2020-02-07T10:51:56.079Z"
+  "date": "2020-02-07T10:54:50.763Z"
 }
