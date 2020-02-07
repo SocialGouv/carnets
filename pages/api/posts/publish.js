@@ -24,20 +24,19 @@ const getNormalizedDate = () => {
   )}_${pad(dte.getHours())}${pad(dte.getMinutes())}${pad(dte.getSeconds())}`;
 };
 
-const publishTeam = async (...args) => {
-  const fileName = `${sanitize(
-    args[0].author.name
-  )}-${getNormalizedDate()}.json`;
+const publishTeam = params => {
+  const { data, author } = params;
+  const fileName = `${sanitize(author.name)}-${getNormalizedDate()}.json`;
+  const filePath = `${path}/${data.team.slug}/${fileName}`;
 
-  args[0].filePath = `${path}/${args[0].data.team.slug}/${fileName}`;
-
-  return await publishData(...args);
+  return publishData({ ...params, filePath });
 };
 
-const publishLatest = async (...args) => {
-  args[0].filePath = `${path}/latest/${args[0].data.team.slug}.json`;
+const publishLatest = params => {
+  const { data } = params;
+  const filePath = `${path}/latest/${data.team.slug}.json`;
 
-  return await publishData(...args);
+  return publishData({ ...params, filePath });
 };
 
 const publishData = ({ author, message, data, filePath }) => {
@@ -72,10 +71,7 @@ export default async (req, res) => {
           email: session.user.email
         };
         const params = { author, message, data: req.body };
-        return Promise.all([
-          await publishTeam(params),
-          await publishLatest(params)
-        ])
+        return Promise.all([publishTeam(params), publishLatest(params)])
           .then(sha => res.json({ success: true, sha }))
           .catch(e => console.log(e) || res.json({ success: false }));
       } else {

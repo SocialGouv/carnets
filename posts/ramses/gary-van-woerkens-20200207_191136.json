@@ -5,23 +5,23 @@
     "avatarUrl": "https://avatars3.githubusercontent.com/t/3642187?s=400&v=4",
     "description": "Réguler et Accompagner la Masse Salariale et l’Emploi du Secteur social et médico-social."
   },
-  "term": "26 février : conférence salariale\nDétection nouveaux Cas d'usages",
+  "term": "",
   "needs": "",
-  "mood": "😁",
-  "priorities": "Validation des résultats avec les équipes métiers",
+  "mood": "😐",
+  "priorities": "plup",
   "kpis": [
     {
-      "name": "Taux de calcul des KPI utiles pour le MVP",
-      "value": "100%"
+      "name": "KPI 3",
+      "value": "47"
     },
     {
-      "name": "Cas d'usages traités",
-      "value": "1"
+      "name": "",
+      "value": ""
     },
     {
       "name": "",
       "value": ""
     }
   ],
-  "date": "2020-02-07T11:08:51.046Z"
+  "date": "2020-02-07T18:11:35.508Z"
 }

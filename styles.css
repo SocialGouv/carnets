@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  /* background-color: red; */
+}
+
 .publish-form .col-form-label {
   white-space: nowrap;
 }

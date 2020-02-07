@@ -47,8 +47,11 @@ const Content = ({ posts, teams, team }) => (
         <div className="text-muted">{team.name}</div>
         <small className="text-muted">{team.description}</small>
       </h4>
-      {posts && !posts.length && <NoContent />}
-      {posts && posts.map((post, i) => <Post post={post} key={i} />)}
+      {posts && !posts.length ? (
+        <NoContent />
+      ) : (
+        posts.map((post, i) => <Post post={post} key={i} />)
+      )}
     </dd>
   </ContentWrapper>
 );
