@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import Router from "next/router";
 import styled from "styled-components";
-import { useFetchUser } from "../src/lib/user";
 import Layout from "../src/components/Layout";
+import { useFetchUser } from "../src/lib/user";
 import Form from "../src/components/publish/Form";
 
 const publish = async (values, { setSubmitting }) => {
@@ -18,7 +19,9 @@ const publish = async (values, { setSubmitting }) => {
 
   try {
     const payload = await fetch("/api/posts/publish", options);
-    return await payload.json();
+    const response = await payload.json();
+    console.log("Publish response:", response);
+    Router.push("/teams/[team]", `/teams/${values.team.slug}`);
   } catch (e) {
     console.log(e);
   }

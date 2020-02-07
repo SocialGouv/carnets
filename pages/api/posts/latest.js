@@ -1,13 +1,9 @@
-import { GraphQLClient } from "graphql-request";
-
-const org = process.env.GH_ORG;
-const user = process.env.GH_USER;
-const token = process.env.GH_TOKEN;
-const branch = process.env.GH_BRANCH;
-const url = "https://api.github.com/graphql";
-const auth = Buffer.from(`${user}:${token}`).toString("base64");
+import { fetch } from "../../../src/lib/github";
 
 export default async (req, res) => {
+  const org = process.env.GH_ORG;
+  const branch = process.env.GH_BRANCH;
+
   const query = `
     query {
       repository(owner: "${org}", name: "carnets") {
@@ -27,13 +23,7 @@ export default async (req, res) => {
     }
   `;
 
-  const graphQLClient = new GraphQLClient(url, {
-    headers: {
-      Authorization: `Basic ${auth}`
-    }
-  });
-
-  const data = await graphQLClient.request(query);
+  const data = await fetch(query);
 
   const files = data.repository.files
     ? data.repository.files.entries
