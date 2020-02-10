@@ -5,6 +5,10 @@
 image:
   repository: registry.gitlab.factory.social.gouv.fr/socialgouv/carnets
 
+#except:
+#  variables:
+#    - $CI_COMMIT_REF_NAME =~ /^storage/.*$/
+
 deployment:
   port: ${PORT}
 
@@ -38,6 +42,8 @@ deployment:
       value: "${SESSION_COOKIE_SECRET}"
     - name: GH_TOKEN
       value: "${GH_TOKEN}"
+    - name: GH_USER
+      value: "${GH_USER}"
     - name: GH_ORG
       value: "${GH_ORG}"
     - name: GH_REPO
