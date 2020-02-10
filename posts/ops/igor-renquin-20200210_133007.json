@@ -11,11 +11,11 @@
   "priorities": "Terminer le POC sur les bases de données managés | Terminer la nouvelle version de la stack d'hébergement Kubernetes | Changement de taille de VM (plus de ressources par noeuds) | Activation des régles de filtrage dans kubernetes | Volumes de données extensible",
   "kpis": [
     {
-      "name": "Startups hébergés sur VM  (Azure / MCAS)",
+      "name": "Startups hébergées sur VM  (Azure / MCAS)",
       "value": "6 / 4"
     },
     {
-      "name": "Startups hébergés sur Kubernetes (Azure / MCAS)",
+      "name": "Startups hébergées sur Kubernetes (Azure / MCAS)",
       "value": "6 / 1"
     },
     {
