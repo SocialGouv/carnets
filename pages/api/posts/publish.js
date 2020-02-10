@@ -65,7 +65,7 @@ export default async (req, res) => {
     if (session && session.user) {
       const granted = await isAllowedToPost(session.user.nickname);
       if (granted) {
-        const message = "News publish";
+        const message = "[skip ci] News publish";
         const author = {
           name: session.user.name,
           email: session.user.email
