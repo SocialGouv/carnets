@@ -13,7 +13,6 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            integrity="rKNSttpemxgXPOY2DHw/JxXSzQzBGnL4XNK2daofRRgeHB7GL77kpu+0FYr+v1Cc"
             href="https://socialgouv.github.io/bootstrap/master/@socialgouv/bootstrap.core/dist/socialgouv-bootstrap.min.css"
           />
           <script
