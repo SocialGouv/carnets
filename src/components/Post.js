@@ -1,6 +1,7 @@
 import React from "react";
 import TeamLink from "./teams/Link";
 import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
 
 const PostWrapper = styled.div`
   border: none;
@@ -59,13 +60,17 @@ const PostWrapper = styled.div`
     margin: 10px 0 0;
   }
 
-  .block p {
+  .block .text {
     margin: 0;
-    padding: 5px;
+    padding: 10px;
     font-size: 0.8em;
     border-radius: 4px;
     background-color: #ffffff;
     border: 1px solid rgba(28, 28, 28, 0.1);
+  }
+
+  .block .text p:last-child {
+    margin-bottom: 0;
   }
 `;
 
@@ -78,6 +83,8 @@ const Post = ({ post, className }) => {
       date.getMonth() + 1
     )}/${date.getFullYear()}`;
   };
+
+  const lineBreak = str => str.replace(/(?:\r\n|\r|\n)/g, "  \n");
 
   return (
     <PostWrapper className={`card ${className}`}>
@@ -115,21 +122,27 @@ const Post = ({ post, className }) => {
         {post.content.priorities && (
           <div className="block">
             <h6 className="text-muted">Priorités:</h6>
-            <p>{post.content.priorities}</p>
+            <div className="text">
+              <ReactMarkdown source={lineBreak(post.content.priorities)} />
+            </div>
           </div>
         )}
 
         {post.content.term && (
           <div className="block">
             <h6 className="text-muted">Échéances / Événements:</h6>
-            <p>{post.content.term}</p>
+            <div className="text">
+              <ReactMarkdown source={lineBreak(post.content.term)} />
+            </div>
           </div>
         )}
 
         {post.content.needs && (
           <div className="block">
             <h6 className="text-muted">Besoins:</h6>
-            <p>{post.content.needs}</p>
+            <div className="text">
+              <ReactMarkdown source={lineBreak(post.content.needs)} />
+            </div>
           </div>
         )}
       </div>
