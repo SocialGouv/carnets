@@ -3,13 +3,23 @@
 # Declare variables to be passed into your templates.
 ---
 image:
-  repository: registry.gitlab.factory.social.gouv.fr/socialgouv/carnets
+  repository: ${CI_REGISTRY_IMAGE}
+
+labels:
+  app.kubernetes.io/part-of: carnets
+  owner: carnets
+  team: carnets
 
 #except:
 #  variables:
 #    - $CI_COMMIT_REF_NAME =~ /^storage/.*$/
 
 deployment:
+
+  annotations:
+    app.gitlab.com/app: ${CI_PROJECT_PATH_SLUG}
+    app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
+
   port: ${PORT}
 
   livenessProbe:
