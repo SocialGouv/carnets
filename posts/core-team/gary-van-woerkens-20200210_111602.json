@@ -1,0 +1,27 @@
+{
+  "team": {
+    "slug": "core-team",
+    "name": "Core Team",
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3071815?s=400&v=4",
+    "description": "Support et accompagnement des SE au sein de la Fabrique Numérique."
+  },
+  "term": "",
+  "needs": "",
+  "mood": "😐",
+  "priorities": "plip plup",
+  "kpis": [
+    {
+      "name": "KPI X",
+      "value": "4242424242-X"
+    },
+    {
+      "name": "",
+      "value": ""
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
+  "date": "2020-02-10T11:16:01.036Z"
+}
