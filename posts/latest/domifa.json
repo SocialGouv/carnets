@@ -1,0 +1,27 @@
+{
+  "team": {
+    "slug": "domifa",
+    "name": "DomiFa",
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3169896?s=400&v=4",
+    "description": "Faciliter l'accès aux droits pour les personnes sans domicile stable, en simplifiant la gestion de la domiciliation."
+  },
+  "term": "13/02 lancement du sprint 2",
+  "needs": "",
+  "mood": "😐",
+  "priorities": "Guide utilisateur V1.\nImplémentation reco sécu.",
+  "kpis": [
+    {
+      "name": "Structure en production",
+      "value": "15"
+    },
+    {
+      "name": "Structure en experimentation",
+      "value": "14"
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
+  "date": "2020-02-11T10:57:20.160Z"
+}
