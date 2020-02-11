@@ -1,0 +1,27 @@
+{
+  "team": {
+    "slug": "archifiltre",
+    "name": "Archifiltre",
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3215170?s=400&v=4",
+    "description": "Aider les archivistes et les producteurs de documents bureautiques à     appréhender des arborescences complètes de fichiers pour les traiter."
+  },
+  "term": "Présentation à la Réunion",
+  "needs": "",
+  "mood": "😐",
+  "priorities": "OpenLab : 2 mars",
+  "kpis": [
+    {
+      "name": "téléchargements de la v2",
+      "value": "617"
+    },
+    {
+      "name": "",
+      "value": ""
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
+  "date": "2020-02-11T10:39:42.708Z"
+}
