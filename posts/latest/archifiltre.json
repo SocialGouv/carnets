@@ -2,17 +2,17 @@
   "team": {
     "slug": "archifiltre",
     "name": "Archifiltre",
-    "avatarUrl": "https://avatars1.githubusercontent.com/t/3071815?s=400&v=4",
-    "description": "Support et accompagnement des SE au sein de la Fabrique Numérique."
+    "avatarUrl": "https://avatars1.githubusercontent.com/t/3215170?s=400&v=4",
+    "description": "Aider les archivistes et les producteurs de documents bureautiques à     appréhender des arborescences complètes de fichiers pour les traiter."
   },
+  "term": "Présentation à la Réunion la semaine prochaine",
+  "needs": "",
   "mood": "😐",
   "priorities": "OpenLab : 2 mars",
-  "term": "Présentation à la Réunion",
-  "needs": "Trouver une solution de documentation et d'accompagnement des utilisateurs",
   "kpis": [
     {
-      "name": "téléchargements de la v2",
-      "value": "452"
+      "name": "617",
+      "value": "téléchargements de la v2"
     },
     {
       "name": "",
@@ -23,5 +23,5 @@
       "value": ""
     }
   ],
-  "date": "2020-02-04T10:26:02.956Z"
+  "date": "2020-02-11T10:38:35.027Z"
 }
