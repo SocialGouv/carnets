@@ -5,6 +5,11 @@
 image:
   repository: registry.gitlab.factory.social.gouv.fr/socialgouv/carnets
 
+labels:
+  app.kubernetes.io/part-of: carnets
+  owner: carnets
+  team: carnets
+  
 #except:
 #  variables:
 #    - $CI_COMMIT_REF_NAME =~ /^storage/.*$/
