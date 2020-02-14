@@ -18,10 +18,12 @@ const publish = async (values, { setSubmitting }) => {
   };
 
   try {
-    const payload = await fetch("/api/posts/publish", options);
-    const response = await payload.json();
-    console.log("Publish response:", response);
-    Router.push("/teams/[team]", `/teams/${values.team.slug}`);
+    const response = await fetch("/api/posts/publish", options);
+    if (response.status < 400) {
+      Router.push("/teams/[team]", `/teams/${values.team.slug}`);
+    } else {
+      console.error(response.statusText);
+    }
   } catch (e) {
     console.log(e);
   }

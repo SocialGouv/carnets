@@ -39,46 +39,65 @@ const publishLatest = params => {
   return publishData({ ...params, filePath });
 };
 
-const publishData = ({ author, message, data, filePath }) => {
+const publishData = async ({ author, message, data, filePath }) => {
   const publisher = new GitHubPublisher(token, org, repo, branch);
 
-  return (
-    publisher
-      // warn: for updating a file, we'd need origin file SHA
-      .publish(filePath, JSON.stringify(data, null, 2), {
-        message,
-        author, // https://github.com/voxpelli/node-github-publish/pull/53,
-        force: true
-      })
-      .then(function(result) {
-        if (!result) {
-          throw new Error("Cant push to GitHub 😭");
-        }
-        return result;
-      })
+  const options = {
+    message,
+    author, // https://github.com/voxpelli/node-github-publish/pull/53,
+    force: true
+  };
+
+  const result = await publisher.publish(
+    filePath,
+    JSON.stringify(data, null, 2),
+    options
   );
+
+  if (result) {
+    return result;
+  } else {
+    throw new Error("Cannot push to GitHub 😭");
+  }
 };
 
 export default async (req, res) => {
-  if (req.method === "POST") {
-    const session = await auth0.getSession(req);
-    if (session && session.user) {
-      const granted = await isAllowedToPost(session.user.nickname);
-      if (granted) {
-        const message = "[skip ci] News publish";
-        const author = {
-          name: session.user.name,
-          email: session.user.email
-        };
-        const params = { author, message, data: req.body };
-        return Promise.all([publishTeam(params), publishLatest(params)])
-          .then(sha => res.json({ success: true, sha }))
-          .catch(e => console.log(e) || res.json({ success: false }));
-      } else {
-        console.log(`ERROR: use ${session.user.name} not granted to ${org}`);
-      }
+  try {
+    if (req.method !== "POST") {
+      res.status(405);
+      throw new Error("Wrong method");
+    }
+
+    const { user } = (await auth0.getSession(req)) || {};
+
+    if (!user) {
+      res.status(401);
+      throw new Error("Unknown user");
+    }
+
+    const granted = await isAllowedToPost(user.nickname);
+
+    if (!granted) {
+      res.status(401);
+      throw new Error(`User ${user.name} not granted to ${org}`);
+    }
+
+    const message = "[skip ci] News publish";
+
+    const author = {
+      name: user.name,
+      email: user.email
+    };
+
+    const params = { author, message, data: req.body };
+    await publishTeam(params);
+    await publishLatest(params);
+  } catch (e) {
+    console.error(e);
+    if (res.statusCode < 400) {
+      res.status(500);
     }
   }
 
-  res.json({ success: false });
+  res.send(null);
 };
