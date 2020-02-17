@@ -2,26 +2,26 @@
   "team": {
     "slug": "egapro",
     "name": "EgaPro",
-    "avatarUrl": "https://avatars1.githubusercontent.com/t/3071815?s=400&v=4",
-    "description": "Support et accompagnement des SE au sein de la Fabrique Numérique."
+    "avatarUrl": "https://avatars2.githubusercontent.com/t/3198250?s=400&v=4",
+    "description": "Calculer et transmettre l'index égalité professionnelle hommes - femmes d'une entreprise."
   },
+  "term": "40 000 entreprises devant déclarer leur index avant le 1er mars",
+  "needs": "Du courage :-p",
   "mood": "😁",
-  "priorities": "Déclaration après simulation",
-  "term": "07/02 -> mise en prod de la déclaration",
-  "needs": "",
+  "priorities": "Bases de données / Export Solen+Index Egapro (Mathieu)\nMail accusé de réception (Clément)",
   "kpis": [
     {
       "name": "Taux de satisfaction",
-      "value": "81%"
+      "value": "79% (185 avis)"
     },
     {
-      "name": "",
-      "value": ""
+      "name": "Déclarations/jour sur Index Egapro ",
+      "value": "165"
     },
     {
-      "name": "",
-      "value": ""
+      "name": "% d'entreprises ayant déclaré",
+      "value": "8%"
     }
   ],
-  "date": "2020-02-04T09:52:25.465Z"
+  "date": "2020-02-17T09:35:31.277Z"
 }
