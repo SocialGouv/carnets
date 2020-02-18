@@ -5,23 +5,23 @@
     "avatarUrl": "https://avatars1.githubusercontent.com/t/3169896?s=400&v=4",
     "description": "Faciliter l'accès aux droits pour les personnes sans domicile stable, en simplifiant la gestion de la domiciliation."
   },
-  "term": "13/02 lancement du sprint 2",
+  "term": "18/02 après-midi : visite du CCAS de la ville de Paris",
   "needs": "",
-  "mood": "😐",
-  "priorities": "Guide utilisateur V1.\nImplémentation reco sécu.",
+  "mood": "😁",
+  "priorities": "- V0 cryptage des données\n- Finalisation guide utilisateur\n- Mise en place stratégie de déploiement (flyers, mails type...)",
   "kpis": [
     {
       "name": "Structure en production",
-      "value": "15"
+      "value": "26"
     },
     {
-      "name": "Structure en experimentation",
-      "value": "14"
+      "name": "",
+      "value": ""
     },
     {
       "name": "",
       "value": ""
     }
   ],
-  "date": "2020-02-11T10:57:20.160Z"
+  "date": "2020-02-18T09:55:46.249Z"
 }
