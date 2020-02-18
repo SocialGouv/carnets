@@ -8,10 +8,10 @@
   "term": "18/02 après-midi : visite du CCAS de la ville de Paris",
   "needs": "",
   "mood": "😁",
-  "priorities": "- V0 cryptage des données\n- Finalisation guide utilisateur\n- Mise en place stratégie de déploiement (flyers, mails type...)",
+  "priorities": "V0 cryptage des données\nFinalisation guide utilisateur\nMise en place stratégie de déploiement (flyers, mails type...)",
   "kpis": [
     {
-      "name": "Structure en production",
+      "name": "Structures en production",
       "value": "26"
     },
     {
@@ -23,5 +23,5 @@
       "value": ""
     }
   ],
-  "date": "2020-02-18T09:55:46.249Z"
+  "date": "2020-02-18T10:05:57.732Z"
 }
