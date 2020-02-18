@@ -64,8 +64,13 @@ const Page = ({ posts, teams, team }) => (
 
 const fetchData = async (url, req) => {
   if (req) {
-    const protocol = req.headers["x-forwarded-proto"] || "http";
-    url = `${protocol}://${req.headers.host}${url}`;
+    console.log("PORT 2", req.socket.localPort);
+    console.log("PORT 4", req.socket.address());
+    // const protocol = req.headers["x-forwarded-proto"] || "http";
+    // url = `${protocol}://localhost:${req.socket.localPort}${url}`;
+    url = `http://localhost:${req.socket.localPort}${url}`;
+    // const protocol = req.headers["x-forwarded-proto"] || "http";
+    // url = `${protocol}://${req.headers.host}${url}`;
   }
   const payload = await fetch(url);
   return await payload.json();

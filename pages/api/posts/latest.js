@@ -1,5 +1,9 @@
 import { fetch } from "../../../src/lib/github";
 
+const toto = process.env.GH_ORG;
+
+console.log("ENV ORG", toto);
+
 export default async (req, res) => {
   const org = process.env.GH_ORG;
   const branch = process.env.GH_BRANCH;
