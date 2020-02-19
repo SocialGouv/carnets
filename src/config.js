@@ -3,7 +3,7 @@ if (typeof window === "undefined") {
    * Settings exposed to the server.
    */
 
-  console.log("CI_ENVIRONMENT_URL:", process.env.CI_ENVIRONMENT_URL);
+  console.log("GITLAB_ENVIRONMENT_URL:", process.env.GITLAB_ENVIRONMENT_URL);
   console.log("DOMAIN:", process.env.DOMAIN);
   module.exports = {
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
@@ -11,7 +11,7 @@ if (typeof window === "undefined") {
     AUTH0_SCOPE: process.env.AUTH0_SCOPE,
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
     REDIRECT_URI: process.env.REDIRECT_URI,
-    DOMAIN: process.env.CI_ENVIRONMENT_URL || process.env.DOMAIN,
+    DOMAIN: process.env.GITLAB_ENVIRONMENT_URL || process.env.DOMAIN,
     POST_LOGOUT_REDIRECT_URI: process.env.POST_LOGOUT_REDIRECT_URI,
     SESSION_COOKIE_SECRET: process.env.SESSION_COOKIE_SECRET,
     SESSION_COOKIE_LIFETIME: process.env.SESSION_COOKIE_LIFETIME
