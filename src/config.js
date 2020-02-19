@@ -2,6 +2,9 @@ if (typeof window === "undefined") {
   /**
    * Settings exposed to the server.
    */
+
+  console.log("CI_ENVIRONMENT_URL:", process.env.CI_ENVIRONMENT_URL);
+  console.log("DOMAIN:", process.env.DOMAIN);
   module.exports = {
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
     AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
