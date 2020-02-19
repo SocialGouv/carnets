@@ -1,9 +1,7 @@
 import { initAuth0 } from "@auth0/nextjs-auth0";
 import config from "../config";
 
-const redirectUri = `${
-  config.DOMAIN.includes("carnets") ? "https" : "http"
-}://${config.DOMAIN}/api/callback`;
+const redirectUri = `${config.DOMAIN}/api/callback`;
 
 console.log("config.DOMAIN", config.DOMAIN);
 console.log("redirectUri", redirectUri);
