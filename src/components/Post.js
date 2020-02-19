@@ -78,6 +78,7 @@ const Post = ({ post, className }) => {
   const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
 
   const formatDate = date => {
+    console.log("DATE:", date);
     date = new Date(date);
     return `${pad(date.getDate())}/${pad(
       date.getMonth() + 1
@@ -90,20 +91,16 @@ const Post = ({ post, className }) => {
     <PostWrapper className={`card ${className}`}>
       <div className="card-header">
         <div style={{ display: "flex" }}>
-          <span className="mood">{post.content.mood || "😁"}</span>
-          <TeamLink
-            slug={post.content.team.slug}
-            name={post.content.team.name}
-          />
+          <span className="mood">{post.mood || "😁"}</span>
+          <TeamLink slug={post.team_slug} name={post.team_slug} />
         </div>
-        <span className="date text-muted">{formatDate(post.content.date)}</span>
+        <span className="date text-muted">{formatDate(post.created_at)}</span>
       </div>
       <div className="card-body">
         <div className="kpis d-flex">
           {post &&
-            post.content &&
-            post.content.kpis &&
-            post.content.kpis.map((kpi, i) => (
+            post.kpis &&
+            post.kpis.map((kpi, i) => (
               <React.Fragment key={i}>
                 {kpi.name && kpi.value && (
                   <div className="kpi d-flex flex-column">
@@ -119,29 +116,29 @@ const Post = ({ post, className }) => {
             ))}
         </div>
 
-        {post.content.priorities && (
+        {post.priorities && (
           <div className="block">
             <h6 className="text-muted">Priorités:</h6>
             <div className="text">
-              <ReactMarkdown source={lineBreak(post.content.priorities)} />
+              <ReactMarkdown source={lineBreak(post.priorities)} />
             </div>
           </div>
         )}
 
-        {post.content.term && (
+        {post.term && (
           <div className="block">
             <h6 className="text-muted">Échéances / Événements:</h6>
             <div className="text">
-              <ReactMarkdown source={lineBreak(post.content.term)} />
+              <ReactMarkdown source={lineBreak(post.term)} />
             </div>
           </div>
         )}
 
-        {post.content.needs && (
+        {post.needs && (
           <div className="block">
             <h6 className="text-muted">Besoins:</h6>
             <div className="text">
-              <ReactMarkdown source={lineBreak(post.content.needs)} />
+              <ReactMarkdown source={lineBreak(post.needs)} />
             </div>
           </div>
         )}

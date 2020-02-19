@@ -3,19 +3,19 @@ import { Field } from "formik";
 
 const Teams = ({ teams, errors, touched }) => (
   <Field
-    name="team"
+    name="team_slug"
     as="select"
     className={`custom-select ${errors &&
       touched &&
-      errors.team &&
-      touched.team &&
+      errors.team_slug &&
+      touched.team_slug &&
       "is-invalid"}`}
   >
     <option value="">Equipe</option>
     {teams &&
-      teams.map(({ node: team }, index) => (
-        <option key={index} value={JSON.stringify(team)}>
-          {team.name}
+      teams.map((team, index) => (
+        <option key={index} value={team.slug}>
+          {team.slug}
         </option>
       ))}
   </Field>

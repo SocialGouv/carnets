@@ -1158,6 +1158,13 @@
     semver "^6.3.0"
     tsutils "^3.17.1"
 
+"@urql/core@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@urql/core/-/core-1.9.0.tgz#9317071175a80fe93bee4277a253275ebce781ea"
+  integrity sha512-kP3/mdzwTUv7wR7EJaXxL1dJklHxXhHamc+NbFqhgmJM3y/Wkdm3b4MZ3Gx0HlLlMgo6/i2G0V26sydQdttd6g==
+  dependencies:
+    wonka "^4.0.7"
+
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.8.5.tgz#51b1c5fe6576a34953bf4b253df9f0d490d9e359"
@@ -3676,6 +3683,13 @@ graphql-request@^1.8.2:
   dependencies:
     cross-fetch "2.2.2"
 
+graphql@^14.6.0:
+  version "14.6.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.6.0.tgz#57822297111e874ea12f5cd4419616930cd83e49"
+  integrity sha512-VKzfvHEKybTKjQVpTFrA5yUq2S9ihcZvfJAtsDBBCuV6wauPu1xl/f9ehgVf0FcEJJs4vz6ysb/ZMkGigQZseg==
+  dependencies:
+    iterall "^1.2.2"
+
 gud@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
@@ -4275,6 +4289,11 @@ isomorphic-unfetch@^3.0.0:
   dependencies:
     node-fetch "^2.2.0"
     unfetch "^4.0.0"
+
+iterall@^1.2.2:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.3.0.tgz#afcb08492e2915cbd8a0884eb93a8c94d0d72fea"
+  integrity sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==
 
 jest-worker@24.9.0:
   version "24.9.0"
@@ -7450,10 +7469,26 @@ url@0.11.0, url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+urql@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/urql/-/urql-1.9.0.tgz#38a2a5a4c477a34162f00a9a099aa302098f36d1"
+  integrity sha512-A9mJEa5QDUB6+TWDk55UCU7QziwmN5BPBaQsT7LIOtMBNOISy5GAHqPoWqQAFueNoXk8r4rNLPNtkdLnZbES1Q==
+  dependencies:
+    "@urql/core" "^1.9.0"
+    use-subscription "^1.3.0"
+    wonka "^4.0.7"
+
 use-subscription@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.1.1.tgz#5509363e9bb152c4fb334151d4dceb943beaa7bb"
   integrity sha512-gk4fPTYvNhs6Ia7u8/+K7bM7sZ7O7AMfWtS+zPO8luH+zWuiGgGcrW0hL4MRWZSzXo+4ofNorf87wZwBKz2YdQ==
+
+use-subscription@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.3.0.tgz#3df13a798e826c8d462899423293289a3362e4e6"
+  integrity sha512-buZV7FUtnbOr+65dN7PHK7chHhQGfk/yjgqfpRLoWuHIAc4klAD/rdot2FsPNtFthN1ZydvA8tR/mWBMQ+/fDQ==
+  dependencies:
+    object-assign "^4.1.1"
 
 use@^3.1.0:
   version "3.1.1"
@@ -7658,6 +7693,11 @@ which@^1.2.9:
   integrity sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==
   dependencies:
     isexe "^2.0.0"
+
+wonka@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/wonka/-/wonka-4.0.7.tgz#b4934685bd2449367bd72ce7770bfe3e6cc8a68b"
+  integrity sha512-Uhyl2cgWCUksYtU0Jt8MSzKUqK4BVUrewWxnn1YlKL3Zco4sDcCUDkbgH0i762HJs1rtsq03cfzsCWxJKaDgVg==
 
 word-wrap@~1.2.3:
   version "1.2.3"

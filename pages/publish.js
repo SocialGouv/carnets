@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import styled from "styled-components";
@@ -6,27 +6,14 @@ import Layout from "../src/components/Layout";
 import { useFetchUser } from "../src/lib/user";
 import Form from "../src/components/publish/Form";
 
-const publish = async (values, { setSubmitting }) => {
-  setSubmitting(true);
-  // ugly as ****
-  values.team = JSON.parse(values.team);
-
+const publish = values => {
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...values, date: new Date() })
+    body: JSON.stringify({ ...values, created_at: new Date() })
   };
 
-  try {
-    const response = await fetch("/api/posts/publish", options);
-    if (response.status < 400) {
-      Router.push("/teams/[team]", `/teams/${values.team.slug}`);
-    } else {
-      console.error(response.statusText);
-    }
-  } catch (e) {
-    console.log(e);
-  }
+  return fetch("/api/posts/publish", options);
 };
 
 const CardWrapper = styled.div`
@@ -57,22 +44,41 @@ const Message = () => (
   </CardWrapper>
 );
 
-const Content = ({ teams }) => (
-  <CardWrapper className="card">
-    <div className="card-header">
-      <h4>
-        <div className="text-muted">Publier une nouvelle</div>
-        <small className="text-muted">
-          Faites le point sur la semaine qui vient de s&apos;écouler, en 5
-          minutes.
-        </small>
-      </h4>
-    </div>
-    <div className="card-body">
-      <Form onSubmit={publish} teams={teams} />
-    </div>
-  </CardWrapper>
-);
+const Content = ({ teams }) => {
+  const [unauthorized, setUnauthorized] = useState(false);
+
+  const submit = async (values, { setSubmitting }) => {
+    setSubmitting(true);
+    try {
+      const response = await publish(values);
+      if (response.status < 400) {
+        Router.push("/teams/[team]", `/teams/${values.team_slug}`);
+      } else {
+        console.error("Error:", response.statusText);
+        setUnauthorized(true);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return (
+    <CardWrapper className="card">
+      <div className="card-header">
+        <h4>
+          <div className="text-muted">Publier une nouvelle</div>
+          <small className="text-muted">
+            Faites le point sur la semaine qui vient de s&apos;écouler, en 5
+            minutes.
+          </small>
+        </h4>
+      </div>
+      <div className="card-body">
+        <Form onSubmit={submit} teams={teams} unauthorized={unauthorized} />
+      </div>
+    </CardWrapper>
+  );
+};
 
 const Page = ({ teams }) => {
   const { user, loading } = useFetchUser();
@@ -91,13 +97,7 @@ const Page = ({ teams }) => {
 
 const fetchData = async (url, req) => {
   if (req) {
-    console.log("PORT 2", req.socket.localPort);
-    console.log("PORT 4", req.socket.address());
-    // const protocol = req.headers["x-forwarded-proto"] || "http";
-    // url = `${protocol}://localhost:${req.socket.localPort}${url}`;
     url = `http://localhost:${req.socket.localPort}${url}`;
-    // const protocol = req.headers["x-forwarded-proto"] || "http";
-    // url = `${protocol}://${req.headers.host}${url}`;
   }
   const payload = await fetch(url);
   return await payload.json();

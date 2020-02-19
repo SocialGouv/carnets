@@ -6,9 +6,9 @@ import Mood from "./Mood";
 import Teams from "./Teams";
 import { Formik, Form, Field } from "formik";
 
-const PublishForm = ({ teams, onSubmit }) => {
+const PublishForm = ({ teams, onSubmit, unauthorized }) => {
   const initialValues = {
-    team: "",
+    team_slug: "",
     term: "",
     needs: "",
     mood: "😐",
@@ -22,7 +22,7 @@ const PublishForm = ({ teams, onSubmit }) => {
 
   const validationSchema = Yup.object().shape({
     mood: Yup.string().required("Mood obligatoire"),
-    team: Yup.string().required("Equipe obligatoire"),
+    team_slug: Yup.string().required("Equipe obligatoire"),
     priorities: Yup.string().required("Priorités obligatoire"),
     kpis: Yup.array().of(
       Yup.object()
@@ -86,6 +86,12 @@ const PublishForm = ({ teams, onSubmit }) => {
             </label>
             <Field as="textarea" name="needs" className="form-control" />
           </div>
+
+          {unauthorized && (
+            <div className="alert alert-danger" role="alert">
+              Vous n&#39;êtes pas autorisé à publier une nouvelle.
+            </div>
+          )}
 
           {!isSubmitting ? (
             <button type="submit" className="btn btn-primary btn-block">

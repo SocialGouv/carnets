@@ -9,7 +9,7 @@ const TeamsList = ({ teams, className }) => (
     </li>
     {teams &&
       teams.map &&
-      teams.map(({ node: team }) => (
+      teams.map(team => (
         <li
           key={team.slug}
           className="list-group-item d-flex align-items-center"

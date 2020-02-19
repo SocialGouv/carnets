@@ -64,13 +64,7 @@ const Page = ({ posts, teams, team }) => (
 
 const fetchData = async (url, req) => {
   if (req) {
-    console.log("PORT 2", req.socket.localPort);
-    console.log("PORT 4", req.socket.address());
-    // const protocol = req.headers["x-forwarded-proto"] || "http";
-    // url = `${protocol}://localhost:${req.socket.localPort}${url}`;
     url = `http://localhost:${req.socket.localPort}${url}`;
-    // const protocol = req.headers["x-forwarded-proto"] || "http";
-    // url = `${protocol}://${req.headers.host}${url}`;
   }
   const payload = await fetch(url);
   return await payload.json();
@@ -79,7 +73,7 @@ const fetchData = async (url, req) => {
 Page.getInitialProps = async ({ req, query }) => {
   const teams = await fetchData("/api/teams", req);
   const posts = await fetchData(`/api/posts/team?slug=${query.team}`, req);
-  const { node: team } = teams.find(team => team.node.slug === query.team);
+  const team = teams.find(team => team.slug === query.team);
   return { posts, teams, team };
 };
 
