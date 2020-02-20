@@ -2,10 +2,6 @@ if (typeof window === "undefined") {
   /**
    * Settings exposed to the server.
    */
-
-  console.log("GITLAB_ENVIRONMENT_URL:", process.env.GITLAB_ENVIRONMENT_URL);
-  console.log("DOMAIN:", process.env.DOMAIN);
-
   const gitlabEnvUrl = process.env.GITLAB_ENVIRONMENT_URL
     ? process.env.GITLAB_ENVIRONMENT_URL.replace(/^http:\/\//i, "https://")
     : process.env.DOMAIN;

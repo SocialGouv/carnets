@@ -8,6 +8,7 @@ export default async (req, res) => {
         mood
         term
         needs
+        author
         team_slug
         priorities
         created_at

@@ -1,7 +1,10 @@
 import React from "react";
+import moment from "moment";
 import TeamLink from "./teams/Link";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
+
+moment.locale("fr");
 
 const PostWrapper = styled.div`
   border: none;
@@ -14,10 +17,6 @@ const PostWrapper = styled.div`
     justify-content: space-between;
     font-size: 26px;
     line-height: 28px;
-  }
-
-  .card-header .date {
-    font-size: 0.6em;
   }
 
   .mood {
@@ -72,19 +71,13 @@ const PostWrapper = styled.div`
   .block .text p:last-child {
     margin-bottom: 0;
   }
+
+  .card-footer {
+    text-align: right;
+  }
 `;
 
 const Post = ({ post, className }) => {
-  const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
-
-  const formatDate = date => {
-    console.log("DATE:", date);
-    date = new Date(date);
-    return `${pad(date.getDate())}/${pad(
-      date.getMonth() + 1
-    )}/${date.getFullYear()}`;
-  };
-
   const lineBreak = str => str.replace(/(?:\r\n|\r|\n)/g, "  \n");
 
   return (
@@ -94,7 +87,6 @@ const Post = ({ post, className }) => {
           <span className="mood">{post.mood || "😁"}</span>
           <TeamLink slug={post.team_slug} name={post.team_slug} />
         </div>
-        <span className="date text-muted">{formatDate(post.created_at)}</span>
       </div>
       <div className="card-body">
         <div className="kpis d-flex">
@@ -142,6 +134,18 @@ const Post = ({ post, className }) => {
             </div>
           </div>
         )}
+      </div>
+      <div className="card-footer text-muted">
+        <span className="date text-muted">
+          {moment(post.created_at).fromNow()}&nbsp;par&nbsp;
+        </span>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://github.com/${post.author}`}
+        >
+          {post.author}
+        </a>
       </div>
     </PostWrapper>
   );

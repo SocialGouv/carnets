@@ -3,8 +3,6 @@ import config from "../config";
 
 const redirectUri = `${config.DOMAIN}/api/callback`;
 
-console.log("AUTH0 DOMAIN:", config.AUTH0_DOMAIN);
-
 export default initAuth0({
   clientId: config.AUTH0_CLIENT_ID,
   clientSecret: config.AUTH0_CLIENT_SECRET,

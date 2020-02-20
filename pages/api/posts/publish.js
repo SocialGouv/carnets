@@ -21,7 +21,7 @@ export default async (req, res) => {
     const granted = await isAllowedToPost(user.nickname);
 
     if (!granted) {
-      res.status(401);
+      res.status(403);
       throw new Error(`User ${user.name} not granted to SocialGouv`);
     }
 
@@ -35,6 +35,7 @@ export default async (req, res) => {
       }
     `;
 
+    req.body.author = user.nickname;
     req.body.kpis = { data: req.body.kpis.filter(kpi => kpi.name.length) };
 
     const variables = {
