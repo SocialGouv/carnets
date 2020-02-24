@@ -6,8 +6,8 @@ import Mood from "./Mood";
 import Teams from "./Teams";
 import { Formik, Form, Field } from "formik";
 
-const PublishForm = ({ teams, onSubmit, unauthorized }) => {
-  const initialValues = {
+const PublishForm = ({ teams, onSubmit, unauthorized, post }) => {
+  const initialValues = post || {
     team_slug: "",
     term: "",
     needs: "",
@@ -65,6 +65,7 @@ const PublishForm = ({ teams, onSubmit, unauthorized }) => {
               Priorités:
             </label>
             <Field
+              rows="5"
               as="textarea"
               name="priorities"
               className={`form-control ${errors.priorities &&
@@ -77,14 +78,24 @@ const PublishForm = ({ teams, onSubmit, unauthorized }) => {
             <label htmlFor="term" className="col-form-label">
               Échéances / Événements:
             </label>
-            <Field as="textarea" name="term" className="form-control" />
+            <Field
+              rows="5"
+              as="textarea"
+              name="term"
+              className="form-control"
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="needs" className="col-form-label">
               Besoins:
             </label>
-            <Field as="textarea" name="needs" className="form-control" />
+            <Field
+              rows="5"
+              as="textarea"
+              name="needs"
+              className="form-control"
+            />
           </div>
 
           {unauthorized && (

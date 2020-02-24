@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Post from "../../src/components/Post";
+import Post from "../../src/components/post/Post";
 import Layout from "../../src/components/Layout";
 import Teams from "../../src/components/teams/List";
 
@@ -44,8 +44,8 @@ const Content = ({ posts, teams, team }) => (
     </dd>
     <dd className="posts col-sm-8 col-md-9">
       <h4>
-        <div className="text-muted">{team.name}</div>
-        <small className="text-muted">{team.description}</small>
+        <div>{team.name}</div>
+        <small>{team.description}</small>
       </h4>
       {posts && !posts.length ? (
         <NoContent />

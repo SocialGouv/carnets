@@ -1,7 +1,7 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
-import Post from "../src/components/Post";
+import Post from "../src/components/post/Post";
 import Layout from "../src/components/Layout";
 import { useFetchUser } from "../src/lib/user";
 import Teams from "../src/components/teams/List";

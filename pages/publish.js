@@ -24,7 +24,6 @@ const CardWrapper = styled.div`
 
   h4 {
     margin: 0;
-    color: rgba(28, 28, 28, 0.5);
   }
 
   small {
@@ -32,19 +31,25 @@ const CardWrapper = styled.div`
   }
 `;
 
-const Message = () => (
-  <CardWrapper className="card text-center bg-light">
+const Message = ({ post }) => (
+  <CardWrapper className="card bg-light">
     <div className="card-body">
       <h4 className="card-title">Pour poster une nouvelle</h4>
       <br />
-      <Link href="/api/login" as="/api/login">
-        <a className="btn btn-primary">connectez-vous</a>
-      </Link>
+      {post ? (
+        <Link href={{ pathname: "/api/login", query: { id: post.id } }}>
+          <a className="btn btn-primary">connectez-vous</a>
+        </Link>
+      ) : (
+        <Link href="/api/login" as="/api/login">
+          <a className="btn btn-primary">connectez-vous</a>
+        </Link>
+      )}
     </div>
   </CardWrapper>
 );
 
-const Content = ({ teams }) => {
+const Content = ({ teams, post }) => {
   const [unauthorized, setUnauthorized] = useState(false);
 
   const submit = async (values, { setSubmitting }) => {
@@ -66,30 +71,35 @@ const Content = ({ teams }) => {
     <CardWrapper className="card">
       <div className="card-header">
         <h4>
-          <div className="text-muted">Publier une nouvelle</div>
-          <small className="text-muted">
+          <div>Publier une nouvelle</div>
+          <small>
             Faites le point sur la semaine qui vient de s&apos;écouler, en 5
             minutes.
           </small>
         </h4>
       </div>
       <div className="card-body">
-        <Form onSubmit={submit} teams={teams} unauthorized={unauthorized} />
+        <Form
+          post={post}
+          teams={teams}
+          onSubmit={submit}
+          unauthorized={unauthorized}
+        />
       </div>
     </CardWrapper>
   );
 };
 
-const Page = ({ teams }) => {
+const Page = ({ teams, post }) => {
   const { user, loading } = useFetchUser();
   return (
     <Layout user={user} loading={loading}>
       {loading ? (
         <p>Chargement...</p>
       ) : user ? (
-        <Content teams={teams} />
+        <Content teams={teams} post={post} />
       ) : (
-        <Message />
+        <Message post={post} />
       )}
     </Layout>
   );
@@ -103,9 +113,17 @@ const fetchData = async (url, req) => {
   return await payload.json();
 };
 
-Page.getInitialProps = async ({ req }) => {
+Page.getInitialProps = async ({ req, query }) => {
+  let post = null;
+  const id = query.id;
   const teams = await fetchData("/api/teams", req);
-  return { teams };
+
+  if (id) {
+    [post] = await fetchData(`/api/posts/post?id=${id}`, req);
+    console.log("POST:", post);
+  }
+
+  return { teams, post };
 };
 
 export default Page;

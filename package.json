@@ -15,6 +15,7 @@
     "@auth0/nextjs-auth0": "^0.10.0",
     "dotenv": "^8.2.0",
     "formik": "^2.1.1",
+    "github-markdown-css": "^4.0.0",
     "github-publish": "^3.0.0",
     "graphql": "^14.6.0",
     "graphql-request": "^1.8.2",
@@ -26,7 +27,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-markdown": "^4.3.1",
-    "reactstrap": "^8.2.0",
     "styled-components": "^5.0.0",
     "urql": "^1.9.0",
     "yup": "^0.28.1"
