@@ -5,14 +5,14 @@
     "avatarUrl": "https://avatars1.githubusercontent.com/t/3169896?s=400&v=4",
     "description": "Faciliter l'accès aux droits pour les personnes sans domicile stable, en simplifiant la gestion de la domiciliation."
   },
-  "term": "18/02 après-midi : visite du CCAS de la ville de Paris",
+  "term": "",
   "needs": "",
   "mood": "😁",
-  "priorities": "V0 cryptage des données\nFinalisation guide utilisateur\nMise en place stratégie de déploiement (flyers, mails type...)",
+  "priorities": "Dev : cryptage des données, nouveau design des filtres\nDéploiement : stratégie OK, flyers OK, guide utilisateur à finir",
   "kpis": [
     {
-      "name": "Structures en production",
-      "value": "26"
+      "name": "Structures inscrites",
+      "value": "27"
     },
     {
       "name": "",
@@ -23,5 +23,5 @@
       "value": ""
     }
   ],
-  "date": "2020-02-18T10:05:57.732Z"
+  "date": "2020-02-25T10:08:46.248Z"
 }
