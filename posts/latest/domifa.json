@@ -5,7 +5,7 @@
     "avatarUrl": "https://avatars1.githubusercontent.com/t/3169896?s=400&v=4",
     "description": "Faciliter l'accès aux droits pour les personnes sans domicile stable, en simplifiant la gestion de la domiciliation."
   },
-  "term": "",
+  "term": "Lancement du déploiement en mars",
   "needs": "",
   "mood": "😁",
   "priorities": "Dev : cryptage des données, nouveau design des filtres\nDéploiement : stratégie OK, flyers OK, guide utilisateur à finir",
@@ -23,5 +23,5 @@
       "value": ""
     }
   ],
-  "date": "2020-02-25T10:08:46.248Z"
+  "date": "2020-02-25T10:12:57.023Z"
 }
