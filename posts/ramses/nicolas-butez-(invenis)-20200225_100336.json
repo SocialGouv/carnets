@@ -1,0 +1,27 @@
+{
+  "team": {
+    "slug": "ramses",
+    "name": "Ramses",
+    "avatarUrl": "https://avatars3.githubusercontent.com/t/3642187?s=400&v=4",
+    "description": "Réguler et Accompagner la Masse Salariale et l’Emploi du Secteur social et médico-social."
+  },
+  "term": "",
+  "needs": "",
+  "mood": "😁",
+  "priorities": "26 février : conférence salariale\n3 mars : nouveaux cas d'usages",
+  "kpis": [
+    {
+      "name": "Taux de calcul des KPI utiles pour le MVP",
+      "value": "100%"
+    },
+    {
+      "name": "Cas d'usages traités",
+      "value": "1"
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
+  "date": "2020-02-25T10:03:36.187Z"
+}
