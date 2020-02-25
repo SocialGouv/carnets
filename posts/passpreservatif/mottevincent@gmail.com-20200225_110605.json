@@ -1,0 +1,27 @@
+{
+  "team": {
+    "slug": "passpreservatif",
+    "name": "PassPreservatif",
+    "avatarUrl": "https://avatars3.githubusercontent.com/t/3443898?s=400&v=4",
+    "description": "L'app de la santé et de l'éducation sexuelle pour les moins de 25 ans."
+  },
+  "term": "Petit dej ce matin à la Fabrique\nCOPIL cet après-midi \nDesign sprint avec l'ARS Guyane",
+  "needs": "Vos retours sur nos contenus (voir Mattermost /incub -> retour tumpelay v1)",
+  "mood": "😁",
+  "priorities": "Finaliser les derniers développements et les tests utilisateurs\nRéflexion sur la communication à mettre en place",
+  "kpis": [
+    {
+      "name": "Folowers insta",
+      "value": "291"
+    },
+    {
+      "name": "",
+      "value": ""
+    },
+    {
+      "name": "",
+      "value": ""
+    }
+  ],
+  "date": "2020-02-25T11:06:05.547Z"
+}
