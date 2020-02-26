@@ -14,7 +14,7 @@ const NoContent = () => (
   <NoContentWrapper className="card text-center bg-light">
     <div className="card-body">
       <h6 className="card-title text-muted">
-        Auncune nouvelle publiée pour le moment.
+        Aucune nouvelle publiée pour le moment.
       </h6>
     </div>
   </NoContentWrapper>
