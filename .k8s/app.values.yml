@@ -5,13 +5,20 @@
 image:
   repository: registry.gitlab.factory.social.gouv.fr/socialgouv/carnets
 
+<<<<<<< HEAD
 nameOverride: carnets
 
+=======
+>>>>>>> add HASURA env variables to .k8s/app.values.yml
 labels:
   app.kubernetes.io/part-of: carnets
   owner: carnets
   team: carnets
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> add HASURA env variables to .k8s/app.values.yml
 #except:
 #  variables:
 #    - $CI_COMMIT_REF_NAME =~ /^storage/.*$/
@@ -65,6 +72,13 @@ deployment:
       value: "${GH_PATH}"
     - name: DOMAIN
       value: "${DOMAIN}"
+<<<<<<< HEAD
+=======
+    - name: HASURA_SECRET
+      value: "${HASURA_SECRET}"
+    - name: HASURA_URL
+      value: "${HASURA_URL}"
+>>>>>>> add HASURA env variables to .k8s/app.values.yml
 
 service:
   port: ${PORT}
