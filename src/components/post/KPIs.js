@@ -33,7 +33,6 @@ const Wrapper = styled.div`
   }
 
   .kpi .name {
-    font-size: 0.8em;
     text-align: center;
   }
 

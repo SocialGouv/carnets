@@ -8,7 +8,7 @@ import Form from "../src/components/publish/Form";
 
 const publish = values => {
   const options = {
-    method: "POST",
+    method: values.id ? "PUT" : "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ ...values, created_at: new Date() })
   };
@@ -18,9 +18,12 @@ const publish = values => {
 
 const CardWrapper = styled.div`
   border: none;
-  max-width: 600px;
   margin: 0 auto 20px;
   box-shadow: rgb(201, 211, 223) 0px 1px 4px;
+
+  .card-body {
+    background-color: rgba(28, 28, 28, 0.03);
+  }
 
   h4 {
     margin: 0;
@@ -32,7 +35,7 @@ const CardWrapper = styled.div`
 `;
 
 const Message = ({ post }) => (
-  <CardWrapper className="card bg-light">
+  <CardWrapper className="card text-center bg-light">
     <div className="card-body">
       <h4 className="card-title">Pour poster une nouvelle</h4>
       <br />
@@ -55,7 +58,7 @@ const Content = ({ teams, post }) => {
   const submit = async (values, { setSubmitting }) => {
     setSubmitting(true);
     try {
-      const response = await publish(values);
+      const response = await publish({ ...post, ...values });
       if (response.status < 400) {
         Router.push("/teams/[team]", `/teams/${values.team_slug}`);
       } else {

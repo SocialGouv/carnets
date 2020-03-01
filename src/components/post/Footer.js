@@ -6,7 +6,7 @@ moment.locale("fr");
 const Footer = ({ post }) => (
   <div className="card-footer">
     <span className="date">
-      {moment(post.created_at).fromNow()}&nbsp;par&nbsp;
+      Publié {moment(post.created_at).fromNow()}&nbsp;par&nbsp;
     </span>
     <a
       target="_blank"

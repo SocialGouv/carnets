@@ -1,5 +1,5 @@
 import React from "react";
-// import Link from "next/link";
+import Link from "next/link";
 import TeamLink from "../teams/Link";
 import styled from "styled-components";
 
@@ -9,15 +9,15 @@ const Header = ({ post }) => (
       <span className="mood">{post.mood || "😁"}</span>
       <TeamLink slug={post.team_slug} name={post.team_slug} />
     </div>
-    {/*<ul className="nav nav-pills card-header-pills">
+    <ul className="nav nav-pills card-header-pills">
       <li className="nav-item">
         <Link href={{ pathname: "/publish", query: { id: post.id } }}>
           <a className="btn btn-outline-primary" href="#">
-            Edit
+            Editer
           </a>
         </Link>
       </li>
-    </ul>*/}
+    </ul>
   </Wrapper>
 );
 

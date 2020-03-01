@@ -7,18 +7,24 @@ import Teams from "./Teams";
 import { Formik, Form, Field } from "formik";
 
 const PublishForm = ({ teams, onSubmit, unauthorized, post }) => {
-  const initialValues = post || {
-    team_slug: "",
-    term: "",
-    needs: "",
-    mood: "😐",
-    priorities: "",
-    kpis: [
-      { name: "", value: "" },
-      { name: "", value: "" },
-      { name: "", value: "" }
-    ]
+  const kpi = { name: "", value: "" };
+
+  const initialValues = {
+    ...{
+      term: "",
+      needs: "",
+      mood: "😐",
+      team_slug: "",
+      priorities: "",
+      kpis: []
+    },
+    ...post
   };
+
+  initialValues.kpis = [
+    ...initialValues.kpis,
+    ...new Array(3 - initialValues.kpis.length).fill(kpi)
+  ];
 
   const validationSchema = Yup.object().shape({
     mood: Yup.string().required("Mood obligatoire"),
@@ -44,69 +50,76 @@ const PublishForm = ({ teams, onSubmit, unauthorized, post }) => {
     >
       {({ values, errors, touched, isSubmitting }) => (
         <Form>
-          <div className="form-group row">
-            <div className="col-sm-8">
+          <div className="row">
+            <div className="col-sm-4">
               <Teams teams={teams} errors={errors} touched={touched} />
             </div>
-            <div className="col-sm-4 d-flex justify-content-center align-items-center">
+
+            <div className="col-sm-2 d-flex justify-content-center align-items-center">
               <Mood />
             </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="kpis" className="col-form-label">
-              KPIs:
-            </label>
-            <KPIs values={values} />
-          </div>
+          <div className="form-group row" style={{ marginTop: 20 }}>
+            <div className="col-6">
+              <div className="form-group">
+                <label htmlFor="kpis" className="col-form-label">
+                  KPIs:
+                </label>
+                <KPIs values={values} />
+              </div>
 
-          <div className="form-group">
-            <label htmlFor="priorities" className="col-form-label">
-              Priorités:
-            </label>
-            <Field
-              rows="5"
-              as="textarea"
-              name="priorities"
-              className={`form-control ${errors.priorities &&
-                touched.priorities &&
-                "is-invalid"}`}
-            />
-          </div>
+              <div className="form-group flex-fill d-flex flex-column">
+                <label htmlFor="priorities" className="col-form-label">
+                  Priorités:
+                </label>
+                <Field
+                  rows="5"
+                  as="textarea"
+                  name="priorities"
+                  className={`form-control flex-fill ${errors.priorities &&
+                    touched.priorities &&
+                    "is-invalid"}`}
+                />
+              </div>
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="term" className="col-form-label">
-              Échéances / Événements:
-            </label>
-            <Field
-              rows="5"
-              as="textarea"
-              name="term"
-              className="form-control"
-            />
-          </div>
+            <div className="col-6 d-flex flex-column">
+              <div className="form-group flex-fill d-flex flex-column">
+                <label htmlFor="term" className="col-form-label">
+                  Échéances / Événements:
+                </label>
+                <Field
+                  rows="5"
+                  name="term"
+                  as="textarea"
+                  className="form-control flex-fill"
+                />
+              </div>
 
-          <div className="form-group">
-            <label htmlFor="needs" className="col-form-label">
-              Besoins:
-            </label>
-            <Field
-              rows="5"
-              as="textarea"
-              name="needs"
-              className="form-control"
-            />
+              <div className="form-group flex-fill d-flex flex-column">
+                <label htmlFor="needs" className="col-form-label">
+                  Besoins:
+                </label>
+                <Field
+                  rows="5"
+                  name="needs"
+                  as="textarea"
+                  className="form-control flex-fill"
+                />
+              </div>
+            </div>
           </div>
 
           {unauthorized && (
             <div className="alert alert-danger" role="alert">
-              Vous n&#39;êtes pas autorisé à publier une nouvelle.
+              Vous n&#39;êtes pas autorisé(e) à publier une nouvelle.
             </div>
           )}
 
           {!isSubmitting ? (
             <button type="submit" className="btn btn-primary btn-block">
-              Publier
+              {post ? "Editer" : "Publier"}
             </button>
           ) : (
             <button
@@ -120,7 +133,7 @@ const PublishForm = ({ teams, onSubmit, unauthorized, post }) => {
                 aria-hidden="true"
                 style={{ marginRight: "4px" }}
               ></span>
-              <span>Publication...</span>
+              <span>{post ? "Edition" : "Publication"}...</span>
             </button>
           )}
         </Form>
