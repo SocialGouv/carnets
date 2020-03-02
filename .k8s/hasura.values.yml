@@ -34,8 +34,6 @@ deployment:
       value: "anonymous"
     - name: HASURA_GRAPHQL_ADMIN_SECRET
       value: "secr3t"
-    - name: HASURA_GRAPHQL_JWT_SECRET
-      value: '{"type": "RS256","jwk_url": "${JWK_URL}"}'
     - name: HASURA_GRAPHQL_SERVER_PORT
       value: "80"
     - name: WEB_HOOK_URL_EMAIL_ACCOUNT_VALIDATION
