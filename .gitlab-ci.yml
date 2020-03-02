@@ -13,7 +13,7 @@ Register image Hasura:
   extends: .base_register_stage
   stage: Registration
   variables:
-    CONTEXT: ./hasura
+    CONTEXT: ./.hasura
     DOCKERFILE_PATH: Dockerfile
     IMAGE_NAME: $CI_REGISTRY_IMAGE/hasura
 
@@ -25,7 +25,7 @@ Deploy app Hasura (dev):
       - tags
       - master
   variables:
-    CONTEXT: hasura
+    CONTEXT: .hasura
     HOST: hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
     JWK_URL: http://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/api/v2/auth/jwks"
     VALUES_FILE: ./.k8s/hasura.values.yml
