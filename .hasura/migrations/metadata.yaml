@@ -1,0 +1,28 @@
+version: 2
+tables:
+- table:
+    schema: public
+    name: kpis
+  object_relationships:
+  - name: post
+    using:
+      foreign_key_constraint_on: post_id
+- table:
+    schema: public
+    name: posts
+  array_relationships:
+  - name: kpis
+    using:
+      foreign_key_constraint_on:
+        column: post_id
+        table:
+          schema: public
+          name: kpis
+remote_schemas:
+- name: Github
+  definition:
+    url: https://api.github.com/graphql
+    timeout_seconds: 60
+    headers:
+    - value: Basic YzZjNmQzZjI4ZWEwYzY4NDFkZDM4OGE5MDYyZWEwMjRjOWJkNDkwYQ==
+      name: Authorization
