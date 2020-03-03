@@ -5,14 +5,14 @@
     "avatarUrl": "https://avatars1.githubusercontent.com/t/3169896?s=400&v=4",
     "description": "Faciliter l'accès aux droits pour les personnes sans domicile stable, en simplifiant la gestion de la domiciliation."
   },
-  "term": "Lancement du déploiement en mars",
+  "term": "Mercredi 04/03\nRDV avec l'Union Nationale des CCAS\nRDV avec l'ACTAS (réseau de cadres territoriaux de l'action sociale",
   "needs": "",
-  "mood": "😁",
-  "priorities": "Dev : cryptage des données, nouveau design des filtres\nDéploiement : stratégie OK, flyers OK, guide utilisateur à finir",
+  "mood": "😐",
+  "priorities": "Difficultés sur la définition de la stratégie de déploiement (qui contacter, dans quelle région...)",
   "kpis": [
     {
-      "name": "Structures inscrites",
-      "value": "27"
+      "name": "Structures",
+      "value": "29"
     },
     {
       "name": "",
@@ -23,5 +23,5 @@
       "value": ""
     }
   ],
-  "date": "2020-02-25T10:12:57.023Z"
+  "date": "2020-03-03T10:35:21.418Z"
 }
