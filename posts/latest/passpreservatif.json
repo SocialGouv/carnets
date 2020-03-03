@@ -5,23 +5,23 @@
     "avatarUrl": "https://avatars3.githubusercontent.com/t/3443898?s=400&v=4",
     "description": "L'app de la santé et de l'éducation sexuelle pour les moins de 25 ans."
   },
-  "term": "Petit dej ce matin à la Fabrique\nCOPIL cet après-midi \nDesign sprint avec l'ARS Guyane",
-  "needs": "Vos retours sur nos contenus (voir Mattermost /incub -> retour tumpelay v1)",
+  "term": "Lancement officiel DEMAIN !\nVisite CRIPS IDF\nManchester debut de semaine prochaine",
+  "needs": "Vos retours sur l'appli",
   "mood": "😁",
-  "priorities": "Finaliser les derniers développements et les tests utilisateurs\nRéflexion sur la communication à mettre en place",
+  "priorities": "Remontée d'indicateurs",
   "kpis": [
     {
-      "name": "Folowers insta",
-      "value": "291"
+      "name": "Follows Insta",
+      "value": "328"
     },
     {
-      "name": "",
-      "value": ""
+      "name": "Nombre de questions",
+      "value": "160"
     },
     {
       "name": "",
       "value": ""
     }
   ],
-  "date": "2020-02-25T11:06:05.547Z"
+  "date": "2020-03-03T11:02:18.649Z"
 }
