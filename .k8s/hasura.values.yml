@@ -33,7 +33,7 @@ deployment:
     - name: HASURA_GRAPHQL_UNAUTHORIZED_ROLE
       value: "anonymous"
     - name: HASURA_GRAPHQL_ADMIN_SECRET
-      value: "secr3t"
+      value: "${HASURA_GRAPHQL_ADMIN_SECRET}"
     - name: HASURA_GRAPHQL_SERVER_PORT
       value: "80"
     - name: WEB_HOOK_URL_EMAIL_ACCOUNT_VALIDATION
