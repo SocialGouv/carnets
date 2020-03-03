@@ -5,23 +5,23 @@
     "avatarUrl": "https://avatars2.githubusercontent.com/t/3198250?s=400&v=4",
     "description": "Calculer et transmettre l'index égalité professionnelle hommes - femmes d'une entreprise."
   },
-  "term": "40 000 entreprises doivent déclarer l'index avant le 1er mars à minuit",
-  "needs": "Du temps... ",
+  "term": "Départ de Victoria fin de semaine",
+  "needs": "",
   "mood": "😓",
-  "priorities": "Export des données Solen + Index Egapro",
+  "priorities": "Page de l'interrogation de l'index en cours de recette",
   "kpis": [
     {
-      "name": "déclarations sur Index Egapro",
-      "value": "+2500"
+      "name": "Déclarations sur Index Egapro",
+      "value": "+ 5 500"
     },
     {
-      "name": "visites/jour",
-      "value": "1200"
+      "name": "Visites/jour",
+      "value": "1600"
     },
     {
-      "name": "taux de satisfaction usager",
-      "value": "78%"
+      "name": "Taux de satisfaction usager",
+      "value": "77%"
     }
   ],
-  "date": "2020-02-25T09:14:29.477Z"
+  "date": "2020-03-03T10:57:08.991Z"
 }
