@@ -5,14 +5,14 @@
     "avatarUrl": "https://avatars2.githubusercontent.com/t/3642248?s=400&v=4",
     "description": ""
   },
-  "term": "- Egapro migré sur la plateforme Azure",
+  "term": "- emjpm DEV + PROD utilise les bases de données managés (PG)\n- Matomo externalisation de la base sur des bases de données managés (MariaDB)\n- Atelier besoin de collecte de logs mardi 10-03\n- Stack CaaS v2 livraison prévue pour le 11-03\n",
   "needs": "",
   "mood": "😐",
-  "priorities": "- Préparation des migrations de :\n  - Work in France sur Azure\n  - Pastek sur Azure\n- Externalisation de la Base de données Matomo",
+  "priorities": "réparation des migrations :\n  - Work in France sur Azure\n  - Pastek sur Azure\n  - Début du développement de la Stack CaaS V2 (Pod XXL, Autoscaling, vmscaleset, volumes data extensibles, network policies)",
   "kpis": [
     {
       "name": "Conso moyenne crédit Azure cette semaine",
-      "value": "75 %"
+      "value": "80%"
     },
     {
       "name": "Produits hébergés sur VM (Azure / MCAS)",
@@ -20,8 +20,8 @@
     },
     {
       "name": "Produits hébergés sur Kubernetes (Azure / MCAS)",
-      "value": "11 /2"
+      "value": "11 / 2"
     }
   ],
-  "date": "2020-02-25T09:50:13.679Z"
+  "date": "2020-03-03T10:06:30.067Z"
 }
