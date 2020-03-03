@@ -5,6 +5,8 @@
 image:
   repository: registry.gitlab.factory.social.gouv.fr/socialgouv/carnets
 
+nameOverride: carnets
+
 labels:
   app.kubernetes.io/part-of: carnets
   owner: carnets
