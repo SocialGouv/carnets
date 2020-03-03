@@ -1,0 +1,27 @@
+{
+  "team": {
+    "slug": "egapro",
+    "name": "EgaPro",
+    "avatarUrl": "https://avatars2.githubusercontent.com/t/3198250?s=400&v=4",
+    "description": "Calculer et transmettre l'index égalité professionnelle hommes - femmes d'une entreprise."
+  },
+  "term": "Départ de Victoria fin de semaine",
+  "needs": "",
+  "mood": "😓",
+  "priorities": "Page de l'interrogation de l'index en cours de recette",
+  "kpis": [
+    {
+      "name": "Déclarations sur Index Egapro",
+      "value": "+ 5 500"
+    },
+    {
+      "name": "Visites/jour",
+      "value": "1600"
+    },
+    {
+      "name": "Taux de satisfaction usager",
+      "value": "77%"
+    }
+  ],
+  "date": "2020-03-03T10:57:08.991Z"
+}
