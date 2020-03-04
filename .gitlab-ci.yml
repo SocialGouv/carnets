@@ -32,8 +32,6 @@ Deploy app Hasura (dev):
     HOST: hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
     JWK_URL: http://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/api/v2/auth/jwks
     VALUES_FILE: ./.k8s/hasura.values.yml
-    #HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
-    #HASURA_GRAPHQL_DATABASE_URL: "psql://${PGUSER}:${PGPASSWORD}%40${PG_HOST}:${PG_PORT}/dev_${CI_COMMIT_SHA}?sslmode%3Drequire"
   environment:
     name: review/${CI_COMMIT_REF_NAME}-dev
     url: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
