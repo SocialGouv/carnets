@@ -23,7 +23,11 @@ export default async (req, res) => {
   }
   `;
 
-  const data = await fetch(query);
-
-  res.json(data.posts);
+  console.log("FETCHASS");
+  try {
+    const data = await fetch(query);
+    res.json(data.posts);
+  } catch (error) {
+    res.status(404).json([]);
+  }
 };

@@ -53,22 +53,10 @@ deployment:
       value: "${POST_LOGOUT_REDIRECT_URI}"
     - name: SESSION_COOKIE_SECRET
       value: "${SESSION_COOKIE_SECRET}"
-    - name: GH_TOKEN
-      value: "${GH_TOKEN}"
-    - name: GH_USER
-      value: "${GH_USER}"
-    - name: GH_ORG
-      value: "${GH_ORG}"
-    - name: GH_REPO
-      value: "${GH_REPO}"
-    - name: GH_BRANCH
-      value: "${GH_BRANCH}"
-    - name: GH_PATH
-      value: "${GH_PATH}"
-    - name: DOMAIN
-      value: "${DOMAIN}"
-    - name: HASURA_SECRET
-      value: "${HASURA_SECRET}"
+    - name: GITHUB_ORGANIZATION
+      value: "${GITHUB_ORGANIZATION}"
+    - name: HASURA_GRAPHQL_ADMIN_SECRET
+      value: "${HASURA_GRAPHQL_ADMIN_SECRET}"
     - name: HASURA_URL
       value: "${HASURA_URL}"
 
