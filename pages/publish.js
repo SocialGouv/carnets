@@ -123,7 +123,6 @@ Page.getInitialProps = async ({ req, query }) => {
 
   if (id) {
     [post] = await fetchData(`/api/posts/post?id=${id}`, req);
-    console.log("POST:", post);
   }
 
   return { teams, post };

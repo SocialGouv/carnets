@@ -23,7 +23,6 @@ export default async (req, res) => {
   }
   `;
 
-  console.log("FETCHASS");
   try {
     const data = await fetch(query);
     res.json(data.posts);
