@@ -1,69 +1,70 @@
 import auth0 from "../../../src/lib/auth0";
-import GitHubPublisher from "github-publish";
+import { fetch } from "../../../src/lib/hasura";
 import { isAllowedToPost } from "../../../src/isAllowedToPost";
 
-const org = process.env.GH_ORG;
-const repo = process.env.GH_REPO;
-const token = process.env.GH_TOKEN;
-const branch = process.env.GH_BRANCH;
-const path = process.env.GH_PATH || "content";
+const update = async post => {
+  const query = `
+    mutation update_posts($id: uuid, $post: posts_set_input, $kpis: [kpis_insert_input!]!) {
+      update_posts(where: {id: {_eq: $id}}, _set: $post) {
+        affected_rows
+        returning {
+          id
+        }
+      }
+      delete_kpis(where: {post_id: {_eq: $id}}) {
+        affected_rows
+      }
+      insert_kpis(objects: $kpis) {
+        affected_rows
+      }
+    }
+  `;
 
-const pad = num => (parseInt(num, 10) < 10 ? "0" + parseInt(num, 10) : num);
+  const id = post.id;
 
-const sanitize = name =>
-  name
-    .replace(/[éè]/g, "e")
-    .replace(/[\s/;:,!?#]/g, "-")
-    .toLowerCase();
+  delete post.id;
 
-const getNormalizedDate = () => {
-  const dte = new Date();
+  const kpis = post.kpis
+    .filter(kpi => kpi.name.length)
+    .map(kpi => {
+      kpi.post_id = id;
+      return kpi;
+    });
 
-  return `${dte.getFullYear()}${pad(dte.getMonth() + 1)}${pad(
-    dte.getDate()
-  )}_${pad(dte.getHours())}${pad(dte.getMinutes())}${pad(dte.getSeconds())}`;
-};
+  delete post.kpis;
 
-const publishTeam = params => {
-  const { data, author } = params;
-  const fileName = `${sanitize(author.name)}-${getNormalizedDate()}.json`;
-  const filePath = `${path}/${data.team.slug}/${fileName}`;
-
-  return publishData({ ...params, filePath });
-};
-
-const publishLatest = params => {
-  const { data } = params;
-  const filePath = `${path}/latest/${data.team.slug}.json`;
-
-  return publishData({ ...params, filePath });
-};
-
-const publishData = async ({ author, message, data, filePath }) => {
-  const publisher = new GitHubPublisher(token, org, repo, branch);
-
-  const options = {
-    message,
-    author, // https://github.com/voxpelli/node-github-publish/pull/53,
-    force: true
+  const variables = {
+    id: id,
+    kpis: kpis,
+    post: post
   };
 
-  const result = await publisher.publish(
-    filePath,
-    JSON.stringify(data, null, 2),
-    options
-  );
+  await fetch(query, variables);
+};
 
-  if (result) {
-    return result;
-  } else {
-    throw new Error("Cannot push to GitHub 😭");
-  }
+const insert = async post => {
+  const query = `
+    mutation insert_posts($objects: [posts_insert_input!]!) {
+      insert_posts(objects: $objects) {
+        returning {
+          id
+        }
+      }
+    }
+  `;
+
+  post.kpis = { data: post.kpis.filter(kpi => kpi.name.length) };
+
+  const variables = {
+    objects: [post]
+  };
+
+  await fetch(query, variables);
 };
 
 export default async (req, res) => {
   try {
-    if (req.method !== "POST") {
+    if (req.method !== "POST" && req.method !== "PUT") {
       res.status(405);
       throw new Error("Wrong method");
     }
@@ -78,20 +79,13 @@ export default async (req, res) => {
     const granted = await isAllowedToPost(user.nickname);
 
     if (!granted) {
-      res.status(401);
-      throw new Error(`User ${user.name} not granted to ${org}`);
+      res.status(403);
+      throw new Error(`User ${user.name} not granted to SocialGouv`);
     }
 
-    const message = "[skip ci] News publish";
+    req.body.author = user.nickname;
 
-    const author = {
-      name: user.name,
-      email: user.email
-    };
-
-    const params = { author, message, data: req.body };
-    await publishTeam(params);
-    await publishLatest(params);
+    await (req.body.id ? update : insert)(req.body);
   } catch (e) {
     console.error(e);
     if (res.statusCode < 400) {

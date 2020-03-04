@@ -27,7 +27,7 @@ const KPI = ({ index, errors, touched }) => (
     <Field
       placeholder="label"
       name={`kpis.${index}.name`}
-      className={`flex-fill form-control ${
+      className={`flex-fill flex-grow-1 form-control ${
         !index &&
         errors.kpis &&
         touched.kpis &&
@@ -40,7 +40,7 @@ const KPI = ({ index, errors, touched }) => (
     <Field
       placeholder="valeur"
       name={`kpis.${index}.value`}
-      className={`flex-fill form-control ${
+      className={`flex-shrink-1 form-control ${
         !index &&
         errors.kpis &&
         touched.kpis &&

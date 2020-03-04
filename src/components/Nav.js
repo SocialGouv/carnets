@@ -15,7 +15,7 @@ const Nav = ({ className }) => {
         <Link href="/" passHref>
           <a>@SocialGouv/carnets</a>
         </Link>
-        <div className="navbar-baseline text-muted" href="#">
+        <div className="navbar-baseline" href="#">
           Carnets de bord des produits
         </div>
       </div>
@@ -35,13 +35,17 @@ const Nav = ({ className }) => {
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link href="/publish" passHref>
-              <a className="nav-link">Publier</a>
+              <a className="btn btn-outline-primary" href="#">
+                Publier
+              </a>
             </Link>
           </li>
           {!loading && user && (
             <li className="nav-item">
               <Link href="/api/logout" passHref>
-                <a className="nav-link">Logout</a>
+                <a className="btn btn-outline-danger" href="#">
+                  Logout
+                </a>
               </Link>
             </li>
           )}
@@ -61,6 +65,10 @@ const StyledNav = styled(Nav)`
 
   .sgb-marianne {
     background-color: transparent;
+  }
+
+  .btn-outline-danger {
+    margin-left: 20px;
   }
 `;
 

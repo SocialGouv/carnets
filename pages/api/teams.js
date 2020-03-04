@@ -1,8 +1,8 @@
-import { fetch } from "../../src/lib/github";
+import { fetch } from "../../src/lib/hasura";
+
+const org = process.env.GITHUB_ORGANIZATION;
 
 export default async (req, res) => {
-  const org = process.env.GH_ORG;
-
   const query = `
     query {
       organization(login: "${org}") {
@@ -13,20 +13,22 @@ export default async (req, res) => {
           orderBy: {field: NAME, direction: ASC}
         ) {
           totalCount
-          edges {
-            node {
-              slug
-              name
-              avatarUrl
-              description
-            }
+          nodes {
+            slug
+            name
+            avatarUrl
+            description
           }
         }
       }
     }
   `;
 
-  const data = await fetch(query);
-
-  res.json(data.organization.teams.edges);
+  try {
+    const data = await fetch(query);
+    res.json(data.organization.teams.nodes);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json([]);
+  }
 };

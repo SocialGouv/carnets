@@ -8,3 +8,32 @@ variables:
   PROJECT: "carnets"
   PORT: 3000
   VALUES_FILE: ./.k8s/app.values.yml
+  REDIRECT_URI: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/api/callback
+  POST_LOGOUT_REDIRECT_URI: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+  HASURA_URL: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/v1/graphql
+
+Register image Hasura:
+  extends: .base_register_stage
+  stage: Registration
+  variables:
+    CONTEXT: ./.hasura
+    DOCKERFILE_PATH: Dockerfile
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/hasura
+
+Deploy app Hasura (dev):
+  extends:
+    - .deploy_app_stage
+  except:
+    refs:
+      - tags
+      - master
+  variables:
+    CONTEXT: hasura
+    HOST: hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+    JWK_URL: http://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/api/v2/auth/jwks
+    VALUES_FILE: ./.k8s/hasura.values.yml
+    #HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
+    #HASURA_GRAPHQL_DATABASE_URL: "psql://${PGUSER}:${PGPASSWORD}%40${PG_HOST}:${PG_PORT}/dev_${CI_COMMIT_SHA}?sslmode%3Drequire"
+  environment:
+    name: review/${CI_COMMIT_REF_NAME}-dev
+    url: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}

@@ -1,8 +1,8 @@
 import fetch from "isomorphic-unfetch";
 
-const user = process.env.GH_USER;
-const token = process.env.GH_TOKEN;
-const allowedOrganisation = process.env.GH_ORG || "SocialGouv";
+const user = process.env.GITHUB_USER;
+const token = process.env.GITHUB_TOKEN;
+const allowedOrganisation = process.env.GITHUB_ORGANIZATION;
 
 const auth = Buffer.from(`${user}:${token}`).toString("base64");
 

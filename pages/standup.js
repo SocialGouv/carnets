@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Post from "../src/components/Post";
+import Post from "../src/components/post/Post";
 
 const NoContentWrapper = styled.div`
   border: none;
@@ -35,8 +35,7 @@ const Page = ({ posts }) => (
 
 const fetchData = async (url, req) => {
   if (req) {
-    const protocol = req.headers["x-forwarded-proto"] || "http";
-    url = `${protocol}://${req.headers.host}${url}`;
+    url = `http://localhost:${req.socket.localPort}${url}`;
   }
   const payload = await fetch(url);
   return await payload.json();

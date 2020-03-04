@@ -5,11 +5,11 @@ import styled from "styled-components";
 const TeamsList = ({ teams, className }) => (
   <ul className={`list-group list-group-flush ${className}`}>
     <li className="list-group-item">
-      <h4 className="text-muted">Produits</h4>
+      <h4>Produits</h4>
     </li>
     {teams &&
       teams.map &&
-      teams.map(({ node: team }) => (
+      teams.map(team => (
         <li
           key={team.slug}
           className="list-group-item d-flex align-items-center"

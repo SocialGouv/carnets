@@ -1,8 +1,8 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
-import Post from "../src/components/Post";
 import Layout from "../src/components/Layout";
+import Post from "../src/components/post/Post";
 import { useFetchUser } from "../src/lib/user";
 import Teams from "../src/components/teams/List";
 
@@ -20,7 +20,7 @@ const Content = ({ posts, teams }) => (
     <dd className="col-md-9 col-sm-8">
       {posts &&
         posts.map &&
-        posts.map(post => <Post post={post} key={post.name} />)}
+        posts.map(post => <Post post={post} key={post.id} />)}
     </dd>
   </ContentWrapper>
 );
@@ -36,8 +36,7 @@ const Page = ({ posts, teams }) => {
 
 const fetchData = async (url, req) => {
   if (req) {
-    const protocol = req.headers["x-forwarded-proto"] || "http";
-    url = `${protocol}://${req.headers.host}${url}`;
+    url = `http://localhost:${req.socket.localPort}${url}`;
   }
   const payload = await fetch(url);
   return await payload.json();

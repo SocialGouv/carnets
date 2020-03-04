@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Post from "../../src/components/Post";
 import Layout from "../../src/components/Layout";
+import { useFetchUser } from "../../src/lib/user";
+import Post from "../../src/components/post/Post";
 import Teams from "../../src/components/teams/List";
 
 const NoContentWrapper = styled.div`
@@ -25,15 +26,25 @@ const ContentWrapper = styled.div`
     flex-direction: column-reverse;
   }
 
-  .posts h4 > div {
-    margin: 12px 0;
-  }
+  .posts {
+    .avatar {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      border-radius: 50%;
+      position: absolute;
+      display: inline-block;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
 
-  .posts h4 > small {
-    font-size: 0.6em;
-    line-height: 2em;
-    margin-bottom: 20px;
-    display: inline-block;
+    h4 .name {
+      margin-left: 35px;
+    }
+
+    .description {
+      margin: 10px 0 20px;
+    }
   }
 `;
 
@@ -44,9 +55,13 @@ const Content = ({ posts, teams, team }) => (
     </dd>
     <dd className="posts col-sm-8 col-md-9">
       <h4>
-        <div className="text-muted">{team.name}</div>
-        <small className="text-muted">{team.description}</small>
+        <span
+          className="avatar"
+          style={{ backgroundImage: `url(${team.avatarUrl})` }}
+        ></span>
+        <span className="name">{team.name}</span>
       </h4>
+      <div className="description">{team.description}</div>
       {posts && !posts.length ? (
         <NoContent />
       ) : (
@@ -56,16 +71,19 @@ const Content = ({ posts, teams, team }) => (
   </ContentWrapper>
 );
 
-const Page = ({ posts, teams, team }) => (
-  <Layout>
-    <Content posts={posts} teams={teams} team={team} />
-  </Layout>
-);
+const Page = ({ posts, teams, team }) => {
+  const { user, loading } = useFetchUser();
+
+  return (
+    <Layout user={user} loading={loading}>
+      <Content posts={posts} teams={teams} team={team} />
+    </Layout>
+  );
+};
 
 const fetchData = async (url, req) => {
   if (req) {
-    const protocol = req.headers["x-forwarded-proto"] || "http";
-    url = `${protocol}://${req.headers.host}${url}`;
+    url = `http://localhost:${req.socket.localPort}${url}`;
   }
   const payload = await fetch(url);
   return await payload.json();
@@ -74,7 +92,7 @@ const fetchData = async (url, req) => {
 Page.getInitialProps = async ({ req, query }) => {
   const teams = await fetchData("/api/teams", req);
   const posts = await fetchData(`/api/posts/team?slug=${query.team}`, req);
-  const { node: team } = teams.find(team => team.node.slug === query.team);
+  const team = teams.find(team => team.slug === query.team);
   return { posts, teams, team };
 };
 
