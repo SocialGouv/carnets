@@ -19,9 +19,9 @@ deployment:
 
   resources:
     limits:
-      memory: 128Mi
+      memory: 512Mi
     requests:
-      memory: 64Mi
+      memory: 256Mi
 
   env:
     - name: NODE_ENV
@@ -30,14 +30,12 @@ deployment:
       value: "${HASURA_GRAPHQL_DATABASE_URL}"
     - name: HASURA_GRAPHQL_ENABLE_CONSOLE
       value: "true"
-    - name: HASURA_GRAPHQL_UNAUTHORIZED_ROLE
-      value: "anonymous"
     - name: HASURA_GRAPHQL_ADMIN_SECRET
       value: "${HASURA_GRAPHQL_ADMIN_SECRET}"
     - name: HASURA_GRAPHQL_SERVER_PORT
       value: "80"
-    - name: WEB_HOOK_URL_EMAIL_ACCOUNT_VALIDATION
-      value: "http://${API_SRV_HOST}/webhook/email-account-validation"
+    - name: HASURA_GRAPHQL_ENABLED_LOG_TYPES
+      value: "startup, http-log, webhook-log, websocket-log, query-log"
 
 ingress:
   enabled: true
