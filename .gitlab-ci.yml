@@ -23,6 +23,10 @@ Register image Hasura:
 Deploy app Hasura (dev):
   extends:
     - .deploy_app_stage
+  except:
+    refs:
+      - tags
+      - master
   variables:
     CONTEXT: hasura
     HOST: hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
@@ -33,3 +37,20 @@ Deploy app Hasura (dev):
   environment:
     name: review/${CI_COMMIT_REF_NAME}-dev
     url: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+
+Deploy app Hasura (prod):
+  extends:
+    - .deploy_app_stage
+  only:
+    refs:
+      - master
+  variables:
+    CONTEXT: hasura
+    HOST: hasura-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+    JWK_URL: http://${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/api/v2/auth/jwks
+    VALUES_FILE: ./.k8s/hasura.values.yml
+    K8S_NAMESPACE: ${CI_PROJECT_NAME}
+    PRODUCTION: "true"
+  environment:
+    name: prod
+    url: https://hasura-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
