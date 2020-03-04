@@ -37,3 +37,25 @@ Deploy app Hasura (dev):
   environment:
     name: review/${CI_COMMIT_REF_NAME}-dev
     url: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+
+initContainers:
+  - name: wait-for-hasura
+    image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/curl:0.14.0
+    resources:
+      requests:
+        cpu: 5m
+        memory: 16Mi
+      limits:
+        cpu: 50m
+        memory: 32Mi
+    command:
+      - sh
+      - -c
+      - |
+        retry=120; # 5s * (12 * 10) = 10min
+        while
+          ! curl -sS "https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/v1/graphql" &&
+          [[ $(( retry-- )) -gt 0 ]];
+        do echo "Waiting for hasura to be available ($(( retry )))" ; sleep 5s ; done ;
+        [[ $(( retry )) -lt 1 ]] && exit 128;
+        echo Ready;

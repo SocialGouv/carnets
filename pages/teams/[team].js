@@ -38,7 +38,7 @@ const ContentWrapper = styled.div`
       background-repeat: no-repeat;
     }
 
-    .name {
+    h4 .name {
       margin-left: 35px;
     }
 
