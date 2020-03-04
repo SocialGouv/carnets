@@ -53,6 +53,10 @@ deployment:
       value: "${POST_LOGOUT_REDIRECT_URI}"
     - name: SESSION_COOKIE_SECRET
       value: "${SESSION_COOKIE_SECRET}"
+    - name: GITHUB_USER
+      value: "${GITHUB_USER}"
+    - name: GITHUB_TOKEN
+      value: "${GITHUB_TOKEN}"
     - name: GITHUB_ORGANIZATION
       value: "${GITHUB_ORGANIZATION}"
     - name: HASURA_GRAPHQL_ADMIN_SECRET
