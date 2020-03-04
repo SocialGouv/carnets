@@ -24,7 +24,11 @@ export default async (req, res) => {
     }
   `;
 
-  const data = await fetch(query);
-
-  res.json(data.organization.teams.nodes);
+  try {
+    const data = await fetch(query);
+    res.json(data.organization.teams.nodes);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json([]);
+  }
 };
