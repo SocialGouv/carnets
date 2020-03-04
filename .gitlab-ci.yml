@@ -23,10 +23,6 @@ Register image Hasura:
 Deploy app Hasura (dev):
   extends:
     - .deploy_app_stage
-  except:
-    refs:
-      - tags
-      - master
   variables:
     CONTEXT: hasura
     HOST: hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
