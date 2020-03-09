@@ -14,8 +14,8 @@ const PostsStat = ({ data, containerWidth }) => {
       grid: { stroke: "#ccc" },
       axis: { stroke: "#54677A" },
       ticks: { stroke: "#54677A", size: 5 },
-      axisLabel: { fontSize: 16, padding: 25 },
-      tickLabels: { fontSize: 12, padding: 4 }
+      axisLabel: { fontSize: 16, padding: 25, stroke: "#54677A" },
+      tickLabels: { fontSize: 12, padding: 4, stroke: "#54677A" }
     }
   };
 
@@ -24,11 +24,16 @@ const PostsStat = ({ data, containerWidth }) => {
       <h4>Nombre de publications par semaine</h4>
       <VictoryChart
         height={200}
-        width={containerWidth}
+        width={containerWidth || 0}
         domainPadding={{ x: 20, y: 0 }}
         padding={{ top: 20, bottom: 60, left: 40, right: 40 }}
       >
-        <VictoryAxis dependentAxis style={styles.axis} label="Publications" />
+        <VictoryAxis
+          dependentAxis
+          style={styles.axis}
+          label="Publications"
+          tickFormat={t => Math.round(t)}
+        />
         <VictoryAxis label="Semaines" tickValues={weeks} style={styles.axis} />
         <VictoryBar
           x="week"

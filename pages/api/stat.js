@@ -19,6 +19,7 @@ const getTeamsStatus = async () => {
   const query = `
     query {
       teams_status {
+        mood
         kpis_count
         last_post
         team_slug
