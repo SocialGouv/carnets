@@ -20,6 +20,7 @@ const TeamsStatus = ({ data, teams }) => {
             <th scope="col">Produit</th>
             <th scope="col">Dernière publication</th>
             <th scope="col">Nombre de KPIs</th>
+            <th scope="col">État d&#39;esprit</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@ const TeamsStatus = ({ data, teams }) => {
                 <td>{team.name}</td>
                 <td>{team.last_post && moment(team.last_post).fromNow()}</td>
                 <td>{team.kpis_count || 0}</td>
+                <td>{team.mood}</td>
               </tr>
             ))}
         </tbody>
