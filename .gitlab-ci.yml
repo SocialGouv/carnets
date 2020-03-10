@@ -18,6 +18,7 @@ Create Azure DB (dev):
     - .base_create_azure_db
   before_script:
     - echo "kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret"
+    - kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret -o json | export_from_k8s_secret
     - \. <(kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret -o json | export_from_k8s_secret)
     - export PGHOST="${PG_HOST}"
 
