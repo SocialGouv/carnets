@@ -13,6 +13,14 @@ variables:
   HASURA_URL: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/v1/graphql
   ENABLE_AZURE_POSTGRES: 1
 
+Create Azure DB (dev):
+  extends:
+    - .base_create_azure_db
+  before_script:
+    - echo "kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret"
+    - \. <(kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret -o json | export_from_k8s_secret)
+    - export PGHOST="${PG_HOST}"
+
 Register image Hasura:
   extends: .base_register_stage
   stage: Registration
