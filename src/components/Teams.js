@@ -2,10 +2,14 @@ import React from "react"
 import Team from "./Team"
 import { TeamsContext } from "../lib/teams"
 
-const Teams = () => (
-  <ul>
+const Teams = ({ slug }) => (
+  <ul className="teams">
     <TeamsContext.Consumer>
-      {teams => teams.map((team, i) => <Team key={i} team={team} />)}
+      {teams =>
+        teams.map((team, i) => (
+          <Team key={i} team={team} selected={!!(team.slug === slug)} />
+        ))
+      }
     </TeamsContext.Consumer>
   </ul>
 )

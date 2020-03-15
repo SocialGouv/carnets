@@ -1,0 +1,31 @@
+@use "./variables";
+
+$border-width: 0.3rem;
+
+.teams {
+  padding: 0;
+  list-style: none;
+  margin: variables.$base-margin * 2 0 0 0;
+
+  li {
+    display: flex;
+
+    a {
+      flex: 1;
+      padding: variables.$base-margin / 1.5 variables.$base-margin * 2;
+      border-left: $border-width solid transparent;
+
+      &:hover {
+        border-left: $border-width solid darken(variables.$base-color, 20%);
+      }
+    }
+
+    &.selected {
+
+      a {
+        background-color: variables.$base-color;
+        border-left: $border-width solid variables.$secondary-color;
+      }
+    }
+  }
+}

@@ -3,25 +3,33 @@ import Link from "next/link"
 import { UserContext } from "../lib/user"
 
 const Nav = () => (
-  <>
-    <h1>It Works!</h1>
+  <div className="nav">
+    <h1>
+      <Link href="/" as="/">
+        <a>Carnets</a>
+      </Link>
+    </h1>
     <UserContext.Consumer>
       {user =>
         user && !user.error ? (
           <>
-            <div>{user.name}</div>
-            <Link href="/api/logout" as="/api/logout">
+            <Link href="/api/auth0/logout" as="/api/auth0/logout">
               <a>logout</a>
             </Link>
+            <div className="name">{user.name}</div>
+            <div
+              className="avatar"
+              style={{ backgroundImage: `url(${user.picture})` }}
+            ></div>
           </>
         ) : (
-          <Link href="/api/login" as="/api/login">
+          <Link href="/api/auth0/login" as="/api/auth0/login">
             <a>login</a>
           </Link>
         )
       }
     </UserContext.Consumer>
-  </>
+  </div>
 )
 
 export default Nav

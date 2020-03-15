@@ -1,7 +1,7 @@
 import React from "react"
 import Post from "./Post"
-import { PostsContext } from "../lib/posts"
-import { TeamsContext } from "../lib/teams"
+import { PostsContext } from "../../lib/posts"
+import { TeamsContext } from "../../lib/teams"
 
 const Posts = ({ slug }) => (
   <div className="posts">

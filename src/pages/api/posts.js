@@ -1,11 +1,15 @@
 import { fetch } from "../../lib/hasura"
 
 export default async (req, res) => {
+  const { slug, id } = req.query
+
   const query = `
     {
       posts(
-        distinct_on: team_slug,
-        order_by: {team_slug: asc, created_at: desc}
+        ${id ? `where: {id: {_eq: "${id}"}}` : ""},
+        order_by: {team_slug: asc, created_at: desc},
+        ${slug || id ? "" : "distinct_on: team_slug"},
+        ${slug ? `where: {team_slug: {_eq: "${slug}"}}` : ""}
       ) {
         id
         mood

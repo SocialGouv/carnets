@@ -1,0 +1,79 @@
+@use "./variables";
+
+.posts {
+  margin: variables.$base-margin * 2;
+  background-color: darken(variables.$base-color, 2%);
+
+  .post {
+    margin: variables.$base-margin;
+
+    .header {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid darken(variables.$base-color, 10%);
+
+      h3 {
+        flex: 1;
+        margin: variables.$base-margin variables.$base-margin
+          variables.$base-margin / 2 variables.$base-margin;
+      }
+
+      .edit {
+        margin-right: variables.$base-margin;
+      }
+    }
+
+    .body {
+
+      .tabs {
+        display: flex;
+        margin: variables.$base-margin / 2 variables.$base-margin;
+        border-bottom: 1px solid darken(variables.$base-color, 10%);
+
+        div {
+          top: 1px;
+          opacity: 0.5;
+          outline: none;
+          cursor: pointer;
+          position: relative;
+          margin: 0 variables.$base-margin;
+          padding: variables.$base-margin / 2 0;
+
+          &:hover {
+            opacity: 1;
+            border-bottom: 1px solid variables.$secondary-color;
+          }
+
+          &.selected {
+            opacity: 1;
+            border-bottom: 1px solid variables.$secondary-color;
+          }
+        }
+      }
+
+      .panels {
+
+        div {
+          display: none;
+          margin: variables.$base-margin;
+          padding: variables.$base-margin;
+          background-color: variables.$base-color;
+          border: 1px solid darken(variables.$base-color, 5%);
+
+          &.selected {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .footer {
+      display: flex;
+      justify-content: flex-end;
+
+      .info {
+        margin: variables.$base-margin;
+      }
+    }
+  }
+}
