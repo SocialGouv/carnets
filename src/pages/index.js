@@ -2,17 +2,21 @@ import React from "react"
 import Nav from "../components/Nav"
 import fetcher from "../lib/fetcher"
 import Teams from "../components/Teams"
-import Posts from "../components/Posts"
 import { TeamsContext } from "../lib/teams"
 import { PostsContext } from "../lib/posts"
+import Posts from "../components/posts/Posts"
 
 const Page = ({ teams, posts }) => (
   <TeamsContext.Provider value={teams}>
     <Nav />
-    <Teams />
-    <PostsContext.Provider value={posts}>
-      <Posts />
-    </PostsContext.Provider>
+    <div className="content">
+      <Teams />
+      <div className="page">
+        <PostsContext.Provider value={posts}>
+          <Posts />
+        </PostsContext.Provider>
+      </div>
+    </div>
   </TeamsContext.Provider>
 )
 

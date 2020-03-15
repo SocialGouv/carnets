@@ -1,0 +1,9 @@
+@use "./variables";
+
+.page {
+  flex: 1;
+  // display: flex;
+  overflow: auto;
+  // background-color: red;
+  // padding: variables.$base-margin * 2;
+}

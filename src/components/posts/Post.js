@@ -1,9 +1,8 @@
 import React from "react"
+import Tabs from "./Tabs"
 import Edit from "./Edit"
-import moment from "moment"
-import { TeamsContext } from "../lib/teams"
-
-moment.locale("fr")
+import Info from "./Info"
+import { TeamsContext } from "../../lib/teams"
 
 const Post = ({ post }) => (
   <div className="post">
@@ -16,14 +15,14 @@ const Post = ({ post }) => (
           )
         }
       </TeamsContext.Consumer>
-      <div>
-        {moment(post.created_at).fromNow()} par {post.author}
-      </div>
+      <Edit post={post} />
     </div>
-    <div>{post.priorities}</div>
-    <div>{post.needs}</div>
-    <div>{post.term}</div>
-    <Edit post={post} />
+    <div className="body">
+      <Tabs post={post} />
+    </div>
+    <div className="footer">
+      <Info post={post} />
+    </div>
   </div>
 )
 

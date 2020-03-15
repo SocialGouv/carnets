@@ -1,0 +1,28 @@
+@use "./variables";
+
+.nav {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid darken(variables.$base-color, 10%);
+
+  h1 {
+    flex: 1;
+    margin: variables.$base-margin;
+  }
+
+  a, div {
+    margin: variables.$base-margin
+      variables.$base-margin variables.$base-margin 0;
+  }
+
+  .name {
+    margin-right: variables.$base-margin / 2;
+  }
+
+  .avatar {
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    background-size: cover;
+  }
+}
