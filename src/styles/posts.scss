@@ -1,11 +1,13 @@
 @use "./variables";
 
 .posts {
-  margin: variables.$base-margin * 2;
-  background-color: darken(variables.$base-color, 2%);
+  margin: 0
+    variables.$base-margin * 2
+    variables.$base-margin * 2;
 
   .post {
-    margin: variables.$base-margin;
+    margin: variables.$base-margin 0;
+    background-color: variables.$background-color;
 
     .header {
       display: flex;
@@ -14,8 +16,10 @@
 
       h3 {
         flex: 1;
-        margin: variables.$base-margin variables.$base-margin
-          variables.$base-margin / 2 variables.$base-margin;
+        margin: variables.$base-margin
+                variables.$base-margin
+                variables.$base-margin / 2
+                variables.$base-margin;
       }
 
       .edit {
@@ -32,21 +36,20 @@
 
         div {
           top: 1px;
-          opacity: 0.5;
           outline: none;
           cursor: pointer;
           position: relative;
-          margin: 0 variables.$base-margin;
-          padding: variables.$base-margin / 2 0;
+          color: variables.$link-color;
+          margin: 0 variables.$base-margin / 1.5;
+          padding: variables.$base-margin / 2 variables.$base-margin / 5;
 
           &:hover {
-            opacity: 1;
-            border-bottom: 1px solid variables.$secondary-color;
+            color: variables.$font-color;
           }
 
           &.selected {
-            opacity: 1;
-            border-bottom: 1px solid variables.$secondary-color;
+            color: variables.$font-color;
+            border-bottom: 1px solid variables.$font-color;
           }
         }
       }
@@ -55,10 +58,12 @@
 
         div {
           display: none;
-          margin: variables.$base-margin;
+          // height: 10em;
+          // overflow: auto;
           padding: variables.$base-margin;
           background-color: variables.$base-color;
           border: 1px solid darken(variables.$base-color, 5%);
+          margin: variables.$base-margin variables.$base-margin 0;
 
           &.selected {
             display: block;
