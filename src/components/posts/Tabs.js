@@ -27,7 +27,10 @@ const Tabs = ({ post }) => {
       </div>
       <div className="panels">
         {tabs.map((tab, i) => (
-          <div key={i} className={index === i ? "selected" : ""}>
+          <div
+            key={i}
+            className={`markdown-body ${index === i ? "selected" : ""}`}
+          >
             <ReactMarkdown source={post[tab.slug]} />
           </div>
         ))}

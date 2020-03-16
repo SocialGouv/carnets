@@ -1,6 +1,6 @@
 import React from "react"
-import Nav from "../components/Nav"
 import fetcher from "../lib/fetcher"
+import Nav from "../components/nav/Nav"
 import { TeamsContext } from "../lib/teams"
 import Publish from "../components/publish/Publish"
 

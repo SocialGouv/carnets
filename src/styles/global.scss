@@ -1,3 +1,5 @@
+@use "./variables";
+
 html, body {
   height: 100%;
 }
@@ -5,11 +7,26 @@ html, body {
 body {
   margin: 0;
   display: flex;
-  // background-color: red;
+  color: variables.$font-color;
+  font-size: variables.$font-size;
+  font-family: "Source Sans Pro", sans-serif;
+
+  a {
+    text-decoration: none;
+    color: variables.$link-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 #__next {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.markdown-body {
+  font-size: variables.$font-size !important;
 }
