@@ -2,7 +2,7 @@
 include:
   - project: SocialGouv/gitlab-ci-yml
     file: /autodevops_simple_app.yml
-    ref: v8.0.0
+    ref: v9.1.0
 
 variables:
   PROJECT: "carnets"
@@ -11,6 +11,17 @@ variables:
   REDIRECT_URI: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/api/callback
   POST_LOGOUT_REDIRECT_URI: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
   HASURA_URL: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/v1/graphql
+  ENABLE_AZURE_POSTGRES: 1
+
+Create Azure DB (dev):
+  stage: Install
+  extends:
+    - .base_create_azure_db
+  before_script:
+    - echo "kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret"
+    - kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret -o json | export_from_k8s_secret
+    - \. <(kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret -o json | export_from_k8s_secret)
+    - export PGHOST="${PG_HOST}"
 
 Register image Hasura:
   extends: .base_register_stage
