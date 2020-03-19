@@ -1132,14 +1132,14 @@
     eslint-plugin-react "~7.19.0"
     eslint-plugin-react-hooks "~2.5.0"
 
-"@socialgouv/eslint-config-recommended@0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-0.17.0.tgz#ede5fa2b80e7e009aff3b8a31c31f79e422de975"
-  integrity sha512-aX9+TehWxdUWxfKnFT/1EXBVfrfI/gYAc2UOchAPtKk5LTHfrnVBUsP3JStN6T0m2BDkM0XT5tQG2aLqwM2O5A==
+"@socialgouv/eslint-config-recommended@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/eslint-config-recommended/-/eslint-config-recommended-0.18.0.tgz#46203d1a294b41682737579fd74457cb7e54017d"
+  integrity sha512-bsx3/fgTeFyPyJHMMvMRTaa7AlfLFEwj9WQeTwC+iiYdO7sTyEZBMmCrAXb2uUP0AaxiDsckEu5YKY+3nXPoOQ==
   dependencies:
     eslint-config-prettier "~6.10.0"
     eslint-plugin-import "~2.20.1"
-    eslint-plugin-jest "~23.8.0"
+    eslint-plugin-jest "~23.8.2"
     eslint-plugin-prettier "~3.1.2"
 
 "@socialgouv/eslint-config-recommended@^0.18.0":
