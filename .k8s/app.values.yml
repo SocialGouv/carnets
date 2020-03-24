@@ -12,10 +12,6 @@ labels:
   owner: carnets
   team: carnets
 
-#except:
-#  variables:
-#    - $CI_COMMIT_REF_NAME =~ /^storage/.*$/
-
 deployment:
   port: ${PORT}
 
@@ -47,12 +43,12 @@ deployment:
       value: "${AUTH0_CLIENT_ID}"
     - name: AUTH0_CLIENT_SECRET
       value: "${AUTH0_CLIENT_SECRET}"
-    - name: REDIRECT_URI
-      value: "${REDIRECT_URI}"
-    - name: POST_LOGOUT_REDIRECT_URI
-      value: "${POST_LOGOUT_REDIRECT_URI}"
-    - name: SESSION_COOKIE_SECRET
-      value: "${SESSION_COOKIE_SECRET}"
+    - name: AUTH0_REDIRECT_URI
+      value: "${AUTH0_REDIRECT_URI}"
+    - name: AUTH0_POST_LOGOUT_REDIRECT_URI
+      value: "${AUTH0_POST_LOGOUT_REDIRECT_URI}"
+    - name: AUTH0_SESSION_COOKIE_SECRET
+      value: "${AUTH0_SESSION_COOKIE_SECRET}"
     - name: GITHUB_USER
       value: "${GITHUB_USER}"
     - name: GITHUB_TOKEN
