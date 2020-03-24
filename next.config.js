@@ -3,6 +3,8 @@ dotenv.config()
 
 module.exports = {
   env: {
+    GITHUB_USER: process.env.GITHUB_USER,
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN,
     REDIRECT_URI: process.env.REDIRECT_URI,
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,

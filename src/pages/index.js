@@ -1,10 +1,10 @@
 import React from "react"
 import fetcher from "../lib/fetcher"
 import Nav from "../components/nav/Nav"
-import Teams from "../components/Teams"
 import Footer from "../components/Footer"
 import { TeamsContext } from "../lib/teams"
 import { PostsContext } from "../lib/posts"
+import Teams from "../components/teams/Teams"
 import Posts from "../components/posts/Posts"
 
 const Page = ({ teams, posts }) => (

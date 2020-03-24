@@ -17,8 +17,13 @@ export async function getServerSideProps({ req, query }) {
   const { id } = query
   const baseUrl = `http://localhost:${req.socket.localPort}`
   const teams = await fetcher(`${baseUrl}/api/teams`)
-  const [post] = await fetcher(`${baseUrl}/api/posts?id=${id}`)
-  return { props: { teams, post } }
+  if (id) {
+    const [post] = await fetcher(`${baseUrl}/api/posts?id=${id}`)
+    console.log("getServerSideProps", id, teams, post)
+    return { props: { teams, post } }
+  }
+  console.log("getServerSideProps", id, teams)
+  return { props: { teams } }
 }
 
 export default Page

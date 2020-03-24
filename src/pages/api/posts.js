@@ -2,14 +2,21 @@ import { fetch } from "../../lib/hasura"
 
 export default async (req, res) => {
   const { slug, id } = req.query
-
+  console.log(
+    "ID:",
+    id,
+    !!id,
+    id ? "yes" : "no",
+    id === "undefined",
+    req.params
+  )
   const query = `
     {
       posts(
-        ${id ? `where: {id: {_eq: "${id}"}}` : ""},
-        order_by: {team_slug: asc, created_at: desc},
-        ${slug || id ? "" : "distinct_on: team_slug"},
-        ${slug ? `where: {team_slug: {_eq: "${slug}"}}` : ""}
+        ${id ? `where: {id: {_eq: "${id}"}},` : ""}
+        ${slug || id ? "" : "distinct_on: team_slug,"}
+        ${slug ? `where: {team_slug: {_eq: "${slug}"}},` : ""}
+        order_by: {team_slug: asc, created_at: desc}
       ) {
         id
         mood
@@ -27,6 +34,8 @@ export default async (req, res) => {
       }
     }
   `
+
+  console.log("query", query)
 
   try {
     const data = await fetch(query)

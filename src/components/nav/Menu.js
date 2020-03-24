@@ -2,18 +2,21 @@ import React from "react"
 import Link from "next/link"
 import { UserContext } from "../../lib/user"
 
-const Profile = () => (
+const Menu = () => (
   <UserContext.Consumer>
     {user =>
       user && !user.error ? (
         <>
           <div className="profile">
             <div className="name">{user.name}</div>
-            <Link href="/api/stat" as="/api/stat">
-              <a>stat</a>
+            <Link href="/publish" as="/publish">
+              <a>Publish</a>
+            </Link>
+            <Link href="/stat" as="/stat">
+              <a>Stat</a>
             </Link>
             <Link href="/api/auth0/logout" as="/api/auth0/logout">
-              <a>logout</a>
+              <a>Logout</a>
             </Link>
           </div>
           <div
@@ -30,4 +33,4 @@ const Profile = () => (
   </UserContext.Consumer>
 )
 
-export default Profile
+export default Menu
