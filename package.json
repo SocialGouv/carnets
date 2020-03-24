@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src/* pages/*",
+    "lint": "eslint src/* pages/*",
     "build-start": "next build && yarn start",
     "test": "exit 0"
   },
@@ -15,15 +16,12 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.9",
-    "@socialgouv/eslint-config-react": "^0.17.0",
     "dotenv": "^8.2.0",
-    "eslint": "^6.8.0",
     "github-markdown-css": "^4.0.0",
     "graphql-request": "^1.8.2",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.24.0",
     "next": "9.3.0",
-    "prettier": "^1.19.1",
     "react": "16.13.0",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "16.13.0",
@@ -33,5 +31,10 @@
     "swr": "^0.1.18",
     "victory": "^34.1.3",
     "weather-icons": "^1.3.2"
+  },
+  "devDependencies": {
+    "@socialgouv/eslint-config-react": "^0.17.0",
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1"
   }
 }
