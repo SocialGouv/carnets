@@ -4,9 +4,17 @@
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
   position: absolute;
+  justify-content: space-between;
   padding: variables.$base-margin / 2;
-  font-size: variables.$font-size / 1.2;
+  font-size: variables.$font-size * 0.8;
   background-color: rgba(255, 255, 255, 0.8);
-  border-top: 1px solid darken(variables.$base-color, 10%);
+  border-top: 1px solid variables.$border-color;
+}
+
+@media screen and (max-width: 640px) {
+  #__next > .footer {
+    font-size: variables.$font-size * 0.7;
+  }
 }

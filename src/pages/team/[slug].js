@@ -2,6 +2,7 @@ import React from "react"
 import fetcher from "../../lib/fetcher"
 import Nav from "../../components/nav/Nav"
 import Intro from "../../components/Intro"
+import Footer from "../../components/Footer"
 import { TeamsContext } from "../../lib/teams"
 import { PostsContext } from "../../lib/posts"
 import Teams from "../../components/teams/Teams"
@@ -19,6 +20,7 @@ const Page = ({ teams, posts, slug }) => (
         </PostsContext.Provider>
       </div>
     </div>
+    <Footer />
   </TeamsContext.Provider>
 )
 

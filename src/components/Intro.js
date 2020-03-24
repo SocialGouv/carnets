@@ -13,8 +13,10 @@ const Intro = ({ slug }) => (
                 style={{ backgroundImage: `url(${team.avatarUrl})` }}
               ></div>
               <div className="details">
-                <h2>{team.name}</h2>
-                <div>{team.description}</div>
+                <h2>
+                  {team.name}
+                  <small>{team.description}</small>
+                </h2>
               </div>
             </div>
           )

@@ -1,13 +1,39 @@
 import Header from "./Header"
 import Footer from "./Footer"
+import Loader from "./Loader"
 import Body from "./body/Body"
+import Router from "next/router"
 import React, { useState } from "react"
 
 const Publish = ({ post }) => {
-  const [values, setValues] = useState(post || {})
   const [errors, setErrors] = useState({})
+  const [loading, setLoading] = useState(false)
+  const [values, setValues] = useState(post || {})
+
+  const checkErrors = () =>
+    !values.kpis ||
+    !values.kpis[0].name ||
+    !values.kpis ||
+    !values.kpis[0].value ||
+    !values.team_slug ||
+    !values.priorities
+
+  const trackErrors = () => {
+    console.log("trackErrors", errors, values)
+    setErrors({
+      kpis: [
+        {
+          name: !values.kpis || !values.kpis[0].name,
+          value: !values.kpis || !values.kpis[0].value
+        }
+      ],
+      team_slug: !values.team_slug,
+      priorities: !values.priorities
+    })
+  }
 
   const submit = values => {
+    console.log("submit", values)
     const options = {
       method: values.id ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },
@@ -17,29 +43,20 @@ const Publish = ({ post }) => {
     return fetch("/api/publish", options)
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
-    const errors = {
-      kpis: [
-        {
-          name: !values.kpis || !values.kpis[0].name,
-          value: !values.kpis || !values.kpis[0].value
-        }
-      ],
-      team_slug: !values.team_slug,
-      priorities: !values.priorities
-    }
+    setLoading(true)
 
-    if (
-      errors.team_slug ||
-      errors.priorities ||
-      errors.kpis[0].name ||
-      errors.kpis[0].value
-    ) {
-      setErrors(errors)
+    if (checkErrors()) {
+      trackErrors()
+      setLoading(false)
     } else {
-      console.log("handleSubmit", values)
-      submit(values).then(whatever => console.log("then:", whatever))
+      const response = await submit(values)
+      if (response.status === 200) {
+        Router.push(`/team/${values.team_slug}`)
+      } else {
+        console.error("ERROR:", response.statusText)
+      }
     }
   }
 
@@ -77,6 +94,7 @@ const Publish = ({ post }) => {
         <Header />
         <Body handleChange={handleChange} values={values} errors={errors} />
         <Footer />
+        {loading && <Loader loading={loading} />}
       </form>
     </div>
   )

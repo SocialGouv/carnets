@@ -14,7 +14,7 @@ const KPIs = ({ handleChange, values, errors }) => {
   return (
     <div className="kpis">
       <label>
-        KPIs:
+        KPIs*
         {kpis.map((kpi, i) => (
           <KPI
             key={i}

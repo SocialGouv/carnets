@@ -1,0 +1,15 @@
+@use "./variables";
+
+.stats {
+  flex: 1;
+  overflow: auto;
+  padding: 6rem 6rem 0;
+  padding: variables.$base-margin * 6
+      variables.$base-margin * 6
+      0;
+
+  .posts {
+    width: 100%;
+    height: 200px;
+  }
+}

@@ -2,32 +2,49 @@
 
 .posts {
   margin: 0
-    variables.$base-margin
+    variables.$base-margin * 2
     variables.$base-margin * 2;
 
   .post {
-    margin: variables.$base-margin 0;
+    margin-bottom: variables.$base-margin;
     background-color: variables.$background-color;
 
     .header {
       display: flex;
       align-items: center;
+      padding: 0 variables.$base-margin;
       border-bottom: 1px solid darken(variables.$base-color, 10%);
 
       h3 {
         flex: 1;
-        margin: variables.$base-margin
-                variables.$base-margin
-                variables.$base-margin / 2
-                variables.$base-margin;
+        margin: variables.$base-margin 0;
       }
 
-      .edit {
-        margin-right: variables.$base-margin;
+      .mood {
+        font-size: variables.$font-size * 1.8;
+        margin-right: variables.$base-margin * 0.5;
       }
     }
 
     .body {
+
+      .kpis {
+        display: flex;
+        justify-content: center;
+        margin-top: variables.$base-margin;
+
+        .kpi {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          padding: 0 variables.$base-margin;
+          font-size: variables.$font-size * 1.5;
+
+          .value {
+          }
+        }
+      }
 
       .tabs {
         display: flex;
@@ -80,5 +97,12 @@
         margin: variables.$base-margin;
       }
     }
+  }
+
+  .empty {
+    text-align: center;
+    margin: variables.$base-margin;
+    padding: variables.$base-margin;
+    background-color: variables.$background-color;
   }
 }
