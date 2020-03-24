@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint src/* pages/*",
+    "build-start": "next build && yarn start",
+    "test": "exit 0"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.10.0",
