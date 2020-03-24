@@ -1,13 +1,13 @@
 import React from "react"
 import Logo from "./Logo"
 import Title from "./Title"
-import Profile from "./Profile"
+import Menu from "./Menu"
 
 const Nav = () => (
   <div className="nav">
     <Logo />
     <Title />
-    <Profile />
+    <Menu />
   </div>
 )
 

@@ -1,0 +1,14 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"teams_status\" AS \n    SELECT DISTINCT
+      p.team_slug,\n    (\n        SELECT MAX(created_at) FROM posts WHERE team_slug
+      = p.team_slug\n    ) AS last_post,\n    (\n        SELECT MAX(count) FROM (\n
+      \           SELECT COUNT(*) AS count FROM kpis WHERE kpis.post_id = (\n                SELECT
+      id FROM posts WHERE team_slug = p.team_slug AND created_at = (\n                    SELECT
+      MAX(created_at) FROM posts WHERE team_slug = p.team_slug\n                )\n
+      \           )\n        ) AS xxx\n    ) AS kpis_count,\n    (\n        SELECT
+      mood FROM posts WHERE team_slug = p.team_slug AND created_at = (\n            SELECT
+      MAX(created_at) FROM posts WHERE team_slug = p.team_slug\n        )\n    ) AS
+      mood\n    FROM posts AS p;"
+  type: run_sql

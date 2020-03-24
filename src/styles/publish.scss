@@ -1,0 +1,119 @@
+@use "./variables";
+
+.publish {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: variables.$base-margin * 2;
+    background-color: variables.$background-color;
+
+    .header {
+      margin: 0 0 variables.$base-margin * 3;
+    }
+
+    .body {
+      display: flex;
+
+      & > div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+          margin-right: variables.$base-margin;
+        }
+
+        &:last-child {
+          margin-left: variables.$base-margin;
+        }
+
+        .team-mood {
+          display: flex;
+          align-items: center;
+          margin-bottom: variables.$base-margin;
+
+          select {
+            flex: 1;
+          }
+        }
+      }
+
+      label {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: variables.$base-margin;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        textarea, input {
+          flex: 1;
+          margin-top: variables.$base-margin / 2;
+        }
+      }
+    }
+
+    .moods {
+      display: flex;
+      margin: 0 variables.$base-margin;
+      font-size: variables.$font-size * 2;
+
+      .mood {
+        opacity: 0.5;
+        cursor: pointer;
+
+        &.selected {
+          opacity: 1;
+          outline: none;
+        }
+      }
+    }
+
+    .kpis {
+      margin-bottom: variables.$base-margin;
+
+      .kpi {
+        display: flex;
+        align-items: stretch;
+
+        .index {
+          display: flex;
+          align-items: center;
+          margin-right: variables.$base-margin;
+          margin-top: variables.$base-margin / 2;
+        }
+
+        input {
+          margin-right: variables.$base-margin / 4;
+
+          &:last-child {
+            margin-right: 0;
+            margin-left: variables.$base-margin / 4;
+          }
+        }
+      }
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      margin-top: variables.$base-margin;
+
+      button {
+        width: 30%;
+        font-weight: bold;
+        border-width: 2px;
+        margin-top: variables.$base-margin;
+        padding: variables.$base-margin / 2 variables.$base-margin * 2;
+      }
+    }
+  }
+}
