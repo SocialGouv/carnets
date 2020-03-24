@@ -9,6 +9,7 @@
   form {
     width: 80%;
     display: flex;
+    position: relative;
     flex-direction: column;
     padding: variables.$base-margin * 2;
     background-color: variables.$background-color;
@@ -92,6 +93,7 @@
         }
 
         input {
+          min-width: 0;
           margin-right: variables.$base-margin / 4;
 
           &:last-child {
@@ -108,11 +110,57 @@
       margin-top: variables.$base-margin;
 
       button {
-        width: 30%;
+        min-width: 30%;
         font-weight: bold;
         border-width: 2px;
         margin-top: variables.$base-margin;
-        padding: variables.$base-margin / 2 variables.$base-margin * 2;
+      }
+    }
+  }
+
+  .loader {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: variables.$background-color;
+
+    p {
+      margin-top: variables.$base-margin * 2;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .publish {
+
+    form {
+      margin-top: variables.$base-margin * 4;
+
+      padding: variables.$base-margin
+        variables.$base-margin * 1.5
+        variables.$base-margin * 2;
+
+      .body {
+        flex-direction: column;
+
+        & > div {
+
+          margin: 0!important;
+        }
+
+        label:last-child {
+          margin-bottom: variables.$base-margin;
+        }
+      }
+
+      .kpis {
+        margin-bottom: 0;
       }
     }
   }

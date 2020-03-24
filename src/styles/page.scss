@@ -3,12 +3,13 @@
 .page {
   flex: 1;
   overflow: auto;
+  padding-bottom: variables.$base-margin;
   padding-top: variables.$base-margin * 6;
 
   .intro {
     display: flex;
     align-items: center;
-    margin: 0 variables.$base-margin * 2;
+    margin: 0 variables.$base-margin * 2 variables.$base-margin;
 
     .avatar {
       width: 80px;

@@ -6,10 +6,10 @@ const Title = () => (
     <Link href="/" as="/">
       <a>Carnets</a>
     </Link>
-    <div className="description">
+    <small className="description">
       Carnets de bord des produits{" "}
       <a href="https://github.com/socialgouv">@SocialGouv</a>
-    </div>
+    </small>
   </h1>
 )
 

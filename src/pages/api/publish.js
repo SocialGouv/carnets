@@ -25,7 +25,7 @@ const update = async post => {
   delete post.id
 
   const kpis = post.kpis
-    .filter(kpi => kpi.name.length)
+    .filter(kpi => kpi.name && kpi.name.length)
     .map(kpi => {
       kpi.post_id = id
       return kpi
@@ -38,7 +38,7 @@ const update = async post => {
     kpis: kpis,
     post: post
   }
-
+  console.log("UPDATE POST", variables)
   await fetch(query, variables)
 }
 
@@ -53,8 +53,8 @@ const insert = async post => {
     }
   `
 
-  post.kpis = { data: post.kpis.filter(kpi => kpi.name.length) }
-
+  post.kpis = { data: post.kpis.filter(kpi => kpi.name && kpi.name.length) }
+  console.log("INSERT POST", post)
   const variables = {
     objects: [post]
   }

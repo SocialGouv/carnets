@@ -2,8 +2,13 @@ import React from "react"
 
 const Needs = ({ handleChange, value }) => (
   <label>
-    Besoins:
-    <textarea name="needs" onChange={handleChange} value={value} rows="5" />
+    Besoins
+    <textarea
+      rows="5"
+      name="needs"
+      value={value || ""}
+      onChange={handleChange}
+    />
   </label>
 )
 
