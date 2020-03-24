@@ -59,6 +59,8 @@ deployment:
       value: "${HASURA_GRAPHQL_ADMIN_SECRET}"
     - name: HASURA_URL
       value: "${HASURA_URL}"
+    - name: APP_REVISION
+      value: "${CI_COMMIT_SHA}"
 
   initContainers:
     - name: wait-for-hasura

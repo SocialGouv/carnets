@@ -2,10 +2,12 @@ const { version } = require("./package.json")
 const dotenv = require("dotenv")
 dotenv.config()
 
-const revision = require("child_process")
-  .execSync("git rev-parse HEAD")
-  .toString()
-  .trim()
+const revision =
+  process.env.APP_REVISION ||
+  require("child_process")
+    .execSync("git rev-parse HEAD")
+    .toString()
+    .trim()
 
 module.exports = {
   env: {
