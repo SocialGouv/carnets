@@ -26,6 +26,14 @@ console.log(
   "next.config - process.env.AUTH0_SESSION_COOKIE_SECRET:",
   process.env.AUTH0_SESSION_COOKIE_SECRET
 )
+console.log(
+  "next.config - process.env.AUTH0_POST_LOGOUT_REDIRECT_URI:",
+  process.env.AUTH0_POST_LOGOUT_REDIRECT_URI
+)
+console.log(
+  "next.config - process.env.AUTH0_SESSION_COOKIE_SECRET:",
+  process.env.AUTH0_SESSION_COOKIE_SECRET
+)
 
 module.exports = {
   env: {
