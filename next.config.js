@@ -5,6 +5,7 @@ dotenv.config()
 module.exports = {
   env: {
     APP_VERSION: version,
+    TEST_FIVE: process.env.TEST_FIVE,
     HASURA_URL: process.env.HASURA_URL,
     GITHUB_USER: process.env.GITHUB_USER,
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
