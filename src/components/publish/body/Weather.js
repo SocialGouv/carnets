@@ -10,6 +10,7 @@ const Weather = ({ handleChange, value }) => {
   const [selectedWeather, setSelectedWeather] = useState(value || "😐")
 
   const onClick = weather => {
+    console.log("selectedWeather", selectedWeather)
     setSelectedWeather(weather)
     handleChange({ target: { name: "weather", value: weather } })
   }
