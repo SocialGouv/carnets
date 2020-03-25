@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src/* pages/*",
-    "lint": "eslint src/* pages/*",
+    "lint": "eslint src/pages/* src/lib/* src/components/*",
     "build-start": "next build && yarn start",
     "test": "exit 0"
   },
