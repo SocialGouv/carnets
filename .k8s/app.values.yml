@@ -69,6 +69,8 @@ deployment:
       value: "${HASURA_URL}"
     - name: TEST_SIX
       value: "${TEST_SIX}"
+    - name: TEST_NINE
+      value: "${TEST_NINE}"
 
   initContainers:
     - name: wait-for-hasura

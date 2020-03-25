@@ -2,10 +2,13 @@ const { version } = require("./package.json")
 const dotenv = require("dotenv")
 dotenv.config()
 
+console.log("ENV:", process.env)
+
 module.exports = {
   env: {
     APP_VERSION: version,
     TEST_FIVE: process.env.TEST_FIVE,
+    TEST_HEIGHT: process.env.TEST_HEIGHT,
     HASURA_URL: process.env.HASURA_URL,
     GITHUB_USER: process.env.GITHUB_USER,
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
