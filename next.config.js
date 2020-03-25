@@ -2,21 +2,14 @@ const { version } = require("./package.json")
 const dotenv = require("dotenv")
 dotenv.config()
 
-const revision =
-  process.env.APP_REVISION || process.env.CI_COMMIT_SHA || "some hash..."
-// require("child_process")
-//   .execSync("git rev-parse HEAD")
-//   .toString()
-//   .trim()
-
 module.exports = {
   env: {
     APP_VERSION: version,
-    APP_REVISION: revision,
     HASURA_URL: process.env.HASURA_URL,
     GITHUB_USER: process.env.GITHUB_USER,
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
+    APP_REVISION: process.env.CI_COMMIT_SHA || "some hash...",
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
     AUTH0_REDIRECT_URI: process.env.AUTH0_REDIRECT_URI,
     AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,

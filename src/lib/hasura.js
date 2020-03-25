@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request"
 
-const url = process.env.TEST_FOUR
+const url = process.env.TEST_FOUR || process.env.HASURA_URL
 const secret = process.env.HASURA_GRAPHQL_ADMIN_SECRET
 
 export const fetch = async (query, variables) => {
