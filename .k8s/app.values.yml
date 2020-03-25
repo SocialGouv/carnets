@@ -43,10 +43,6 @@ deployment:
       value: "${AUTH0_CLIENT_ID}"
     - name: AUTH0_CLIENT_SECRET
       value: "${AUTH0_CLIENT_SECRET}"
-    - name: AUTH0_REDIRECT_URI
-      value: "${AUTH0_REDIRECT_URI}"
-    - name: AUTH0_POST_LOGOUT_REDIRECT_URI
-      value: "${AUTH0_POST_LOGOUT_REDIRECT_URI}"
     - name: AUTH0_SESSION_COOKIE_SECRET
       value: "${AUTH0_SESSION_COOKIE_SECRET}"
     - name: GITHUB_USER
@@ -71,6 +67,8 @@ deployment:
       value: "${TEST_SIX}"
     - name: TEST_NINE
       value: "${TEST_NINE}"
+    - name: APP_BASE_URL
+      value: "${APP_BASE_URL}"
 
   initContainers:
     - name: wait-for-hasura
