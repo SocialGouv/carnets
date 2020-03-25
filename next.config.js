@@ -3,12 +3,11 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 const revision =
-  process.env.APP_REVISION ||
-  process.env.CI_COMMIT_SHA ||
-  require("child_process")
-    .execSync("git rev-parse HEAD")
-    .toString()
-    .trim()
+  process.env.APP_REVISION || process.env.CI_COMMIT_SHA || "some hash..."
+// require("child_process")
+//   .execSync("git rev-parse HEAD")
+//   .toString()
+//   .trim()
 
 module.exports = {
   env: {
