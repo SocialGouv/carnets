@@ -2,7 +2,7 @@
 
 .page > .posts {
   margin: 0
-    variables.$base-margin * 2
+    variables.$base-margin
     variables.$base-margin * 2;
 
   .post {
@@ -81,8 +81,6 @@
 
         div {
           display: none;
-          // height: 10em;
-          // overflow: auto;
           padding: variables.$base-margin;
           background-color: variables.$base-color;
           border: 1px solid darken(variables.$base-color, 5%);
@@ -107,8 +105,8 @@
 
   .empty {
     text-align: center;
-    margin: variables.$base-margin;
     padding: variables.$base-margin;
+    margin: variables.$base-margin 0;
     background-color: variables.$background-color;
   }
 }

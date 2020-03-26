@@ -9,7 +9,7 @@
   .intro {
     display: flex;
     align-items: center;
-    margin: 0 variables.$base-margin * 2 variables.$base-margin;
+    margin: 0 variables.$base-margin variables.$base-margin;
 
     .avatar {
       width: 80px;

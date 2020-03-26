@@ -2,7 +2,9 @@ import React from "react"
 
 const Footer = () => (
   <div className="footer">
-    <button type="submit">Publier</button>
+    <button type="submit" className="plain">
+      Publier
+    </button>
   </div>
 )
 
