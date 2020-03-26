@@ -38,7 +38,7 @@ const update = async post => {
     kpis: kpis,
     post: post
   }
-  console.log("UPDATE POST", variables)
+
   await fetch(query, variables)
 }
 
@@ -54,7 +54,7 @@ const insert = async post => {
   `
 
   post.kpis = { data: post.kpis.filter(kpi => kpi.name && kpi.name.length) }
-  console.log("INSERT POST", post)
+
   const variables = {
     objects: [post]
   }
@@ -71,7 +71,6 @@ export default async (req, res) => {
       throw new Error("Wrong method")
     }
 
-    console.log("auth0", auth0)
     const { user } = (await auth0.getSession(req)) || {}
 
     if (!user) {
@@ -89,8 +88,8 @@ export default async (req, res) => {
     req.body.author = user.nickname
 
     await (req.body.id ? update : insert)(req.body)
-  } catch (e) {
-    console.error(e)
+  } catch (error) {
+    console.error(error)
     if (res.statusCode < 400) {
       res.status(500)
     }

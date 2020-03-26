@@ -18,7 +18,11 @@ const Footer = () => (
     </div>
     <div className="version">
       version {version}{" "}
-      <a href={`https://github.com/SocialGouv/carnets/tree/${revision}`}>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={`https://github.com/SocialGouv/carnets/tree/${revision}`}
+      >
         ({(revision || "").substring(0, 6)})
       </a>
     </div>

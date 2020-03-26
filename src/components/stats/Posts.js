@@ -20,36 +20,38 @@ const Posts = ({ data }) => {
 
   return (
     <div className="posts">
-      <h4>Nombre de publications par semaine</h4>
-      <ContainerDimensions>
-        {({ width, height }) => (
-          <VictoryChart
-            width={width || 0}
-            height={height || 0}
-            domainPadding={{ x: 20, y: 0 }}
-            padding={{ top: 20, bottom: 60, left: 40, right: 40 }}
-          >
-            <VictoryAxis
-              dependentAxis
-              style={styles.axis}
-              label="Publications"
-              tickFormat={t => Math.round(t)}
-            />
-            <VictoryAxis
-              label="Semaines"
-              tickValues={weeks}
-              style={styles.axis}
-            />
-            <VictoryBar
-              x="week"
-              y="count"
-              data={data}
-              barWidth={10}
-              style={styles.bar}
-            />
-          </VictoryChart>
-        )}
-      </ContainerDimensions>
+      <h2>Nombre de publications par semaine</h2>
+      <div className="chart">
+        <ContainerDimensions>
+          {({ width, height }) => (
+            <VictoryChart
+              width={width || 0}
+              height={height || 0}
+              domainPadding={{ x: 20, y: 0 }}
+              padding={{ top: 10, bottom: 40, left: 40, right: 40 }}
+            >
+              <VictoryAxis
+                dependentAxis
+                style={styles.axis}
+                label="Publications"
+                tickFormat={t => Math.round(t)}
+              />
+              <VictoryAxis
+                label="Semaines"
+                tickValues={weeks}
+                style={styles.axis}
+              />
+              <VictoryBar
+                x="week"
+                y="count"
+                data={data}
+                barWidth={10}
+                style={styles.bar}
+              />
+            </VictoryChart>
+          )}
+        </ContainerDimensions>
+      </div>
     </div>
   )
 }
