@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown"
 const Tabs = ({ post }) => {
   const [index, setIndex] = useState(0)
   const tabs = [
-    { name: "Piorités", slug: "priorities" },
+    { name: "Priorités", slug: "priorities" },
     { name: "Besoins", slug: "needs" },
     { name: "Echéances", slug: "term" }
   ]
@@ -17,9 +17,15 @@ const Tabs = ({ post }) => {
             key={i}
             tabIndex={i}
             role="menuitem"
-            onClick={() => setIndex(i)}
-            onKeyPress={() => setIndex(i)}
-            className={index === i ? "selected" : ""}
+            onClick={() =>
+              post[tab.slug] && post[tab.slug].length && setIndex(i)
+            }
+            onKeyPress={() =>
+              post[tab.slug] && post[tab.slug].length && setIndex(i)
+            }
+            className={`${index === i ? "selected" : ""} ${
+              !post[tab.slug] || !post[tab.slug].length ? "disabled" : ""
+            }`}
           >
             {tab.name}
           </div>

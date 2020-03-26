@@ -68,6 +68,12 @@
             color: variables.$font-color;
             border-bottom: 1px solid variables.$font-color;
           }
+
+          &.disabled {
+            opacity: 0.3;
+            cursor: default;
+            color: variables.$font-color;
+          }
         }
       }
 
