@@ -19,7 +19,6 @@ const Publish = ({ post }) => {
     !values.priorities
 
   const trackErrors = () => {
-    console.log("trackErrors", errors, values)
     setErrors({
       kpis: [
         {
@@ -33,7 +32,6 @@ const Publish = ({ post }) => {
   }
 
   const submit = values => {
-    console.log("submit", values)
     const options = {
       method: values.id ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },

@@ -67,8 +67,8 @@ textarea, select, input {
   outline: none;
   border-radius: 2px;
   background-color: #fff;
-  border: 1px solid #ced4da;
   font-size: variables.$font-size;
+  border: 1px solid variables.$border-color;
 
   &.error {
     border: 1px solid #d63626;

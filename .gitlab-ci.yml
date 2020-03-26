@@ -5,14 +5,12 @@ include:
     ref: v9.1.1
 
 variables:
-  PROJECT: "carnets"
   PORT: 3000
+  PROJECT: "carnets"
+  ENABLE_AZURE_POSTGRES: 1
   VALUES_FILE: ./.k8s/app.values.yml
   APP_BASE_URL: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
   HASURA_URL: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/v1/graphql
-  TEST_SIX: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/v1/graphql
-  ENABLE_AZURE_POSTGRES: 1
-  TEST_TWO: "test number two"
 
 Create Azure DB (dev):
   stage: Install

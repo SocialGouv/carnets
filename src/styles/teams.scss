@@ -2,11 +2,12 @@
 
 $border-width: 0.3rem;
 
-.teams {
+.content > .teams {
   padding: 0;
   overflow: auto;
   list-style: none;
-  padding-top: variables.$base-margin * 6;
+  margin: variables.$base-margin * 6 0
+    variables.$base-margin * 2;
 
   .team {
     display: flex;

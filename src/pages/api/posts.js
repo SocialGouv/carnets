@@ -2,14 +2,7 @@ import { fetch } from "../../lib/hasura"
 
 export default async (req, res) => {
   const { slug, id } = req.query
-  // console.log(
-  //   "ID:",
-  //   id,
-  //   !!id,
-  //   id ? "yes" : "no",
-  //   id === "undefined",
-  //   req.params
-  // )
+
   const query = `
     {
       posts(
@@ -34,8 +27,6 @@ export default async (req, res) => {
       }
     }
   `
-
-  // console.log("query", query)
 
   try {
     const data = await fetch(query)
