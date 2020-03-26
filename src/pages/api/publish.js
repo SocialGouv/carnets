@@ -1,4 +1,4 @@
-import auth0 from "../../../src/lib/auth0"
+import Auth0 from "../../../src/lib/auth0"
 import { fetch } from "../../../src/lib/hasura"
 import { isAllowedToPost } from "../../../src/lib/isAllowedToPost"
 
@@ -63,6 +63,8 @@ const insert = async post => {
 }
 
 export default async (req, res) => {
+  const auth0 = Auth0()
+
   try {
     if (req.method !== "POST" && req.method !== "PUT") {
       res.status(405)
