@@ -1,5 +1,5 @@
 import React from "react"
-import auth0 from "../lib/auth0"
+import Auth0 from "../lib/auth0"
 import fetcher from "../lib/fetcher"
 import Nav from "../components/nav/Nav"
 import Footer from "../components/Footer"
@@ -17,24 +17,23 @@ const Page = ({ teams, post }) => (
 )
 
 export async function getServerSideProps({ req, res, query }) {
+  const { id } = query
+  const auth0 = Auth0()
   const user = await auth0.getSession(req)
-  // console.log("user:", user, res)
+  const baseUrl = `http://localhost:${req.socket.localPort}`
+  const teams = await fetcher(`${baseUrl}/api/teams`)
+
   if (!user) {
-    console.log("REDIRECT")
     res.writeHead(301, { Location: "/" })
     res.end()
   }
 
-  console.log("GET DATA")
-  const { id } = query
-  const baseUrl = `http://localhost:${req.socket.localPort}`
-  const teams = await fetcher(`${baseUrl}/api/teams`)
   if (id) {
     const [post] = await fetcher(`${baseUrl}/api/posts?id=${id}`)
     console.log("getServerSideProps", id, teams, post)
     return { props: { teams, post } }
   }
-  // console.log("getServerSideProps", id, teams)
+
   return { props: { teams } }
 }
 

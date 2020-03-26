@@ -1,4 +1,4 @@
-import Auth0 from "../../../src/lib/auth0"
+import Auth0 from "../../lib/auth0"
 import { fetch } from "../../../src/lib/hasura"
 import { isAllowedToPost } from "../../../src/lib/isAllowedToPost"
 
@@ -71,6 +71,7 @@ export default async (req, res) => {
       throw new Error("Wrong method")
     }
 
+    console.log("auth0", auth0)
     const { user } = (await auth0.getSession(req)) || {}
 
     if (!user) {
