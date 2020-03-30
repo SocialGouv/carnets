@@ -40,11 +40,15 @@
     margin-right: variables.$base-margin * 0.5;
 
     .profile {
+      display: flex;
       text-align: right;
+      flex-direction: column;
+      justify-content: center;
       margin-right: variables.$base-margin / 2;
 
       .name {
         font-size: variables.$font-size * 1.1;
+        margin-bottom: variables.$base-margin / 4;
       }
 
       .links {

@@ -7,13 +7,14 @@
 
   .post {
     margin-bottom: variables.$base-margin;
+    box-shadow: rgb(201, 211, 223) 0px 1px 2px;
     background-color: variables.$background-color;
 
     .header {
       display: flex;
       align-items: center;
       padding: 0 variables.$base-margin;
-      border-bottom: 1px solid darken(variables.$base-color, 10%);
+      border-bottom: 1px solid variables.$border-color;
 
       h3 {
         flex: 1;
@@ -35,7 +36,10 @@
       .kpis {
         display: flex;
         justify-content: center;
-        margin-top: variables.$base-margin;
+        padding: variables.$base-margin 0;
+        background-color: variables.$base-color;
+        border: 1px solid variables.$border-color;
+        margin: variables.$base-margin variables.$base-margin 0;
 
         .kpi {
           margin: 0;
@@ -44,8 +48,13 @@
           flex-direction: column;
           padding: 0 variables.$base-margin;
           font-size: variables.$font-size * 1.5;
+          line-height: variables.$font-size * 1.5;
+          font-size: variables.$font-size * 2 !important;
+          border-right: 1px solid variables.$border-color;
 
-          .value {
+
+          &:last-child {
+            border-right: none;
           }
         }
       }
@@ -87,7 +96,7 @@
           display: none;
           padding: variables.$base-margin;
           background-color: variables.$base-color;
-          border: 1px solid darken(variables.$base-color, 5%);
+          border: 1px solid variables.$border-color;
           margin: variables.$base-margin variables.$base-margin 0;
 
           &.selected {
