@@ -1,0 +1,75 @@
+@use "./variables";
+
+.stats {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  align-items: center;
+  flex-direction: column;
+  padding-top: variables.$base-margin * 5;
+  padding-bottom: variables.$base-margin * 3;
+
+  .posts {
+    width: 80%;
+
+    .chart {
+      height: 200px;
+    }
+  }
+
+  .teams {
+    flex: 1;
+    width: 80%;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+
+    table {
+      flex: 1;
+      display: flex;
+      overflow: auto;
+      flex-direction: column;
+      border-collapse: collapse;
+      border: 1px solid variables.$border-color;
+
+      thead {
+        display: block;
+        background-color: variables.$background-color;
+      }
+
+      tbody {
+        flex: 1;
+        display: block;
+        overflow: auto;
+      }
+
+      tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+
+        &:last-child {
+
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+
+      th {
+        font-family: "Source Sans Pro Semi Bold";
+      }
+
+      td, th {
+        border-right: 1px solid variables.$border-color;
+        border-bottom: 1px solid variables.$border-color;
+        padding: variables.$base-margin * 0.2
+            variables.$base-margin * 0.5;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}

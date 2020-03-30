@@ -1,0 +1,53 @@
+@use "./variables";
+
+$border-width: 0.3rem;
+
+.content > .teams {
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+  margin: variables.$base-margin * 6 0
+    variables.$base-margin * 2;
+
+  .team {
+    display: flex;
+    align-items: center;
+    border-left: $border-width solid transparent;
+
+    .avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-size: cover;
+      margin-left: variables.$base-margin;
+    }
+
+    a {
+      flex: 1;
+      white-space: nowrap;
+      // font-family: "Source Sans Pro Light";
+      color: lighten(variables.$font-color, 20%);
+      padding: variables.$base-margin / 1.2
+                variables.$base-margin * 2
+                variables.$base-margin / 1.2
+                variables.$base-margin / 1.5;
+    }
+
+    &:hover {
+      border-left: $border-width solid variables.$secondary-color;
+
+      a {
+        text-decoration: none;
+        color: variables.$secondary-color;
+      }
+    }
+
+    &.selected {
+      border-left: $border-width solid variables.$secondary-color;
+
+      a {
+        color: variables.$secondary-color;
+      }
+    }
+  }
+}

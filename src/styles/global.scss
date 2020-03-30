@@ -1,0 +1,71 @@
+@use "./variables";
+@use "./button";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+}
+
+h1, h2, h3, h4 {
+  margin: variables.$base-margin 0;
+  line-height: variables.$font-size * 2.5;
+  font-family: "Source Sans Pro Semi Bold";
+}
+
+body, small, input, select, textarea, button {
+  color: variables.$font-color;
+  font-size: variables.$font-size;
+  line-height: variables.$font-size;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+small {
+  display: block;
+}
+
+#__next {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.markdown-body {
+  font-size: variables.$font-size !important;
+}
+
+a {
+  text-decoration: none;
+  color: variables.$link-color;
+
+  &:hover:not(.button) {
+    text-decoration: underline;
+  }
+}
+
+textarea, select, input {
+  outline: none;
+  border-radius: 2px;
+  background-color: #fff;
+  font-size: variables.$font-size;
+  border: 1px solid variables.$border-color;
+
+  &.error {
+    border: 1px solid #d63626;
+  }
+}
+
+select {
+  appearance: none;
+  display: inline-block;
+  padding: .375rem 1.75rem .375rem .75rem;
+  height: calc(#{variables.$base-margin * 2} + 2px);
+  background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+}
+
+textarea, input {
+  padding: .375rem .75rem;
+}

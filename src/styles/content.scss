@@ -1,0 +1,17 @@
+@use "./variables";
+
+.content {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+}
+
+@media screen and (max-width: 640px) {
+  .content {
+    // flex-direction: column;
+  }
+
+  .teams {
+    display: none;
+  }
+}

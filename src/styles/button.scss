@@ -1,0 +1,28 @@
+@use "./variables";
+
+button, .button {
+  outline: 0;
+  cursor: pointer;
+  border-radius: 2px;
+  color: variables.$link-color;
+  font-size: variables.$font-size;
+  border: 1px solid variables.$link-color;
+  padding: variables.$base-margin * 0.1 variables.$base-margin / 2;
+
+  &.plain {
+    color: variables.$base-color;
+    background-color: variables.$link-color;
+  }
+
+  &:hover, &:focus {
+    color: variables.$base-color;
+    text-decoration: none !important;
+    border-color: lighten(variables.$link-color, 5%);
+    background-color: lighten(variables.$link-color, 5%);
+  }
+
+  &:active {
+    border-color: darken(variables.$link-color, 5%);
+    background-color: darken(variables.$link-color, 5%);
+  }
+}
