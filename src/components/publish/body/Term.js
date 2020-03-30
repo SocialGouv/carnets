@@ -1,14 +1,9 @@
 import React from "react"
 
-const Term = ({ handleChange, value }) => (
+const Term = props => (
   <label>
     Evénements / Echéances
-    <textarea
-      rows="5"
-      name="term"
-      value={value || ""}
-      onChange={handleChange}
-    />
+    <textarea rows="5" {...props} />
   </label>
 )
 

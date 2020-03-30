@@ -1,14 +1,9 @@
 import React from "react"
 
-const Needs = ({ handleChange, value }) => (
+const Needs = props => (
   <label>
     Besoins
-    <textarea
-      rows="5"
-      name="needs"
-      value={value || ""}
-      onChange={handleChange}
-    />
+    <textarea rows="5" {...props} />
   </label>
 )
 

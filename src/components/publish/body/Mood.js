@@ -1,28 +1,24 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 
-const Mood = ({ handleChange, value }) => {
-  const [selectedMood, setSelectedMood] = useState(value || "😐")
-
-  const update = () =>
-    handleChange({ target: { name: "mood", value: selectedMood } })
-
-  useEffect(() => update(), []) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const onClick = mood => {
-    setSelectedMood(mood)
-    update()
-  }
+const Mood = ({ field }) => {
+  const onClick = mood =>
+    field.onChange({
+      persist: () => {},
+      target: { name: "mood", value: mood, type: "change" }
+    })
 
   return (
     <div className="moods">
       {["😤", "😓", "😐", "😁", "🤩"].map((mood, i) => (
         <div
           key={i}
+          id="mood"
+          value={mood}
           tabIndex={0}
           role="menuitem"
           onClick={() => onClick(mood)}
           onKeyPress={() => onClick(mood)}
-          className={`mood${selectedMood === mood ? " selected" : ""}`}
+          className={`mood${field.value === mood ? " selected" : ""}`}
         >
           {mood}
         </div>
@@ -30,4 +26,5 @@ const Mood = ({ handleChange, value }) => {
     </div>
   )
 }
+
 export default Mood

@@ -5,8 +5,8 @@ const Tabs = ({ post }) => {
   const [index, setIndex] = useState(0)
   const tabs = [
     { name: "Priorités", slug: "priorities" },
-    { name: "Besoins", slug: "needs" },
-    { name: "Echéances", slug: "term" }
+    { name: "Echéances", slug: "term" },
+    { name: "Besoins", slug: "needs" }
   ]
 
   return (

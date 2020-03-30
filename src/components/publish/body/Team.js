@@ -1,12 +1,11 @@
 import React from "react"
 import { TeamsContext } from "../../../lib/teams"
 
-const Team = ({ handleChange, value, error }) => (
+const Team = ({ field, form: { touched, errors }, ...props }) => (
   <select
-    name="team_slug"
-    defaultValue={value}
-    onBlur={handleChange}
-    className={`${error ? "error" : ""}`}
+    {...field}
+    {...props}
+    className={touched[field.name] && errors[field.name] ? "error" : ""}
   >
     <option value="">Equipe*</option>
     <TeamsContext.Consumer>

@@ -1,14 +1,13 @@
 import React from "react"
 
-const Priorities = ({ handleChange, value, error }) => (
+const Priorities = ({ field, form: { touched, errors }, ...props }) => (
   <label>
     Priorités*
     <textarea
-      rows={5}
-      value={value}
-      name="priorities"
-      onChange={handleChange}
-      className={`${error ? "error" : ""}`}
+      rows="5"
+      {...field}
+      {...props}
+      className={touched.priorities && errors.priorities ? "error" : ""}
     />
   </label>
 )

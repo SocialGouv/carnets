@@ -2,35 +2,24 @@ import React from "react"
 import Team from "./Team"
 import Term from "./Term"
 import Mood from "./Mood"
+import KPIs from "./KPIs"
 import Needs from "./Needs"
-import KPIs from "./kpis/KPIs"
 import Priorities from "./Priorities"
+import { Field, FieldArray } from "formik"
 
-const Body = ({ handleChange, values, errors }) => (
+const Body = () => (
   <div className="body">
     <div>
       <div className="team-mood">
-        <Team
-          value={values.team_slug}
-          error={errors.team_slug}
-          handleChange={handleChange}
-        />
-        <Mood handleChange={handleChange} value={values.mood} />
+        <Field name="team_slug" component={Team} />
+        <Field name="mood" component={Mood} />
       </div>
-      <KPIs
-        handleChange={handleChange}
-        values={values.kpis}
-        errors={errors.kpis}
-      />
-      <Priorities
-        value={values.priorities}
-        error={errors.priorities}
-        handleChange={handleChange}
-      />
+      <FieldArray name="kpis" component={KPIs} />
+      <Field name="priorities" component={Priorities} />
     </div>
     <div>
-      <Term handleChange={handleChange} value={values.term} />
-      <Needs handleChange={handleChange} value={values.needs} />
+      <Field name="term" as={Term} />
+      <Field name="needs" as={Needs} />
     </div>
   </div>
 )

@@ -1,8 +1,8 @@
 import React from "react"
 
-const Footer = () => (
+const Footer = ({ isSubmitting }) => (
   <div className="footer">
-    <button type="submit" className="plain">
+    <button type="submit" className="plain" disabled={isSubmitting}>
       Publier
     </button>
   </div>
