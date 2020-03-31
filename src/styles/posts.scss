@@ -42,13 +42,15 @@
         margin: variables.$base-margin variables.$base-margin 0;
 
         .kpi {
+          flex: 1;
           margin: 0;
+          min-width: 0;
           display: flex;
-          align-items: center;
+          text-align: center;
           flex-direction: column;
-          padding: 0 variables.$base-margin;
+          line-height: variables.$font-size;
+          padding: variables.$base-margin / 4 variables.$base-margin 0;
           font-size: variables.$font-size * 1.5;
-          line-height: variables.$font-size * 1.5;
           font-size: variables.$font-size * 2 !important;
           border-right: 1px solid variables.$border-color;
 
@@ -57,7 +59,10 @@
           }
 
           small {
-            text-align: center;
+            flex: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
             margin-top: variables.$base-margin / 3;
           }
         }
@@ -125,5 +130,21 @@
     padding: variables.$base-margin;
     margin: variables.$base-margin 0;
     background-color: variables.$background-color;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .page > .posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(50%, 1fr));
+
+    .post {
+      &:nth-child(odd) {
+        margin-right: variables.$base-margin / 2;
+      }
+      &:nth-child(even) {
+        margin-left: variables.$base-margin / 2;
+      }
+    }
   }
 }

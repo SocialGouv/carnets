@@ -19,7 +19,7 @@ h1, h2, h3, h4 {
 body, small, input, select, textarea, button {
   color: variables.$font-color;
   font-size: variables.$font-size;
-  line-height: variables.$font-size;
+  line-height: variables.$font-size * 1.2;
   font-family: "Source Sans Pro", sans-serif;
 }
 
