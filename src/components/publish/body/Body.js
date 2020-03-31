@@ -1,11 +1,12 @@
 import React from "react"
+import { Field, FieldArray } from "formik"
+
 import Team from "./Team"
 import Term from "./Term"
 import Mood from "./Mood"
 import KPIs from "./KPIs"
 import Needs from "./Needs"
 import Priorities from "./Priorities"
-import { Field, FieldArray } from "formik"
 
 const Body = () => (
   <div className="body">

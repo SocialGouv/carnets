@@ -1,4 +1,5 @@
 import React from "react"
+
 import fetcher from "../lib/fetcher"
 import Nav from "../components/nav/Nav"
 import Footer from "../components/Footer"

@@ -1,4 +1,5 @@
 import React from "react"
+
 import Auth0 from "../lib/auth0"
 import fetcher from "../lib/fetcher"
 import Nav from "../components/nav/Nav"

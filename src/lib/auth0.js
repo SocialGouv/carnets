@@ -1,21 +1,6 @@
 import { initAuth0 } from "@auth0/nextjs-auth0"
 
 const Auth0 = () => {
-  console.log("Auth0 - process.env.APP_BASE_URL:", process.env.APP_BASE_URL)
-  console.log("Auth0 - process.env.AUTH0_DOMAIN:", process.env.AUTH0_DOMAIN)
-  console.log(
-    "Auth0 - process.env.AUTH0_CLIENT_ID:",
-    process.env.AUTH0_CLIENT_ID
-  )
-  console.log(
-    "Auth0 - process.env.AUTH0_CLIENT_SECRET:",
-    process.env.AUTH0_CLIENT_SECRET
-  )
-  console.log(
-    "Auth0 - process.env.AUTH0_SESSION_COOKIE_SECRET:",
-    process.env.AUTH0_SESSION_COOKIE_SECRET
-  )
-
   return initAuth0({
     scope: "openid profile",
     domain: process.env.AUTH0_DOMAIN,
