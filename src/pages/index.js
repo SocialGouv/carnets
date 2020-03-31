@@ -26,7 +26,10 @@ const Page = ({ teams, posts }) => (
 export async function getServerSideProps({ req }) {
   const baseUrl = `http://localhost:${req.socket.localPort}`
   const teams = await fetcher(`${baseUrl}/api/teams`)
-  const posts = await fetcher(`${baseUrl}/api/posts`)
+  const slugs = teams.map(({ slug }) => slug)
+  const posts = (await fetcher(`${baseUrl}/api/posts`)).filter(post =>
+    slugs.includes(post.team_slug)
+  )
   return { props: { teams, posts } }
 }
 
