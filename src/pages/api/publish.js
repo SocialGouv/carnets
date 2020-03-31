@@ -33,11 +33,7 @@ const update = async post => {
 
   delete post.kpis
 
-  const variables = {
-    id: id,
-    kpis: kpis,
-    post: post
-  }
+  const variables = { id, kpis, post }
 
   await fetch(query, variables)
 }

@@ -1,11 +1,12 @@
+import { Formik, Form } from "formik"
+import React, { useState } from "react"
+
 import Header from "./Header"
 import Footer from "./Footer"
 import Loader from "./Loader"
 import Body from "./body/Body"
 import Message from "./Message"
 import Router from "next/router"
-import React, { useState } from "react"
-import { Formik, Form } from "formik"
 
 const Publish = ({ post }) => {
   const [message, setMessage] = useState()

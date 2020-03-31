@@ -1,10 +1,11 @@
-import "../styles/main.scss"
-import "github-markdown-css"
-
 import useSWR from "swr"
+import React, { useState, useEffect } from "react"
+
 import fetcher from "../lib/fetcher"
 import { UserContext } from "../lib/user"
-import React, { useState, useEffect } from "react"
+
+import "../styles/main.scss"
+import "github-markdown-css"
 
 const App = ({ Component, pageProps }) => {
   const [user, setUser] = useState()

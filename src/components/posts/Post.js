@@ -1,4 +1,5 @@
 import React from "react"
+
 import Tabs from "./Tabs"
 import Edit from "./Edit"
 import Info from "./Info"
@@ -10,12 +11,10 @@ const Post = ({ post }) => (
     <div className="header">
       <div className="mood">{post.mood}</div>
       <TeamsContext.Consumer>
-        {teams =>
-          teams.map(
-            (team, i) =>
-              team.slug === post.team_slug && <h3 key={i}>{team.name}</h3>
-          )
-        }
+        {teams => {
+          const team = teams.find(team => team.slug === post.team_slug)
+          return team && <h3>{team.name}</h3>
+        }}
       </TeamsContext.Consumer>
       <Edit post={post} />
     </div>

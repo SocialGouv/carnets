@@ -1,5 +1,6 @@
 import React from "react"
 import Team from "./Team"
+
 import { TeamsContext } from "../../lib/teams"
 
 const Teams = ({ slug }) => (

@@ -1,11 +1,5 @@
 import { GraphQLClient } from "graphql-request"
 
-console.log("hasura - process.env.HASURA_URL:", process.env.HASURA_URL)
-console.log(
-  "hasura - process.env.HASURA_GRAPHQL_ADMIN_SECRET:",
-  process.env.HASURA_GRAPHQL_ADMIN_SECRET
-)
-
 const url = process.env.HASURA_URL
 const secret = process.env.HASURA_GRAPHQL_ADMIN_SECRET
 
