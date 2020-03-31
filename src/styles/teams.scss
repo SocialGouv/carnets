@@ -6,7 +6,7 @@ $border-width: 0.3rem;
   padding: 0;
   overflow: auto;
   list-style: none;
-  margin: variables.$base-margin * 6 0
+  padding: variables.$base-margin * 6 0
     variables.$base-margin * 2;
 
   .team {
