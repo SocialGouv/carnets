@@ -21,9 +21,11 @@ deployment:
 
   livenessProbe:
     path: /health
+    port: ${PORT}
     periodSeconds: 20
   readinessProbe:
     path: /health
+    port: ${PORT}
     periodSeconds: 20
 
   resources:
