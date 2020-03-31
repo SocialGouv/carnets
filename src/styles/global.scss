@@ -12,8 +12,16 @@ body {
 
 h1, h2, h3, h4 {
   margin: variables.$base-margin 0;
-  line-height: variables.$font-size * 2.5;
   font-family: "Source Sans Pro Semi Bold";
+}
+
+h2 {
+  line-height: variables.$font-size * 2;
+}
+
+h3, h4 {
+  font-size: variables.$font-size * 1.5;
+  line-height: variables.$font-size * 1.5;
 }
 
 body, small, input, select, textarea, button {

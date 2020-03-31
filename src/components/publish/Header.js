@@ -2,7 +2,7 @@ import React from "react"
 
 const Header = () => (
   <h2 className="header">
-    <div>Publier une nouvelle</div>
+    Publier une nouvelle
     <small>
       Faites le point sur la semaine qui vient de s&#39;écouler, en 5 minutes.
     </small>
