@@ -2,11 +2,14 @@
 
 .page {
   flex: 1;
+  display: flex;
   overflow: auto;
+  flex-direction: column;
   padding-bottom: variables.$base-margin;
   padding-top: variables.$base-margin * 6;
 
   .intro {
+    flex: 1;
     display: flex;
     align-items: center;
     margin: 0 variables.$base-margin variables.$base-margin;
@@ -14,6 +17,8 @@
     .avatar {
       width: 80px;
       height: 80px;
+      min-width: 80px;
+      min-height: 80px;
       background-size: cover;
       margin-right: variables.$base-margin;
     }
