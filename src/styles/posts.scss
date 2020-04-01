@@ -6,6 +6,9 @@
     variables.$base-margin * 2;
 
   .post {
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
     margin-bottom: variables.$base-margin;
     box-shadow: rgb(201, 211, 223) 0px 1px 2px;
     background-color: variables.$background-color;
@@ -32,6 +35,10 @@
     }
 
     .body {
+      flex: 1;
+      display: flex;
+      overflow: auto;
+      flex-direction: column;
 
       .kpis {
         display: flex;
@@ -97,9 +104,15 @@
       }
 
       .panels {
+        flex: 1;
+        display: flex;
+        overflow: auto;
+        max-height: 15rem;
+        min-height: 15rem;
 
         div {
           display: none;
+          overflow: auto;
           padding: variables.$base-margin;
           background-color: variables.$base-color;
           border: 1px solid variables.$border-color;
