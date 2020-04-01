@@ -35,35 +35,32 @@
 
       .kpis {
         display: flex;
-        justify-content: center;
-        padding: variables.$base-margin 0;
+        padding: variables.$base-margin;
         background-color: variables.$base-color;
         border: 1px solid variables.$border-color;
         margin: variables.$base-margin variables.$base-margin 0;
 
         .kpi {
           flex: 1;
-          margin: 0;
           min-width: 0;
-          display: flex;
           text-align: center;
-          flex-direction: column;
-          line-height: variables.$font-size;
-          padding: variables.$base-margin / 4 variables.$base-margin 0;
-          font-size: variables.$font-size * 1.5;
-          font-size: variables.$font-size * 2 !important;
           border-right: 1px solid variables.$border-color;
+          padding: variables.$base-margin / 4 variables.$base-margin 0;
+
+          .value, .name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
 
           &:last-child {
             border-right: none;
           }
 
-          small {
-            flex: 1;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            margin-top: variables.$base-margin / 3;
+          .value {
+            line-height: variables.$font-size * 1.8;
+            font-size: variables.$font-size * 2;
+            font-family: "Source Sans Pro Semi Bold";
           }
         }
       }
@@ -109,6 +106,7 @@
           margin: variables.$base-margin variables.$base-margin 0;
 
           &.selected {
+            flex: 1;
             display: block;
           }
         }

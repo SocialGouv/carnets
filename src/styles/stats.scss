@@ -21,14 +21,10 @@
     flex: 1;
     width: 80%;
     display: flex;
-    overflow: auto;
     flex-direction: column;
 
     table {
       flex: 1;
-      display: flex;
-      overflow: auto;
-      flex-direction: column;
       border-collapse: collapse;
       border: 1px solid variables.$border-color;
 
@@ -40,20 +36,19 @@
       tbody {
         flex: 1;
         display: block;
-        overflow: auto;
+
+        tr:last-child {
+
+          td, th {
+            border-bottom: none;
+          }
+        }
       }
 
       tr {
         width: 100%;
         display: table;
         table-layout: fixed;
-
-        &:last-child {
-
-          td {
-            border-bottom: none;
-          }
-        }
       }
 
       th {
