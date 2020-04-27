@@ -1,6 +1,14 @@
-This project is based on [Next.js](https://nextjs.org/).
+# Carnets
+
+Carnet de bord des produits de la fabrique numériques des Ministères sociaux
+
+## Fonctionnement
+
+Toutes les infos pour mettre à jour vos informations sont [sur le wiki](https://github.com/SocialGouv/www/wiki/Inscrire-son-%C3%A9quipe-au-standup)
 
 ## Development
+
+This project is based on [Next.js](https://nextjs.org/).
 
 Run Postgres and Hasura containers:
 
