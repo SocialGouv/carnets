@@ -31,7 +31,7 @@ deployment:
     - name: HASURA_GRAPHQL_DATABASE_URL
       value: "${HASURA_GRAPHQL_DATABASE_URL}"
     - name: HASURA_GRAPHQL_ENABLE_CONSOLE
-      value: "true"
+      value: "false"
     - name: HASURA_GRAPHQL_ADMIN_SECRET
       value: "${HASURA_GRAPHQL_ADMIN_SECRET}"
     - name: HASURA_GRAPHQL_SERVER_PORT
