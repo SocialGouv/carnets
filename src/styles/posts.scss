@@ -135,13 +135,14 @@
       }
     }
   }
+}
 
-  .empty {
-    text-align: center;
-    padding: variables.$base-margin;
-    margin: variables.$base-margin 0;
-    background-color: variables.$background-color;
-  }
+.empty {
+  text-align: center;
+  align-self: center;
+  margin: variables.$base-margin 0;
+  background-color: variables.$background-color;
+  padding: variables.$base-margin variables.$base-margin * 2;
 }
 
 @media screen and (min-width: 1100px) {
