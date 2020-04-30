@@ -6,7 +6,7 @@ import { UserContext } from "../../lib/user"
 const Menu = () => (
   <div className="menu">
     <UserContext.Consumer>
-      {user =>
+      {(user) =>
         user && !user.error ? (
           <>
             <div className="profile">

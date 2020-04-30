@@ -9,8 +9,8 @@ export const fetch = async (query, variables) => {
   const graphQLClient = new GraphQLClient(url, {
     headers: {
       "content-type": "application/json",
-      "x-hasura-admin-secret": secret
-    }
+      "x-hasura-admin-secret": secret,
+    },
   })
 
   return await graphQLClient.request(query, variables)

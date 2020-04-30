@@ -1,6 +1,6 @@
 import React from "react"
 
-const Needs = props => (
+const Needs = (props) => (
   <label>
     Besoins
     <textarea rows="5" {...props} />

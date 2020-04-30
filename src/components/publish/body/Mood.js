@@ -1,10 +1,10 @@
 import React from "react"
 
 const Mood = ({ field }) => {
-  const onClick = mood =>
+  const onClick = (mood) =>
     field.onChange({
       persist: () => {},
-      target: { name: "mood", value: mood, type: "change" }
+      target: { name: "mood", value: mood, type: "change" },
     })
 
   return (

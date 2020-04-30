@@ -6,7 +6,7 @@ const Tabs = ({ post }) => {
   const tabs = [
     { name: "Priorités", slug: "priorities" },
     { name: "Echéances", slug: "term" },
-    { name: "Besoins", slug: "needs" }
+    { name: "Besoins", slug: "needs" },
   ]
 
   return (

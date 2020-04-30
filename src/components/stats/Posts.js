@@ -7,15 +7,15 @@ const Posts = ({ data }) => {
 
   const styles = {
     bar: {
-      data: { fill: "#54677A" }
+      data: { fill: "#54677A" },
     },
     axis: {
       grid: { stroke: "#eee" },
       axis: { stroke: "#54677A" },
       ticks: { stroke: "#54677A", size: 5 },
       axisLabel: { fontSize: 16, padding: 25, stroke: "#54677A" },
-      tickLabels: { fontSize: 12, padding: 4, stroke: "#54677A" }
-    }
+      tickLabels: { fontSize: 12, padding: 4, stroke: "#54677A" },
+    },
   }
 
   return (
@@ -34,7 +34,7 @@ const Posts = ({ data }) => {
                 dependentAxis
                 style={styles.axis}
                 label="Publications"
-                tickFormat={t => Math.round(t)}
+                tickFormat={(t) => Math.round(t)}
               />
               <VictoryAxis
                 label="Semaines"
