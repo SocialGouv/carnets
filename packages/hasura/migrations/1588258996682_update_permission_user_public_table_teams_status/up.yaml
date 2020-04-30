@@ -1,0 +1,16 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - kpis_count
+      - mood
+      - team_slug
+      - last_post
+      computed_fields: []
+      filter: {}
+      limit: 300
+    role: user
+    table:
+      name: teams_status
+      schema: public
+  type: create_select_permission

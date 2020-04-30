@@ -114,9 +114,45 @@ tables:
 - table:
     schema: public
     name: posts_stat
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - year
+      - week
+      - count
+      filter: {}
+      limit: 300
+  - role: user
+    permission:
+      columns:
+      - week
+      - year
+      - count
+      filter: {}
+      limit: 300
 - table:
     schema: public
     name: teams_status
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - team_slug
+      - last_post
+      - kpis_count
+      - mood
+      filter: {}
+      limit: 300
+  - role: user
+    permission:
+      columns:
+      - kpis_count
+      - mood
+      - team_slug
+      - last_post
+      filter: {}
+      limit: 300
 remote_schemas:
 - name: Github
   definition:
