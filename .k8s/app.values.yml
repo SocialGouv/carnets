@@ -61,6 +61,8 @@ deployment:
       value: "${HASURA_URL}"
     - name: APP_BASE_URL
       value: "${APP_BASE_URL}"
+    - name: SENTRY_DSN
+      value: "${SENTRY_DSN}"
 
   initContainers:
     - name: wait-for-hasura
