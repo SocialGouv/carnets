@@ -1,0 +1,15 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - week
+      - year
+      - count
+      computed_fields: []
+      filter: {}
+      limit: 300
+    role: user
+    table:
+      name: posts_stat
+      schema: public
+  type: create_select_permission
