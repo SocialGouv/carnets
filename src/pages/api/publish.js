@@ -2,7 +2,7 @@ import Auth0 from "../../lib/auth0"
 import { fetch } from "../../../src/lib/hasura"
 import { isAllowedToPost } from "../../../src/lib/isAllowedToPost"
 
-const update = async post => {
+const update = async (post) => {
   const query = `
     mutation update_posts($id: uuid, $post: posts_set_input, $kpis: [kpis_insert_input!]!) {
       update_posts(where: {id: {_eq: $id}}, _set: $post) {
@@ -25,8 +25,8 @@ const update = async post => {
   delete post.id
 
   const kpis = post.kpis
-    .filter(kpi => kpi.name && kpi.name.length)
-    .map(kpi => {
+    .filter((kpi) => kpi.name && kpi.name.length)
+    .map((kpi) => {
       kpi.post_id = id
       return kpi
     })
@@ -38,7 +38,7 @@ const update = async post => {
   await fetch(query, variables)
 }
 
-const insert = async post => {
+const insert = async (post) => {
   const query = `
     mutation insert_posts($objects: [posts_insert_input!]!) {
       insert_posts(objects: $objects) {
@@ -49,10 +49,10 @@ const insert = async post => {
     }
   `
 
-  post.kpis = { data: post.kpis.filter(kpi => kpi.name && kpi.name.length) }
+  post.kpis = { data: post.kpis.filter((kpi) => kpi.name && kpi.name.length) }
 
   const variables = {
-    objects: [post]
+    objects: [post],
   }
 
   await fetch(query, variables)

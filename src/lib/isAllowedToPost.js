@@ -8,15 +8,15 @@ const auth = Buffer.from(`${user}:${token}`).toString("base64")
 
 const options = {
   headers: {
-    Authorization: `Basic ${auth}`
-  }
+    Authorization: `Basic ${auth}`,
+  },
 }
 
-export const isAllowedToPost = username => {
+export const isAllowedToPost = (username) => {
   return fetch(
     `https://api.github.com/orgs/${allowedOrganisation}/members/${username}`,
     options
   )
-    .then(r => console.log(r.status) || r.status === 204)
+    .then((r) => console.log(r.status) || r.status === 204)
     .catch(() => false)
 }

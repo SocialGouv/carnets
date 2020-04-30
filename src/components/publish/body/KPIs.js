@@ -7,8 +7,8 @@ const KPIs = ({
   form: {
     errors,
     touched,
-    values: { kpis }
-  }
+    values: { kpis },
+  },
 }) => {
   const defaultKpi = { name: "", value: "" }
   const add = () => push({ ...defaultKpi })

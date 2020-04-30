@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faSun,
   faCloudSun,
-  faCloudShowersHeavy
+  faCloudShowersHeavy,
 } from "@fortawesome/free-solid-svg-icons"
 
 const Weather = ({ handleChange, value }) => {
   const [selectedWeather, setSelectedWeather] = useState(value || "😐")
 
-  const onClick = weather => {
+  const onClick = (weather) => {
     console.log("selectedWeather", selectedWeather)
     setSelectedWeather(weather)
     handleChange({ target: { name: "weather", value: weather } })
@@ -35,4 +35,5 @@ const Weather = ({ handleChange, value }) => {
     </div>
   )
 }
+
 export default Weather

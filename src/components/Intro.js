@@ -4,7 +4,7 @@ import { TeamsContext } from "../lib/teams"
 
 const Intro = ({ slug }) => (
   <TeamsContext.Consumer>
-    {teams =>
+    {(teams) =>
       teams.map(
         (team, i) =>
           team.slug === slug && (

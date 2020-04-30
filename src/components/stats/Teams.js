@@ -4,8 +4,8 @@ import moment from "moment"
 moment.locale("fr")
 
 const Teams = ({ data, teams }) => {
-  teams = teams.map(team => {
-    const status = data.find(item => item.team_slug === team.slug)
+  teams = teams.map((team) => {
+    const status = data.find((item) => item.team_slug === team.slug)
     return { ...team, ...status }
   })
 

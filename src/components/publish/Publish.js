@@ -11,11 +11,11 @@ import Router from "next/router"
 const Publish = ({ post }) => {
   const [message, setMessage] = useState()
 
-  const submit = values => {
+  const submit = (values) => {
     const options = {
       method: values.id ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...values, created_at: new Date() })
+      body: JSON.stringify({ ...values, created_at: new Date() }),
     }
     return fetch("/api/publish", options)
   }
@@ -26,10 +26,10 @@ const Publish = ({ post }) => {
     mood: "😐",
     team_slug: "",
     priorities: "",
-    kpis: [{ name: "", value: "" }]
+    kpis: [{ name: "", value: "" }],
   }
 
-  const validate = values => {
+  const validate = (values) => {
     const errors = {}
     if (!values.team_slug) {
       errors.team_slug = "Required"

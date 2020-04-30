@@ -9,7 +9,7 @@ const Team = ({ field, form: { touched, errors }, ...props }) => (
   >
     <option value="">Equipe*</option>
     <TeamsContext.Consumer>
-      {teams =>
+      {(teams) =>
         teams.map((team, i) => (
           <option key={i} value={team.slug}>
             {team.name}

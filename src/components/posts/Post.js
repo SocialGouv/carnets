@@ -11,8 +11,8 @@ const Post = ({ post }) => (
     <div className="header">
       <div className="mood">{post.mood}</div>
       <TeamsContext.Consumer>
-        {teams => {
-          const team = teams.find(team => team.slug === post.team_slug)
+        {(teams) => {
+          const team = teams.find((team) => team.slug === post.team_slug)
           return team && <h3>{team.name}</h3>
         }}
       </TeamsContext.Consumer>
