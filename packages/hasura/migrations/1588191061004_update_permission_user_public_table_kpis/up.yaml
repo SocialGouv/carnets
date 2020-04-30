@@ -1,0 +1,15 @@
+- args:
+    permission:
+      columns:
+      - name
+      - value
+      filter: {}
+      localPresets:
+      - key: ""
+        value: ""
+      set: {}
+    role: user
+    table:
+      name: kpis
+      schema: public
+  type: create_update_permission
