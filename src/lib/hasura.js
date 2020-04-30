@@ -1,17 +1,13 @@
 import { GraphQLClient } from "graphql-request"
 
 const url = process.env.HASURA_URL
-const secret = process.env.HASURA_GRAPHQL_ADMIN_SECRET
+// const secret = process.env.HASURA_GRAPHQL_ADMIN_SECRET
 
 console.log("HASURA URL:", url)
 
-export const fetch = async (query, variables) => {
-  const graphQLClient = new GraphQLClient(url, {
-    headers: {
-      "content-type": "application/json",
-      "x-hasura-admin-secret": secret,
-    },
-  })
-
+export const fetch = async (query, variables, token) => {
+  const headers = { "content-type": "application/json" }
+  if (token) headers.Authorization = `Bearer ${token}`
+  const graphQLClient = new GraphQLClient(url, { headers })
   return await graphQLClient.request(query, variables)
 }

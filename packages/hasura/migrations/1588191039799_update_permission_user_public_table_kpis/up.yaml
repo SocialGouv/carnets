@@ -1,0 +1,17 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - name
+      - value
+      - created_at
+      - id
+      - post_id
+      computed_fields: []
+      filter: {}
+      limit: 300
+    role: user
+    table:
+      name: kpis
+      schema: public
+  type: create_select_permission

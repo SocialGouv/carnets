@@ -13,9 +13,9 @@ const Publish = ({ post }) => {
 
   const submit = (values) => {
     const options = {
+      body: JSON.stringify(values),
       method: values.id ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...values, created_at: new Date() }),
     }
     return fetch("/api/publish", options)
   }

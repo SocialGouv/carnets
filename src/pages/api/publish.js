@@ -2,7 +2,7 @@ import Auth0 from "../../lib/auth0"
 import { fetch } from "../../../src/lib/hasura"
 import { isAllowedToPost } from "../../../src/lib/isAllowedToPost"
 
-const update = async (post) => {
+const update = async (post, accessToken) => {
   const query = `
     mutation update_posts($id: uuid, $post: posts_set_input, $kpis: [kpis_insert_input!]!) {
       update_posts(where: {id: {_eq: $id}}, _set: $post) {
@@ -23,11 +23,13 @@ const update = async (post) => {
   const id = post.id
 
   delete post.id
+  delete post.created_at
 
   const kpis = post.kpis
     .filter((kpi) => kpi.name && kpi.name.length)
     .map((kpi) => {
       kpi.post_id = id
+      delete kpi.id
       return kpi
     })
 
@@ -35,10 +37,10 @@ const update = async (post) => {
 
   const variables = { id, kpis, post }
 
-  await fetch(query, variables)
+  await fetch(query, variables, accessToken)
 }
 
-const insert = async (post) => {
+const insert = async (post, accessToken) => {
   const query = `
     mutation insert_posts($objects: [posts_insert_input!]!) {
       insert_posts(objects: $objects) {
@@ -55,7 +57,7 @@ const insert = async (post) => {
     objects: [post],
   }
 
-  await fetch(query, variables)
+  await fetch(query, variables, accessToken)
 }
 
 export default async (req, res) => {
@@ -74,6 +76,14 @@ export default async (req, res) => {
       throw new Error("Unknown user")
     }
 
+    const tokenCache = await auth0.tokenCache(req, res)
+    const { accessToken } = await tokenCache.getAccessToken()
+
+    if (!accessToken || !accessToken.length) {
+      res.status(403)
+      throw new Error(`Cannot get user's access token`)
+    }
+
     const granted = await isAllowedToPost(user.nickname)
 
     if (!granted) {
@@ -83,7 +93,7 @@ export default async (req, res) => {
 
     req.body.author = user.nickname
 
-    await (req.body.id ? update : insert)(req.body)
+    await (req.body.id ? update : insert)(req.body, accessToken)
   } catch (error) {
     console.error(error)
     if (res.statusCode < 400) {
