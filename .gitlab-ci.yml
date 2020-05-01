@@ -18,6 +18,7 @@ variables:
   ENABLE_AZURE_POSTGRES: 1
   VALUES_FILE: ./.k8s/app.values.yml
   # todo : how to PROD ?
+  APP_BASE_URL: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
 
 Create namespace:
   extends:
