@@ -1,4 +1,4 @@
-import Auth0 from "../../../lib/auth0"
+import Auth0 from "@lib/auth0"
 
 export default async function login(req, res) {
   const auth0 = Auth0()

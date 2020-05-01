@@ -1,11 +1,11 @@
 import React from "react"
 
-import Auth0 from "../lib/auth0"
-import fetcher from "../lib/fetcher"
-import Nav from "../components/nav/Nav"
-import Footer from "../components/Footer"
-import { TeamsContext } from "../lib/teams"
-import Publish from "../components/publish/Publish"
+import Auth0 from "@lib/auth0"
+import fetcher from "@lib/fetcher"
+import Nav from "@components/nav/Nav"
+import Footer from "@components/Footer"
+import { TeamsContext } from "@lib/teams"
+import Publish from "@components/publish/Publish"
 
 const Page = ({ teams, post }) => (
   <TeamsContext.Provider value={teams}>

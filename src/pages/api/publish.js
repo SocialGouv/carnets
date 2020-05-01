@@ -1,6 +1,6 @@
-import Auth0 from "../../lib/auth0"
-import { fetch } from "../../../src/lib/hasura"
-import { isAllowedToPost } from "../../../src/lib/isAllowedToPost"
+import Auth0 from "@lib/auth0"
+import { fetch } from "@lib/hasura"
+import { isAllowedToPost } from "@lib/isAllowedToPost"
 
 const update = async (post, accessToken) => {
   const query = `

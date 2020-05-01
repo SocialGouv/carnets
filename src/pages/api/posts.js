@@ -1,4 +1,4 @@
-import { fetch } from "../../lib/hasura"
+import { fetch } from "@lib/hasura"
 
 export default async (req, res) => {
   const { slug, id } = req.query

@@ -2,7 +2,7 @@ import React from "react"
 import Link from "next/link"
 import { LogIn, Edit3, BarChart2, LogOut } from "react-feather"
 
-import { UserContext } from "../../lib/user"
+import { UserContext } from "@lib/user"
 
 const Menu = () => (
   <div className="menu">
