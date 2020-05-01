@@ -11,7 +11,6 @@ include:
 
 variables:
   PORT: 3000
-  # PROJECT: "covid"
   PROJECT: "carnets"
   TEST_DISABLED: 1
   NOTIFY_DISABLED: 1
@@ -26,10 +25,6 @@ Create namespace:
     # Copy namespace default creds
     - kubectl get secret carnets-secrets --namespace=carnets-secret --export -o yaml |
       kubectl apply --namespace=${K8S_NAMESPACE} -f -
-  # after_script:
-  #   # Copy namespace default creds
-  #   - kubectl get secret covid-secrets --namespace=covid-secret --export -o yaml |
-  #     kubectl apply --namespace=${K8S_NAMESPACE} -f -
 
 Register image Hasura:
   extends: .autodevops_register_image
@@ -50,8 +45,8 @@ Deploy app (dev):
   variables:
     PG_HOST: carnetsdevserver.postgres.database.azure.com
     HELM_RENDER_ARGS: >-
-      --set deployment.env[1].name=APP_BASE_URL
-      --set deployment.env[1].value=https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+      --set deployment.env[4].name=APP_BASE_URL
+      --set deployment.env[4].value=https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
 
 .deploy_hasura:
   extends:
@@ -68,8 +63,8 @@ Deploy app Hasura (dev):
   variables:
     PG_HOST: carnetsdevserver.postgres.database.azure.com
     HELM_RENDER_ARGS: >-
-      --set deployment.env[11].name=HASURA_GRAPHQL_DATABASE_URL
-      --set deployment.env[11].value=postgresql://user_${CI_COMMIT_SHORT_SHA}%40${PG_HOST}:pass_${CI_COMMIT_SHORT_SHA}@${PG_HOST}:5432/db_${CI_COMMIT_SHORT_SHA}?sslmode=require
+      --set deployment.env[7].name=HASURA_GRAPHQL_DATABASE_URL
+      --set deployment.env[7].value=postgresql://user_${CI_COMMIT_SHORT_SHA}%40${PG_HOST}:pass_${CI_COMMIT_SHORT_SHA}@${PG_HOST}:5432/db_${CI_COMMIT_SHORT_SHA}?sslmode=require
 
 Deploy app Hasura (prod):
   extends:
