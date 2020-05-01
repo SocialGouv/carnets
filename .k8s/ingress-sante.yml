@@ -1,0 +1,59 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/ingress.class: azure/application-gateway
+  labels:
+    app.kubernetes.io/instance: prod-carnets
+    app.kubernetes.io/name: carnets
+    app.kubernetes.io/part-of: carnets
+    app.kubernetes.io/version: "1"
+    owner: carnets
+    team: carnets
+  name: prod-carnets-sante
+  namespace: carnets
+spec:
+  rules:
+    - host: carnets.sante.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: prod-carnets
+              servicePort: 3000
+            path: /
+    - host: www.carnets.sante.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: prod-carnets
+              servicePort: 3000
+            path: /
+    - host: carnets.sante.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: prod-carnets
+              servicePort: 3000
+            path: /
+    - host: www.carnets.sante.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: prod-carnets
+              servicePort: 3000
+            path: /
+  tls:
+    - hosts:
+        - carnets.sante.gouv.fr
+      secretName: carnets-sante-gouv-fr-v2
+    - hosts:
+        - www.carnets.sante.gouv.fr
+      secretName: carnets-sante-gouv-fr-v2
+    - hosts:
+        - carnets.sante.gouv.fr
+      secretName: carnets-sante-gouv-fr-v2
+    - hosts:
+        - www.carnets.sante.gouv.fr
+      secretName: carnets-sante-gouv-fr-v2
