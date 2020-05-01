@@ -1,6 +1,6 @@
 import React from "react"
 import { Field } from "formik"
-import { PlusSquare, MinusSquare } from "react-feather"
+import { Plus, Minus } from "react-feather"
 
 const KPIs = ({
   push,
@@ -49,7 +49,7 @@ const KPIs = ({
                 onClick={() => add()}
                 onKeyPress={() => add()}
               >
-                <PlusSquare color="darkblue" size={24} />
+                <Plus color="darkblue" size={18} />
               </div>
             ) : (
               <div
@@ -59,7 +59,7 @@ const KPIs = ({
                 onClick={() => remove(index)}
                 onKeyPress={() => remove(index)}
               >
-                <MinusSquare color="crimson" size={24} />
+                <Minus color="crimson" size={18} />
               </div>
             )}
           </div>
