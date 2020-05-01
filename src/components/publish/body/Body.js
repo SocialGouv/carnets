@@ -2,11 +2,9 @@ import React from "react"
 import { Field, FieldArray } from "formik"
 
 import Team from "./Team"
-import Term from "./Term"
 import Mood from "./Mood"
 import KPIs from "./KPIs"
-import Needs from "./Needs"
-import Priorities from "./Priorities"
+import Textfield from "./Textfield"
 
 const Body = () => (
   <div className="body">
@@ -16,11 +14,11 @@ const Body = () => (
         <Field name="mood" component={Mood} />
       </div>
       <FieldArray name="kpis" component={KPIs} />
-      <Field name="priorities" component={Priorities} />
+      <Field name="priorities" label="Priorités" component={Textfield} />
     </div>
     <div>
-      <Field name="term" as={Term} />
-      <Field name="needs" as={Needs} />
+      <Field name="term" label="Evénements / Echéances" component={Textfield} />
+      <Field name="needs" label="Besoins" component={Textfield} />
     </div>
   </div>
 )
