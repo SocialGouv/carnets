@@ -2,12 +2,19 @@
 
 button, .button {
   outline: 0;
+  display: flex;
   cursor: pointer;
   border-radius: 2px;
+  align-items: center;
+  justify-content: center;
   color: variables.$link-color;
   font-size: variables.$font-size;
   border: 1px solid variables.$link-color;
   padding: variables.$base-margin * 0.1 variables.$base-margin / 2;
+
+  svg {
+    margin-right: variables.$base-margin / 4;
+  }
 
   &.plain {
     color: variables.$base-color;

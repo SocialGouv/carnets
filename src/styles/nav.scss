@@ -53,10 +53,17 @@
       }
 
       .links {
+        display: flex;
         a {
+          display: flex;
+          align-items: center;
           font-size: variables.$font-size / 1.1;
           padding: 0 variables.$base-margin / 4;
           border-right: 1px solid darken(variables.$background-color, 10%);
+
+          svg {
+            margin-right: variables.$base-margin / 4;
+          }
 
           &:last-child {
             padding-right: 0;

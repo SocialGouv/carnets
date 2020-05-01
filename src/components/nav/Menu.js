@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "next/link"
+import { LogIn, Edit3, BarChart2, LogOut } from "react-feather"
 
 import { UserContext } from "../../lib/user"
 
@@ -13,13 +14,22 @@ const Menu = () => (
               <div className="name">{user.name}</div>
               <div className="links">
                 <Link href="/publish" as="/publish">
-                  <a>Publier</a>
+                  <a>
+                    <Edit3 size={12} />
+                    Publier
+                  </a>
                 </Link>
                 <Link href="/stats" as="/stats">
-                  <a>Statistiques</a>
+                  <a>
+                    <BarChart2 size={12} />
+                    Statistiques
+                  </a>
                 </Link>
                 <Link href="/api/auth0/logout" as="/api/auth0/logout">
-                  <a className="logout">Déconnexion</a>
+                  <a className="logout">
+                    <LogOut size={12} />
+                    Déconnexion
+                  </a>
                 </Link>
               </div>
             </div>
@@ -30,7 +40,9 @@ const Menu = () => (
           </>
         ) : (
           <Link href="/api/auth0/login" as="/api/auth0/login">
-            <a className="button">Login</a>
+            <a className="button">
+              <LogIn size={12} /> Login
+            </a>
           </Link>
         )
       }
