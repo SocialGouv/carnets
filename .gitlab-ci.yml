@@ -49,10 +49,9 @@ Deploy app (dev):
   extends: .autodevops_deploy_app_dev
   variables:
     PG_HOST: carnetsdevserver.postgres.database.azure.com
-    APP_BASE_URL: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
     HELM_RENDER_ARGS: >-
-      --set deployment.env[3].name=DATABASE_URL
-      --set deployment.env[3].value=postgresql://user_${CI_COMMIT_SHORT_SHA}%40${PG_HOST}:pass_${CI_COMMIT_SHORT_SHA}@${PG_HOST}:5432/db_${CI_COMMIT_SHORT_SHA}?sslmode=require
+      --set deployment.env[1].name=APP_BASE_URL
+      --set deployment.env[1].value=https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
 
 .deploy_hasura:
   extends:
@@ -69,8 +68,8 @@ Deploy app Hasura (dev):
   variables:
     PG_HOST: carnetsdevserver.postgres.database.azure.com
     HELM_RENDER_ARGS: >-
-      --set deployment.env[7].name=HASURA_GRAPHQL_DATABASE_URL
-      --set deployment.env[7].value=postgresql://user_${CI_COMMIT_SHORT_SHA}%40${PG_HOST}:pass_${CI_COMMIT_SHORT_SHA}@${PG_HOST}:5432/db_${CI_COMMIT_SHORT_SHA}?sslmode=require
+      --set deployment.env[11].name=HASURA_GRAPHQL_DATABASE_URL
+      --set deployment.env[11].value=postgresql://user_${CI_COMMIT_SHORT_SHA}%40${PG_HOST}:pass_${CI_COMMIT_SHORT_SHA}@${PG_HOST}:5432/db_${CI_COMMIT_SHORT_SHA}?sslmode=require
 
 Deploy app Hasura (prod):
   extends:
