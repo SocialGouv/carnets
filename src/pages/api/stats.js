@@ -1,4 +1,4 @@
-import { fetch } from "../../lib/hasura"
+import { fetch } from "@lib/hasura"
 
 const getPostsStat = async () => {
   const query = `

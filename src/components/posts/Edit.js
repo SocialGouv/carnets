@@ -2,7 +2,7 @@ import React from "react"
 import Link from "next/link"
 import { Edit3 } from "react-feather"
 
-import { UserContext } from "../../lib/user"
+import { UserContext } from "@lib/user"
 
 const Post = ({ post }) => (
   <UserContext.Consumer>

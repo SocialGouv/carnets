@@ -4,7 +4,7 @@ import Tabs from "./Tabs"
 import Edit from "./Edit"
 import Info from "./Info"
 import KPIs from "./KPIs"
-import { TeamsContext } from "../../lib/teams"
+import { TeamsContext } from "@lib/teams"
 
 const Post = ({ post }) => (
   <div className="post">

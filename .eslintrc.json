@@ -2,6 +2,11 @@
   "extends": [
     "@socialgouv/eslint-config-react"
   ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
   "rules": {
     "semi": [
       2,

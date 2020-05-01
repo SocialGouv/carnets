@@ -2,7 +2,7 @@ import React from "react"
 
 import Post from "./Post"
 import Empty from "./Empty"
-import { PostsContext } from "../../lib/posts"
+import { PostsContext } from "@lib/posts"
 
 const Posts = () => (
   <PostsContext.Consumer>
