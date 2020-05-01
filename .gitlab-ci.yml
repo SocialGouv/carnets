@@ -1,64 +1,140 @@
----
 include:
   - project: SocialGouv/gitlab-ci-yml
     file: /autodevops_simple_app.yml
-    ref: v10.0.0
+    ref: v15.3.0
+  # - project: SocialGouv/gitlab-ci-yml
+  #   file: /base_snyk_scan.yml
+  #   ref: v15.3.0
+  - project: SocialGouv/gitlab-ci-yml
+    file: /base_docker_kubectl_image_stage.yml
+    ref: v15.3.0
 
 variables:
   PORT: 3000
   PROJECT: "carnets"
+  TEST_DISABLED: 1
+  NOTIFY_DISABLED: 1
   ENABLE_AZURE_POSTGRES: 1
   VALUES_FILE: ./.k8s/app.values.yml
-  APP_BASE_URL: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
-  HASURA_URL: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/v1/graphql
+  # todo : how to PROD ?
 
-Create Azure DB (dev):
-  stage: Install
+Create namespace:
   extends:
-    - .base_create_azure_db
-  before_script:
-    - echo "kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret"
-    - kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret -o json | export_from_k8s_secret
-    - \. <(kubectl get secret azure-pg-admin-user -n ${CI_PROJECT_NAME}-secret -o json | export_from_k8s_secret)
-    - export PGHOST="${PG_HOST}"
+    - .autodevops_create_namespace
+  after_script:
+    # Copy namespace default creds
+    - kubectl get secret carnets-secrets --namespace=carnets-secret --export -o yaml |
+      kubectl apply --namespace=${K8S_NAMESPACE} -f -
 
 Register image Hasura:
-  extends: .base_register_stage
-  stage: Registration
+  extends: .autodevops_register_image
+  dependencies: []
+  needs: []
   variables:
     CONTEXT: ./packages/hasura
     DOCKERFILE_PATH: Dockerfile
     IMAGE_NAME: $CI_REGISTRY_IMAGE/hasura
 
-Deploy app Hasura (dev):
+Create Azure DB (dev):
+  extends: .autodevops_create_azure_db_dev
+  variables:
+    NEW_DB_EXTENSIONS: "pgcrypto hstore"
+
+Deploy app (dev):
+  extends: .autodevops_deploy_app_dev
+  variables:
+    PG_HOST: carnetsdevserver.postgres.database.azure.com
+    HELM_RENDER_ARGS: >-
+      --set deployment.env[4].name=APP_BASE_URL
+      --set deployment.env[4].value=https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+
+.deploy_hasura:
   extends:
     - .deploy_app_stage
-  except:
-    refs:
-      - tags
-      - master
   variables:
+    PORT: 80
     CONTEXT: hasura
-    HOST: hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
-    #JWK_URL: http://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/api/v2/auth/jwks
     VALUES_FILE: ./.k8s/hasura.values.yml
-  environment:
-    name: review/${CI_COMMIT_REF_NAME}-dev
-    url: https://hasura-${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+
+Deploy app Hasura (dev):
+  extends:
+    - .autodevops_deploy_app_dev
+    - .deploy_hasura
+  variables:
+    PG_HOST: carnetsdevserver.postgres.database.azure.com
+    HELM_RENDER_ARGS: >-
+      --set deployment.env[7].name=HASURA_GRAPHQL_DATABASE_URL
+      --set deployment.env[7].value=postgresql://user_${CI_COMMIT_SHORT_SHA}%40${PG_HOST}:pass_${CI_COMMIT_SHORT_SHA}@${PG_HOST}:5432/db_${CI_COMMIT_SHORT_SHA}?sslmode=require
 
 Deploy app Hasura (prod):
   extends:
-    - .deploy_app_stage
+    - .autodevops_deploy_app_prod
+    - .deploy_hasura
+  variables:
+    PRODUCTION: "true"
+    K8S_NAMESPACE: carnets # WTH ??
+
+Deploy ingress front sante (prod):
+  extends: .base_docker_kubectl_image_stage
+  stage: Deploy
   only:
     refs:
       - master
   variables:
-    CONTEXT: hasura
-    HOST: hasura-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
-    JWK_URL: http://${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}/api/v2/auth/jwks
-    VALUES_FILE: ./.k8s/hasura.values.yml
-    K8S_NAMESPACE: ${CI_PROJECT_NAME}
     PRODUCTION: "true"
+    K8S_NAMESPACE: carnets # WTH ??
+  dependencies: []
   environment:
     name: prod
-    url: https://hasura-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+  script:
+    - echo "kubectl apply -f .k8s/ingress-sante.yml"
+    - kubectl apply -f .k8s/ingress-sante.yml
+
+# Snyk Scan:
+#   stage: Deploy
+#   extends: .base_snyk_scan
+
+Delete useless k8s namespaces:
+  extends: .autodevops_delete_useless_k8s_namespaces
+  only:
+    - dev
+  script:
+    - echo "k8s-ns-killer ${K8S_NAMESPACE_PREFIX}"
+    # - k8s-ns-killer ${K8S_NAMESPACE_PREFIX}
+    # Debug mode
+    - sh -x /bin/k8s-ns-killer ${K8S_NAMESPACE_PREFIX}
+
+# trivy:
+#   stage: Deploy
+#   image: docker:stable
+#   services:
+#     - name: docker:dind
+#       entrypoint: ["env", "-u", "DOCKER_HOST"]
+#       command: ["dockerd-entrypoint.sh"]
+#   variables:
+#     # See https://github.com/docker-library/docker/pull/166
+#     DOCKER_TLS_CERTDIR: ""
+#     IMAGE: trivy-ci-test:$CI_COMMIT_SHA
+#   before_script:
+#     - apk add --no-cache curl
+#     - export VERSION=$(curl --silent "https://api.github.com/repos/aquasecurity/trivy/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+#     - echo $VERSION
+#     - wget https://github.com/aquasecurity/trivy/releases/download/v${VERSION}/trivy_${VERSION}_Linux-64bit.tar.gz
+#     - tar zxvf trivy_${VERSION}_Linux-64bit.tar.gz
+#   allow_failure: true
+#   script:
+#     # Build image
+#     - docker build -t $IMAGE .
+#     # Build report
+#     - ./trivy -d --exit-code 0 --cache-dir .trivycache/ --no-progress --format template --template "@contrib/gitlab.tpl" -o gl-container-scanning-report.json $IMAGE
+#     # Print report
+#     - ./trivy -d --exit-code 0 --cache-dir .trivycache/ --no-progress $IMAGE
+#     # Fail on high and critical vulnerabilities
+#     - ./trivy -d --exit-code 1 --cache-dir .trivycache/ --no-progress $IMAGE
+#   cache:
+#     paths:
+#       - .trivycache/
+#   # Enables https://docs.gitlab.com/ee/user/application_security/container_scanning/ (Container Scanning report is available on GitLab EE Ultimate or GitLab.com Gold)
+#   artifacts:
+#     paths:
+#       - gl-container-scanning-report.json

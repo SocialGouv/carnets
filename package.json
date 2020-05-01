@@ -7,8 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src/**/*.js",
-    "build-start": "next build && yarn start"
+    "lint": "eslint src/**/*.js"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.11.0",

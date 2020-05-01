@@ -2,25 +2,23 @@ image:
   repository: $CI_REGISTRY_IMAGE/hasura
   tag: master
 
-labels:
-  app.kubernetes.io/part-of: carnets
-  owner: carnets
-  team: carnets
-
 deployment:
-  annotations:
-    app.gitlab.com/app: ${CI_PROJECT_PATH_SLUG}
-    app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
+  imagePullSecrets:
+    - name: regcred
 
   livenessProbe:
+    path: /healthz
+    initialDelaySeconds: 30
     periodSeconds: 20
   readinessProbe:
+    path: /healthz
+    initialDelaySeconds: 30
     periodSeconds: 20
 
   resources:
     requests:
       cpu: 100m
-      memory: 128Mi
+      memory: 256Mi
     limits:
       cpu: 1000m
       memory: 1024Mi
@@ -28,12 +26,8 @@ deployment:
   env:
     - name: NODE_ENV
       value: "production"
-    - name: HASURA_GRAPHQL_DATABASE_URL
-      value: "${HASURA_GRAPHQL_DATABASE_URL}"
     - name: HASURA_GRAPHQL_ENABLE_CONSOLE
-      value: "true"
-    - name: HASURA_GRAPHQL_ADMIN_SECRET
-      value: "${HASURA_GRAPHQL_ADMIN_SECRET}"
+      value: "false"
     - name: HASURA_GRAPHQL_SERVER_PORT
       value: "80"
     - name: HASURA_GRAPHQL_ENABLED_LOG_TYPES
@@ -44,19 +38,8 @@ deployment:
       value: "5"
     - name: HASURA_GRAPHQL_UNAUTHORIZED_ROLE
       value: "anonymous"
-
+  envFrom:
+    - secretRef:
+        name: carnets-secrets
 ingress:
-  enabled: true
-  annotations:
-    appgw.ingress.kubernetes.io/ssl-redirect: "true"
-    kubernetes.io/ingress.class: "azure/application-gateway"
-  hosts:
-    - host: "hasura-carnets.dev.fabrique.social.gouv.fr"
-      paths:
-        - path: /
-          servicePort: "80"
-
-  tls:
-    - hosts:
-        - "hasura-carnets.dev.fabrique.social.gouv.fr"
-      secretName: wildcard-crt
+  enabled: false
