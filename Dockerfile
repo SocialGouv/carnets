@@ -1,24 +1,43 @@
+# FROM node:13.14-alpine
+#
+# WORKDIR /app
+#
+# COPY package.json yarn.lock ./
+#
+# RUN yarn --frozen-lockfile
+#
+# COPY public/ ./public
+# COPY src/ ./src
+# COPY next.config.js ./
+# COPY .babelrc ./
+#
+# ENV NEXT_TELEMETRY_DISABLED=1
+#
+# RUN yarn build
+# RUN yarn --production
+#
+# USER node
+#
+# ENV NODE_ENV=production
+#
+#
+# CMD ["yarn", "start"]
+
+#####################
+
 FROM node:13.14-alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock .
 
-RUN yarn --frozen-lockfile
+RUN yarn --production --cache-folder /dev/shm/yarn
 
-COPY public/ ./public
-COPY src/ ./src
-COPY next.config.js ./
-COPY .babelrc ./
-
-ENV NEXT_TELEMETRY_DISABLED=1
-
-RUN yarn build
-RUN yarn --production
+COPY .next .next
 
 USER node
 
 ENV NODE_ENV=production
-
+ENV NEXT_TELEMETRY_DISABLED=1
 
 CMD ["yarn", "start"]
