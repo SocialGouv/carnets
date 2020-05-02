@@ -1,7 +1,20 @@
 import React from "react"
-import moment from "moment"
+import Link from "next/link"
+import moment from "moment/moment"
 
 moment.locale("fr")
+
+const getClass = (team) => {
+  const date = moment(team.last_post)
+  const lastTuesday = moment().day(moment().day() >= 2 ? 2 : -5)
+  const twoWeeksAgo = moment(lastTuesday).day(-5)
+  const threeWeeksAgo = moment(twoWeeksAgo).day(-5)
+  return team.last_post && date.isAfter(twoWeeksAgo)
+    ? "ok"
+    : team.last_post && date.isAfter(threeWeeksAgo)
+    ? "warning"
+    : "error"
+}
 
 const Teams = ({ data, teams }) => {
   teams = teams.map((team) => {
@@ -35,7 +48,11 @@ const Teams = ({ data, teams }) => {
                 <th scope="row" width="50px">
                   {i + 1}
                 </th>
-                <td>{team.name}</td>
+                <td className={getClass(team)}>
+                  <Link href="/team/[slug]" as={`/team/${team.slug}`}>
+                    <a>{team.name}</a>
+                  </Link>
+                </td>
                 <td>{team.last_post && moment(team.last_post).fromNow()}</td>
                 <td width="100px" style={{ textAlign: "center" }}>
                   {team.kpis_count || 0}
