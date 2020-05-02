@@ -5,9 +5,9 @@ include:
   # - project: SocialGouv/gitlab-ci-yml
   #   file: /base_snyk_scan.yml
   #   ref: v15.3.0
-  - project: SocialGouv/gitlab-ci-yml
-    file: /base_docker_kubectl_image_stage.yml
-    ref: v15.3.0
+  # - project: SocialGouv/gitlab-ci-yml
+  #   file: /base_docker_kubectl_image_stage.yml
+  #   ref: v15.3.0
 
 variables:
   PORT: 3000
