@@ -31,7 +31,7 @@ WORKDIR /app
 
 COPY package.json yarn.lock /app/
 
-RUN yarn --production --cache-folder /dev/shm/yarn
+RUN yarn --production
 
 COPY .next/ /app/.next/
 
