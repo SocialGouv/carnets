@@ -29,11 +29,11 @@ FROM node:13.14-alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock .
+COPY package.json yarn.lock /app/
 
 RUN yarn --production --cache-folder /dev/shm/yarn
 
-COPY .next .next
+COPY .next/ /app/.next/
 
 USER node
 
