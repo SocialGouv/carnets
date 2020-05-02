@@ -64,6 +64,18 @@
         &:last-child {
           border-right: none;
         }
+
+        &.ok a {
+          color: seagreen;
+        }
+
+        &.warning a {
+          color: darkorange;
+        }
+
+        &.error a {
+          color: variables.$secondary-color;
+        }
       }
     }
   }
