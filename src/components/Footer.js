@@ -3,9 +3,11 @@ import React from "react"
 const version = process.env.APP_VERSION
 // const revision = process.env.APP_REVISION
 console.log("CI_COMMIT_SHA 1", process.env.CI_COMMIT_SHA)
+console.log("APP_REVISION 1", process.env.APP_REVISION)
 
 const Footer = () => {
   console.log("CI_COMMIT_SHA 2", process.env.CI_COMMIT_SHA)
+  console.log("APP_REVISION 2", process.env.APP_REVISION)
   const revision = process.env.CI_COMMIT_SHA || "dev"
 
   return (
