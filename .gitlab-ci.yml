@@ -12,7 +12,6 @@ include:
 variables:
   PORT: 3000
   PROJECT: "carnets"
-  TEST_DISABLED: 1
   NOTIFY_DISABLED: 1
   ENABLE_AZURE_POSTGRES: 1
   VALUES_FILE: ./.k8s/app.values.yml

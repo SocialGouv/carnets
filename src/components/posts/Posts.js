@@ -7,7 +7,7 @@ import { PostsContext } from "@lib/posts"
 const Posts = () => (
   <PostsContext.Consumer>
     {(posts) => {
-      return posts.length ? (
+      return posts && posts.length ? (
         <div className="posts">
           {posts.map((post, i) => (
             <Post key={i} post={post} />
