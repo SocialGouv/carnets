@@ -1,7 +1,8 @@
 import React from "react"
 
 const version = process.env.APP_VERSION
-const revision = process.env.APP_REVISION
+// const revision = process.env.APP_REVISION
+const revision = process.env.CI_COMMIT_SHA || "dev"
 
 const Footer = () => (
   <div className="footer">
