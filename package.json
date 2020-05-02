@@ -3,10 +3,11 @@
   "version": "1.1.0",
   "private": true,
   "scripts": {
-    "test": "exit 0",
     "dev": "next dev",
+    "test": "jest --ci",
     "build": "next build",
     "start": "next start",
+    "test:dev": "jest --watch",
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
@@ -31,9 +32,14 @@
   },
   "devDependencies": {
     "@socialgouv/eslint-config-react": "^0.20.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.4",
     "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^6.8.0",
     "eslint-import-resolver-babel-module": "^5.1.2",
-    "prettier": "2.0.5"
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.5.3",
+    "prettier": "2.0.5",
+    "react-test-renderer": "^16.13.1"
   }
 }

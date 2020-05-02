@@ -7,6 +7,7 @@ const Teams = ({ slug }) => (
   <ul className="teams">
     <TeamsContext.Consumer>
       {(teams) =>
+        teams &&
         teams.map((team, i) => (
           <Team key={i} team={team} selected={!!(team.slug === slug)} />
         ))
