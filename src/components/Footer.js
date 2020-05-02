@@ -23,7 +23,7 @@ const Footer = () => (
         rel="noopener noreferrer"
         href={`https://github.com/SocialGouv/carnets/tree/${revision}`}
       >
-        ({revision.substring(0, 6)})
+        ({revision && revision.substring(0, 6)})
       </a>
     </div>
   </div>
