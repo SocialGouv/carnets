@@ -2,13 +2,13 @@ FROM node:13.14-alpine
 
 WORKDIR /app
 
-COPY package.json .
-COPY yarn.lock .
+COPY package.json /app/
+COPY yarn.lock /app/
 
 RUN yarn --production
 
-COPY .next .
-COPY public .
+COPY .next/ /app/.next/
+COPY public/ /app/public/
 
 USER node
 

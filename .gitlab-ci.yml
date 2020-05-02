@@ -15,13 +15,11 @@ variables:
   NOTIFY_DISABLED: 1
   ENABLE_AZURE_POSTGRES: 1
   VALUES_FILE: ./.k8s/app.values.yml
-  # todo : how to PROD ?
 
 Create namespace:
   extends:
     - .autodevops_create_namespace
   after_script:
-    # Copy namespace default creds
     - kubectl get secret carnets-secrets --namespace=carnets-secret --export -o yaml |
       kubectl apply --namespace=${K8S_NAMESPACE} -f -
 
@@ -73,7 +71,7 @@ Deploy app Hasura (prod):
     - .deploy_hasura
   variables:
     PRODUCTION: "true"
-    K8S_NAMESPACE: carnets # WTH ??
+    K8S_NAMESPACE: carnets
 
 Deploy ingress front sante (prod):
   extends: .base_docker_kubectl_image_stage
@@ -83,7 +81,7 @@ Deploy ingress front sante (prod):
       - master
   variables:
     PRODUCTION: "true"
-    K8S_NAMESPACE: carnets # WTH ??
+    K8S_NAMESPACE: carnets
   dependencies: []
   environment:
     name: prod
@@ -101,8 +99,6 @@ Delete useless k8s namespaces:
     - dev
   script:
     - echo "k8s-ns-killer ${K8S_NAMESPACE_PREFIX}"
-    # - k8s-ns-killer ${K8S_NAMESPACE_PREFIX}
-    # Debug mode
     - sh -x /bin/k8s-ns-killer ${K8S_NAMESPACE_PREFIX}
 
 # trivy:
