@@ -34,8 +34,6 @@ deployment:
       value: "require"
     - name: HASURA_URL
       value: "http://hasura-carnets/v1/graphql"
-    - name: APP_BASE_URL
-      value: "${APP_BASE_URL}"
   envFrom:
     - secretRef:
         name: carnets-secrets

@@ -44,8 +44,10 @@ Deploy app (dev):
   variables:
     PG_HOST: carnetsdevserver.postgres.database.azure.com
     HELM_RENDER_ARGS: >-
-      --set deployment.env[4].name=APP_BASE_URL
-      --set deployment.env[4].value=https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+      --set deployment.env[3].name=APP_BASE_URL
+      --set deployment.env[3].value=https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+      --set deployment.env[4].name=CI_COMMIT_SHA
+      --set deployment.env[4].value=${CI_COMMIT_SHA}
 
 .deploy_hasura:
   extends:
