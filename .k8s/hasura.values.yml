@@ -27,7 +27,7 @@ deployment:
     - name: NODE_ENV
       value: "production"
     - name: HASURA_GRAPHQL_ENABLE_CONSOLE
-      value: "false"
+      value: "true"
     - name: HASURA_GRAPHQL_SERVER_PORT
       value: "80"
     - name: HASURA_GRAPHQL_ENABLED_LOG_TYPES
@@ -39,5 +39,20 @@ deployment:
   envFrom:
     - secretRef:
         name: carnets-secrets
+# ingress:
+#   enabled: false
 ingress:
-  enabled: false
+  enabled: true
+  annotations:
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/ingress.class: "azure/application-gateway"
+  hosts:
+    - host: "hasura-carnets.dev.fabrique.social.gouv.fr"
+      paths:
+        - path: /
+          servicePort: "80"
+
+  tls:
+    - hosts:
+        - "hasura-carnets.dev.fabrique.social.gouv.fr"
+      secretName: wildcard-crt
