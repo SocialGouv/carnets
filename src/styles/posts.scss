@@ -30,7 +30,11 @@
       }
 
       .edit {
-        font-size: variables.$font-size * 0.9;
+        // font-size: variables.$font-size * 0.9;
+      }
+
+      .delete {
+        margin-left: 0.5rem;
       }
     }
 

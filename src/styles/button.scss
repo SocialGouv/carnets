@@ -16,6 +16,14 @@ button, .button {
     margin-right: variables.$base-margin / 4;
   }
 
+  &.no-text {
+    padding: variables.$base-margin * 0.4 variables.$base-margin / 2;
+
+    svg {
+      margin-right: 0;
+    }
+  }
+
   &.plain {
     color: variables.$base-color;
     background-color: variables.$link-color;
@@ -31,5 +39,15 @@ button, .button {
   &:active {
     border-color: darken(variables.$link-color, 5%);
     background-color: darken(variables.$link-color, 5%);
+  }
+
+  &.important {
+    color: variables.$secondary-color;
+    border-color: variables.$secondary-color;
+
+    &:hover, &:focus {
+      color: white;
+      background-color: variables.$secondary-color;
+    }
   }
 }

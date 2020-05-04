@@ -9,9 +9,8 @@ const Post = ({ post }) => (
     {(user) =>
       user?.nickname === post.author && (
         <Link href={{ pathname: "/publish", query: { id: post.id } }}>
-          <a className="edit button">
+          <a className="edit button no-text">
             <Edit3 size={12} />
-            Editer
           </a>
         </Link>
       )

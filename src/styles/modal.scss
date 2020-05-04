@@ -1,0 +1,47 @@
+@use "./variables";
+
+.modal {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .window {
+    border-radius: 4px;
+    background-color: variables.$base-color;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+
+    .header {
+      padding: 1rem;
+
+      .close {
+        outline: 0;
+        opacity: 0.8;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .body {
+      padding: 2rem;
+
+      .buttons {
+        display: flex;
+        justify-content: space-evenly;
+
+        button {
+          width: 30%;
+        }
+      }
+    }
+  }
+}
