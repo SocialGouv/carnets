@@ -4,6 +4,7 @@ import Tabs from "./Tabs"
 import Edit from "./Edit"
 import Info from "./Info"
 import KPIs from "./KPIs"
+import Delete from "./Delete"
 import { TeamsContext } from "@lib/teams"
 
 const Post = ({ post }) => (
@@ -17,6 +18,7 @@ const Post = ({ post }) => (
         }}
       </TeamsContext.Consumer>
       <Edit post={post} />
+      <Delete post={post} />
     </div>
     <div className="body">
       <KPIs post={post} />

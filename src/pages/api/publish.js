@@ -70,7 +70,7 @@ export default async (req, res) => {
     }
 
     const { user } = (await auth0.getSession(req)) || {}
-
+    console.log("user", user)
     if (!user) {
       res.status(401)
       throw new Error("Unknown user")
@@ -78,7 +78,7 @@ export default async (req, res) => {
 
     const tokenCache = await auth0.tokenCache(req, res)
     const { accessToken } = await tokenCache.getAccessToken()
-
+    console.log("accessToken", accessToken)
     if (!accessToken || !accessToken.length) {
       res.status(403)
       throw new Error(`Cannot get user's access token`)
