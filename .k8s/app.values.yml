@@ -3,40 +3,88 @@
 # Declare variables to be passed into your templates.
 ---
 image:
-  repository: $CI_REGISTRY_IMAGE
-  tag: master
+  repository: registry.gitlab.factory.social.gouv.fr/socialgouv/carnets
+
+nameOverride: carnets
+
+labels:
+  app.kubernetes.io/part-of: carnets
+  owner: carnets
+  team: carnets
 
 deployment:
-  imagePullSecrets:
-    - name: regcred
+  port: ${PORT}
 
-  resources:
-    limits:
-      cpu: 1000m
-      memory: 256Mi
-    requests:
-      cpu: 100m
-      memory: 256Mi
+  annotations:
+    app.gitlab.com/app: ${CI_PROJECT_PATH_SLUG}
+    app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
 
   livenessProbe:
-    initialDelaySeconds: 30
     path: /health
-    periodSeconds: 15
+    port: ${PORT}
+    periodSeconds: 20
   readinessProbe:
-    initialDelaySeconds: 30
     path: /health
-    periodSeconds: 15
+    port: ${PORT}
+    periodSeconds: 20
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
 
   env:
-    - name: PRODUCTION
-      value: "${PRODUCTION}"
-    - name: PGSSLMODE
-      value: "require"
+    - name: PORT
+      value: "${PORT}"
+    - name: AUTH0_DOMAIN
+      value: "${AUTH0_DOMAIN}"
+    - name: AUTH0_CLIENT_ID
+      value: "${AUTH0_CLIENT_ID}"
+    - name: AUTH0_CLIENT_SECRET
+      value: "${AUTH0_CLIENT_SECRET}"
+    - name: AUTH0_SESSION_COOKIE_SECRET
+      value: "${AUTH0_SESSION_COOKIE_SECRET}"
+    - name: GITHUB_USER
+      value: "${GITHUB_USER}"
+    - name: GITHUB_TOKEN
+      value: "${GITHUB_TOKEN}"
+    - name: GITHUB_ORGANIZATION
+      value: "${GITHUB_ORGANIZATION}"
+    - name: HASURA_GRAPHQL_ADMIN_SECRET
+      value: "${HASURA_GRAPHQL_ADMIN_SECRET}"
     - name: HASURA_URL
-      value: "http://hasura-carnets/v1/graphql"
-  envFrom:
-    - secretRef:
-        name: carnets-secrets
+      value: "${HASURA_URL}"
+    - name: APP_BASE_URL
+      value: "${APP_BASE_URL}"
+
+  initContainers:
+    - name: wait-for-hasura
+      image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/curl:0.14.0
+      resources:
+        requests:
+          cpu: 5m
+          memory: 16Mi
+        limits:
+          cpu: 50m
+          memory: 32Mi
+      command:
+        - sh
+        - -c
+        - |
+          retry=120; # 5s * (12 * 10) = 10min
+          while
+            ! curl -sS "${HASURA_URL}" &&
+            [[ $(( retry-- )) -gt 0 ]];
+          do echo "Waiting for hasura to be available ($(( retry )))" ; sleep 5s ; done ;
+          [[ $(( retry )) -lt 1 ]] && exit 128;
+          echo Ready;
+
+service:
+  port: ${PORT}
+  targetPort: ${PORT}
 
 ingress:
   enabled: true
@@ -44,12 +92,11 @@ ingress:
     appgw.ingress.kubernetes.io/ssl-redirect: "true"
     kubernetes.io/ingress.class: "azure/application-gateway"
   hosts:
-    - host: carnets.fabrique.social.gouv.fr
+    - host: "carnets.dev.fabrique.social.gouv.fr"
       paths:
         - path: /
-          servicePort: 3000
-
+          servicePort: ${PORT}
   tls:
     - hosts:
-        - carnets.fabrique.social.gouv.fr
+        - "carnets.dev.fabrique.social.gouv.fr"
       secretName: carnets-crt
