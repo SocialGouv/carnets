@@ -70,7 +70,7 @@ export default async (req, res) => {
     }
 
     const { user } = (await auth0.getSession(req)) || {}
-
+    console.log("user", user)
     if (!user) {
       res.status(401)
       throw new Error("Unknown user")

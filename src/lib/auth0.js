@@ -1,5 +1,9 @@
 import { initAuth0 } from "@auth0/nextjs-auth0"
 
+console.log("AUDIENCE", process.env.AUTH0_AUDIENCE)
+console.log("AUTH0_DOMAIN", process.env.AUTH0_DOMAIN)
+console.log("APP_BASE_URL", process.env.APP_BASE_URL)
+
 const Auth0 = () => {
   return initAuth0({
     scope: "openid profile",
