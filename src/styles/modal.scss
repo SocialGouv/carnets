@@ -13,26 +13,36 @@
   background-color: rgba(0, 0, 0, 0.5);
 
   .window {
+    min-width: 380px;
     border-radius: 4px;
+    position: relative;
     background-color: variables.$base-color;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
 
-    .header {
-      padding: 1rem;
+    .close {
+      outline: 0;
+      opacity: 0.8;
+      cursor: pointer;
+      position: absolute;
+      top: variables.$base-margin;
+      right: variables.$base-margin;
 
-      .close {
-        outline: 0;
-        opacity: 0.8;
-        cursor: pointer;
-
-        &:hover {
-          opacity: 1;
-        }
+      &:hover {
+        opacity: 1;
       }
     }
 
     .body {
       padding: 2rem;
+
+      .loader {
+        display: flex;
+        justify-content: center;
+      }
+
+      p {
+        margin-bottom: variables.$base-margin * 1.5;
+      }
 
       .buttons {
         display: flex;
