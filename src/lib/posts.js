@@ -95,6 +95,8 @@ export const update = (post, accessToken) => {
   const id = post.id
 
   delete post.id
+  delete post.author
+  delete post.team_slug
   delete post.created_at
 
   const kpis = post.kpis

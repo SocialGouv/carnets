@@ -100,11 +100,9 @@ tables:
   - role: user
     permission:
       columns:
-      - author
       - mood
       - needs
       - priorities
-      - team_slug
       - term
       filter: {}
   delete_permissions:
