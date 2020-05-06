@@ -57,9 +57,9 @@ export const getMembers = async (team) => {
   const org = process.env.GITHUB_ORGANIZATION
 
   const query = `
-    query {
-      organization(login: "${org}") {
-        currentTeam: team(slug: "${team}") {
+    query getMembers($org: String!, $team: String!) {
+      organization(login: $org) {
+        currentTeam: team(slug: $team) {
           members {
             nodes {
               login
@@ -79,7 +79,7 @@ export const getMembers = async (team) => {
 
   const {
     organization: { currentTeam, coreTeam },
-  } = await fetch(query)
+  } = await fetch(query, { org, team })
 
   const currentTeamMembers = currentTeam ? currentTeam.members.nodes : []
   const coreTeamMembers = coreTeam ? coreTeam.members.nodes : []

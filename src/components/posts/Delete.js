@@ -8,10 +8,14 @@ const Post = ({ post }) => {
   const [loading, setLoading] = useState(false)
   const [modalVisibility, setModalVisibility] = useState(false)
 
-  const suppress = async () => {
+  const remove = async () => {
     setLoading(true)
     const { id } = post
-    await fetch(`/api/posts/${id}`, { method: "DELETE" })
+    await fetch(`/api/posts/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ team_slug: post.team_slug }),
+    })
     Router.reload()
     setModalVisibility(false)
   }
@@ -26,7 +30,7 @@ const Post = ({ post }) => {
         <p>Etes-vous sur de vouloir supprimer cette publication ?</p>
         <div className="buttons">
           <button onClick={() => setModalVisibility(false)}>Annuler</button>
-          <button onClick={() => suppress()} className="important">
+          <button onClick={() => remove()} className="important">
             Supprimer
           </button>
         </div>
