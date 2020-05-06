@@ -1,25 +1,13 @@
 import React from "react"
 
 import Tabs from "./Tabs"
-import Edit from "./Edit"
 import Info from "./Info"
 import KPIs from "./KPIs"
-import Delete from "./Delete"
-import { TeamsContext } from "@lib/teams"
+import Header from "./Header"
 
 const Post = ({ post }) => (
   <div className="post">
-    <div className="header">
-      <div className="mood">{post.mood}</div>
-      <TeamsContext.Consumer>
-        {(teams) => {
-          const team = teams.find((team) => team.slug === post.team_slug)
-          return team && <h3>{team.name}</h3>
-        }}
-      </TeamsContext.Consumer>
-      <Edit post={post} />
-      <Delete post={post} />
-    </div>
+    <Header post={post} />
     <div className="body">
       <KPIs post={post} />
       <Tabs post={post} />

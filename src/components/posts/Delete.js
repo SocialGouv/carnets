@@ -1,9 +1,8 @@
 import Router from "next/router"
-import React, { useState } from "react"
 import { Trash2 } from "react-feather"
+import React, { useState } from "react"
 
 import Modal from "@components/Modal"
-import { UserContext } from "@lib/user"
 
 const Post = ({ post }) => {
   const [loading, setLoading] = useState(false)
@@ -11,10 +10,8 @@ const Post = ({ post }) => {
 
   const suppress = async () => {
     setLoading(true)
-    await fetch("/api/post", {
-      method: "DELETE",
-      body: JSON.stringify({ id: post.id }),
-    })
+    const { id } = post
+    await fetch(`/api/posts/${id}`, { method: "DELETE" })
     Router.reload()
     setModalVisibility(false)
   }
@@ -34,21 +31,17 @@ const Post = ({ post }) => {
           </button>
         </div>
       </Modal>
-      <UserContext.Consumer>
-        {(user) =>
-          user?.nickname === post.author && (
-            <a
-              role="button"
-              tabIndex={0}
-              className="delete button important no-text"
-              onClick={() => setModalVisibility(true)}
-              onKeyPress={() => setModalVisibility(true)}
-            >
-              <Trash2 size={13} title="Supprimer" />
-            </a>
-          )
-        }
-      </UserContext.Consumer>
+      <>
+        <a
+          role="button"
+          tabIndex={0}
+          className="delete button important no-text"
+          onClick={() => setModalVisibility(true)}
+          onKeyPress={() => setModalVisibility(true)}
+        >
+          <Trash2 size={13} title="Supprimer" />
+        </a>
+      </>
     </>
   )
 }

@@ -1,10 +1,13 @@
-import { list } from "@lib/teams"
+import { getPosts } from "@lib/teams"
 
 export default async (req, res) => {
   try {
     if (req.method === "GET") {
-      const teams = await list()
-      res.json(teams)
+      const {
+        query: { team },
+      } = req
+      const posts = await getPosts(team)
+      res.json(posts)
     } else {
       res.status(405)
       throw new Error("Wrong method")

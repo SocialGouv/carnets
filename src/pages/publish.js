@@ -22,7 +22,7 @@ export async function getServerSideProps({ req, res, query }) {
   const auth0 = Auth0()
   const user = await auth0.getSession(req)
   const baseUrl = `http://localhost:${req.socket.localPort}`
-  const teams = await fetcher(`${baseUrl}/api/teams`)
+  const { teams } = await fetcher(`${baseUrl}/api/teams`)
 
   if (!user) {
     res.writeHead(301, { Location: "/" })
@@ -30,7 +30,7 @@ export async function getServerSideProps({ req, res, query }) {
   }
 
   if (id) {
-    const [post] = await fetcher(`${baseUrl}/api/posts?id=${id}`)
+    const [post] = await fetcher(`${baseUrl}/api/posts/${id}`)
     return { props: { teams, post } }
   }
 
