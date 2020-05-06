@@ -1,9 +1,8 @@
 @use "./variables";
 
 .page > .posts {
-  margin: 0
-    variables.$base-margin
-    variables.$base-margin * 2;
+  margin: 0 variables.$base-margin;
+  padding-bottom: variables.$base-margin * 2;
 
   .post {
     display: flex;
@@ -27,10 +26,6 @@
       .mood {
         font-size: variables.$font-size * 1.8;
         margin-right: variables.$base-margin * 0.5;
-      }
-
-      .edit {
-        // font-size: variables.$font-size * 0.9;
       }
 
       .delete {

@@ -7,9 +7,11 @@ html, body {
 body {
   margin: 0;
   display: flex;
+  text-rendering: optimizelegibility;
 }
 
 h1, h2, h3, h4 {
+  font-weight: 600;
   margin: variables.$base-margin 0;
   font-family: "Source Sans Pro Semi Bold";
 }
@@ -35,6 +37,7 @@ h4 {
 }
 
 body, small, input, select, textarea, button {
+  font-weight: 400;
   color: variables.$font-color;
   font-size: variables.$font-size;
   line-height: variables.$font-size * 1.2;
