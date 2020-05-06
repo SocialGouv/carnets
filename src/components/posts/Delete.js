@@ -1,6 +1,6 @@
 import Router from "next/router"
-import React, { useState } from "react"
 import { Trash2 } from "react-feather"
+import React, { useState } from "react"
 
 import Modal from "@components/Modal"
 import { UserContext } from "@lib/user"
@@ -11,10 +11,8 @@ const Post = ({ post }) => {
 
   const suppress = async () => {
     setLoading(true)
-    await fetch("/api/post", {
-      method: "DELETE",
-      body: JSON.stringify({ id: post.id }),
-    })
+    const { id } = post
+    await fetch(`/api/posts/${id}`, { method: "DELETE" })
     Router.reload()
     setModalVisibility(false)
   }

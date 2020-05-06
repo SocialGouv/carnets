@@ -30,7 +30,7 @@ export async function getServerSideProps({ req, res, query }) {
   }
 
   if (id) {
-    const [post] = await fetcher(`${baseUrl}/api/posts?id=${id}`)
+    const [post] = await fetcher(`${baseUrl}/api/posts/${id}`)
     return { props: { teams, post } }
   }
 

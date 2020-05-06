@@ -12,12 +12,13 @@ const Publish = ({ post }) => {
   const [message, setMessage] = useState()
 
   const submit = (values) => {
+    const { id } = values
     const options = {
+      method: id ? "PUT" : "POST",
       body: JSON.stringify(values),
-      method: values.id ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },
     }
-    return fetch("/api/publish", options)
+    return fetch(`/api/posts${id ? `/${id}` : ""}`, options)
   }
 
   const initialValues = post || {

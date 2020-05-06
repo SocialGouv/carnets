@@ -1,36 +1,17 @@
-import { fetch } from "@lib/hasura"
+import { getInfo } from "@lib/user"
+import { list, create } from "@lib/posts"
 
 export default async (req, res) => {
-  const { slug, id } = req.query
-
-  const query = `
-    {
-      posts(
-        ${id ? `where: {id: {_eq: "${id}"}},` : ""}
-        ${slug || id ? "" : "distinct_on: team_slug,"}
-        ${slug ? `where: {team_slug: {_eq: "${slug}"}},` : ""}
-        order_by: {team_slug: asc, created_at: desc}
-      ) {
-        id
-        mood
-        term
-        needs
-        author
-        team_slug
-        priorities
-        created_at
-        kpis {
-          id
-          value
-          name
-        }
-      }
-    }
-  `
-
   try {
-    const data = await fetch(query)
-    res.json(data.posts)
+    if (req.method === "GET") {
+      const posts = await list()
+      res.json(posts)
+    } else if (req.method === "POST") {
+      const [nickname, accessToken] = await getInfo(req, res)
+      req.body.author = nickname
+      await create(req.body, accessToken)
+      res.send(null)
+    }
   } catch (error) {
     console.error(error)
     res.status(500).json([])
