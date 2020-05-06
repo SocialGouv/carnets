@@ -1,34 +1,17 @@
-import { fetch } from "@lib/hasura"
+import { getPosts } from "@lib/teams"
 
 export default async (req, res) => {
-  const { team } = req.query
-
-  const query = `
-    query getTeamPosts($team: String) {
-      posts(
-        order_by: {created_at: desc},
-        where: {team_slug: {_eq: $team}}
-      ) {
-        id
-        mood
-        term
-        needs
-        author
-        team_slug
-        priorities
-        created_at
-        kpis {
-          id
-          value
-          name
-        }
-      }
-    }
-  `
-
   try {
-    const { posts } = await fetch(query, { team })
-    res.json(posts)
+    if (req.method === "GET") {
+      const {
+        query: { team },
+      } = req
+      const posts = await getPosts(team)
+      res.json(posts)
+    } else {
+      res.status(405)
+      throw new Error("Wrong method")
+    }
   } catch (error) {
     console.error(error)
     res.status(500).json([])

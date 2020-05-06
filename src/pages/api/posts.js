@@ -11,6 +11,9 @@ export default async (req, res) => {
       req.body.author = nickname
       await create(req.body, accessToken)
       res.send(null)
+    } else {
+      res.status(405)
+      throw new Error("Wrong method")
     }
   } catch (error) {
     console.error(error)
