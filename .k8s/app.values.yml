@@ -15,7 +15,7 @@ deployment:
       cpu: 1000m
       memory: 256Mi
     requests:
-      cpu: 100m
+      cpu: 5m
       memory: 256Mi
 
   livenessProbe:
