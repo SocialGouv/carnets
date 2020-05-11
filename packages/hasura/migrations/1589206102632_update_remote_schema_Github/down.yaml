@@ -1,0 +1,13 @@
+- args:
+    name: Github
+  type: remove_remote_schema
+- args:
+    definition:
+      forward_client_headers: false
+      headers:
+      - name: Authorization
+        value: Basic YzZjNmQzZjI4ZWEwYzY4NDFkZDM4OGE5MDYyZWEwMjRjOWJkNDkwYQ==
+      timeout_seconds: 60
+      url: https://api.github.com/graphql
+    name: Github
+  type: add_remote_schema
