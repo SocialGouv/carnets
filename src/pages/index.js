@@ -27,7 +27,6 @@ const Page = ({ teams, posts, admins }) => (
 )
 
 export async function getServerSideProps({ req }) {
-  console.log("INDEX")
   const baseUrl = `http://localhost:${req.socket.localPort}`
   const { teams, admins } = await fetcher(`${baseUrl}/api/teams`)
   const slugs = teams.map(({ slug }) => slug)

@@ -67,22 +67,6 @@ Deploy app Hasura (prod):
     PRODUCTION: "true"
     K8S_NAMESPACE: carnets
 
-Deploy ingress front sante (prod):
-  extends: .base_docker_kubectl_image_stage
-  stage: Deploy
-  only:
-    refs:
-      - master
-  variables:
-    PRODUCTION: "true"
-    K8S_NAMESPACE: carnets
-  dependencies: []
-  environment:
-    name: prod
-  script:
-    - echo "kubectl apply -f .k8s/ingress-sante.yml"
-    - kubectl apply -f .k8s/ingress-sante.yml
-
 Delete useless k8s namespaces:
   extends: .autodevops_delete_useless_k8s_namespaces
   only:
