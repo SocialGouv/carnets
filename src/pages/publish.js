@@ -18,6 +18,7 @@ const Page = ({ teams, post }) => (
 )
 
 export async function getServerSideProps({ req, res, query }) {
+  console.log("PUBLISH")
   const { id } = query
   const auth0 = Auth0()
   const user = await auth0.getSession(req)
