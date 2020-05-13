@@ -11,7 +11,7 @@
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^0.11.0",
+    "@auth0/nextjs-auth0": "^0.12.0",
     "@sentry/browser": "^5.15.5",
     "@zeit/next-source-maps": "^0.0.3",
     "formik": "^2.1.4",
