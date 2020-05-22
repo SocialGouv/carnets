@@ -28,7 +28,7 @@
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.26.5",
     "swr": "^0.2.0",
-    "victory": "^34.3.3"
+    "victory": "^34.3.7"
   },
   "devDependencies": {
     "@socialgouv/eslint-config-react": "^0.21.0",
