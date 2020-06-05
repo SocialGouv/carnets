@@ -1,4 +1,4 @@
-import { getPosts } from "@lib/teams"
+import { getPosts } from "lib/teams"
 
 export default async (req, res) => {
   try {

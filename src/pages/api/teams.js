@@ -1,4 +1,4 @@
-import { list } from "@lib/teams"
+import { list } from "lib/teams"
 
 export default async (req, res) => {
   try {

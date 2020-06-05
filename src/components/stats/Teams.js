@@ -24,7 +24,7 @@ const Teams = ({ data, teams }) => {
 
   return (
     <div className="teams">
-      <h2>Statut par équipe</h2>
+      <h3>Statut par équipe</h3>
       <table className="table table-striped table-bordered">
         <thead className="thead-dark">
           <tr>

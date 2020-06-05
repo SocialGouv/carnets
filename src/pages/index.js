@@ -1,13 +1,13 @@
 import React from "react"
 
-import fetcher from "@lib/fetcher"
-import Nav from "@components/nav/Nav"
-import Footer from "@components/Footer"
-import { TeamsContext } from "@lib/teams"
-import { PostsContext } from "@lib/posts"
-import { AdminsContext } from "@lib/admins"
-import Teams from "@components/teams/Teams"
-import Posts from "@components/posts/Posts"
+import fetcher from "lib/fetcher"
+import Nav from "components/nav/Nav"
+import Footer from "components/Footer"
+import { TeamsContext } from "lib/teams"
+import { PostsContext } from "lib/posts"
+import { AdminsContext } from "lib/admins"
+import Teams from "components/teams/Teams"
+import Posts from "components/posts/Posts"
 
 const Page = ({ teams, posts, admins }) => (
   <TeamsContext.Provider value={teams}>

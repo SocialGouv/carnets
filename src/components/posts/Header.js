@@ -2,9 +2,9 @@ import React from "react"
 
 import Edit from "./Edit"
 import Delete from "./Delete"
-import { UserContext } from "@lib/user"
-import { TeamsContext } from "@lib/teams"
-import { AdminsContext } from "@lib/admins"
+import { UserContext } from "lib/user"
+import { TeamsContext } from "lib/teams"
+import { AdminsContext } from "lib/admins"
 
 const Header = ({ post }) => (
   <div className="header">

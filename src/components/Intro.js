@@ -1,6 +1,6 @@
 import React from "react"
 
-import { TeamsContext } from "@lib/teams"
+import { TeamsContext } from "lib/teams"
 
 const Intro = ({ slug }) => (
   <TeamsContext.Consumer>

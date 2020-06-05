@@ -1,5 +1,5 @@
-import { getInfo } from "@lib/user"
-import { get, update, remove } from "@lib/posts"
+import { getInfo } from "lib/user"
+import { get, update, remove } from "lib/posts"
 
 export default async (req, res) => {
   const {

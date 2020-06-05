@@ -1,5 +1,5 @@
 import React from "react"
-import { TeamsContext } from "@lib/teams"
+import { TeamsContext } from "lib/teams"
 
 const Team = ({ field, form: { touched, errors }, ...props }) => (
   <select

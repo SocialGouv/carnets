@@ -1,21 +1,22 @@
 {
-  "extends": [
-    "@socialgouv/eslint-config-react"
-  ],
-  "settings": {
-    "import/resolver": {
-      "babel-module": {}
-    }
-  },
+  "extends": ["@socialgouv/eslint-config-react"],
   "rules": {
-    "semi": [
-      2,
-      "never"
-    ],
+    "semi": [2, "never"],
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/label-has-for": "off",
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/no-static-element-interactions": "warn",
     "react/prop-types": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["lib", "./src/lib"],
+          ["styles", "./src/styles"],
+          ["components", "./src/components"]
+        ]
+      }
+    }
   }
 }

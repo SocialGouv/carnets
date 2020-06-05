@@ -1,5 +1,5 @@
 import React from "react"
-import Index from "../src/pages/index"
+import Index from "../pages/index"
 import { render } from "@testing-library/react"
 import "@testing-library/jest-dom/extend-expect"
 

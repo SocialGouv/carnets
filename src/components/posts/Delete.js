@@ -2,7 +2,7 @@ import Router from "next/router"
 import { Trash2 } from "react-feather"
 import React, { useState } from "react"
 
-import Modal from "@components/Modal"
+import Modal from "components/Modal"
 
 const Post = ({ post }) => {
   const [loading, setLoading] = useState(false)

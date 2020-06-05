@@ -20,7 +20,7 @@ const Posts = ({ data }) => {
 
   return (
     <div className="posts">
-      <h2>Nombre de publications par semaine</h2>
+      <h3>Nombre de publications par semaine</h3>
       <div className="chart">
         <ContainerDimensions>
           {({ width, height }) => (
