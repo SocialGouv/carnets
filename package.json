@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.13.0",
-    "@sentry/browser": "^5.15.5",
+    "@sentry/browser": "^5.17.0",
     "@zeit/next-source-maps": "^0.0.3",
     "formik": "^2.1.4",
     "github-markdown-css": "^4.0.0",
