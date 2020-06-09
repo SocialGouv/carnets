@@ -28,7 +28,7 @@ const Posts = ({ data }) => {
               width={width || 0}
               height={height || 0}
               domainPadding={{ x: 20, y: 0 }}
-              padding={{ top: 10, bottom: 40, left: 40, right: 40 }}
+              padding={{ top: 10, bottom: 40, left: 40, right: 0 }}
             >
               <VictoryAxis
                 dependentAxis
