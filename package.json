@@ -19,16 +19,16 @@
     "graphql-request": "^2.0.0",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "2.26.0",
-    "next": "^9.4.2",
+    "next": "^9.4.4",
     "react": "16.13.1",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "16.13.1",
     "react-feather": "^2.0.8",
     "react-markdown": "^4.3.1",
     "react-spinners-kit": "^1.9.1",
-    "sass": "^1.26.5",
-    "swr": "^0.2.2",
-    "victory": "^34.3.7"
+    "sass": "^1.26.8",
+    "swr": "^0.2.3",
+    "victory": "^34.3.11"
   },
   "devDependencies": {
     "@socialgouv/eslint-config-react": "^0.25.0",
@@ -37,7 +37,7 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^7.1.0",
     "eslint-import-resolver-babel-module": "^5.1.2",
-    "eslint-plugin-jest": "^23.13.1",
+    "eslint-plugin-jest": "^23.13.2",
     "jest": "^26.0.1",
     "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1"
