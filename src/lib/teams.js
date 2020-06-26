@@ -54,8 +54,6 @@ export const list = async () => {
 }
 
 export const getMembers = async (team) => {
-  const org = process.env.GITHUB_ORGANIZATION
-
   const query = `
     query getMembers($org: String!, $team: String!) {
       organization(login: $org) {

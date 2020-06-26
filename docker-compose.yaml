@@ -1,10 +1,10 @@
-version: '3.6'
+version: "3.6"
 services:
   postgres:
     image: postgres:13
     restart: always
     volumes:
-    - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
   graphql-engine:
@@ -12,9 +12,9 @@ services:
       context: ./packages/hasura
       dockerfile: ./Dockerfile
     ports:
-    - "8080:8080"
+      - "8080:8080"
     depends_on:
-    - "postgres"
+      - "postgres"
     restart: always
     environment:
       HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
@@ -24,6 +24,7 @@ services:
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       HASURA_GRAPHQL_JWT_SECRET: '{"type": "RS512", "key": "-----BEGIN CERTIFICATE-----\nMIIC+zCCAeOgAwIBAgIJburg6wyeWCJLMA0GCSqGSIb3DQEBCwUAMBsxGTAXBgNV\nBAMTEGd2dy5ldS5hdXRoMC5jb20wHhcNMjAwMTE1MTk0MjExWhcNMzMwOTIzMTk0\nMjExWjAbMRkwFwYDVQQDExBndncuZXUuYXV0aDAuY29tMIIBIjANBgkqhkiG9w0B\nAQEFAAOCAQ8AMIIBCgKCAQEA41cbU2UfnbA2brAfheMmwNtmQ+3SMXKnglgaGHP2\nXquVY9kbB98Rh7tCcxP3SlNHeyaKuLs77JF/HnaPOwmZnjl0UhhicCxCoDSyUMik\nbWJXXseiRVeRfHesAL7ZrZy6Di8bGCrsG1laHFVjDyCxQsKRqqm8WEnZ2Iv8fVWu\nkFeojuve7Gl8Vn4Dka6NNumB1W9fVtkriwlzOnkXuYoq/uwKV7zZtv1XRPfAn4vJ\nT0kyAfi673oBcfpSvswEx07sr0xSsw1/MkIfir1MJNE6OLXbhIRTKDzg7nhksSxt\nz9dbICFeblmp3EvAqrTs7c+Oo/s4BYXMyEr95nuic7L46QIDAQABo0IwQDAPBgNV\nHRMBAf8EBTADAQH/MB0GA1UdDgQWBBR/Yu734y/0ieFVZTCVEUdKEgvlxDAOBgNV\nHQ8BAf8EBAMCAoQwDQYJKoZIhvcNAQELBQADggEBAKeSN+RgIXcMMy1lkMDz0t7x\nt1XziG74jJzi46BAvSB59MJqVNOQsKfd4LrZwMBxnfKN/AVlDthM+t+NSdzoC+Lg\nhdPWWo+JgChYpI3opGc+GgtAHWTHFr5N/Wjoig3KGNdlFxvkF4vXxQ0IPkgzeGQs\ngETRg/QHjll3iKZK/wVe4WAcQxLxljpSPZKka3pDl22vV5akGuS/dIbJvvuwKwT0\nf6VONg8aBx++R+UgFsKlfaxBXcbY2UCyfQjcyrAoKkktR8lQ513UqkzaDGLUSVLw\n+DaOq+hDQ+oFbfrR46ZaBHPcZoG7YP9b6V0OSbOYKNWnzk94aU3lCUASG5R8LYY=\n-----END CERTIFICATE-----"}'
+      GITHUB_AUTHORIZATION_HEADER: "Basic U29jaWFsR3Jvb3Z5Qm90OmM2YzZkM2YyOGVhMGM2ODQxZGQzODhhOTA2MmVhMDI0YzliZDQ5MGE="
     volumes:
       - "./packages/hasura/migrations:/hasura-migrations"
 volumes:

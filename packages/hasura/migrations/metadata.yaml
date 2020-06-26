@@ -157,5 +157,5 @@ remote_schemas:
     url: https://api.github.com/graphql
     timeout_seconds: 60
     headers:
-    - value: Basic U29jaWFsR3Jvb3Z5Qm90OmM2YzZkM2YyOGVhMGM2ODQxZGQzODhhOTA2MmVhMDI0YzliZDQ5MGE=
-      name: Authorization
+    - name: Authorization
+      value_from_env: GITHUB_AUTHORIZATION_HEADER
