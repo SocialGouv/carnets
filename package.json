@@ -14,7 +14,7 @@
     "@auth0/nextjs-auth0": "^0.13.0",
     "@sentry/browser": "^5.15.5",
     "@zeit/next-source-maps": "^0.0.3",
-    "formik": "^2.1.4",
+    "formik": "^2.1.5",
     "github-markdown-css": "^4.0.0",
     "graphql-request": "^2.0.0",
     "isomorphic-unfetch": "^3.0.0",
