@@ -16,8 +16,8 @@ const Modal = ({ isVisible, children, onClose, loading }) => {
         <div
           tabIndex={0}
           role="button"
-          className="modal"
           onClick={close}
+          className="modal"
           onKeyPress={close}
         >
           <div className="window">
