@@ -11,15 +11,15 @@
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^0.13.0",
-    "@sentry/browser": "^5.15.5",
+    "@auth0/nextjs-auth0": "^0.15.0",
+    "@sentry/browser": "^5.20.1",
     "@zeit/next-source-maps": "^0.0.3",
     "formik": "^2.1.5",
     "github-markdown-css": "^4.0.0",
     "graphql-request": "^2.0.0",
     "isomorphic-unfetch": "^3.0.0",
-    "moment": "2.26.0",
-    "next": "^9.4.4",
+    "moment": "2.27.0",
+    "next": "^9.5.1",
     "react": "16.13.1",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "16.13.1",
@@ -27,22 +27,22 @@
     "react-markdown": "^4.3.1",
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.26.10",
-    "swr": "^0.2.3",
+    "swr": "^0.3.0",
     "victory": "^34.3.12"
   },
   "devDependencies": {
-    "@socialgouv/eslint-config-react": "^0.25.0",
-    "@testing-library/jest-dom": "^5.8.0",
-    "@testing-library/react": "^10.0.4",
-    "eslint": "^7.1.0",
+    "@socialgouv/eslint-config-react": "^0.35.0",
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.8",
+    "eslint": "^7.6.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-react": "^7.20.5",
-    "jest": "^26.0.1",
+    "jest": "^26.3.0",
     "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1"
   },
   "resolutions": {
-    "moment": "2.26.0"
+    "moment": "2.27.0"
   }
 }
