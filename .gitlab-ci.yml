@@ -83,7 +83,7 @@ Create seeds DB (dev):
     PGPASSWORD: pass_${CI_COMMIT_SHORT_SHA}
     PGDATABASE: db_${CI_COMMIT_SHORT_SHA}
   script:
-    - kubectl rollout status deployment.v1.apps/hasura
+    - kubectl rollout status deployment.v1.apps/hasura-carnets
     - psql < ./scripts/seeds-dev.sql
 
 Delete useless k8s namespaces:
