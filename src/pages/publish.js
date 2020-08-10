@@ -1,11 +1,10 @@
-import React from "react"
-
+import Footer from "@components/Footer"
+import Nav from "@components/nav/Nav"
+import Publish from "@components/publish/Publish"
 import Auth0 from "@lib/auth0"
 import fetcher from "@lib/fetcher"
-import Nav from "@components/nav/Nav"
-import Footer from "@components/Footer"
 import { TeamsContext } from "@lib/teams"
-import Publish from "@components/publish/Publish"
+import React from "react"
 
 const Page = ({ teams, post }) => (
   <TeamsContext.Provider value={teams}>
@@ -31,7 +30,7 @@ export async function getServerSideProps({ req, res, query }) {
 
   if (id) {
     const [post] = await fetcher(`${baseUrl}/api/posts/${id}`)
-    return { props: { teams, post } }
+    return { props: { post, teams } }
   }
 
   return { props: { teams } }

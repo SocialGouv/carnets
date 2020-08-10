@@ -1,13 +1,12 @@
-import React from "react"
-
-import fetcher from "@lib/fetcher"
-import Nav from "@components/nav/Nav"
 import Footer from "@components/Footer"
-import { TeamsContext } from "@lib/teams"
-import { PostsContext } from "@lib/posts"
-import { AdminsContext } from "@lib/admins"
-import Teams from "@components/teams/Teams"
+import Nav from "@components/nav/Nav"
 import Posts from "@components/posts/Posts"
+import Teams from "@components/teams/Teams"
+import { AdminsContext } from "@lib/admins"
+import fetcher from "@lib/fetcher"
+import { PostsContext } from "@lib/posts"
+import { TeamsContext } from "@lib/teams"
+import React from "react"
 
 const Page = ({ teams, posts, admins }) => (
   <TeamsContext.Provider value={teams}>
@@ -33,7 +32,7 @@ export async function getServerSideProps({ req }) {
   const posts = (await fetcher(`${baseUrl}/api/posts`)).filter((post) =>
     slugs.includes(post.team_slug)
   )
-  return { props: { teams, posts, admins } }
+  return { props: { admins, posts, teams } }
 }
 
 export default Page
