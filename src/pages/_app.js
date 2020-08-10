@@ -1,12 +1,11 @@
-import useSWR from "swr"
-import * as Sentry from "@sentry/browser"
-import React, { useState, useEffect } from "react"
+import "@styles/main.scss"
+import "github-markdown-css"
 
 import fetcher from "@lib/fetcher"
 import { UserContext } from "@lib/user"
-
-import "@styles/main.scss"
-import "github-markdown-css"
+import * as Sentry from "@sentry/browser"
+import React, { useEffect, useState } from "react"
+import useSWR from "swr"
 
 Sentry.init({ dsn: process.env.SENTRY_DSN })
 

@@ -1,6 +1,5 @@
-import React from "react"
-
 import { TeamsContext } from "@lib/teams"
+import React from "react"
 
 const Intro = ({ slug }) => (
   <TeamsContext.Consumer>
@@ -12,7 +11,7 @@ const Intro = ({ slug }) => (
               <div
                 className="avatar"
                 style={{ backgroundImage: `url(${team.avatarUrl})` }}
-              ></div>
+              />
               <div className="details">
                 <h2>
                   {team.name}

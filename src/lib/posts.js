@@ -1,5 +1,5 @@
-import React from "react"
 import { fetch } from "@lib/hasura"
+import React from "react"
 
 export const PostsContext = React.createContext()
 

@@ -1,5 +1,5 @@
-import React from "react"
 import { fetch } from "@lib/hasura"
+import React from "react"
 
 const org = process.env.GITHUB_ORGANIZATION
 
@@ -48,8 +48,8 @@ export const list = async () => {
   } = await fetch(query)
 
   return {
-    teams,
     admins: coreTeamMembers.map((member) => member.login),
+    teams,
   }
 }
 

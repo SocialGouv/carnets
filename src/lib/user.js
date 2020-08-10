@@ -1,7 +1,6 @@
-import React from "react"
-
 import Auth0 from "@lib/auth0"
 import { getMembers } from "@lib/teams"
+import React from "react"
 
 export const UserContext = React.createContext()
 
