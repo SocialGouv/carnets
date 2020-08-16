@@ -19,7 +19,7 @@
     "graphql-request": "^2.0.0",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "2.27.0",
-    "next": "^9.5.1",
+    "next": "^9.5.2",
     "react": "16.13.1",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "16.13.1",
@@ -32,12 +32,12 @@
   },
   "devDependencies": {
     "@socialgouv/eslint-config-react": "^1.22.0",
-    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.8",
     "eslint": "^7.6.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react": "^7.20.6",
     "jest": "^26.3.0",
     "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1"
