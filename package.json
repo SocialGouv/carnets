@@ -27,13 +27,13 @@
     "react-markdown": "^4.3.1",
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.26.10",
-    "swr": "^0.3.0",
+    "swr": "^0.3.1",
     "victory": "^35.0.8"
   },
   "devDependencies": {
     "@socialgouv/eslint-config-react": "^1.22.0",
-    "@testing-library/jest-dom": "^5.11.3",
-    "@testing-library/react": "^10.4.8",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^10.4.9",
     "eslint": "^7.6.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.0",
