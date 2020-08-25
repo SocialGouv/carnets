@@ -4,7 +4,7 @@ include:
     ref: v17.3.1
 
 variables:
-  AUTO_DEVOPS_RELEASE_AUTO: "🔖"
+  AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
   AUTO_DEVOPS_PRODUCTION_AUTO: "🚀"
 
 Lint:
