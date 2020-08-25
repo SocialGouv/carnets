@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: app-configmap
+data:
+  ACCOUNT_MAIL_SENDER: "contact@fabrique.social.gouv.fr"
+  GRAPHQL_ENDPOINT: "http://hasura/v1/graphql"
+  NEXT_PUBLIC_ACTIVATION_TOKEN_EXPIRES: "10080"
+  NODE_ENV: "production"
+  REFRESH_TOKEN_EXPIRES: "43200"
