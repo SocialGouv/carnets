@@ -1,6 +1,7 @@
 @use "./variables";
 
-.page > .posts {
+.page > .posts,
+.panels .posts {
   margin: 0 variables.$base-margin;
   padding-bottom: variables.$base-margin * 2;
 
@@ -53,7 +54,8 @@
           border-right: 1px solid variables.$border-color;
           padding: variables.$base-margin / 4 variables.$base-margin 0;
 
-          .value, .name {
+          .value,
+          .name {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -71,58 +73,65 @@
         }
       }
 
-      .tabs {
-        display: flex;
-        margin: variables.$base-margin / 2 variables.$base-margin;
-        border-bottom: 1px solid darken(variables.$base-color, 10%);
-
-        div {
-          top: 1px;
-          outline: none;
-          cursor: pointer;
-          position: relative;
-          color: variables.$link-color;
-          margin: 0 variables.$base-margin / 1.5;
-          padding: variables.$base-margin / 2 variables.$base-margin / 5;
-
-          &:hover {
-            color: variables.$font-color;
-          }
-
-          &.selected {
-            color: variables.$font-color;
-            border-bottom: 1px solid variables.$font-color;
-          }
-
-          &.disabled {
-            opacity: 0.3;
-            cursor: default;
-            color: variables.$font-color;
-          }
-        }
+      .tabpanel .panels > div {
+        padding: variables.$base-margin;
+        background-color: variables.$base-color;
+        border: 1px solid variables.$border-color;
+        margin: variables.$base-margin variables.$base-margin 0;
       }
 
-      .panels {
-        flex: 1;
-        display: flex;
-        overflow: auto;
-        max-height: 15rem;
-        min-height: 15rem;
+      // .tabs {
+      //   display: flex;
+      //   margin: variables.$base-margin / 2 variables.$base-margin;
+      //   border-bottom: 1px solid darken(variables.$base-color, 10%);
 
-        div {
-          display: none;
-          overflow: auto;
-          padding: variables.$base-margin;
-          background-color: variables.$base-color;
-          border: 1px solid variables.$border-color;
-          margin: variables.$base-margin variables.$base-margin 0;
+      //   div {
+      //     top: 1px;
+      //     outline: none;
+      //     cursor: pointer;
+      //     position: relative;
+      //     color: variables.$link-color;
+      //     margin: 0 variables.$base-margin / 1.5;
+      //     padding: variables.$base-margin / 2 variables.$base-margin / 5;
 
-          &.selected {
-            flex: 1;
-            display: block;
-          }
-        }
-      }
+      //     &:hover {
+      //       color: variables.$font-color;
+      //     }
+
+      //     &.selected {
+      //       color: variables.$font-color;
+      //       border-bottom: 1px solid variables.$font-color;
+      //     }
+
+      //     &.disabled {
+      //       opacity: 0.3;
+      //       cursor: default;
+      //       color: variables.$font-color;
+      //     }
+      //   }
+      // }
+
+      // .panels {
+      //   flex: 1;
+      //   display: flex;
+      //   overflow: auto;
+      //   max-height: 15rem;
+      //   min-height: 15rem;
+
+      //   div {
+      //     display: none;
+      //     overflow: auto;
+      //     padding: variables.$base-margin;
+      //     background-color: variables.$base-color;
+      //     border: 1px solid variables.$border-color;
+      //     margin: variables.$base-margin variables.$base-margin 0;
+
+      //     &.selected {
+      //       flex: 1;
+      //       display: block;
+      //     }
+      //   }
+      // }
     }
 
     .footer {
@@ -147,7 +156,7 @@
 @media screen and (min-width: 1100px) {
   .page > .posts {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(50%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
 
     .post {
       &:nth-child(odd) {

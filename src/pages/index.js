@@ -27,12 +27,17 @@ const Page = ({ teams, posts, admins }) => (
 
 export async function getServerSideProps({ req }) {
   const baseUrl = `http://localhost:${req.socket.localPort}`
-  const { teams, admins } = await fetcher(`${baseUrl}/api/teams`)
-  const slugs = teams.map(({ slug }) => slug)
-  const posts = (await fetcher(`${baseUrl}/api/posts`)).filter((post) =>
-    slugs.includes(post.team_slug)
-  )
-  return { props: { admins, posts, teams } }
+  try {
+    const { teams, admins } = await fetcher(`${baseUrl}/api/teams`)
+    const slugs = teams.map(({ slug }) => slug)
+    const posts = (await fetcher(`${baseUrl}/api/posts`)).filter((post) =>
+      slugs.includes(post.team_slug)
+    )
+    return { props: { admins, posts, teams } }
+  } catch (error) {
+    console.log(error)
+    return { props: { admins: [], posts: [], teams: [] } }
+  }
 }
 
 export default Page

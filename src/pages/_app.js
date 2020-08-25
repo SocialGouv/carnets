@@ -13,7 +13,9 @@ const App = ({ Component, pageProps }) => {
   const [user, setUser] = useState()
   const { data, error } = useSWR("/api/auth0/me", fetcher)
 
-  useEffect(() => !error && data && setUser(data), [data, error])
+  useEffect(() => {
+    !error && data && setUser(data)
+  }, [data, error])
 
   try {
     return (

@@ -17,6 +17,7 @@ export const getInfo = async (req, res) => {
     res.status(403)
     throw new Error(`Cannot get user's access token`)
   }
+  console.log("REQUESTS TO GITHUB!")
   const members = await getMembers(req.body.team_slug)
   if (!members.includes(user.nickname)) {
     res.status(403)

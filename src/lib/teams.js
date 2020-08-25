@@ -6,6 +6,7 @@ const org = process.env.GITHUB_ORGANIZATION
 export const TeamsContext = React.createContext()
 
 export const list = async () => {
+  console.log('Call to "list"')
   const query = `
     query {
       organization(login: "${org}") {
@@ -54,6 +55,7 @@ export const list = async () => {
 }
 
 export const getMembers = async (team) => {
+  console.log('Call to "getMembers"')
   const query = `
     query getMembers($org: String!, $team: String!) {
       organization(login: $org) {

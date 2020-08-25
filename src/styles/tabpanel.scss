@@ -1,0 +1,62 @@
+@use "./variables";
+
+.tabpanel {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  // background-color: red;
+
+  & > .tabs {
+    display: flex;
+    margin: variables.$base-margin / 2 variables.$base-margin;
+    border-bottom: 1px solid darken(variables.$base-color, 10%);
+
+    div {
+      top: 1px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      color: variables.$link-color;
+      margin: 0 variables.$base-margin / 1.5;
+      padding: variables.$base-margin / 2 variables.$base-margin / 5;
+
+      &:hover {
+        color: variables.$font-color;
+      }
+
+      &.selected {
+        color: variables.$font-color;
+        border-bottom: 1px solid variables.$font-color;
+      }
+
+      &.disabled {
+        opacity: 0.3;
+        cursor: default;
+        color: variables.$font-color;
+      }
+    }
+  }
+
+  & > .panels {
+    flex: 1;
+    display: flex;
+    overflow: auto;
+    // max-height: 15rem;
+    // min-height: 15rem;
+
+    & > div {
+      display: none;
+      overflow: auto;
+      // padding: variables.$base-margin;
+      // background-color: variables.$base-color;
+      // border: 1px solid variables.$border-color;
+      margin: variables.$base-margin variables.$base-margin 0;
+
+      &.selected {
+        flex: 1;
+        display: block;
+      }
+    }
+  }
+}
