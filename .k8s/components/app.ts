@@ -32,15 +32,16 @@ const manifests = create("app", {
 })
 
 /* pass dynamic deployment URL as env var to the container */
-// const deployment = getManifestByKind(manifests, Deployment) as Deployment
+//@ts-expect-error
+const deployment = getManifestByKind(manifests, Deployment) as Deployment
 
-// ok(deployment)
+ok(deployment)
 
-// const frontendUrl = new EnvVar({
-//   name: "FRONTEND_URL",
-//   value: `https://${getIngressHost(manifests)}`,
-// })
+const frontendUrl = new EnvVar({
+  name: "APP_BASE_URL",
+  value: `https://${getIngressHost(manifests)}`,
+})
 
-// addEnv({ deployment/*, data: frontendUrl */})
+addEnv({ deployment, data: frontendUrl })
 
 export default manifests
