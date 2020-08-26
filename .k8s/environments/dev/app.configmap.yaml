@@ -7,7 +7,4 @@ data:
   AUTH0_AUDIENCE: "hasura"
   AUTH0_DOMAIN: "socialgouv.eu.auth0.com"
   HASURA_URL: "http://hasura/v1/graphql"
-  #ACCOUNT_MAIL_SENDER: "contact@fabrique.social.gouv.fr"
-  #NEXT_PUBLIC_ACTIVATION_TOKEN_EXPIRES: "10080"
-  #NODE_ENV: "production"
-  #REFRESH_TOKEN_EXPIRES: "43200"
+  NODE_ENV: "production"
