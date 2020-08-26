@@ -1,0 +1,429 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`k8s for PROD environment 1`] = `
+"- metadata:
+    annotations:
+      field.cattle.io/creatorId: gitlab
+      field.cattle.io/projectId: 'c-kk8xm:p-4fxg8'
+      git/branch: master
+      git/remote: 'git@github.com:SocialGouv/cdtn-admin.git'
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    labels:
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+    name: cdtn-admin
+  apiVersion: v1
+  kind: Namespace
+- metadata:
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    labels:
+      app: app
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+    name: app
+    namespace: cdtn-admin
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: app
+    template:
+      metadata:
+        annotations:
+          app.gitlab.com/app: socialgouv-cdtn-admin
+          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/env.name: prod2
+        labels:
+          app: app
+          application: cdtn-admin
+          owner: cdtn-admin
+          team: cdtn-admin
+      spec:
+        containers:
+          - image: >-
+              registry.gitlab.factory.social.gouv.fr/socialgouv/cdtn-admin/app:8843083edb7f873cad1d1420731a60773594ffae
+            livenessProbe:
+              failureThreshold: 6
+              httpGet:
+                path: /healthz
+                port: http
+              initialDelaySeconds: 30
+              periodSeconds: 5
+              timeoutSeconds: 5
+            name: app
+            ports:
+              - containerPort: 3000
+                name: http
+            readinessProbe:
+              failureThreshold: 15
+              httpGet:
+                path: /healthz
+                port: http
+              initialDelaySeconds: 0
+              periodSeconds: 5
+              successThreshold: 1
+              timeoutSeconds: 1
+            resources:
+              limits:
+                cpu: 1000m
+                memory: 256Mi
+              requests:
+                cpu: 5m
+                memory: 128Mi
+            startupProbe:
+              failureThreshold: 12
+              httpGet:
+                path: /healthz
+                port: http
+              periodSeconds: 5
+            envFrom:
+              - secretRef:
+                  name: app-sealed-secret
+              - configMapRef:
+                  name: app-configmap
+  apiVersion: apps/v1
+  kind: Deployment
+- apiVersion: bitnami.com/v1alpha1
+  kind: SealedSecret
+  metadata:
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    name: app-sealed-secret
+    namespace: cdtn-admin
+    labels:
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+  spec:
+    encryptedData:
+      ACCOUNT_EMAIL_SECRET: >-
+        AgB1gxNc0m1qeZ9CTCH3dvWbAFOJRKPQJPI+G54kTfyMNWXpPy6U2m7wDymKaNZMVJbA91KaQoFkcsjope/Jpdlwb79EjvP5e3yxLxSW/oGfoDGvOGkLJvgjFkOvMyCVBTFflpBYZu4bB2Va6E9taSNq/NAkO+MIHYUDhFNEoVy+J2Rz2t6hQRgic+nR0wpZ1kxbANMmhJOgrEtIVhKBKb0PT/uwnt2AZd5wOvh7qBoobLktDISYgdAaukZ3cCbV9lkx+jxBv0illkRa3BlKi+ln7y8xaY0VaW+6qr373mJu+ZKf5Ib/SOt580JZHyDsndUwwoZXM8t4SUgdcXjo1Vp7/1sHdzM8AAq66wtC6xHvcjeTM08nqW1Cn7L8v+35JpGAQahvp7BrJEn5SUzF99f9eTdIupF+BZemP6p4U9i3F3z8l6a73dTesduqeQ8nZYSVJeRVv0JIK1TG5SDqoWAYdCHZQXvCR+MInGZ5b6SFJqF28ZDmasBioD8PlNIM3m9epVfYXZfzx7lA1VLztPcOHlpVsH8Faur7mJOrL2T5pPs20Ibi/dk4PEqk7kYaaN4hIDJ5zY0xZGTnzijLyIWS2P9fJNtXT/V8wAaG7pS/lyc4QSFY9nN0dPOISXamHxfb6RfwIpuxYCBqFgtwdrHZDviy82g7HZ9M7/NHnMJtVS8v4O8YZYt5Tb1ZlCjoI44ovikKV53H9IYr2PaTQ+eoUkxjmttkRap4V0R5oZ+pvN3WP5DvU+D10kihkJaIanqDfMYejhtrY6BFvJ+YFm8OoFZQaokZBt+M/cpC+ZQCRMkzJcoVW4Fc
+      HASURA_GRAPHQL_ADMIN_SECRET: >-
+        AgB+D761PDdC5O3C2yEWEHPl/PUH++zYz/z5AqU7imREGD9zxszFH0wzvHjq7vHLd1pOZsLuTXNXsUjWYnb4Ol+fMakS323CUpwGYGkz41ZOKn184Egyr3wKICi+hac9lHgBjsvzk4rtRFnPV2nuoe4DMjgBrAXjWuTrVipRuYMQsQjjyaxR8/k2KbTAvofKMaGdp1zQ5XH2ILkkXiNkmQO0mfk262/lZ2zlM0Q41MWa2a4y0rjhGo1W5CXSkm8SETo04tAHwTd/cFLajiluLy+zxFiY5p7OungpH+Kcxt3pvR9ewPBotER9YTr/VTxBjBu2IYOSJWSy3blHMAwICinHCWiLReZ+2ha1JQZaIxsX8HbITGgIR1Y++iAqRBYSbSesD+5P5fVS4Jn+BlfM7Yog2lOz510SeaO1xpG9vGHVNFnoz/wUN7sgZmmiFO4XseMLv5CpMI9pDkZSabN05gkTsKgSXIoswMkfKeUYGIE7g/x8lKxg/AuqqiNpxevO0kRNz0+KbefF0kYUJoE7ZMikd9r3+1b48lttw9M7luGDgBQYCPmzHLBv46rALK4N5nP/bQFPAY7UgS31id8w8qyiAG8AfWHvnSH1EJGierGl7ddf1/eskzGrso9NuExkeZClaOJoWynP/IeLa1TkCrAVyaNVfTwWiil/2EFgC+qfh+AyItrPeYWvR6PN1rV7sgirAV8wCnwk5L43MkoyeF/oJViVXcwiMYms
+      HASURA_GRAPHQL_JWT_SECRET: >-
+        AgAOzy17hE91otV+H4isQ0AYybmFlhn7uYZPW82kyuMI3oJLB+/AwbdHNoMNn3kdiBNXzyd0xNigvPqVJ4Gj2KLSHbKC9WmrOyTBCZQ5oiiLg101TGke3uWC1OFPZXTTelSqdQzwWnJwzuNYM/KWaQ3xGfu+5+/h/EX2uRhdQsvCLGYhuNgfX4hl3mwL1wPh6+wkxQgQl5ogLKB+tCbAPE7q/bbUqdupMqbcj/t47KoYtT5IbsTr+fAoPPXtm05Am54HtdFpl27XwMn9Z0mRjvz7g9Wuspm5FMElXNO0Gn+tcB/TBDDvJ5huDZwYNYnoJh7xppH8yK1lXq70rbsdAGuXRyPF1qHm5YejJF1w/A2yDZXjSunJtmKzenKY94hEj+ZwgtiBQ+wlK1G+OVzqhnmy8xzELU0obxvX5cEuDqzdnsRfVFAizbA+TojbuLft9TDsc809mcIsSphSUDiqwuA3rqJs51pnhHD8Kb2sE3O4CCug32b0APexHGYm0fCMAJYN/Y54EI2fl3yWFdezIXDePCbuK3n+WAcfoUMuKD3xHT7T5PEw8H+X5coZq4igsAqJLUjV6oCwhnFnzCieFFDsMikUh9/rslHHGrBDr2tqykobeuObesy+5h9BkGmQgMiqh8qI2DnbghqcNhyKPwannp+tCtDhb7S7ecOlQtiAPXf5fpvKMXS3GYIxmzPfWZYQ0eW6JtiHFb/Jap3rEW0/584QgB/SJWkWBo9PgVjHRByzwT6e6nhArlp7sMtgGRnQ5vQVq2SA4CwMkC5p1StVUKGKZ21d86/J1w/+nL9A09rrGZgBFbQm1uOJMwycliFJwcB5UbYrCaR3gF+9iKFDqV/f/A==
+      MATOMO_SITE_ID: >-
+        AgAY8ysd9j59o2Wo4QcdO6+rKfOkUvR7gaBpadwn32dFMMvkUdtUoUHYLaDmyUOb8hVqUNs6H/PvELuOCNrxOnX6xSRm4889S2JVsQAVZaFZpWgpYfOz7qVvz8hMe5zK2zLRKslZwQkZ3pQDa9NFN1H7pxw+wdEJkGa5+4UzNh6xgHnXwFcvKxYtGOeud7gmrXmF60PDGZ1lLreGterxBc7UCdIRla5QamsauKXQcgTwueiJig3TnjnFGR8dhAQg+IXGEV5HB98N2NL2+c7bok1XAas+rqX72gKaop+82/KAJlB3jDIm0GEkSsGWFHpC0BM1qm7Nv9eQWRw98xWosngMiSmOTBMzWWwFSAAQ6HHXM7PcWlVKXb3SdqPHuEy/TuEWu0u9xxAH6qEJYNRx2NrlCoGBDMpGZL2NfqV1ZI2huE9tFWwVbeSlkDqz+gMxIbZK9CDd9xwD0t9JaDPjHNSOvlJPSTQRHRLQJbSdv7zJJaiCw/LoBijLURoLjzh11ZQV+zS2hGTMXqeNtrGabxcPTG3AclvSlVWmsjM6054uD5aWdMHOT6eq/ndqx8jSMqBoN95X76QodrlKpUQiQQXLzIVyKRDdlRLHuTt7CXuZpKdSXRYhLF254uQ3cVfFki+OfkCwxPdv+1AYn4yEGxo9YAxZXXjRKs08xRtqYJfXQboqDRjz0aovhkgFABnEHGzl/Q==
+      MATOMO_URL: >-
+        AgAN1E1CqcrRY7aLMBphrZTfsGCUZOtkJa6XB2/JriGvOGBI7uWZLQDiaM+iJXFln7pVbCRVenYZEodsR6Eu0XUqaT/gwUI/AFE3Lvap5DcJv2tzK+JctYb3VuQ0GHun49JHXBmAERe5hcmJrbq1UzZwhyNpFzBBGgNGLxLB1Iy1rDmjTeKuAzP6EMksrQCVo4qiUOjsu9uqBmgcPWONDuv8J+hjSUDUOopCqC8SnLX+0NQQcsrMCDhIjobBusaM3jbb6/YoUM5v10vXxvsSFVJ+rkQKq0zH/dhT6x3FNuW86CevKmqr8xmGnZldjJvYqwJ8ZMDUkaPBeogroaocjXbxxHFp9DtQstqhF3aWgNHakVtVfBiyaGfRXuc9IdPKo+S8hA2N13T88uP9lQR8sVEby8tAEGMIZvFbFPpwtTQ6CsaLIu5xVa83sza9VCey5HVBw2cSfKhkxdJyriapOicHDBfbdod8x5STbK73m9i4Xsh3FMZVDihuuU4tAqkBZQlcZeTIdQRJxcrzmftQd4CUZdWB1ATSuoniMF3qEVECWabFl3vU3r/ne+d/mR3c57hGyKaKA3Klt4dkbZvXmc/MEygI7JoEKHXW1iO1y57JzcGgpmyKk4HIZdCGEVRqg1WFUmA38p1pijNmX0csh266cYwMNWQCQabbe5wo3yM7oX1aOymA0fCwFbEDP+HtLWAynRhmVMnoCknwhuMm6ahohFv3PMbzYnBQ+Dsjo649RwLTLzlLePE=
+      SENTRY_DSN: >-
+        AgCSo8N8FGxuOepbOKC+Kx5YudymsMpAW6kTARPGo2PUn+Uf7j/L2qZoiO+z6bx/nbie/DzjMyk0wMZUkB32vp805jraj3X5y1o4Fxn++Vg7FEpu+pYAxJEwv5TVlbIFMB664Kx/ZQBwEOQBdeQTUgqlRdy1QJmzvpvAtkhyf4Qj6XB9bxsQBHDo/xvs+q0BNhXKUqzG2v3rnuWmdyvBVb1LuihLumyEeLzk3/qiMAVZmKTOce+pbVRV3sSlsEJyFNFSTIPu9+6n0FK+eT1909nfsPhdHtaneseuH1hKJv2/2CtPZPHOnSdrNSn/ThMoGxoIkla/u7P9MC9BkPC3cqTBfEiOUjmmcEmT/0vJN5ydCIYbIwMmOzOG/Nh5iDved/A6yB32T0m1QJQZWNCThqTzRw3UpE+XYryEeCiRZCUMRl3RuFn5zdoEcizF/pVTLhya2QBLaTx2PVWSXrarxoCjcPooo+Tsv8ZqQuoxttGTd+VWTJd7CMfPleNuLKA0ZobZrIFl6dGROChJmyZsrA8VExGHidWx/fAjGMlQzScMWmBjwVaY/aYRzQFe1NrDRof5TPR9TaP4LSyNLHtXOe5JsPExOJDMztidu6psjAQGG1aVFjo0tftkI90acslUQ7CtZzpPCt36xBBmAwGbW6gD3hsBQdxVMbd8coIs8+SC10wNxvwvmtxVo5dlcpxRpQJu/tJvrQcfMFN5hdwUPY4mHUX6ek0uq1daB/2aO1DXnDy3c3ZQZR9pfJ+mrWAE5UmcutIU8LY89dTykAEbvdAcehDEkqHSlkVpbg==
+      SENTRY_TOKEN: >-
+        AgALpW3uQeKuV+fp3d4C0k2+/yPPmPNIVBqf1eHGLINi+u4pIVefVKowMLe3VgUvagsNx6nmpA+Ihbx9czf+gnvsEHC7RkSjkwl6m+ggstx/VFu+r3LVPEm9UHhULucyQgpfkGPqcYLY/SJFkGI2TCgDwO54F+/73Zodxyo9+kPJMFz7ljEy/izoSeNmZRDkQsTdX98cnBnlEuXRLDtNyC1/Xsx8eCHD0gZW6oSkFL5cT6GjuhakPIrKh26prumQnYlTTwWmIxrUheJtQn9+NbUor0o8SNsPm1Dpxj4eofcPcBzDhEecmsu73wmgm7TpvCxb/0az9/bUapQXC9d/UV3odk5Y4sjVaXnlb7qaHlG/78v0J0H1pLru7fl6yEWik+573bpLnTl4GNhEEkPub43vid3KSg9gMzymEVnr1QvWwgHcA59VFBWgKP3fl1rx5lGvbEqsf7RUuM8PX1PVIosXuDGEkiCheY3JrleM2H79nKhc1MKZVycl3Dd/5M2Ww6zTm+AnD0IdwJSvZaalRSelbN+NmlKHeEE495lI6OCDmA4ZAWdOsmmTV7klyoOdVObJPbdsdNAWsOAHjLS6q3VoEl66IacH4PVkIwOl6AppzjA3dy36Unisqcpy3Izek9udl2AGKxTQldIRWn6huNfuLBtujoUXWQnSE+40SDMfUgdkeYbLOXM4xfy6isQkW3Q6q/siWEituF/k3e/FiW77e3uHCmFyK1/pas9Q4G7IQA==
+      SMTP_EMAIL_PASSWORD: >-
+        AgAxia40c9sjwfjzxLsG1lq2o/C0EvWWADuCLcTolgVnjT59N586oqa+omXI+hIwWejKq/w/oI/NMNLHZCLIdafGQt2zeuW+k2CrfjWttSOekhzNCObekja0TtYXgFlZG9aZ2arKvl3xh64PIc4O9H/T47ncwTmItEh0g8RYkMipXVJ7goB29X2eOr6D/n5lvPeE7N7LhobMzBBLnOYDy0XW6lrlI1Oborq1TmHDlyMhDnZe1DyZf0Vz/lASF2O8Mc8kgfD/2YskbHqsEXs4S9Zd3UX07nbz3r1c2xhiwXv2kzAjuE4EOENVWeMlJH54UPrr9w5QnsVbc61HeA7Xxs9NOIWgYeBveFop8+5o3MrswjCWjZNipLsY9Cyv6Xmbv2j7FcZGNAEXIlvBKftkfh9Ef/ymKdiz0CzZc6pbH5hrQ1ESRwT4QfgAXwNkgLaUiBAHFtheEE2ONEQyJehag50pdMkyAU5S0C6yPVFAk/2dCEznxMCT+GW6YEc1JPg76jVPUNZ8Y8sM5KSqIld7cbdN/gjOWeafJ62fYrvLAEcf7ffuDm2bl0W9hbnw2Y9QKG7SGVZl5X1whJRGo0FJyJhcftbLOolcb5X358KbyAz+X1nNK37CDm9+3Jips2zCaLUGx3PPW5j2E2EQgHOfZC5iy1zRLJHVkrApDSrIKEuKsHXZ32U2UqMJqWS11tQymEM7taQenAGQ19dVQHfLezuzQjkSiQN7Bcwzu1iQfFJ+sg==
+      SMTP_EMAIL_USER: >-
+        AgCsue9xoyKqEahVk5uVBZcIrh/16ZRVjc6oFam4/8cK/A0vVcQdcBh/ELvSg9ww8mBjsisRpCQbmGuysoTDuWqOjX0rG1f6eCcAWYISanv8FD/s4f8mo4zHtGKBnfVGQGV4iveWzZctYi7TV/tUnHHgBOxFbY85qQpkCQPiSx1+8wBfqLF7GpevWAmd52O8g/Up15oHTyy0QD0aKpBUaNe4cQ6JsYl6UWhd9cLczoi19ntmGSv8f+ONmf7UOSsWu0/SW8OKZxmAiCBOi9yjs0uePfU+rKjpX7Rkk9tQIfmaaakMYkrwOaHfUyA3VTTB+He6t8+U6Z5vtoQV3ZZgTloIZp39nP7nha/o7YdMpJfdKnoIf1oNqt/LDJMWgtU77fzRGfMP7r1oPGfH3IToAV4RyDjGkpfJAnlax9q+/3rB7paAnHzv8fGSXj7p8oIWHvCa1A8V+3kcCv+/xgda9r+9RlJVZmWP3sCHFeLA0yAv9lXbPWKXC9L/I9IbEVlU8HUxRUzbeqFRQq0A7NSdTM6plO8ocVjuyFHQaP3ISRW+BoVwn2LhQVyJs95CG96XVpBkXfT62gIjYrHbohwBG4sDCuNvOyGD6XXX83er0Z/3YBOFQpSMm5lvFl7aoZz3BKPYUG/wxMzNknjCayocYsznpFqAaw5/fjEQBgiF+qgiFvUo3cafDZ8TK9tLKTb/IsAdFyuJEL+qgIc3ObKo5i1/fZBxxBDGnO9V3CBJF6nq1Q==
+      SMTP_URL: >-
+        AgAapm02Q8xcQ18GiR9NP9i31zIl05hPlDWEQG4gZx8/j/B65Zoaobmv0eBZ3GKvncRyDs+VfFSjS9p/sQIR9YbxMYRie9qPjpPQvb+byw5ENt3tybm52WaUPpV6RfTulcmDIzE5+/ofPfsXD4pa+B0ZYTU5UxXfNgiK/8yDTdCwBV+W92yM2LFSMpWkF/9O9N18k4xPv12+AV9fo11fIdq6QTCIracHLe0d99SeUJra46yM+4ZhqfB7ueNrc2ZSZpoLD1/xvcmuXK1W7ckWIS6NMervwB5CKDfA2n0y6cbNddQXv7Hz/PQE6jb6YmskyhSHvG9rxBaL8asFBHYoiITkF/VKIicqR/lJ2tFSOEoURRjZ/3YK3CnQ/hvIAGSjYJpuMXblEWTngmTpOuPyRZAR3WBj0R9w18osU+Gc66OnfBVbMMRZ0Ths2UULtgRL8BcEZOLc4HUM0/yeqtNsgDShQ/ipgiKus0CHZ4SAT5JTbtLtvmsCdCWKAlWUSb4tryabhDdRSYbLxcpZDLRXt8tbmh3fMcpZIAJDfC97pp65rTvTndxRZe4ceXE7PCy+001Rg/9z32v7FrxGNXK3NPm9YK7VxVHmyLF7L+ukkxmNLyoPW0Rq6eITVF+eikpFuS7QrZuF51rvYlSAW27FyCtc44ZJzxTN6LSJyZ4hKQfo0pG6NeyVFqMkkWsagS6fznfp2HfLzCkOZNoGXi4FETrPRw==
+    template:
+      metadata:
+        annotations:
+          app.gitlab.com/app: socialgouv-cdtn-admin
+          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/env.name: prod2
+        name: app-sealed-secret
+        labels:
+          application: cdtn-admin
+          owner: cdtn-admin
+          team: cdtn-admin
+      type: Opaque
+- metadata:
+    name: app-configmap
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    labels:
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+    namespace: cdtn-admin
+  data:
+    ACCOUNT_MAIL_SENDER: contact@fabrique.social.gouv.fr
+    GRAPHQL_ENDPOINT: 'http://hasura/v1/graphql'
+    NEXT_PUBLIC_ACTIVATION_TOKEN_EXPIRES: '10080'
+    NODE_ENV: production
+    PRODUCTION: 'true'
+    REFRESH_TOKEN_EXPIRES: '43200'
+  apiVersion: v1
+  kind: ConfigMap
+- metadata:
+    labels:
+      app: app
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+    name: app
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    namespace: cdtn-admin
+  spec:
+    ports:
+      - port: 80
+        targetPort: 3000
+    selector:
+      app: app
+    type: ClusterIP
+  apiVersion: v1
+  kind: Service
+- metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/tls-acme: 'true'
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    labels:
+      app: app
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+    name: app
+    namespace: cdtn-admin
+  spec:
+    rules:
+      - host: cdtn-admin.fabrique.social.gouv.fr
+        http:
+          paths:
+            - backend:
+                serviceName: app
+                servicePort: 80
+              path: /
+    tls:
+      - hosts:
+          - cdtn-admin.fabrique.social.gouv.fr
+        secretName: app-crt
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+- metadata:
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    labels:
+      app: hasura
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+    name: hasura
+    namespace: cdtn-admin
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: hasura
+    template:
+      metadata:
+        annotations:
+          app.gitlab.com/app: socialgouv-cdtn-admin
+          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/env.name: prod2
+        labels:
+          app: hasura
+          application: cdtn-admin
+          owner: cdtn-admin
+          team: cdtn-admin
+      spec:
+        containers:
+          - image: >-
+              registry.gitlab.factory.social.gouv.fr/socialgouv/cdtn-admin/hasura:8843083edb7f873cad1d1420731a60773594ffae
+            livenessProbe:
+              failureThreshold: 6
+              httpGet:
+                path: /healthz
+                port: http
+              initialDelaySeconds: 60
+              periodSeconds: 20
+              timeoutSeconds: 5
+            name: hasura
+            ports:
+              - containerPort: 80
+                name: http
+            readinessProbe:
+              failureThreshold: 15
+              httpGet:
+                path: /healthz
+                port: http
+              initialDelaySeconds: 60
+              periodSeconds: 20
+              successThreshold: 1
+              timeoutSeconds: 1
+            resources:
+              limits:
+                cpu: 500m
+                memory: 256Mi
+              requests:
+                cpu: 100m
+                memory: 64Mi
+            startupProbe:
+              failureThreshold: 12
+              httpGet:
+                path: /healthz
+                port: http
+              periodSeconds: 5
+            envFrom:
+              - secretRef:
+                  name: hasura-sealed-secret
+              - configMapRef:
+                  name: hasura-configmap
+              - secretRef:
+                  name: azure-pg-user-8843083
+        initContainers:
+          - name: wait-for-postgres
+            image: 'postgres:10'
+            imagePullPolicy: Always
+            resources:
+              requests:
+                cpu: 5m
+                memory: 16Mi
+              limits:
+                cpu: 20m
+                memory: 32Mi
+            envFrom:
+              - secretRef:
+                  name: azure-pg-user-8843083
+            command:
+              - sh
+              - '-c'
+              - >
+
+                retry=120; # 5s * (12 * 10) = 10min
+
+                while ! psql -c \\"SELECT VERSION();\\" > /dev/null 2> /dev/null &&
+                [[ $(( retry-- )) -gt 0 ]];
+                  do
+                    echo \\"Waiting for Postgres to go Green ($(( retry )))\\" ; sleep 5s ; done ;
+                echo Ready;
+  apiVersion: apps/v1
+  kind: Deployment
+- apiVersion: bitnami.com/v1alpha1
+  kind: SealedSecret
+  metadata:
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    name: hasura-sealed-secret
+    namespace: cdtn-admin
+    labels:
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+  spec:
+    encryptedData:
+      ACCOUNT_EMAIL_SECRET: >-
+        AgBCdD/9bu9SyjS7Roy9n1ImkdqwaA1fiC+Dmah54i9sXgkh4L/su1tbL8oa4AVQ4wDhbtGXN4mR1CE5eFOm8EhPhqlnoOv9ZR+9heHP9AGSSUTTzig1ygMXwAiuf1ChoK2kREgdZQs4+1H0/ggY1iWetlWlBPv4DjHZA6EhygU1Rc3K2S+MspGCG5hyuQ4TcxqdhH6BT2XAzMKtfLvrdjpKgMjN8Z306GUlemMGgmoy2AjCxQ2TgcVR7MvcMhvbqWcC+aN63crtHwroF0+3hwfH92VE8tbbax0joDV8B3iOF2m9hnFRxdj6AEUXMI4FeOHOWBhEP2dodM/m4G9znx0XGpB5hR2/SuILVS6BBU8typK7UhFyEAE9Kg1HE+Rj9rL8J4ru6jF5MHJyLe0bcIwwKOK3zlpOIg9P7tL8sdho/Ox65uTty/w/6TeYL2oO2ppEIKX97RPB1PwznVp+hcuRGR1MZxBulmRGj6Wg7KpW3Onx/ZoT/V/mdKV3CEWtBitcQi5fMbHNMOzYlyrvUgnSguqwY0Dcsv3TSu2ffWvPQ6HSGVF6FeemIr2Ao1pTasU10EjcNgok5eM5KcFqcvgKngkqrXU4psymOBiNWBzx6GnrNHaczTCfivFJZPFNpgM4yb3huDy9zEuLvoXDUAB9As5dBop8EXbEBkonkrShCEHu84NJoy9C2uggs1h+V50N31HpnPuBHyMJJ9J9Kd6mwJpVUTo/fcbxrmgiI6V0/53ru0WXV2e00CIFyInjuwP1k0IOoRmNewImAsKFWl5hDyVWd0ee0QYmyMekoZWHV6GDjZ6dM014
+      HASURA_GRAPHQL_ADMIN_SECRET: >-
+        AgCWraQn25/f3vyZu9q/e4/N8lrwYbpZ6ZeLD4Ae7XeKeKD6nCE3ny9A+YnhIZ+RDWWA5tTLxbTCTAhrPIDuG8JwcR3Qi41QoXFBb0Q2goDkz9uui7nMm4zZSLUqgzE1zkxjCU0WGTvF61xBC6cEp93AKENhKJn8soacocXUEGZ0aicfcd4KsGBIhsZPOYVAJxd9k+4+CbdRWiwfzUxTaRvx6o9j3iEkh+uh7edLEF6C7oA4SEgLj8MjPanaPooM3RYlbPcaFvKVlG11ksVW/6pLObfE9mpmRJYCEJJ8etD3nx9C2bM0zlmKj/garEhTIElaeiSM0tiI6/Lf+UDaIXYIec0AQMqlfCp2YxiKRr31roBZ/Nq6BtWSvqSoZii9Xt16mwhiIG1MVnvOJel8T3Gf8fxiWksr01kEFAiEsWpyXLB8/iSzJ/iFf52P266YLtb4X+WRJMti+/EiiH92vU5tHWB21j5xl+tyVXBXVT885t+nVSM88cThCb9gid1tL2nwd/jREO2j+tYvc+/JSIiGLcH8A7SNBjB+MPY0VRbEr8PQgqEkAnjEbZyzgFZSOXhojcNrdmflB1SPDgeKT2OCudu7VNZxrlFLgPywQe2C0q59BiTYju+/5tINii0YTLQ/pqvhoaNdPTzY2jpupX+i87YUiUhn2myyDVZb3sox584kMmLyKU8RfCG5lFxIU2GyJBmKphegeZFgWWFa84fc2GMOvHhh0uiy
+      HASURA_GRAPHQL_JWT_SECRET: >-
+        AgB/z/3pXDEkPXT4E5NndTs1v8IpJZ5ttkopPK9F4BHWpHt7xdaF97y95G/OlaIKBAqDoxRggokgquyU17Irx9Lp0j2R1IPwC3NhD40Xg4xU3ON/BnF48kMh28alXIgsz7M2P7JX+eVN+pubzZVCZABEXIeImsFfFxQxLdpLMitbfsdL3a5Cr7MteCrCNGYnXnPDwYGVObeBuXmkARkMSONXCZFrVAje4t4NdeRe5WBayUHCJTHJym0jJi3GAm8rJnPuOYAQPaOhNyNmFbzjHMwnD9HBLq3qsXKfB78JQz/zWmUsVsj54Fi+udAtfU2PrWDdZwndCqjHukoZBD9mCTedcJUNaZ+sYpWhyfGO9Aiyt1lB4BzM1nRxirDLdcVy6PjI6Cpcs88xjTwB5bf7Yx1nVE8z0UBGXJvp3dQBJNNu/YYj14pxZMUe8C8xJTe2z9MG5R/GXwVpV0mt02ZhQs/d2/sLW8SEM2GS4z+tDr8jZM8P0uX5UJ6XicuacDaL6lff6VKUp3npoX5DDHmpfA4A7ESfivChd5vBN+6x+8kQnl1dbHDGMTHWduhLiaAhSWRK3Xfnn2AhGNobgBBUEmGLRJ2d/pmAy98dtXhn7PB3BZfCIBJByPledMnWm7dWp4o5OstJE17IouPFBrdvqNOp5it0uwSv9cvbkGqZM23NG6ztl0xcLby9xuOxhuRJkC4rp10vkSilIYHkapAFbt6xRZz8rYyV7q3Y8MqQAoDTjWDGBL7PYSLOWAWQVj2cvkuc+lCbPbnG7auG8WD/TguqQfpDtn+KlKtyfobEQJdxaXrIoqVi3NE+s8IWN1zA2VW5Fb3c1r3u7+5XluPTTlcankwMfA==
+    template:
+      metadata:
+        annotations:
+          app.gitlab.com/app: socialgouv-cdtn-admin
+          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/env.name: prod2
+        name: hasura-sealed-secret
+        labels:
+          application: cdtn-admin
+          owner: cdtn-admin
+          team: cdtn-admin
+      type: Opaque
+- metadata:
+    name: hasura-configmap
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    labels:
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+    namespace: cdtn-admin
+  data:
+    HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
+    HASURA_GRAPHQL_ENABLED_LOG_TYPES: 'startup, http-log, webhook-log, websocket-log, query-log'
+    HASURA_GRAPHQL_LOG_LEVEL: debug
+    HASURA_GRAPHQL_NO_OF_RETRIES: '5'
+    HASURA_GRAPHQL_SERVER_PORT: '80'
+    HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
+    ACCOUNT_EMAIL_WEBHOOK_URL: 'http://app:3000/api/webhooks/account'
+  apiVersion: v1
+  kind: ConfigMap
+- metadata:
+    labels:
+      app: hasura
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+    name: hasura
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    namespace: cdtn-admin
+  spec:
+    ports:
+      - port: 80
+        targetPort: 80
+    selector:
+      app: hasura
+    type: ClusterIP
+  apiVersion: v1
+  kind: Service
+- apiVersion: bitnami.com/v1alpha1
+  kind: SealedSecret
+  metadata:
+    annotations:
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/env.name: prod2
+    name: azure-pg-user
+    namespace: cdtn-admin
+    labels:
+      application: cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+  spec:
+    encryptedData:
+      DATABASE_URL: >-
+        AgAsnVy3jFu15u1Jv8cI830tUdSXOWLCEWSn1Ditd6n/i0Cbd8GJk+TqS3cWpC98vsfej5KGj5LOPRLjX3H+7RT/kgwRQ81cxr2I2dNvIpUtVw2ztXsGR3jgcKCI3mVVm8WEGm6f/VzbT9zr378CpbgMzaJl+z/IWH9Phlc2SXM1pYXZCs5SFpNwEEgEgCDzn1ceUlfm6LdwX/tTMvwtZU73C9Xk6JoVpC4TBVNtB7n8EX1rozbtqpyhd339Bwl50yLw4MXapWaLYZa5tulNQL8D9BnI7kCQfyNfpAnK2eyqV4J6wvq36tgkgYSgtbtkcLU5iOvJjLs6VGqTvDpq2ej67HeBGv3u9iBv81eO2d5CfzsR6EPm84IWo1WS6nquHiBjTysxmczEdyBtLIH0ZypAZrIbI5n+nRSHCt/sleVLMovTkCg0i1uLE4fFPsLjWyD6npJ45WUz/CialFOGfipPZ6GzULMaM9PIM1yvS7WZBWWvk0ysD/UNn2E5yG3LMbFQlDljh60FSzP8mWVAhtIF/YW92a8CWGn508Ifx1+qz+2cRAhmyERCvCkXLm+JcU0dKlxiRW7bqyyz4CyoBNYiJnVpmADSOHMT2WPSjv60AzmfjaGpyAZUZU2Ee1E4O7dWQ5RGRn7CfxjRl0LiP0NxzaB1S3vgYmEhv05CAP0X+y8hOz+7/tmNnW99PC8Hr2xZodcD22ZfQfGaevuywoniG2tob/C7roeQnlQE19TXxX6YWJoqyoJOIEJclnJBGW6J5WqruFdd0h490yqOHiIEZEA8O+B+G99WM6ZeZEyLy2cTqCc9eJTjoD7sADCo1UYynQ6b/dBT+rtzUhA13/v9GIRQqVQWiQ==
+      HASURA_GRAPHQL_DATABASE_URL: >-
+        AgBMv4YbCh6QVXU/kR6OVvshAjtdXuFc1jdJdkQV3y/Y+y2R48FzGHPZ+3cOYhPZPHpuF3nRLhEZsHzhGbk6oHBnF/ORwlIuetn3o8Q8L9UCB3dyai71MtruIAiiE2abxfvgXpTmUr5UMlR1bNfHIj7X7Ye6sBXnzbw7Es6vKf57LrhzQxN8/ZzKpKjgCLxV8XIaFBUTTYYNAKB4JuPvna53vTkGtK8jd1fGYndTrlc/pr9iJTYERulgXPqRsJBbQv1E+XqZeS+NmrhqQonhaGQbzNIWjQhJCFFqCaRkhG57hy41iD1omSvrsLBHe8rRGcJAe/ps5GcuRXHDZq8t2Jb2NkHwM/wd9wbIhD0Fpgc0rzlDKgqI+Y8tUZTQiqb8H9cCQp0GlbY3XvbNrmufNzs/ZL+gYlsV+aB8UhdgeMByRUS+mPilyDUk+YJ2mxRZ4hyUE+XcevD79qb+0QnUUdVyl0B2JZosXZIPoVl7wcJgD5YND2tFuzeXHX7o6L93FgLqW5uaWfQJ/0JHA5tWH1EvQ+vy7cBbsH2zq0q+cUtd8vmHw5BXQQWw0mUx0lJGvjXt/SVJFR+bpB4RJ3onwnkbU0R/7IsTWhh2QWzEIX4g1mSXd4hRu9vDqMprWUoqbm1HcOlaML2vie5kyg33lamrYclQnAEYxUoEBHtYCCwViv1fdsZINhsWRg9uTjmSI3N/6eTwWOV3sAXnIdSl5RUzc9fMXeN/Z6iCz4vWga0hdOqDOCvGwgLnF82SIK+ym3HYoIc2+98NYTfGz8HzRBUv5xP9Yt6XOOQVbiPNKMXkR7A9y149t+SMLrzDnJQlqZpGaL9OoZHosj0oYY9PQJANvpp07by4xg==
+      PGHOST: >-
+        AgBTQozxceSu7dc84fQEguUkuFP0qyf9xpJjf5cIJGqXmAoDTYcTFyok1oW3mmy3XH7uEMNw/Tmn5upL29EV6mYnVDtbySHaEVmr6WHN9bVa1er821JL/cWxCZoCKuhaqDt9z8rUmG1HQ+9lbA8lHyMtNueMFDZnb5c7zb+ZJsUXfOWUIuNGTKAqX/1RnfwYpKAN256Z9eTFNBwTby2mmWyL7QTBizmf3e+QwjPu+CsWhuAUD6kD6ezy03htDpt81kEGqZ2eaiprr5QzWubQ85SxY5RsvPHSeP4pnUsU46HZqaRAVJJMNLJXIptCJVFgIk7mmM/DwDUeEdBOzblfGG49tmyQ0k+vjOyVyW542/9c8lah3SdOtd7eFxlPOGqzKQQ8V4ZLqpXHahKLKrLvERsCA9/CaGOoJXe1DgLxXtjLfNy+2iaSEPZC1X5pai0G3vL2imtsn0oaS9Sx3PIt7ROsBjjhEvqMEUkBTDeomuz5a80eq9x+Pg/OmWtitltLMeFW6A+EvlPOh/ACjJUvye41CYksXea9QGRnNek5sgMdxdwQUTXunwvmW4vJrk5uUcTRubl2mTvvmhvdsBMTmoTIhMsmTxgdjrzziL2ZPZQP6q8hxBEozgbE55h+xBRXnhYyulBaACGxqZAUuTvQylkR848kqf4G+nn1op/xNN4jE9v0P84OoM7rFO4tAY4xy/rTMDWV5gToWTR+sqNHWNaDclNAL65/bmXKahLuhV9aprexX2Qy10TNzlvWw3VROg==
+      PGPASSWORD: >-
+        AgCLaDJpuPQV7o0IwOUgjvWMP4ZIQpOhA51IKwq/7dICRTgbfTkftDrAVyQhvP+qS3/4X142len3T/kftoLAEF/02EtXixsSYxlT1SsbfzmVhdfvzGyXV4Ix1DfRFeawuojZln3wOVqKozq4NxOJwrdI5U9NC76twj7i/EhsI0pYzBwaWLg/d2UOzfZWVoUZs2rB3WvpP4Yf/bq5/4QsmSD/6lnwPq1qy2RYJMRWIa3IdHXiXS9KEge1zYkQybxA3jlzBQ60uslFRi+aDiNvjqCtqN5TnHgod7rQwywtwD3H/0nkSGdhlnCWjUCLXEQHglp47G/JB1Wg8tCZO3WdsWJkDHNm10PaTbu1I1OCHEcYWjruvjJ/QNkuvNplflFvmYjI5eFQQpIGGbnUVpPgBm28xGDvsALNSW89kvl+KE60kNoVUDcemcZsX2ArhOCG/UBaqTVZm9bM1IQWoSJYVqAvf/qTMDairPCp7Sdj9ZGoIjstiBP7o6gSkFS9C/4wFlxh54TkcORvgxCHpGIAKRZopywJdUb+qyuyytnpk0iM6yZ403n2Mx2R8qRZYaUtdPATKSRVO1A0gpz1B0pVZucj9IIynWYZEgHYEa0OgH+bE9R3hYNG2zdjNhQqxpCWyPQ39Zd+3sfF9aVfec2Iskday7qjE+rehmmloI2fHiQyE9HXCPeaBb6okOUHA4w5jRQuexvSfnt9Lb/5cvKXseI=
+      PGSSLMODE: >-
+        AgBwIuAAALnV2jQB0Hf/boQ/7OYzLNb11WVa+nd42MSgPCs3oJlro+nwSOtLM4G0ALKEkD3+YB9MKteKmz5bj0xlb7awkOg6nE78aG9ol5LJwBtIhl5amKAVUxMppRCT7DW+m4e/kY6APjrJike+2bXpeS5r2og3IkXj2cXNdHs0VK4prqR6525TGaODWJjrC6J6tX/hmqYFJRCqlk2xn1lgQVZ2u9XangLcO6BNxMhzSV40ot1nxPX6cZesmtlGY7QWbazJVy0hNfYqxQTwqJbM9bZNfKupRISiFAGXwBF7IzZCQnrcv0AqegpD6udsClW53O5fawhk0vSInnQu/ldXeNiiN5AMZXiNK7h+uOLiMBzQu5fmaLOSW1LTDbyRpN08V+cM1LkGu9bQRwH6X3lBWxMmpwUhTlctjHbizfr/KO2QmVzmRjQOUfWkyI454MGB2oHL2SlFtM62rSRLR4j28SP1RVZksatqxfUmRhff1+y2ANAgvCoCt6h39bO9ToKYaAsTeOZFbY4FnQ36+dG5ooJ5TpiZvvZZvzuSq64wd1vAKFDX+9wFbAI1wUN/0ZbhfU8pkkPq8nsKoiM/h+zABTx+PrvOJ+g4PlhuGOrrmfJ/Xr6hrVRwfbHcmV3GMZNvW0lZd1qc1sL9KfAigZLh6ktxqFV8vrbVnWjtXOMiQlPkmth07NffT3w/cvDk9D6UY03Exb5M
+      PGUSER: >-
+        AgBcohx8RVHqNFF4Rf1iMRtQpG8Lx11ruvLsRrLTLVnaTRXQ5J7ANXf/40RfZd2SkGgaqbbbDKCT8JDak3VqwtEaYhC3Ido2i1e/hBsoUG9cABucKoVlSqm2Kf327eiViU1cxgy2MT16xzJ3GGbmYb+19Wq8vsGpXk2ajFKNSVNYYX/uIPfT0m2oqGIF9arssVnLcWn1/CyDkRepxU3rstNA0loRw5QoIga3sWofA0vzTejuZRpIfPIcCi4Cd6Z2ITM49O/NhWrJisxr0/Lol0ChsW/CoKCpKN93PB4/rM+gqh88pYwQkD7YyNGxbNVZOd0v/omwzDdpXZIFZuAGfIGmGc7JxUNaeSy20Ox1eruBP0DbY0psZYRaNWwybkzBr4eQeAF4JKDXdRNIH+lLAcEqd2ilBW08iN9IsHiEIT8kcjb+Ae4mgvxFlqyWvQWIf56fQxjM0TpZ/OmtyKCT39GBa3etvzL7rZOan/ZTcMNXqpK68ZEbaVVqDd06+VUQmf16/qfRmel9rtQEa1TVM1nvdKAL1t6ExrLz4m4F/mEFbjNGA4a/zIvj1NiZPfjY/6/v7eiV7OqtQPd0XvK18FnL8VwkhSIM0XU3MCezuSauDUN7GtISc75MH3KNadGAwshXefU+6uWPvFlar62aSqwWPjpEl/rvawE3t5fQ8ttOX6IBqdk8vBktZN9FvdUms7H0jV/scvhjs8w9h1NaZDDCxdcVIjjcuz+Bsg==
+      PG_HOST: >-
+        AgCtD1kLhMv/u/guxaY9KRB8gq5FKKaFUTJPM/8dt3sv3fruuZnESQ5RSDDibN4CwPu06A+q7mTu9FFvdBLlTZ+VXopfsu41AMxWezwHI/Zx3MsD5Tv3eSCoa8nGzxYpCquWLeHVC4366qVBRoVWaK3pOM4PG2ooXlfDuEgac1WCq3xuiqQZoLyxjFtd8SKdBW4mAoS31qlPCg0aM9DEWqnbEnx1czYgz2FE5IEdXwTydZOGL8VW9kci/7s6Eq9JIOL+M+h6ativ1BNQQi53mMJEuS0YFoE07jMCatCZMjHNtf0ya3zGNPmEV7Pnv4tim/ZcrT4Ijs/sxM2K3HLnhr27FTRSeNMGUPf8qj8jInkLhJqRnYs3aV/4LDT1lQnTaquoWOrJ1OmkR6vJfeemyhvws7kdnTncyUyPqCNK6PMLzCSiIcbrpmmBtCW8SlcvawggsOsNBnOjI+BHXd7vbxtt0nlqGLhk0QhKgWbrJduYnPL87WL39PzmB2/OYYvXRnWBOniW3fJWND9Xg4BbfTCqAY2v/6e/P/poHd/PK0XEmMW476lRsDdxEdQvUf5BBs3iCra38wi2OQVuGYZwIbK9AAOuOofugONzLBGcIfoKCKZtTRzaCCqkOe8x26JCVEA7/Q6Pi6u46gtbf1HmpXIqAWBmHMG0qdMwcKscUz14gL1O2ALc3JD2LOHFA5q1CjA19aFGml0LsmMiaF7mz/2NqUyh0rWI+kciiq7wLtOrJB1rbk7QYv7ZbpKK9ZtuaQ==
+    template:
+      metadata:
+        annotations:
+          app.gitlab.com/app: socialgouv-cdtn-admin
+          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/env.name: prod2
+        name: azure-pg-user
+        labels:
+          application: cdtn-admin
+          owner: cdtn-admin
+          team: cdtn-admin
+      type: Opaque
+"
+`;

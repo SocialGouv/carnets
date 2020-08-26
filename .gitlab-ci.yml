@@ -1,95 +1,33 @@
 include:
   - project: SocialGouv/gitlab-ci-yml
-    file: /autodevops_simple_app.yml
-    ref: v16.2.0
+    file: /autodevops.yml
+    ref: v17.3.1
 
 variables:
-  PORT: 3000
-  PROJECT: "carnets"
-  NOTIFY_DISABLED: 1
-  ENABLE_AZURE_POSTGRES: 1
-  VALUES_FILE: ./.k8s/app.values.yml
+  AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
+  # AUTO_DEVOPS_PRODUCTION_AUTO: "🚀"
 
-Create namespace:
-  extends:
-    - .autodevops_create_namespace
-  after_script:
-    - kubectl get secret carnets-secrets --namespace=carnets-secret --export -o yaml |
-      kubectl apply --namespace=${K8S_NAMESPACE} -f -
+Lint:
+  rules:
+    - when: never
+
+Test:
+  rules:
+    - when: never
+
+Register image:
+  extends: .autodevops_register_image
+  variables:
+    DOCKER_BUILD_ARGS: >-
+      --shm-size 512M
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/app
 
 Register image Hasura:
   extends: .autodevops_register_image
   dependencies: []
   needs: []
+  environment:
+    name: ${CI_COMMIT_REF_NAME}-dev2
   variables:
     CONTEXT: ./packages/hasura
-    DOCKERFILE_PATH: Dockerfile
     IMAGE_NAME: $CI_REGISTRY_IMAGE/hasura
-
-Create Azure DB (dev):
-  extends: .autodevops_create_azure_db_dev
-  variables:
-    NEW_DB_EXTENSIONS: "pgcrypto hstore"
-
-Deploy app (dev):
-  extends: .autodevops_deploy_app_dev
-  variables:
-    PG_HOST: carnetsdevserver.postgres.database.azure.com
-    HELM_RENDER_ARGS: >-
-      --set deployment.env[3].name=APP_BASE_URL
-      --set deployment.env[3].value=https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
-      --set deployment.env[4].name=CI_COMMIT_SHA
-      --set deployment.env[4].value=${CI_COMMIT_SHA}
-
-.deploy_hasura:
-  extends:
-    - .deploy_app_stage
-  variables:
-    PORT: 80
-    CONTEXT: hasura
-    VALUES_FILE: ./.k8s/hasura.values.yml
-
-Deploy app Hasura (dev):
-  extends:
-    - .autodevops_deploy_app_dev
-    - .deploy_hasura
-  variables:
-    PG_HOST: carnetsdevserver.postgres.database.azure.com
-    HELM_RENDER_ARGS: >-
-      --set deployment.env[6].name=HASURA_GRAPHQL_DATABASE_URL
-      --set deployment.env[6].value=postgresql://user_${CI_COMMIT_SHORT_SHA}%40${PG_HOST}:pass_${CI_COMMIT_SHORT_SHA}@${PG_HOST}:5432/db_${CI_COMMIT_SHORT_SHA}?sslmode=require
-
-Deploy app Hasura (prod):
-  extends:
-    - .autodevops_deploy_app_prod
-    - .deploy_hasura
-  variables:
-    PRODUCTION: "true"
-    K8S_NAMESPACE: carnets
-
-Create seeds DB (dev):
-  extends: .base_azure_db
-  environment:
-    name: ${CI_COMMIT_REF_NAME}-dev
-    url: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
-  image:
-    name: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:1.18.0
-    entrypoint: [""]
-  stage: Clean Up
-  variables:
-    GIT_STRATEGY: clone
-    PGHOST: carnetsdevserver.postgres.database.azure.com
-    PGUSER: user_${CI_COMMIT_SHORT_SHA}@${PGHOST}
-    PGPASSWORD: pass_${CI_COMMIT_SHORT_SHA}
-    PGDATABASE: db_${CI_COMMIT_SHORT_SHA}
-  script:
-    - kubectl rollout status deployment.v1.apps/hasura-carnets
-    - psql < ./scripts/seeds-dev.sql
-
-Delete useless k8s namespaces:
-  extends: .autodevops_delete_useless_k8s_namespaces
-  only:
-    - dev
-  script:
-    - echo "k8s-ns-killer ${K8S_NAMESPACE_PREFIX}"
-    - sh -x /bin/k8s-ns-killer ${K8S_NAMESPACE_PREFIX}
