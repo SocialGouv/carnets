@@ -1,12 +1,12 @@
-import env from "@kosko/env";
+import env from "@kosko/env"
 
-import { create } from "@socialgouv/kosko-charts/components/hasura";
+import { create } from "@socialgouv/kosko-charts/components/hasura"
 
 const manifests = create({
   env,
-  config: {
-    ingress: false,
-  },
-});
+  // config: {
+  //   ingress: false,
+  // },
+})
 
-export default manifests;
+export default manifests
