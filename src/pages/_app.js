@@ -10,12 +10,14 @@ import useSWR from "swr"
 Sentry.init({ dsn: process.env.SENTRY_DSN })
 
 const App = ({ Component, pageProps }) => {
+  console.log("Create APP")
   const [user, setUser] = useState()
-  const { data, error } = useSWR("/api/auth0/me", fetcher)
+  // const { data, error } = useSWR("/api/auth0/me", fetcher)
 
-  useEffect(() => {
-    !error && data && setUser(data)
-  }, [data, error])
+  // useEffect(() => {
+  //   console.log("Set user data")
+  //   !error && data && setUser(data)
+  // }, [data, error])
 
   try {
     return (

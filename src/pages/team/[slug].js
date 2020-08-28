@@ -1,3 +1,4 @@
+import Files from "@components/files"
 import Footer from "@components/Footer"
 import Intro from "@components/Intro"
 import Nav from "@components/nav/Nav"
@@ -12,7 +13,14 @@ import React from "react"
 
 const Page = ({ teams, posts, slug, admins }) => {
   const tabs = [
-    { content: "toto", name: "Informations" },
+    {
+      content: (
+        <div>
+          <Files slug={slug} />
+        </div>
+      ),
+      name: "Informations",
+    },
     {
       content: (
         <PostsContext.Provider value={posts}>
