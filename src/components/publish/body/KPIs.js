@@ -1,6 +1,6 @@
-import React from "react"
 import { Field } from "formik"
-import { Plus, Minus } from "react-feather"
+import React from "react"
+import { Minus, Plus } from "react-feather"
 
 const KPIs = ({
   push,
@@ -37,8 +37,9 @@ const KPIs = ({
               <Field
                 key={i}
                 value={kpi[field]}
-                className={checkError(index, field)}
                 name={`kpis.${index}.${field}`}
+                className={checkError(index, field)}
+                placeHolder={field === "name" ? "KPI" : "description"}
               />
             ))}
             {!index ? (

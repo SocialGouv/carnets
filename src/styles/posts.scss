@@ -39,6 +39,22 @@
         .delete {
           margin-left: 0.5rem;
         }
+
+        a.button {
+          color: #999;
+          background-color: white;
+          border: 1px solid #dfe2e5;
+
+          &:hover {
+            color: variables.$link-color;
+            border-color: variables.$link-color;
+
+            &.delete {
+              color: variables.$secondary-color;
+              border-color: variables.$secondary-color;
+            }
+          }
+        }
       }
 
       .body {

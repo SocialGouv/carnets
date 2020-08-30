@@ -4,7 +4,7 @@ import React from "react"
 import Team from "./Team"
 
 const Teams = ({ slug }) => {
-  const teams = useTeams()
+  const teams = useTeams() || []
 
   return (
     <ul className="teams">
