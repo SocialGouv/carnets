@@ -32,6 +32,7 @@
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.26.10",
     "swr": "^0.3.1",
+    "uuid": "^8.3.0",
     "victory": "^35.0.8"
   },
   "devDependencies": {

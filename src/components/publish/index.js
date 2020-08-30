@@ -1,11 +1,11 @@
+import { Form, Formik } from "formik"
 import Router from "next/router"
-import { Formik, Form } from "formik"
 import React, { useState } from "react"
 
-import Header from "./Header"
-import Footer from "./Footer"
-import Loader from "./Loader"
 import Body from "./body/Body"
+import Footer from "./Footer"
+import Header from "./Header"
+import Loader from "./Loader"
 import Message from "./Message"
 
 const Publish = ({ post }) => {
@@ -14,20 +14,20 @@ const Publish = ({ post }) => {
   const submit = (values) => {
     const { id } = values
     const options = {
-      method: id ? "PUT" : "POST",
       body: JSON.stringify(values),
       headers: { "Content-Type": "application/json" },
+      method: id ? "PUT" : "POST",
     }
     return fetch(`/api/posts${id ? `/${id}` : ""}`, options)
   }
 
   const initialValues = post || {
-    term: "",
-    needs: "",
-    mood: "😐",
-    team_slug: "",
-    priorities: "",
     kpis: [{ name: "", value: "" }],
+    mood: "😐",
+    needs: "",
+    priorities: "",
+    team_slug: "",
+    term: "",
   }
 
   const validate = (values) => {

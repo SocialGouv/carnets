@@ -1,12 +1,12 @@
 import { fetch } from "@lib/hasura"
-import React from "react"
+import { createContext, useContext } from "react"
 
 const org = process.env.GITHUB_ORGANIZATION
 
-export const TeamsContext = React.createContext()
+export const TeamsContext = createContext()
+export const useTeams = () => useContext(TeamsContext)
 
 export const list = async () => {
-  console.log('Call to "list"')
   const query = `
     query {
       organization(login: "${org}") {
@@ -25,6 +25,9 @@ export const list = async () => {
             members {
               nodes {
                 login
+                name
+                avatarUrl
+                url
               }
             }
           }
@@ -55,7 +58,6 @@ export const list = async () => {
 }
 
 export const getMembers = async (team) => {
-  console.log('Call to "getMembers"')
   const query = `
     query getMembers($org: String!, $team: String!) {
       organization(login: $org) {

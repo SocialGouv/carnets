@@ -1,14 +1,13 @@
-import bytes from "bytes"
 import React from "react"
-import { CircleSpinner } from "react-spinners-kit"
 
-const List = ({ files = [] }) => {
+import File from "./File"
+
+const List = ({ files = [], slug }) => {
   return (
-    <div className="files">
+    <div className="list">
       {files.map((file, i) => (
-        <div key={i} className="file">
-          <CircleSpinner size={12} color="darkblue" loading={file.loading} />
-          {file.name} <span>({bytes(file.size)})</span>
+        <div key={i} className="item">
+          <File file={file} slug={slug} />
         </div>
       ))}
     </div>

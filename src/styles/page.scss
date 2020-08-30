@@ -5,15 +5,14 @@
   display: flex;
   overflow: auto;
   flex-direction: column;
-  padding-bottom: variables.$base-margin;
-  padding-top: variables.$base-margin * 6;
+  padding: variables.$base-margin * 5.5 variables.$base-margin 0;
 
   .intro {
     display: flex;
-    align-items: center;
-    margin: 0 variables.$base-margin variables.$base-margin;
+    align-items: stretch;
+    margin: variables.$base-margin 0 variables.$base-margin;
 
-    .avatar {
+    .team-avatar {
       width: 7rem;
       height: 7rem;
       min-width: 7rem;
@@ -22,8 +21,36 @@
       margin-right: variables.$base-margin;
     }
 
-    h2 {
-      margin: 0 0 variables.$base-margin / 2;
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2 {
+        margin: 0 0 variables.$base-margin / 2;
+      }
+
+      .members {
+        .member {
+          margin-right: 0.5rem;
+          display: inline-block;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          .avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            min-width: 2.5rem;
+            min-height: 2.5rem;
+            border-radius: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+        }
+      }
     }
   }
 }

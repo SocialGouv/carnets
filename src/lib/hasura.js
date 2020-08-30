@@ -6,5 +6,5 @@ export const fetch = async (query, variables, token) => {
   const headers = { "content-type": "application/json" }
   if (token) headers.Authorization = `Bearer ${token}`
   const graphQLClient = new GraphQLClient(url, { headers })
-  return await graphQLClient.request(query, variables)
+  return graphQLClient.request(query, variables)
 }

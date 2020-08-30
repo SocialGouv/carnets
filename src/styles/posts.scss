@@ -2,144 +2,106 @@
 
 .page > .posts,
 .panels .posts {
-  margin: 0 variables.$base-margin;
-  padding-bottom: variables.$base-margin * 2;
+  display: flex;
+  flex-wrap: wrap;
+  margin: variables.$base-margin / 2 0 0;
+  padding-bottom: variables.$base-margin * 3;
 
   .post {
-    display: flex;
+    flex: 1 0 33%;
     overflow: auto;
-    flex-direction: column;
-    margin-bottom: variables.$base-margin;
-    box-shadow: rgb(201, 211, 223) 0px 1px 2px;
-    background-color: variables.$background-color;
+    max-width: 33.333333%;
 
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 0 variables.$base-margin;
-      border-bottom: 1px solid variables.$border-color;
-
-      h3 {
-        flex: 1;
-        margin: variables.$base-margin 0;
-      }
-
-      .mood {
-        font-size: variables.$font-size * 1.8;
-        margin-right: variables.$base-margin * 0.5;
-      }
-
-      .delete {
-        margin-left: 0.5rem;
-      }
-    }
-
-    .body {
-      flex: 1;
+    .content {
       display: flex;
       overflow: auto;
+      margin: 0.5rem;
       flex-direction: column;
+      box-shadow: rgb(201, 211, 223) 0px 1px 2px;
+      background-color: variables.$background-color;
 
-      .kpis {
+      .header {
         display: flex;
-        padding: variables.$base-margin;
-        background-color: variables.$base-color;
-        border: 1px solid variables.$border-color;
-        margin: variables.$base-margin variables.$base-margin 0;
+        align-items: center;
+        padding: 0 variables.$base-margin;
+        border-bottom: 1px solid variables.$border-color;
 
-        .kpi {
+        h3 {
           flex: 1;
-          min-width: 0;
-          text-align: center;
-          border-right: 1px solid variables.$border-color;
-          padding: variables.$base-margin / 4 variables.$base-margin 0;
+          margin: variables.$base-margin 0;
+        }
 
-          .value,
-          .name {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+        .mood {
+          font-size: variables.$font-size * 1.8;
+          margin-right: variables.$base-margin * 0.5;
+        }
+
+        .delete {
+          margin-left: 0.5rem;
+        }
+      }
+
+      .body {
+        flex: 1;
+        display: flex;
+        overflow: auto;
+        flex-direction: column;
+
+        .kpis {
+          display: flex;
+          padding: variables.$base-margin;
+          background-color: variables.$base-color;
+          border: 1px solid variables.$border-color;
+          margin: variables.$base-margin variables.$base-margin 0;
+
+          .kpi {
+            flex: 1;
+            min-width: 0;
+            text-align: center;
+            border-right: 1px solid variables.$border-color;
+            padding: variables.$base-margin / 4 variables.$base-margin 0;
+
+            .value,
+            .name {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+
+            &:last-child {
+              border-right: none;
+            }
+
+            .value {
+              line-height: variables.$font-size * 1.8;
+              font-size: variables.$font-size * 2;
+              font-family: "Source Sans Pro Semi Bold";
+            }
           }
+        }
 
-          &:last-child {
-            border-right: none;
+        .tabpanel {
+          .tabs {
+            margin: variables.$base-margin / 2 variables.$base-margin;
           }
-
-          .value {
-            line-height: variables.$font-size * 1.8;
-            font-size: variables.$font-size * 2;
-            font-family: "Source Sans Pro Semi Bold";
+          .panels > div {
+            min-height: 10rem;
+            max-height: 10rem;
+            padding: variables.$base-margin;
+            background-color: variables.$base-color;
+            border: 1px solid variables.$border-color;
+            margin: variables.$base-margin / 2 variables.$base-margin 0;
           }
         }
       }
 
-      .tabpanel .panels > div {
-        padding: variables.$base-margin;
-        background-color: variables.$base-color;
-        border: 1px solid variables.$border-color;
-        margin: variables.$base-margin variables.$base-margin 0;
-      }
+      .footer {
+        display: flex;
+        justify-content: flex-end;
 
-      // .tabs {
-      //   display: flex;
-      //   margin: variables.$base-margin / 2 variables.$base-margin;
-      //   border-bottom: 1px solid darken(variables.$base-color, 10%);
-
-      //   div {
-      //     top: 1px;
-      //     outline: none;
-      //     cursor: pointer;
-      //     position: relative;
-      //     color: variables.$link-color;
-      //     margin: 0 variables.$base-margin / 1.5;
-      //     padding: variables.$base-margin / 2 variables.$base-margin / 5;
-
-      //     &:hover {
-      //       color: variables.$font-color;
-      //     }
-
-      //     &.selected {
-      //       color: variables.$font-color;
-      //       border-bottom: 1px solid variables.$font-color;
-      //     }
-
-      //     &.disabled {
-      //       opacity: 0.3;
-      //       cursor: default;
-      //       color: variables.$font-color;
-      //     }
-      //   }
-      // }
-
-      // .panels {
-      //   flex: 1;
-      //   display: flex;
-      //   overflow: auto;
-      //   max-height: 15rem;
-      //   min-height: 15rem;
-
-      //   div {
-      //     display: none;
-      //     overflow: auto;
-      //     padding: variables.$base-margin;
-      //     background-color: variables.$base-color;
-      //     border: 1px solid variables.$border-color;
-      //     margin: variables.$base-margin variables.$base-margin 0;
-
-      //     &.selected {
-      //       flex: 1;
-      //       display: block;
-      //     }
-      //   }
-      // }
-    }
-
-    .footer {
-      display: flex;
-      justify-content: flex-end;
-
-      .info {
-        margin: variables.$base-margin;
+        .info {
+          margin: variables.$base-margin;
+        }
       }
     }
   }
@@ -153,17 +115,23 @@
   padding: variables.$base-margin variables.$base-margin * 2;
 }
 
-@media screen and (min-width: 1100px) {
-  .page > .posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-
-    .post {
-      &:nth-child(odd) {
-        margin-right: variables.$base-margin / 2;
+@media screen and (max-width: 1800px) {
+  .page {
+    .posts {
+      .post {
+        flex: 1 0 50%;
+        max-width: 50%;
       }
-      &:nth-child(even) {
-        margin-left: variables.$base-margin / 2;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .page {
+    .posts {
+      .post {
+        flex: 1 0 100%;
+        max-width: 100%;
       }
     }
   }

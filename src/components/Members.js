@@ -1,28 +1,23 @@
-import { TeamsContext } from "@lib/teams"
 import React from "react"
 
-const Members = ({ slug }) => (
-  <TeamsContext.Consumer>
-    {(teams) =>
-      teams.map(
-        (team, i) =>
-          team.slug === slug && (
-            <div key={i} className="members">
-              <div
-                className="avatar"
-                style={{ backgroundImage: `url(${team.avatarUrl})` }}
-              />
-              <div className="details">
-                <h2>
-                  {team.name}
-                  <small>{team.description}</small>
-                </h2>
-              </div>
-            </div>
-          )
-      )
-    }
-  </TeamsContext.Consumer>
+const Members = ({ members }) => (
+  <div className="members">
+    {members.map((member) => (
+      <a
+        className="member"
+        href={member.url}
+        key={member.login}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <div
+          className="avatar"
+          title={member.name || member.login}
+          style={{ backgroundImage: `url(${member.avatarUrl})` }}
+        />
+      </a>
+    ))}
+  </div>
 )
 
 export default Members

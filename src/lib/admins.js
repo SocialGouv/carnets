@@ -1,3 +1,4 @@
-import React from "react"
+import { createContext, useContext } from "react"
 
-export const AdminsContext = React.createContext()
+export const AdminsContext = createContext()
+export const useAdmins = () => useContext(AdminsContext)

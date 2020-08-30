@@ -22,14 +22,16 @@ const Post = ({ post }) => {
 
   return (
     <div className="post">
-      <Header post={post} />
-      <div className="body">
-        <KPIs post={post} />
-        {/* <Tabs post={post} /> */}
-        <TabPanel tabs={tabs} />
-      </div>
-      <div className="footer">
-        <Info post={post} />
+      <div className="content">
+        <Header post={post} />
+        <div className="body">
+          <KPIs post={post} />
+          {/* <Tabs post={post} /> */}
+          <TabPanel tabs={tabs} />
+        </div>
+        <div className="footer">
+          <Info post={post} />
+        </div>
       </div>
     </div>
   )

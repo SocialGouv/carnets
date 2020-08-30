@@ -1,81 +1,41 @@
+import { useUser } from "@lib/user"
 import React, { useCallback, useEffect, useState } from "react"
 
 import Dropzone from "./Dropzone"
 import List from "./List"
-import upload from "src/pages/api/teams/[team]/upload"
 
-const Files = ({ slug }) => {
-  const [files, setFiles] = useState([])
-
-  // const upload2 = useCallback(
-  //   async (files) => {
-  //     const data = new FormData()
-  //     const filesToUpload = files.filter((file) => !file.id)
-  //     filesToUpload.forEach(
-  //       (file, i) => !file.id && data.append(`file-${i}`, file)
-  //     )
-
-  //     const options = {
-  //       body: data,
-  //       credentials: "include",
-  //       method: "POST",
-  //     }
-
-  //     const response = await fetch(`/api/teams/${slug}/upload`, options)
-  //     if (response.status === 200) {
-  //       console.log("response", response)
-  //       filesToUpload.forEach((file) => (file.loading = false))
-  //     } else {
-  //       console.error("ERROR:", response.statusText)
-  //     }
-  //   },
-  //   [slug]
-  // )
-
-  const upload = (files) => {
-    const data = new FormData()
-    const filesToUpload = files.filter((file) => !file.id)
-    filesToUpload.forEach(
-      (file, i) => !file.id && data.append(`file-${i}`, file)
-    )
-
-    const options = {
-      body: data,
-      credentials: "include",
-      method: "POST",
-    }
-
-    return fetch(`/api/teams/${slug}/upload`, options)
-  }
+const Files = ({ files = [], slug }) => {
+  const user = useUser()
+  const [allFiles, setFiles] = useState()
+  const isAllowed = user && (user.isAdmin || user.teams?.includes(slug))
 
   const onDrop = useCallback(
     async (acceptedFiles) => {
-      console.log("onDrop", acceptedFiles)
-      acceptedFiles.forEach((file) => (file.loading = true))
-      setFiles([...files, ...acceptedFiles])
-      const response = upload(acceptedFiles)
+      const data = new FormData()
+      acceptedFiles.forEach(
+        (file, i) => (
+          (file.loading = true), !file.id && data.append(`file-${i}`, file)
+        )
+      )
+      setFiles([...allFiles, ...acceptedFiles])
+      const options = { body: data, method: "POST" }
+      const response = await fetch(`/api/teams/${slug}/files`, options)
       if (response.status === 200) {
-        console.log("response", response)
-        files.forEach((file) => (file.loading = false))
-        setFiles([...files])
+        const data = await response.json()
+        setFiles([...allFiles, ...data])
       } else {
         console.error("ERROR:", response.statusText)
       }
     },
-    [files]
+    [allFiles, slug]
   )
 
-  // useEffect(() => {
-  //   upload2(files)
-  //   return () => {
-  //     console.log("files cleanup")
-  //   }
-  // }, [files, upload2])
+  useEffect(() => setFiles(files), [files])
 
   return (
     <div className="files">
-      <Dropzone onDrop={onDrop} />
-      <List files={files} />
+      {isAllowed && <Dropzone onDrop={onDrop} />}
+      <List files={allFiles} slug={slug} />
     </div>
   )
 }

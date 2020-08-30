@@ -1,10 +1,12 @@
+import { useAdmins } from "@lib/admins"
 import Auth0 from "@lib/auth0"
-import { getMembers } from "@lib/teams"
-import React from "react"
+import { getMembers, useTeams } from "@lib/teams"
+import React, { createContext, useContext } from "react"
 
-export const UserContext = React.createContext()
+export const UserContext = createContext()
+export const useUser = () => useContext(UserContext)
 
-export const getInfo = async (req, res) => {
+export const getUser = async (req, res) => {
   const auth0 = Auth0()
   const { user } = (await auth0.getSession(req)) || {}
   if (!user) {
@@ -17,11 +19,37 @@ export const getInfo = async (req, res) => {
     res.status(403)
     throw new Error(`Cannot get user's access token`)
   }
-  console.log("REQUESTS TO GITHUB!")
+  return [user, accessToken]
+}
+
+export const getInfo = async (req, res) => {
+  const [user, accessToken] = await getUser(req, res)
   const members = await getMembers(req.body.team_slug)
   if (!members.includes(user.nickname)) {
     res.status(403)
     throw new Error(`User ${user.name} not granted to SocialGouv`)
   }
   return [user.nickname, accessToken]
+}
+
+const getUserTeams = (user, teams) => {
+  const { nickname } = user
+  return teams.reduce(
+    (teams, team) => (
+      team.members.nodes.find((member) => member.login === nickname) &&
+        teams.push(team.slug),
+      teams
+    ),
+    []
+  )
+}
+
+export const UserProvider = ({ children, value: user }) => {
+  const teams = useTeams()
+  const admins = useAdmins()
+  if (user && teams && admins) {
+    user.isAdmin = admins.includes(user.nickname)
+    user.teams = getUserTeams(user, teams)
+  }
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>
 }

@@ -1,7 +1,7 @@
 import React from "react"
 
 import Logo from "./Logo"
-import Menu from "./Menu"
+import Menu from "./menu"
 import Title from "./Title"
 
 const Nav = () => (
