@@ -11,62 +11,57 @@
   form {
     width: 80%;
     display: flex;
+    max-width: 35rem;
     border-radius: 2px;
     position: relative;
     flex-direction: column;
     box-shadow: rgb(201, 211, 223) 0px 1px 2px;
     background-color: variables.$background-color;
 
+    padding: variables.$base-margin variables.$base-margin * 1.5
+      variables.$base-margin * 2;
+
     .header {
+      padding: 0 0 variables.$base-margin;
       border-bottom: 1px solid variables.$border-color;
-      padding: 0 variables.$base-margin variables.$base-margin;
     }
 
     .body {
       display: flex;
-      margin: variables.$base-margin variables.$base-margin * 2 0;
+      margin: variables.$base-margin 0 0;
 
-      & > div {
-        flex: 1;
+      flex-direction: column;
+
+      .team-mood {
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        margin-bottom: variables.$base-margin;
 
-        &:first-child {
-          margin-right: variables.$base-margin;
-        }
-
-        &:last-child {
-          margin-left: variables.$base-margin;
-        }
-
-        .team-mood {
-          display: flex;
-          align-items: center;
-          margin-bottom: variables.$base-margin;
-
-          select {
-            flex: 1;
-          }
+        select {
+          flex: 1;
         }
       }
 
       label {
         flex: 1;
-        display: flex;
-        overflow: auto;
         position: relative;
-        flex-direction: column;
         margin-bottom: variables.$base-margin;
 
         &:last-child {
-          margin-bottom: 0;
+          margin-bottom: variables.$base-margin !important;
         }
 
         textarea,
         input {
-          flex: 1;
-          resize: none;
+          width: 100%;
+          box-sizing: border-box;
           margin-top: variables.$base-margin / 2;
+        }
+
+        textarea {
+          display: block;
+          resize: vertical;
+          min-height: 150px;
         }
 
         .preview {
@@ -111,6 +106,7 @@
     }
 
     .kpis {
+      margin-bottom: 0;
       margin-bottom: variables.$base-margin;
 
       .kpi {
@@ -154,7 +150,7 @@
     .footer {
       display: flex;
       justify-content: center;
-      margin: variables.$base-margin * 2 0;
+      margin: variables.$base-margin 0 0;
 
       button {
         min-width: 30%;
@@ -198,33 +194,6 @@
 
     p {
       margin-top: variables.$base-margin * 2;
-    }
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .publish {
-    form {
-      margin-top: variables.$base-margin * 4;
-
-      padding: variables.$base-margin variables.$base-margin * 1.5
-        variables.$base-margin * 2;
-
-      .body {
-        flex-direction: column;
-
-        & > div {
-          margin: 0 !important;
-        }
-
-        label:last-child {
-          margin-bottom: variables.$base-margin !important;
-        }
-      }
-
-      .kpis {
-        margin-bottom: 0;
-      }
     }
   }
 }

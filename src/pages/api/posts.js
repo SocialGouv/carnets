@@ -1,5 +1,5 @@
+import { create, list } from "@lib/posts"
 import { getInfo } from "@lib/user"
-import { list, create } from "@lib/posts"
 
 export default async (req, res) => {
   try {

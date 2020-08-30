@@ -23,6 +23,8 @@ Toutes les infos pour mettre à jour vos informations sont [sur le wiki](https:/
 | `GITHUB_TOKEN`                | Github user token                |
 | `GITHUB_USER`                 | Github user login                |
 | `SENTRY_DSN`                  | Sentry application dedicated URL |
+| `AZURE_ACCOUNT_NAME`          | Azure blob storage account name  |
+| `AZURE_ACCOUNT_KEY`           | Azure blob storage account key   |
 
 #### Hasura service
 
@@ -43,6 +45,7 @@ docker-compose up
 ```
 
 Launch Hasura console:
+
 ```bash
 cd ./packages/hasura
 hasura console

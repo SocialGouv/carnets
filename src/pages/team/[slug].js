@@ -1,39 +1,52 @@
+import Files from "@components/files"
+import Intro from "@components/Intro"
+import Posts from "@components/posts/Posts"
+import TabPanel from "@components/TabPanel"
+import Teams from "@components/teams/Teams"
+import fetcher from "@lib/fetcher"
+import { PostsContext } from "@lib/posts"
 import React from "react"
 
-import fetcher from "@lib/fetcher"
-import Nav from "@components/nav/Nav"
-import Intro from "@components/Intro"
-import Footer from "@components/Footer"
-import { TeamsContext } from "@lib/teams"
-import { PostsContext } from "@lib/posts"
-import { AdminsContext } from "@lib/admins"
-import Teams from "@components/teams/Teams"
-import Posts from "@components/posts/Posts"
+const Page = ({ posts, files, slug }) => {
+  const tabs = [
+    {
+      content: (
+        <PostsContext.Provider value={posts}>
+          <Posts slug={slug} />
+        </PostsContext.Provider>
+      ),
+      name: "Publications",
+    },
+    {
+      content: <Files files={files} slug={slug} />,
+      name: "Fichiers",
+    },
+  ]
 
-const Page = ({ teams, posts, slug, admins }) => (
-  <TeamsContext.Provider value={teams}>
-    <AdminsContext.Provider value={admins}>
-      <Nav />
+  return (
+    <>
       <div className="content">
         <Teams slug={slug} />
         <div className="page">
           <Intro slug={slug} />
-          <PostsContext.Provider value={posts}>
-            <Posts slug={slug} />
-          </PostsContext.Provider>
+          <TabPanel tabs={tabs} />
         </div>
       </div>
-      <Footer />
-    </AdminsContext.Provider>
-  </TeamsContext.Provider>
-)
+    </>
+  )
+}
 
 export async function getServerSideProps({ req, params }) {
   const { slug } = params
   const baseUrl = `http://localhost:${req.socket.localPort}`
-  const { teams, admins } = await fetcher(`${baseUrl}/api/teams`)
-  const posts = await fetcher(`${baseUrl}/api/teams/${slug}/posts`)
-  return { props: { teams, posts, slug, admins } }
+  try {
+    const posts = await fetcher(`${baseUrl}/api/teams/${slug}/posts`)
+    const files = await fetcher(`${baseUrl}/api/teams/${slug}/files`)
+    return { props: { files, posts, slug } }
+  } catch (error) {
+    console.log(error)
+    return { props: { files: [], posts: [], slug } }
+  }
 }
 
 export default Page

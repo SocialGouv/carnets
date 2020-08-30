@@ -1,0 +1,124 @@
+@use "./variables";
+
+.files {
+  margin: variables.$base-margin / 2 0 0;
+  padding-bottom: variables.$base-margin * 3;
+
+  .dropzone {
+    outline: none;
+    display: flex;
+    padding: 2rem;
+    border-radius: 2px;
+    margin: 1rem 0.5rem 0;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fafafa;
+    color: darken(#efefef, 20%);
+    transition: border 0.24s ease-in-out;
+    border: 2px dashed darken(#efefef, 10%);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+
+    .item {
+      flex: 1 0 25%;
+      max-width: 25%;
+
+      .file {
+        display: flex;
+        margin: 0.5rem;
+        position: relative;
+        align-items: center;
+        padding: 0.5rem 0.7rem;
+        border: 1px solid variables.$border-color;
+        box-shadow: rgb(201, 211, 223) 0px 1px 2px;
+
+        .icon {
+          display: flex;
+          min-width: 24px;
+          max-width: 24px;
+          align-items: center;
+        }
+
+        .details {
+          flex: 1;
+          min-width: 0;
+          margin-left: 0.5rem;
+
+          a {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+
+          .info {
+            display: flex;
+            font-size: 0.8rem;
+            justify-content: space-between;
+            color: lighten(variables.$font-color, 40%);
+
+            .date {
+              margin-right: 0.3rem;
+            }
+          }
+        }
+
+        .delete {
+          opacity: 0;
+          top: 0.1rem;
+          right: 0.1rem;
+          cursor: pointer;
+          position: absolute;
+        }
+
+        &:hover {
+          .delete {
+            opacity: 1;
+            color: variables.$secondary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .files {
+    .list {
+      .item {
+        flex: 1 0 33%;
+        max-width: 33.333333%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .files {
+    .list {
+      .item {
+        flex: 1 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .files {
+    .list {
+      .item {
+        flex: 1 0 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

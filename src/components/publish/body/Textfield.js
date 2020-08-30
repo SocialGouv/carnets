@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import ReactMarkdown from "react-markdown"
 import { Eye, EyeOff } from "react-feather"
+import ReactMarkdown from "react-markdown"
 
 const Textfield = ({ field, label, form: { touched, errors }, ...props }) => {
   const [preview, setPreview] = useState(false)
@@ -8,7 +8,7 @@ const Textfield = ({ field, label, form: { touched, errors }, ...props }) => {
   return (
     <label>
       {label}
-      <a
+      {/* <a
         tabIndex={0}
         role="button"
         className="preview"
@@ -21,7 +21,7 @@ const Textfield = ({ field, label, form: { touched, errors }, ...props }) => {
         ) : (
           <Eye color="darkblue" size={16} />
         )}
-      </a>
+      </a> */}
       {preview ? (
         <div className="markdown-body">
           <ReactMarkdown source={field.value} />

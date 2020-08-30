@@ -1,28 +1,27 @@
-import { TeamsContext } from "@lib/teams"
+import Members from "@components/Members"
+import { useTeams } from "@lib/teams"
 import React from "react"
 
-const Intro = ({ slug }) => (
-  <TeamsContext.Consumer>
-    {(teams) =>
-      teams.map(
-        (team, i) =>
-          team.slug === slug && (
-            <div key={i} className="intro">
-              <div
-                className="avatar"
-                style={{ backgroundImage: `url(${team.avatarUrl})` }}
-              />
-              <div className="details">
-                <h2>
-                  {team.name}
-                  <small>{team.description}</small>
-                </h2>
-              </div>
-            </div>
-          )
-      )
-    }
-  </TeamsContext.Consumer>
-)
+const Intro = ({ slug }) => {
+  const teams = useTeams() || []
+  const team = teams.find((team) => team.slug === slug) || {}
+  const members = team ? team.members.nodes : []
+
+  return (
+    <div className="intro">
+      <div
+        className="team-avatar"
+        style={{ backgroundImage: `url(${team.avatarUrl})` }}
+      />
+      <div className="details">
+        <h2>
+          {team.name}
+          <small>{team.description}</small>
+        </h2>
+        <Members members={members} />
+      </div>
+    </div>
+  )
+}
 
 export default Intro

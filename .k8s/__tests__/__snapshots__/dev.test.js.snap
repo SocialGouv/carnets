@@ -91,6 +91,10 @@ exports[`k8s for DEV environment 1`] = `
                   name: app-sealed-secret
               - configMapRef:
                   name: app-configmap
+            env:
+              - name: APP_BASE_URL
+                value: >-
+                  https://cdtn-admin-branch-42-cdtn-admin.dev2.fabrique.social.gouv.fr
   apiVersion: apps/v1
   kind: Deployment
 - apiVersion: bitnami.com/v1alpha1
@@ -393,6 +397,35 @@ exports[`k8s for DEV environment 1`] = `
     type: ClusterIP
   apiVersion: v1
   kind: Service
+- metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      app.gitlab.com/app: socialgouv-cdtn-admin
+      app.gitlab.com/env: cdtn-admin-branch-42
+      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+    labels:
+      app: hasura
+      application: cdtn-admin-branch-42-cdtn-admin
+      owner: cdtn-admin
+      team: cdtn-admin
+      cert: wildcard
+    name: hasura
+    namespace: cdtn-admin-24-branch-42
+  spec:
+    rules:
+      - host: hasura-cdtn-admin-branch-42-cdtn-admin.dev2.fabrique.social.gouv.fr
+        http:
+          paths:
+            - backend:
+                serviceName: hasura
+                servicePort: 80
+              path: /
+    tls:
+      - hosts:
+          - hasura-cdtn-admin-branch-42-cdtn-admin.dev2.fabrique.social.gouv.fr
+        secretName: wildcard-crt
+  apiVersion: extensions/v1beta1
+  kind: Ingress
 - apiVersion: bitnami.com/v1alpha1
   kind: SealedSecret
   metadata:

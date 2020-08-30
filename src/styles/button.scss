@@ -1,6 +1,7 @@
 @use "./variables";
 
-button, .button {
+button,
+.button {
   outline: 0;
   display: flex;
   cursor: pointer;
@@ -9,6 +10,7 @@ button, .button {
   justify-content: center;
   color: variables.$link-color;
   font-size: variables.$font-size;
+  background-color: variables.$base-color;
   border: 1px solid variables.$link-color;
   padding: variables.$base-margin * 0.1 variables.$base-margin / 2;
 
@@ -29,7 +31,8 @@ button, .button {
     background-color: variables.$link-color;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: variables.$base-color;
     text-decoration: none !important;
     border-color: lighten(variables.$link-color, 5%);
@@ -45,7 +48,8 @@ button, .button {
     color: variables.$secondary-color;
     border-color: variables.$secondary-color;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: white;
       background-color: variables.$secondary-color;
     }

@@ -2,6 +2,46 @@ version: 2
 tables:
 - table:
     schema: public
+    name: files
+  insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+      - blob_name
+      - name
+      - size
+      - team_slug
+      - type
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - blob_name
+      - created_at
+      - id
+      - name
+      - size
+      - team_slug
+      - type
+      filter: {}
+  - role: user
+    permission:
+      columns:
+      - size
+      - blob_name
+      - name
+      - team_slug
+      - type
+      - created_at
+      - id
+      filter: {}
+  delete_permissions:
+  - role: user
+    permission:
+      filter: {}
+- table:
+    schema: public
     name: kpis
   object_relationships:
   - name: post

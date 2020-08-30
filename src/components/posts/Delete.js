@@ -1,8 +1,7 @@
-import Router from "next/router"
-import { Trash2 } from "react-feather"
-import React, { useState } from "react"
-
 import Modal from "@components/Modal"
+import Router from "next/router"
+import React, { useState } from "react"
+import { Trash2 } from "react-feather"
 
 const Post = ({ post }) => {
   const [loading, setLoading] = useState(false)
@@ -12,9 +11,9 @@ const Post = ({ post }) => {
     setLoading(true)
     const { id } = post
     await fetch(`/api/posts/${id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ team_slug: post.team_slug }),
+      headers: { "Content-Type": "application/json" },
+      method: "DELETE",
     })
     Router.reload()
     setModalVisibility(false)
