@@ -6,11 +6,11 @@ import Delete from "./Delete"
 import Edit from "./Edit"
 
 const Header = ({ post }) => {
-  const user = useUser()
-  const teams = useTeams()
   const { team_slug } = post
-  const team = teams.find((team) => team.slug === post.team_slug)
-  const isAllowed = user && (user.isAdmin || user.teams.includes(team_slug))
+  const user = useUser() || {}
+  const teams = useTeams() || {}
+  const isAllowed = user.isAdmin || user.teams?.includes(team_slug)
+  const team = teams.find((team) => team.slug === post.team_slug) || {}
 
   return (
     <div className="header">

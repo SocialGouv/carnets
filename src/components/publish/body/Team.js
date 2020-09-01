@@ -3,11 +3,11 @@ import { useUser } from "@lib/user"
 import React from "react"
 
 const Team = ({ field, form: { touched, errors }, ...props }) => {
-  const user = useUser()
+  const user = useUser() || {}
   const allTeams = useTeams() || []
   const teams = user.isAdmin
     ? allTeams
-    : allTeams.filter((team) => user.teams.includes(team.slug))
+    : allTeams.filter((team) => user.teams?.includes(team.slug))
 
   return (
     <select
