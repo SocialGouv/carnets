@@ -22,7 +22,7 @@
     "graphql-request": "^2.0.0",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "2.27.0",
-    "next": "^9.5.2",
+    "next": "^9.5.3",
     "react": "16.13.1",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "16.13.1",
@@ -31,7 +31,7 @@
     "react-markdown": "^4.3.1",
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.26.10",
-    "swr": "^0.3.1",
+    "swr": "^0.3.2",
     "uuid": "^8.3.0",
     "victory": "^35.0.8"
   },
