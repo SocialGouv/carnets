@@ -27,6 +27,22 @@ const manifests = create("app", {
           memory: "256Mi",
         },
       },
+      livenessProbe: {
+        httpGet: {
+          path: "/api/healthz",
+          port: "http",
+        },
+        initialDelaySeconds: 30,
+        periodSeconds: 15,
+      },
+      readinessProbe: {
+        httpGet: {
+          path: "/api/healthz",
+          port: "http",
+        },
+        initialDelaySeconds: 30,
+        periodSeconds: 15,
+      },
     },
   },
 })
