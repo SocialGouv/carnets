@@ -6,6 +6,79 @@ const org = process.env.GITHUB_ORGANIZATION
 export const TeamsContext = createContext()
 export const useTeams = () => useContext(TeamsContext)
 
+export const sync = async () => {
+  const data = await getDataFromGithub()
+  return syncGithubData(data)
+}
+
+export const syncGithubData = (data) => {
+  const query = `
+    mutation syncGithubAdminsAndTeams() {
+      delete_github_data() {
+        affected_rows
+      }
+      insert_github_data(objects: $objects) {
+        returning {
+          id
+        }
+      }
+    }
+  `
+  const variables = { objects: [{ admins_and_teams: data }] }
+  return fetch(query, variables)
+}
+
+export const getDataFromGithub = async () => {
+  const query = `
+    query {
+      organization(login: "${org}") {
+        teams(
+          first: 50,
+          privacy: VISIBLE,
+          rootTeamsOnly: true,
+          orderBy: {field: NAME, direction: ASC}
+        ) {
+          totalCount
+          nodes {
+            slug
+            name
+            avatarUrl
+            description
+            members {
+              nodes {
+                login
+                name
+                avatarUrl
+                url
+              }
+            }
+          }
+        }
+        coreTeam: team(slug: "core-team") {
+          members {
+            nodes {
+              login
+            }
+          }
+        }
+      }
+    }
+  `
+  const {
+    organization: {
+      teams: { nodes: teams },
+      coreTeam: {
+        members: { nodes: coreTeamMembers },
+      },
+    },
+  } = await fetch(query)
+
+  return {
+    admins: coreTeamMembers.map((member) => member.login),
+    teams,
+  }
+}
+
 export const list = async () => {
   const query = `
     query {
