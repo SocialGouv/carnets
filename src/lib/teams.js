@@ -11,24 +11,27 @@ export const sync = async () => {
   return syncGithubData(data)
 }
 
-export const syncGithubData = (data) => {
+const syncGithubData = (data) => {
+  const role = "webhook"
+  const secret = process.env.HASURA_GRAPHQL_ADMIN_SECRET
   const query = `
-    mutation syncGithubAdminsAndTeams() {
-      delete_github_data() {
+    mutation syncGithubAdminsAndTeams($data: jsonb) {
+      delete_github_data(where: {}) {
         affected_rows
       }
-      insert_github_data(objects: $objects) {
+      insert_github_data(objects: [{ admins_and_teams: $data }]) {
+        affected_rows
         returning {
           id
         }
       }
     }
   `
-  const variables = { objects: [{ admins_and_teams: data }] }
-  return fetch(query, variables)
+  const variables = { data }
+  return fetch(query, variables, null, role, secret)
 }
 
-export const getDataFromGithub = async () => {
+const getDataFromGithub = async () => {
   const query = `
     query {
       organization(login: "${org}") {

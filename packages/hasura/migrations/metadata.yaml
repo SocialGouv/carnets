@@ -42,6 +42,42 @@ tables:
       filter: {}
 - table:
     schema: public
+    name: github_data
+  insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+      - admins_and_teams
+  - role: webhook
+    permission:
+      check: {}
+      columns:
+      - admins_and_teams
+  select_permissions:
+  - role: user
+    permission:
+      columns:
+      - admins_and_teams
+      - created_at
+      - id
+      filter: {}
+  - role: webhook
+    permission:
+      columns:
+      - admins_and_teams
+      - created_at
+      - id
+      filter: {}
+  delete_permissions:
+  - role: user
+    permission:
+      filter: {}
+  - role: webhook
+    permission:
+      filter: {}
+- table:
+    schema: public
     name: kpis
   object_relationships:
   - name: post
