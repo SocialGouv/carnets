@@ -6,7 +6,32 @@ const org = process.env.GITHUB_ORGANIZATION
 export const TeamsContext = createContext()
 export const useTeams = () => useContext(TeamsContext)
 
-export const list = async () => {
+export const sync = async () => {
+  const data = await getDataFromGithub()
+  return syncGithubData(data)
+}
+
+const syncGithubData = (data) => {
+  const role = "webhook"
+  const secret = process.env.HASURA_GRAPHQL_ADMIN_SECRET
+  const query = `
+    mutation syncGithubAdminsAndTeams($data: jsonb) {
+      delete_github_data(where: {}) {
+        affected_rows
+      }
+      insert_github_data(objects: [{ admins_and_teams: $data }]) {
+        affected_rows
+        returning {
+          id
+        }
+      }
+    }
+  `
+  const variables = { data }
+  return fetch(query, variables, null, role, secret)
+}
+
+const getDataFromGithub = async () => {
   const query = `
     query {
       organization(login: "${org}") {
@@ -46,49 +71,57 @@ export const list = async () => {
     organization: {
       teams: { nodes: teams },
       coreTeam: {
-        members: { nodes: coreTeamMembers },
+        members: { nodes: admins },
       },
     },
   } = await fetch(query)
 
   return {
-    admins: coreTeamMembers.map((member) => member.login),
+    admins: admins.map((member) => member.login),
     teams,
   }
 }
 
-export const getMembers = async (team) => {
+export const list = async () => {
   const query = `
-    query getMembers($org: String!, $team: String!) {
-      organization(login: $org) {
-        currentTeam: team(slug: $team) {
-          members {
-            nodes {
-              login
-            }
-          }
-        }
-        coreTeam: team(slug: "core-team") {
-          members {
-            nodes {
-              login
-            }
-          }
-        }
-      }
+    query {
+      github_data(where: {}) {admins_and_teams}
     }
   `
 
   const {
-    organization: { currentTeam, coreTeam },
-  } = await fetch(query, { org, team })
+    github_data: [
+      {
+        admins_and_teams: { admins, teams },
+      },
+    ],
+  } = await fetch(query)
 
-  const currentTeamMembers = currentTeam ? currentTeam.members.nodes : []
-  const coreTeamMembers = coreTeam ? coreTeam.members.nodes : []
+  return { admins, teams }
+}
 
-  return [...currentTeamMembers, ...coreTeamMembers].map(
-    (member) => member.login
-  )
+export const getMembers = async (slug) => {
+  const query = `
+    query {
+      github_data(where: {}) {admins_and_teams}
+    }
+  `
+
+  const {
+    github_data: [
+      {
+        admins_and_teams: { admins, teams },
+      },
+    ],
+  } = await fetch(query)
+
+  const team = teams.find((team) => team.slug === slug)
+  const {
+    members: { nodes },
+  } = team
+  const members = nodes.map((member) => member.login)
+
+  return [...admins, ...members]
 }
 
 export const getPosts = async (team) => {

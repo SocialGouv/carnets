@@ -18,6 +18,7 @@ const Page = ({ posts }) => (
 )
 
 export async function getServerSideProps({ req }) {
+  console.log("INDEX getServerSideProps")
   const baseUrl = `http://localhost:${req.socket.localPort}`
   try {
     const posts = await fetcher(`${baseUrl}/api/posts`)
