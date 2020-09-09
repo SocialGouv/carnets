@@ -55,6 +55,13 @@ tables:
       columns:
       - admins_and_teams
   select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - id
+      - admins_and_teams
+      - created_at
+      filter: {}
   - role: user
     permission:
       columns:

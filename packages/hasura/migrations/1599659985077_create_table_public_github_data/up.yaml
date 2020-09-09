@@ -79,3 +79,18 @@
       name: github_data
       schema: public
   type: create_select_permission
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - id
+      - admins_and_teams
+      - created_at
+      computed_fields: []
+      filter: {}
+      limit: null
+    role: anonymous
+    table:
+      name: github_data
+      schema: public
+  type: create_select_permission

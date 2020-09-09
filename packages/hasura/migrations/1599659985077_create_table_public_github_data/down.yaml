@@ -1,4 +1,10 @@
 - args:
+    role: anonymous
+    table:
+      name: github_data
+      schema: public
+  type: drop_select_permission
+- args:
     role: webhook
     table:
       name: github_data

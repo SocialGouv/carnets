@@ -71,13 +71,13 @@ const getDataFromGithub = async () => {
     organization: {
       teams: { nodes: teams },
       coreTeam: {
-        members: { nodes: coreTeamMembers },
+        members: { nodes: admins },
       },
     },
   } = await fetch(query)
 
   return {
-    admins: coreTeamMembers.map((member) => member.login),
+    admins: admins.map((member) => member.login),
     teams,
   }
 }
@@ -85,86 +85,43 @@ const getDataFromGithub = async () => {
 export const list = async () => {
   const query = `
     query {
-      organization(login: "${org}") {
-        teams(
-          first: 50,
-          privacy: VISIBLE,
-          rootTeamsOnly: true,
-          orderBy: {field: NAME, direction: ASC}
-        ) {
-          totalCount
-          nodes {
-            slug
-            name
-            avatarUrl
-            description
-            members {
-              nodes {
-                login
-                name
-                avatarUrl
-                url
-              }
-            }
-          }
-        }
-        coreTeam: team(slug: "core-team") {
-          members {
-            nodes {
-              login
-            }
-          }
-        }
-      }
+      github_data(where: {}) {admins_and_teams}
     }
   `
+
   const {
-    organization: {
-      teams: { nodes: teams },
-      coreTeam: {
-        members: { nodes: coreTeamMembers },
+    github_data: [
+      {
+        admins_and_teams: { admins, teams },
       },
-    },
+    ],
   } = await fetch(query)
 
-  return {
-    admins: coreTeamMembers.map((member) => member.login),
-    teams,
-  }
+  return { admins, teams }
 }
 
-export const getMembers = async (team) => {
+export const getMembers = async (slug) => {
   const query = `
-    query getMembers($org: String!, $team: String!) {
-      organization(login: $org) {
-        currentTeam: team(slug: $team) {
-          members {
-            nodes {
-              login
-            }
-          }
-        }
-        coreTeam: team(slug: "core-team") {
-          members {
-            nodes {
-              login
-            }
-          }
-        }
-      }
+    query {
+      github_data(where: {}) {admins_and_teams}
     }
   `
 
   const {
-    organization: { currentTeam, coreTeam },
-  } = await fetch(query, { org, team })
+    github_data: [
+      {
+        admins_and_teams: { admins, teams },
+      },
+    ],
+  } = await fetch(query)
 
-  const currentTeamMembers = currentTeam ? currentTeam.members.nodes : []
-  const coreTeamMembers = coreTeam ? coreTeam.members.nodes : []
+  const team = teams.find((team) => team.slug === slug)
+  const {
+    members: { nodes },
+  } = team
+  const members = nodes.map((member) => member.login)
 
-  return [...currentTeamMembers, ...coreTeamMembers].map(
-    (member) => member.login
-  )
+  return [...admins, ...members]
 }
 
 export const getPosts = async (team) => {
