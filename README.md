@@ -20,8 +20,6 @@ Toutes les infos pour mettre à jour vos informations sont [sur le wiki](https:/
 | `AUTH0_DOMAIN`                | Auth0 application domain         |
 | `AUTH0_SESSION_COOKIE_SECRET` | Auth0 session cookie secret      |
 | `GITHUB_ORGANIZATION`         | Github organisation name         |
-| `GITHUB_TOKEN`                | Github user token                |
-| `GITHUB_USER`                 | Github user login                |
 | `SENTRY_DSN`                  | Sentry application dedicated URL |
 | `AZURE_ACCOUNT_NAME`          | Azure blob storage account name  |
 | `AZURE_ACCOUNT_KEY`           | Azure blob storage account key   |
