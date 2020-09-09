@@ -25,7 +25,6 @@ export const getUser = async (req, res) => {
 export const getInfo = async (req, res) => {
   const [user, accessToken] = await getUser(req, res)
   const members = await getMembers(req.body.team_slug)
-  console.log("members", members)
   if (!members.includes(user.nickname)) {
     res.status(403)
     throw new Error(`User ${user.name} not granted to SocialGouv`)

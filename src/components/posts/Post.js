@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown"
 import Header from "./Header"
 import Info from "./Info"
 import KPIs from "./KPIs"
-// import Tabs from "./Tabs"
 
 const useMarkdown = (source) =>
   source ? <ReactMarkdown className="markdown-body" source={source} /> : null

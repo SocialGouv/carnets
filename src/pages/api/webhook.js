@@ -2,10 +2,6 @@ import { sync } from "@lib/teams"
 import crypto from "crypto"
 
 export default async (req, res) => {
-  console.log("body", req.body)
-  console.log("params", req.params)
-  console.log("query", req.query)
-  console.log("headers", req.headers)
   try {
     if (req.method === "POST") {
       if (isGithub(req)) {
@@ -30,7 +26,6 @@ export default async (req, res) => {
 const isGithub = (req) => {
   const payload = JSON.stringify(req.body)
   const sig = req.headers["x-hub-signature"] || ""
-  console.log("SIG", sig)
   const hmac = crypto.createHmac("sha1", process.env.GITHUB_WEBHOOKS_TOKEN)
   const digest = Buffer.from(
     "sha1=" + hmac.update(payload).digest("hex"),

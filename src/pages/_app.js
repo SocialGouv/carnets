@@ -20,7 +20,6 @@ const Carnets = ({ Component, pageProps }) => {
   const { data, error } = useSWR("/api/auth0/me", fetcher)
 
   useEffect(() => {
-    console.log("Set user data", data, error)
     !error && data && setUser(data)
   }, [data, error])
 

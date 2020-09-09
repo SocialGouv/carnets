@@ -31,12 +31,10 @@ const Dropzone = ({ onDrop }) => {
   )
 
   return (
-    // <section className="container">
     <div {...getRootProps({ className: "dropzone", style })}>
       <input {...getInputProps()} />
       <p>Glisser / déposer les fichiers ici.</p>
     </div>
-    // </section>
   )
 }
 

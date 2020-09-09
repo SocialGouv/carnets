@@ -24,28 +24,6 @@ export default async (req, res) => {
         const registeredFiles = await register(uploadedFiles, token)
         return res.send(registeredFiles)
       })
-      // const form = new formidable.IncomingForm()
-
-      // return await new Promise((resolve, reject) => {
-      //   form.parse(req, async (err, fields, files) => {
-      //     if (err) {
-      //       console.error("add form.parse error", err)
-      //       reject(err)
-      //       return res.status(500).send({ success: false })
-      //     }
-      //     const result = await uploadFiles(files, team)
-      //     const records = result.map((record) => ({
-      //       blob_name: record.blob_name,
-      //       name: record.name,
-      //       size: record.size,
-      //       team_slug: team,
-      //       type: record.type,
-      //     }))
-      //     const toto = await register(records, accessToken)
-      //     resolve()
-      //     return res.send(toto)
-      //   })
-      // })
     } else {
       res.status(405)
       throw new Error("Wrong method")

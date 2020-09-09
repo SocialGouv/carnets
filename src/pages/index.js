@@ -18,13 +18,10 @@ const Page = ({ posts }) => (
 )
 
 export async function getServerSideProps({ req }) {
-  console.log("INDEX getServerSideProps")
+  console.log("INDEX PAGE")
   const baseUrl = `http://localhost:${req.socket.localPort}`
   try {
     const posts = await fetcher(`${baseUrl}/api/posts`)
-    // const posts = (await fetcher(`${baseUrl}/api/posts`)).filter((post) =>
-    //   slugs.includes(post.team_slug)
-    // )
     return { props: { posts } }
   } catch (error) {
     console.log(error)
