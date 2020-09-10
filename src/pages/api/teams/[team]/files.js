@@ -15,8 +15,10 @@ export default async (req, res) => {
       res.json(files)
     } else if (req.method === "POST") {
       const [, token] = await getUser(req, res)
+      console.log("POST FILES token", token)
       const form = formidable({ multiples: true })
       form.parse(req, async (err, fields, files) => {
+        console.log("POST FILES files", files)
         const uploadedFiles = await uploadFiles(files, team)
         uploadedFiles.forEach((file) => {
           file.team_slug = team

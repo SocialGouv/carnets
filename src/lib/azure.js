@@ -22,11 +22,13 @@ const createBlobService = () => {
 
 export const getBlobContainer = (containerName) => {
   const service = createBlobService()
+  console.log("AZURE getBlobContainer", service)
   return service.getContainerClient(containerName)
 }
 
 export const createBlobContainer = async (containerName) => {
   const container = getBlobContainer(containerName)
+  console.log("AZURE createBlobContainer", containerName, container)
   const exists = await container.exists()
   if (!exists) await container.create()
   return container
@@ -67,6 +69,7 @@ export const readBlob = async (container, blobName, fileSize) => {
 
   return buffer
 }
+
 export const streamBlob = async (container, blobName) => {
   const client = container.getBlockBlobClient(blobName)
   const downloadBlockBlobResponse = await client.download()

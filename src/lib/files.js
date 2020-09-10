@@ -23,6 +23,7 @@ export const get = async (id) => {
   `
 
   const { files } = await fetch(query, { id })
+  console.log("FILES get", files)
   return files[0]
 }
 
@@ -60,6 +61,7 @@ export const list = async (slug) => {
   `
 
   const { files } = await fetch(query, { slug })
+  console.log("FILES list", files)
   return files
 }
 
@@ -85,7 +87,7 @@ export const register = async (files, token) => {
   const {
     insert_files: { returning: data },
   } = await fetch(query, variables, token)
-
+  console.log("FILES register", data)
   return data
 }
 
@@ -101,6 +103,7 @@ export const uploadFiles = async (files, id) => {
 
   if (keys.length > 0) {
     const container = await createBlobContainer(id)
+    console.log("FILES uploadFIles", container)
     return Promise.all(keys.map((key) => uploadFile(container, files[key])))
   }
 
