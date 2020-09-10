@@ -66,6 +66,7 @@ export const list = async (slug) => {
 }
 
 export const register = async (files, token) => {
+  console.log("REGISTER")
   const query = `
     mutation insert_files($objects: [files_insert_input!]!) {
       insert_files(objects: $objects) {
@@ -82,13 +83,16 @@ export const register = async (files, token) => {
     }
   `
 
-  const variables = { objects: files }
-
-  const {
-    insert_files: { returning: data },
-  } = await fetch(query, variables, token)
-  console.log("FILES register", data)
-  return data
+  try {
+    const variables = { objects: files }
+    const {
+      insert_files: { returning: data },
+    } = await fetch(query, variables, token)
+    console.log("FILES register", data)
+    return data
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 const uploadFile = async (container, file) => {
