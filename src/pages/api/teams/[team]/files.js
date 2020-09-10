@@ -20,10 +20,13 @@ export default async (req, res) => {
       form.parse(req, async (err, fields, files) => {
         console.log("POST FILES files", files)
         const uploadedFiles = await uploadFiles(files, team)
+        console.log("POST FILES uploadedFiles 1", uploadedFiles)
         uploadedFiles.forEach((file) => {
           file.team_slug = team
         })
+        console.log("POST FILES uploadedFiles 2", uploadedFiles)
         const registeredFiles = await register(uploadedFiles, token)
+        console.log("POST FILES registeredFiles", registeredFiles)
         return res.send(registeredFiles)
       })
     } else {

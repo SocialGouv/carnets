@@ -95,6 +95,7 @@ const uploadFile = async (container, file) => {
   const { name, path, size, type } = file
   const blob_name = uuid()
   await createBlob(container, blob_name, path)
+  console.log("FILES uploadFile: BLOB CREATED !")
   return { blob_name, name, size, type }
 }
 
@@ -103,7 +104,7 @@ export const uploadFiles = async (files, id) => {
 
   if (keys.length > 0) {
     const container = await createBlobContainer(id)
-    console.log("FILES uploadFIles", container)
+    console.log("FILES uploadFiles", container)
     return Promise.all(keys.map((key) => uploadFile(container, files[key])))
   }
 
