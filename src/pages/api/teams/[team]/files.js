@@ -1,5 +1,5 @@
 import { list, register, uploadFiles } from "@lib/files"
-import { getUser } from "@lib/user"
+import { getInfo } from "@lib/user"
 import formidable from "formidable"
 
 export const config = { api: { bodyParser: false } }
@@ -14,7 +14,7 @@ export default async (req, res) => {
       const files = await list(team)
       res.json(files)
     } else if (req.method === "POST") {
-      const [, token] = await getUser(req, res)
+      const [, token] = await getInfo(req, res)
       console.log("POST FILES token", token)
       const form = formidable({ multiples: true })
       form.parse(req, async (err, fields, files) => {
