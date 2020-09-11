@@ -12,9 +12,9 @@
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^0.15.0",
+    "@auth0/nextjs-auth0": "^0.16.0",
     "@azure/storage-blob": "^12.2.0-preview.1",
-    "@sentry/browser": "^5.20.1",
+    "@sentry/browser": "^5.23.0",
     "@zeit/next-source-maps": "^0.0.3",
     "bytes": "^3.1.0",
     "crypto": "^1.0.1",
@@ -28,7 +28,7 @@
     "react": "16.13.1",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "16.13.1",
-    "react-dropzone": "^11.0.3",
+    "react-dropzone": "^11.1.0",
     "react-feather": "^2.0.8",
     "react-markdown": "^4.3.1",
     "react-spinners-kit": "^1.9.1",
@@ -38,15 +38,15 @@
     "victory": "^35.0.8"
   },
   "devDependencies": {
-    "@socialgouv/eslint-config-react": "^1.22.0",
+    "@socialgouv/eslint-config-react": "^1.30.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^10.4.9",
-    "eslint": "^7.6.0",
+    "eslint": "^7.8.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-react": "^7.20.6",
-    "jest": "^26.3.0",
-    "prettier": "2.0.5",
+    "jest": "^26.4.2",
+    "prettier": "2.1.1",
     "react-test-renderer": "^16.13.1"
   },
   "resolutions": {
