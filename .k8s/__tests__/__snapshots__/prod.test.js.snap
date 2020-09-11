@@ -6,29 +6,29 @@ exports[`k8s for PROD environment 1`] = `
       field.cattle.io/creatorId: gitlab
       field.cattle.io/projectId: 'c-kk8xm:p-4fxg8'
       git/branch: master
-      git/remote: 'git@github.com:SocialGouv/cdtn-admin.git'
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      git/remote: 'git@github.com:SocialGouv/carnets.git'
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     labels:
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
-    name: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
+    name: carnets
   apiVersion: v1
   kind: Namespace
 - metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     labels:
       app: app
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
     name: app
-    namespace: cdtn-admin
+    namespace: carnets
   spec:
     replicas: 1
     selector:
@@ -37,18 +37,18 @@ exports[`k8s for PROD environment 1`] = `
     template:
       metadata:
         annotations:
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/app: socialgouv-carnets
+          app.gitlab.com/env: carnets-master
           app.gitlab.com/env.name: prod2
         labels:
           app: app
-          application: cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets
+          owner: carnets
+          team: carnets
       spec:
         containers:
           - image: >-
-              registry.gitlab.factory.social.gouv.fr/socialgouv/cdtn-admin/app:8843083edb7f873cad1d1420731a60773594ffae
+              registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/app:8843083edb7f873cad1d1420731a60773594ffae
             livenessProbe:
               failureThreshold: 6
               httpGet:
@@ -90,22 +90,22 @@ exports[`k8s for PROD environment 1`] = `
                   name: app-configmap
             env:
               - name: APP_BASE_URL
-                value: 'https://cdtn-admin.fabrique.social.gouv.fr'
+                value: 'https://carnets.fabrique.social.gouv.fr'
   apiVersion: apps/v1
   kind: Deployment
 - apiVersion: bitnami.com/v1alpha1
   kind: SealedSecret
   metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     name: app-sealed-secret
-    namespace: cdtn-admin
+    namespace: carnets
     labels:
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
   spec:
     encryptedData:
       ACCOUNT_EMAIL_SECRET: >-
@@ -131,26 +131,26 @@ exports[`k8s for PROD environment 1`] = `
     template:
       metadata:
         annotations:
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/app: socialgouv-carnets
+          app.gitlab.com/env: carnets-master
           app.gitlab.com/env.name: prod2
         name: app-sealed-secret
         labels:
-          application: cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets
+          owner: carnets
+          team: carnets
       type: Opaque
 - metadata:
     name: app-configmap
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     labels:
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
-    namespace: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
+    namespace: carnets
   data:
     ACCOUNT_MAIL_SENDER: contact@fabrique.social.gouv.fr
     GRAPHQL_ENDPOINT: 'http://hasura/v1/graphql'
@@ -163,15 +163,15 @@ exports[`k8s for PROD environment 1`] = `
 - metadata:
     labels:
       app: app
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
     name: app
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
-    namespace: cdtn-admin
+    namespace: carnets
   spec:
     ports:
       - port: 80
@@ -186,19 +186,19 @@ exports[`k8s for PROD environment 1`] = `
       kubernetes.io/ingress.class: nginx
       certmanager.k8s.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/tls-acme: 'true'
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     labels:
       app: app
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
     name: app
-    namespace: cdtn-admin
+    namespace: carnets
   spec:
     rules:
-      - host: cdtn-admin.fabrique.social.gouv.fr
+      - host: carnets.fabrique.social.gouv.fr
         http:
           paths:
             - backend:
@@ -207,22 +207,22 @@ exports[`k8s for PROD environment 1`] = `
               path: /
     tls:
       - hosts:
-          - cdtn-admin.fabrique.social.gouv.fr
+          - carnets.fabrique.social.gouv.fr
         secretName: app-crt
   apiVersion: extensions/v1beta1
   kind: Ingress
 - metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     labels:
       app: hasura
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
     name: hasura
-    namespace: cdtn-admin
+    namespace: carnets
   spec:
     replicas: 1
     selector:
@@ -231,18 +231,18 @@ exports[`k8s for PROD environment 1`] = `
     template:
       metadata:
         annotations:
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/app: socialgouv-carnets
+          app.gitlab.com/env: carnets-master
           app.gitlab.com/env.name: prod2
         labels:
           app: hasura
-          application: cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets
+          owner: carnets
+          team: carnets
       spec:
         containers:
           - image: >-
-              registry.gitlab.factory.social.gouv.fr/socialgouv/cdtn-admin/hasura:8843083edb7f873cad1d1420731a60773594ffae
+              registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/hasura:8843083edb7f873cad1d1420731a60773594ffae
             livenessProbe:
               failureThreshold: 6
               httpGet:
@@ -316,15 +316,15 @@ exports[`k8s for PROD environment 1`] = `
   kind: SealedSecret
   metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     name: hasura-sealed-secret
-    namespace: cdtn-admin
+    namespace: carnets
     labels:
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
   spec:
     encryptedData:
       ACCOUNT_EMAIL_SECRET: >-
@@ -336,26 +336,26 @@ exports[`k8s for PROD environment 1`] = `
     template:
       metadata:
         annotations:
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/app: socialgouv-carnets
+          app.gitlab.com/env: carnets-master
           app.gitlab.com/env.name: prod2
         name: hasura-sealed-secret
         labels:
-          application: cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets
+          owner: carnets
+          team: carnets
       type: Opaque
 - metadata:
     name: hasura-configmap
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     labels:
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
-    namespace: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
+    namespace: carnets
   data:
     HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
     HASURA_GRAPHQL_ENABLED_LOG_TYPES: 'startup, http-log, webhook-log, websocket-log, query-log'
@@ -369,15 +369,15 @@ exports[`k8s for PROD environment 1`] = `
 - metadata:
     labels:
       app: hasura
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
     name: hasura
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
-    namespace: cdtn-admin
+    namespace: carnets
   spec:
     ports:
       - port: 80
@@ -392,19 +392,19 @@ exports[`k8s for PROD environment 1`] = `
       kubernetes.io/ingress.class: nginx
       certmanager.k8s.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/tls-acme: 'true'
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     labels:
       app: hasura
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
     name: hasura
-    namespace: cdtn-admin
+    namespace: carnets
   spec:
     rules:
-      - host: hasura.cdtn-admin.fabrique.social.gouv.fr
+      - host: hasura.carnets.fabrique.social.gouv.fr
         http:
           paths:
             - backend:
@@ -413,7 +413,7 @@ exports[`k8s for PROD environment 1`] = `
               path: /
     tls:
       - hosts:
-          - hasura.cdtn-admin.fabrique.social.gouv.fr
+          - hasura.carnets.fabrique.social.gouv.fr
         secretName: hasura-crt
   apiVersion: extensions/v1beta1
   kind: Ingress
@@ -421,15 +421,15 @@ exports[`k8s for PROD environment 1`] = `
   kind: SealedSecret
   metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-master
+      app.gitlab.com/app: socialgouv-carnets
+      app.gitlab.com/env: carnets-master
       app.gitlab.com/env.name: prod2
     name: azure-pg-user
-    namespace: cdtn-admin
+    namespace: carnets
     labels:
-      application: cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets
+      owner: carnets
+      team: carnets
   spec:
     encryptedData:
       DATABASE_URL: >-
@@ -449,14 +449,14 @@ exports[`k8s for PROD environment 1`] = `
     template:
       metadata:
         annotations:
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-master
+          app.gitlab.com/app: socialgouv-carnets
+          app.gitlab.com/env: carnets-master
           app.gitlab.com/env.name: prod2
         name: azure-pg-user
         labels:
-          application: cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets
+          owner: carnets
+          team: carnets
       type: Opaque
 "
 `;

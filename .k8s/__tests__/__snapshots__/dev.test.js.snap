@@ -5,32 +5,32 @@ exports[`k8s for DEV environment 1`] = `
     annotations:
       field.cattle.io/creatorId: gitlab
       field.cattle.io/projectId: 'c-kk8xm:p-4fxg8'
-      git/branch: cdtn-admin-branch
-      git/remote: 'git@github.com:SocialGouv/cdtn-admin.git'
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      git/branch: carnets-branch
+      git/remote: 'git@github.com:SocialGouv/carnets.git'
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
-    name: cdtn-admin-24-branch-42
+    name: carnets-24-branch-42
   apiVersion: v1
   kind: Namespace
 - metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
       app: app
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
     name: app
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   spec:
     replicas: 1
     selector:
@@ -39,19 +39,19 @@ exports[`k8s for DEV environment 1`] = `
     template:
       metadata:
         annotations:
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-branch-42
-          app.gitlab.com/env.name: cdtn-admin-branch-dev2
+          app.gitlab.com/app: carnets
+          app.gitlab.com/env: carnets-branch-42
+          app.gitlab.com/env.name: carnets-branch-dev2
         labels:
           app: app
-          application: cdtn-admin-branch-42-cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets-branch-42-carnets
+          owner: carnets
+          team: carnets
           cert: wildcard
       spec:
         containers:
           - image: >-
-              registry.gitlab.factory.social.gouv.fr/socialgouv/cdtn-admin/app:8843083edb7f873cad1d1420731a60773594ffae
+              registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/app:8843083edb7f873cad1d1420731a60773594ffae
             livenessProbe:
               failureThreshold: 6
               httpGet:
@@ -93,8 +93,7 @@ exports[`k8s for DEV environment 1`] = `
                   name: app-configmap
             env:
               - name: APP_BASE_URL
-                value: >-
-                  https://cdtn-admin-branch-42-cdtn-admin.dev2.fabrique.social.gouv.fr
+                value: 'https://carnets-branch-42-carnets.dev2.fabrique.social.gouv.fr'
   apiVersion: apps/v1
   kind: Deployment
 - apiVersion: bitnami.com/v1alpha1
@@ -102,16 +101,16 @@ exports[`k8s for DEV environment 1`] = `
   metadata:
     annotations:
       sealedsecrets.bitnami.com/cluster-wide: 'true'
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     name: app-sealed-secret
     labels:
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   spec:
     encryptedData:
       ACCOUNT_EMAIL_SECRET: >-
@@ -130,28 +129,28 @@ exports[`k8s for DEV environment 1`] = `
       metadata:
         annotations:
           sealedsecrets.bitnami.com/cluster-wide: 'true'
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-branch-42
-          app.gitlab.com/env.name: cdtn-admin-branch-dev2
+          app.gitlab.com/app: carnets
+          app.gitlab.com/env: carnets-branch-42
+          app.gitlab.com/env.name: carnets-branch-dev2
         name: app-sealed-secret
         labels:
-          application: cdtn-admin-branch-42-cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets-branch-42-carnets
+          owner: carnets
+          team: carnets
           cert: wildcard
       type: Opaque
 - metadata:
     name: app-configmap
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   data:
     ACCOUNT_MAIL_SENDER: contact@fabrique.social.gouv.fr
     GRAPHQL_ENDPOINT: 'http://hasura/v1/graphql'
@@ -163,16 +162,16 @@ exports[`k8s for DEV environment 1`] = `
 - metadata:
     labels:
       app: app
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
     name: app
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
-    namespace: cdtn-admin-24-branch-42
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
+    namespace: carnets-24-branch-42
   spec:
     ports:
       - port: 80
@@ -185,20 +184,20 @@ exports[`k8s for DEV environment 1`] = `
 - metadata:
     annotations:
       kubernetes.io/ingress.class: nginx
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
       app: app
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
     name: app
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   spec:
     rules:
-      - host: cdtn-admin-branch-42-cdtn-admin.dev2.fabrique.social.gouv.fr
+      - host: carnets-branch-42-carnets.dev2.fabrique.social.gouv.fr
         http:
           paths:
             - backend:
@@ -207,23 +206,23 @@ exports[`k8s for DEV environment 1`] = `
               path: /
     tls:
       - hosts:
-          - cdtn-admin-branch-42-cdtn-admin.dev2.fabrique.social.gouv.fr
+          - carnets-branch-42-carnets.dev2.fabrique.social.gouv.fr
         secretName: wildcard-crt
   apiVersion: extensions/v1beta1
   kind: Ingress
 - metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
       app: hasura
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
     name: hasura
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   spec:
     replicas: 1
     selector:
@@ -232,19 +231,19 @@ exports[`k8s for DEV environment 1`] = `
     template:
       metadata:
         annotations:
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-branch-42
-          app.gitlab.com/env.name: cdtn-admin-branch-dev2
+          app.gitlab.com/app: carnets
+          app.gitlab.com/env: carnets-branch-42
+          app.gitlab.com/env.name: carnets-branch-dev2
         labels:
           app: hasura
-          application: cdtn-admin-branch-42-cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets-branch-42-carnets
+          owner: carnets
+          team: carnets
           cert: wildcard
       spec:
         containers:
           - image: >-
-              registry.gitlab.factory.social.gouv.fr/socialgouv/cdtn-admin/hasura:8843083edb7f873cad1d1420731a60773594ffae
+              registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/hasura:8843083edb7f873cad1d1420731a60773594ffae
             livenessProbe:
               failureThreshold: 6
               httpGet:
@@ -319,17 +318,17 @@ exports[`k8s for DEV environment 1`] = `
   metadata:
     annotations:
       sealedsecrets.bitnami.com/cluster-wide: 'true'
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     creationTimestamp: null
     name: hasura-sealed-secret
     labels:
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   spec:
     encryptedData:
       ACCOUNT_EMAIL_SECRET: >-
@@ -342,29 +341,29 @@ exports[`k8s for DEV environment 1`] = `
       metadata:
         annotations:
           sealedsecrets.bitnami.com/cluster-wide: 'true'
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-branch-42
-          app.gitlab.com/env.name: cdtn-admin-branch-dev2
+          app.gitlab.com/app: carnets
+          app.gitlab.com/env: carnets-branch-42
+          app.gitlab.com/env.name: carnets-branch-dev2
         creationTimestamp: null
         name: hasura-sealed-secret
         labels:
-          application: cdtn-admin-branch-42-cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets-branch-42-carnets
+          owner: carnets
+          team: carnets
           cert: wildcard
       type: Opaque
 - metadata:
     name: hasura-configmap
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   data:
     HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
     HASURA_GRAPHQL_ENABLED_LOG_TYPES: 'startup, http-log, webhook-log, websocket-log, query-log'
@@ -378,16 +377,16 @@ exports[`k8s for DEV environment 1`] = `
 - metadata:
     labels:
       app: hasura
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
     name: hasura
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
-    namespace: cdtn-admin-24-branch-42
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
+    namespace: carnets-24-branch-42
   spec:
     ports:
       - port: 80
@@ -400,20 +399,20 @@ exports[`k8s for DEV environment 1`] = `
 - metadata:
     annotations:
       kubernetes.io/ingress.class: nginx
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
       app: hasura
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
     name: hasura
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   spec:
     rules:
-      - host: hasura-cdtn-admin-branch-42-cdtn-admin.dev2.fabrique.social.gouv.fr
+      - host: hasura-carnets-branch-42-carnets.dev2.fabrique.social.gouv.fr
         http:
           paths:
             - backend:
@@ -422,7 +421,7 @@ exports[`k8s for DEV environment 1`] = `
               path: /
     tls:
       - hosts:
-          - hasura-cdtn-admin-branch-42-cdtn-admin.dev2.fabrique.social.gouv.fr
+          - hasura-carnets-branch-42-carnets.dev2.fabrique.social.gouv.fr
         secretName: wildcard-crt
   apiVersion: extensions/v1beta1
   kind: Ingress
@@ -431,16 +430,16 @@ exports[`k8s for DEV environment 1`] = `
   metadata:
     annotations:
       sealedsecrets.bitnami.com/cluster-wide: 'true'
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     name: azure-pg-admin-user
     labels:
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   spec:
     encryptedData:
       DATABASE_URL: >-
@@ -459,28 +458,28 @@ exports[`k8s for DEV environment 1`] = `
       metadata:
         annotations:
           sealedsecrets.bitnami.com/cluster-wide: 'true'
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-branch-42
-          app.gitlab.com/env.name: cdtn-admin-branch-dev2
+          app.gitlab.com/app: carnets
+          app.gitlab.com/env: carnets-branch-42
+          app.gitlab.com/env.name: carnets-branch-dev2
         name: azure-pg-admin-user
         labels:
-          application: cdtn-admin-branch-42-cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets-branch-42-carnets
+          owner: carnets
+          team: carnets
           cert: wildcard
       type: Opaque
 - metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
     name: create-db-job-8843083
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   spec:
     backoffLimit: 0
     template:
@@ -514,38 +513,38 @@ exports[`k8s for DEV environment 1`] = `
         restartPolicy: Never
       metadata:
         annotations:
-          app.gitlab.com/app: socialgouv-cdtn-admin
-          app.gitlab.com/env: cdtn-admin-branch-42
-          app.gitlab.com/env.name: cdtn-admin-branch-dev2
+          app.gitlab.com/app: carnets
+          app.gitlab.com/env: carnets-branch-42
+          app.gitlab.com/env.name: carnets-branch-dev2
         labels:
-          application: cdtn-admin-branch-42-cdtn-admin
-          owner: cdtn-admin
-          team: cdtn-admin
+          application: carnets-branch-42-carnets
+          owner: carnets
+          team: carnets
           cert: wildcard
   apiVersion: batch/v1
   kind: Job
 - metadata:
     annotations:
-      app.gitlab.com/app: socialgouv-cdtn-admin
-      app.gitlab.com/env: cdtn-admin-branch-42
-      app.gitlab.com/env.name: cdtn-admin-branch-dev2
+      app.gitlab.com/app: carnets
+      app.gitlab.com/env: carnets-branch-42
+      app.gitlab.com/env.name: carnets-branch-dev2
     labels:
-      application: cdtn-admin-branch-42-cdtn-admin
-      owner: cdtn-admin
-      team: cdtn-admin
+      application: carnets-branch-42-carnets
+      owner: carnets
+      team: carnets
       cert: wildcard
     name: azure-pg-user-8843083
-    namespace: cdtn-admin-24-branch-42
+    namespace: carnets-24-branch-42
   stringData:
     DATABASE_URL: >-
-      postgresql://user_8843083%40cdtnadmindevserver.postgres.database.azure.com:password_8843083@cdtnadmindevserver.postgres.database.azure.com/autodevops_8843083?sslmode=require
+      postgresql://user_8843083%40carnetsdevserver.postgres.database.azure.com:password_8843083@carnetsdevserver.postgres.database.azure.com/autodevops_8843083?sslmode=require
     HASURA_GRAPHQL_DATABASE_URL: >-
-      postgresql://user_8843083%40cdtnadmindevserver.postgres.database.azure.com:password_8843083@cdtnadmindevserver.postgres.database.azure.com/autodevops_8843083?sslmode=require
+      postgresql://user_8843083%40carnetsdevserver.postgres.database.azure.com:password_8843083@carnetsdevserver.postgres.database.azure.com/autodevops_8843083?sslmode=require
     PGDATABASE: autodevops_8843083
-    PGHOST: cdtnadmindevserver.postgres.database.azure.com
+    PGHOST: carnetsdevserver.postgres.database.azure.com
     PGPASSWORD: password_8843083
     PGSSLMODE: require
-    PGUSER: user_8843083@cdtnadmindevserver.postgres.database.azure.com
+    PGUSER: user_8843083@carnetsdevserver.postgres.database.azure.com
   apiVersion: v1
   kind: Secret
 "

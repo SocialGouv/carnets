@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "test": "jest --ci",
+    "k8s": "yarn --silent --cwd .k8s",
+    "test": "jest --ci && yarn k8s test",
     "build": "next build",
     "start": "next start",
     "test:dev": "jest --watch",
