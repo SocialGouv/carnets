@@ -17,7 +17,6 @@ export default async (req, res) => {
       throw new Error("Wrong method")
     }
   } catch (error) {
-    console.error(error, res.statusCode)
     if (res.statusCode < 400) res.status(500)
   }
   res.send(null)

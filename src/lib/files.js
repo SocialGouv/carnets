@@ -23,7 +23,6 @@ export const get = async (id) => {
   `
 
   const { files } = await fetch(query, { id })
-  console.log("FILES get", files)
   return files[0]
 }
 
@@ -61,12 +60,10 @@ export const list = async (slug) => {
   `
 
   const { files } = await fetch(query, { slug })
-  console.log("FILES list", files)
   return files
 }
 
 export const register = async (files, token) => {
-  console.log("REGISTER")
   const query = `
     mutation insert_files($objects: [files_insert_input!]!) {
       insert_files(objects: $objects) {
@@ -88,7 +85,6 @@ export const register = async (files, token) => {
     const {
       insert_files: { returning: data },
     } = await fetch(query, variables, token)
-    console.log("FILES register", data)
     return data
   } catch (error) {
     throw new Error(error)
@@ -99,7 +95,6 @@ const uploadFile = async (container, file) => {
   const { name, path, size, type } = file
   const blob_name = uuid()
   await createBlob(container, blob_name, path)
-  console.log("FILES uploadFile: BLOB CREATED !")
   return { blob_name, name, size, type }
 }
 
@@ -108,7 +103,6 @@ export const uploadFiles = async (files, id) => {
 
   if (keys.length > 0) {
     const container = await createBlobContainer(id)
-    console.log("FILES uploadFiles", container)
     return Promise.all(keys.map((key) => uploadFile(container, files[key])))
   }
 

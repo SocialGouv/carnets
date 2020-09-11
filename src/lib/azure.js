@@ -22,13 +22,11 @@ const createBlobService = () => {
 
 export const getBlobContainer = (containerName) => {
   const service = createBlobService()
-  console.log("AZURE getBlobContainer", service)
   return service.getContainerClient(containerName)
 }
 
 export const createBlobContainer = async (containerName) => {
   const container = getBlobContainer(containerName)
-  console.log("AZURE createBlobContainer", containerName, container)
   const exists = await container.exists()
   if (!exists) await container.create()
   return container

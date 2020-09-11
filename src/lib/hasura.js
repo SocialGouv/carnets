@@ -7,7 +7,6 @@ export const fetch = async (query, variables, token, role, secret) => {
   if (secret) headers["x-hasura-admin-secret"] = secret
   else if (token) headers.Authorization = `Bearer ${token}`
   if (role) headers["x-hasura-role"] = role
-  console.log("FETCH headers", headers)
   const graphQLClient = new GraphQLClient(url, { headers })
   return graphQLClient.request(query, variables)
 }
