@@ -9,10 +9,18 @@ button,
   border-radius: 2px;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border: 1px solid #dfe2e5;
+  // color: variables.$link-color;
   font-size: variables.$font-size;
+  // background-color: variables.$base-color;
+  border-width: 1px;
+  border-style: solid;
+  // border: 1px solid variables.$link-color;
   padding: variables.$base-margin * 0.1 variables.$base-margin / 2;
+  @include variables.themify() {
+    color: variables.themed("font-color");
+    border-color: variables.themed("border-color");
+    background-color: variables.themed("background-color");
+  }
 
   svg {
     margin-right: variables.$base-margin / 4;
@@ -31,30 +39,36 @@ button,
     background-color: variables.$link-color;
   }
 
-  &:focus,
-  &:hover {
-    color: variables.$link-color;
+  &:hover,
+  &:focus {
+    // color: variables.$base-color;
     text-decoration: none !important;
-    border: 1px solid variables.$link-color;
+    // border-color: lighten(variables.$link-color, 5%);
+    // background-color: lighten(variables.$link-color, 5%);
+    @include variables.themify() {
+      // color: variables.themed("background-color");
+      border-color: variables.themed("link-color");
+      background-color: variables.themed("link-color");
+    }
   }
 
-  &:active {
-    color: variables.$base-color;
-    border-color: darken(variables.$link-color, 5%);
-    background-color: darken(variables.$link-color, 5%);
-  }
+  // &:active {
+  // border-color: darken(variables.$link-color, 5%);
+  // background-color: darken(variables.$link-color, 5%);
+  // }
 
   &.important {
+    // color: variables.$secondary-color;
+    // border-color: variables.$secondary-color;
+
     &:hover,
     &:focus {
-      color: variables.$secondary-color;
-      border-color: variables.$secondary-color;
-    }
-
-    &:active {
-      color: variables.$base-color;
-      border-color: darken(variables.$secondary-color, 5%);
-      background-color: darken(variables.$secondary-color, 5%);
+      // color: white;
+      // background-color: variables.$secondary-color;
+      @include variables.themify() {
+        border-color: variables.themed("secondary-color");
+        background-color: variables.themed("secondary-color");
+      }
     }
   }
 }

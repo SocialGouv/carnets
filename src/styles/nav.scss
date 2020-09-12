@@ -8,8 +8,14 @@
   position: absolute;
   align-items: center;
   padding: variables.$base-margin / 2;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-bottom: 1px solid variables.$border-color;
+  // background-color: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  // border-bottom: 1px solid variables.$border-color;
+  @include variables.themify() {
+    border-color: variables.themed("border-color");
+    background-color: transparentize(variables.themed("base-color"), 0.2);
+  }
 
   .marianne {
     width: 115px;
@@ -25,12 +31,12 @@
     line-height: variables.$base-margin * 1.8;
 
     a {
-      color: variables.$font-color;
+      // color: variables.$font-color;
     }
 
     .description {
       a {
-        color: variables.$link-color;
+        // color: variables.$link-color;
       }
     }
   }
@@ -59,8 +65,13 @@
       a {
         display: flex;
         align-items: center;
-        padding: 0 variables.$base-margin / 4;
-        border-right: 1px solid darken(variables.$background-color, 10%);
+        padding: 0 variables.$base-margin / 3;
+        // border-right: 1px solid darken(variables.$background-color, 10%);
+        border-style: solid;
+        border-width: 0 1px 0 0;
+        @include variables.themify() {
+          border-color: variables.themed("border-color");
+        }
 
         svg {
           margin-right: variables.$base-margin / 4;
@@ -72,7 +83,10 @@
         }
 
         &.logout {
-          color: variables.$secondary-color;
+          // color: variables.$secondary-color;
+          @include variables.themify() {
+            color: variables.themed("secondary-color");
+          }
         }
       }
     }

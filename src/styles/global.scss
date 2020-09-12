@@ -47,10 +47,14 @@ select,
 textarea,
 button {
   font-weight: 400;
-  color: variables.$font-color;
+  // color: variables.$font-color;
   font-size: variables.$font-size;
   line-height: variables.$font-size * 1.2;
   font-family: "Source Sans Pro", sans-serif;
+  @include variables.themify() {
+    color: variables.themed("font-color");
+    background-color: variables.themed("base-color");
+  }
 }
 
 small {
@@ -66,11 +70,17 @@ small {
 
 .markdown-body {
   font-size: variables.$font-size !important;
+  @include variables.themify() {
+    color: variables.themed("font-color");
+  }
 }
 
 a {
   text-decoration: none;
-  color: variables.$link-color;
+  // color: variables.$link-color;
+  @include variables.themify() {
+    color: variables.themed("link-color");
+  }
 
   &:hover:not(.button) {
     text-decoration: underline;
