@@ -14,7 +14,7 @@ const Body = () => (
       <Field name="mood" component={Mood} />
     </div>
     <FieldArray name="kpis" component={KPIs} />
-    <Field name="priorities" label="Priorités" component={Textfield} />
+    <Field name="priorities" label="Priorités*" component={Textfield} />
     {/* </div> */}
     {/* <div> */}
     <Field name="term" label="Evénements / Echéances" component={Textfield} />

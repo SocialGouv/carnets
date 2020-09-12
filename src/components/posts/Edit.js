@@ -1,5 +1,5 @@
-import React from "react"
 import Link from "next/link"
+import React from "react"
 import { Edit3 } from "react-feather"
 
 const Post = ({ post }) => (

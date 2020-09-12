@@ -1,6 +1,7 @@
 @use "./variables";
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -10,7 +11,10 @@ body {
   text-rendering: optimizelegibility;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 600;
   margin: variables.$base-margin 0;
   font-family: "Source Sans Pro Semi Bold";
@@ -36,7 +40,12 @@ h4 {
   line-height: variables.$font-size * 1.2;
 }
 
-body, small, input, select, textarea, button {
+body,
+small,
+input,
+select,
+textarea,
+button {
   font-weight: 400;
   color: variables.$font-color;
   font-size: variables.$font-size;
@@ -68,26 +77,31 @@ a {
   }
 }
 
-textarea, select, input {
+textarea,
+select,
+input {
   outline: none;
   border-radius: 2px;
-  background-color: #fff;
   font-size: variables.$font-size;
+  background-color: variables.$base-color;
   border: 1px solid variables.$border-color;
 
   &.error {
-    border: 1px solid #d63626;
+    border: 1px solid variables.$secondary-color;
   }
 }
 
 select {
   appearance: none;
   display: inline-block;
-  padding: .375rem 1.75rem .375rem .75rem;
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   height: calc(#{variables.$base-margin * 2} + 2px);
-  background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+  background: #fff
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
+    no-repeat right 0.75rem center/8px 10px;
 }
 
-textarea, input {
-  padding: .375rem .75rem;
+textarea,
+input {
+  padding: 0.375rem 0.75rem;
 }
