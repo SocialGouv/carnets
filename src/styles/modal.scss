@@ -51,6 +51,23 @@
 
         button {
           width: 30%;
+          color: variables.$link-color;
+          border: 1px solid variables.$link-color;
+
+          &:hover {
+            color: variables.$base-color;
+            background-color: lighten(variables.$link-color, 5%);
+          }
+
+          &.important {
+            color: variables.$secondary-color;
+            border-color: variables.$secondary-color;
+
+            &:hover {
+              color: variables.$base-color;
+              background-color: variables.$secondary-color;
+            }
+          }
         }
       }
     }

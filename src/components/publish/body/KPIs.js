@@ -12,7 +12,7 @@ const KPIs = ({
   },
 }) => {
   const defaultKpi = { name: "", value: "" }
-  const add = () => push({ ...defaultKpi })
+  const add = () => kpis.length < 4 && push({ ...defaultKpi })
 
   const checkError = (index, field) =>
     touched &&
@@ -29,7 +29,7 @@ const KPIs = ({
   return (
     <div className="kpis">
       <label>
-        KPIs*
+        KPIs* <span>(1 minimum, 4 maximum)</span>
         {kpis.map((kpi, index) => (
           <div key={index} className="kpi">
             <div className="index">{index + 1}</div>
@@ -42,27 +42,29 @@ const KPIs = ({
                 placeholder={field === "name" ? "KPI" : "description"}
               />
             ))}
-            {!index ? (
-              <div
-                tabIndex="0"
-                role="button"
-                className="icon"
-                onClick={() => add()}
-                onKeyPress={() => add()}
-              >
-                <Plus color="darkblue" size={18} />
-              </div>
-            ) : (
-              <div
-                tabIndex="0"
-                role="button"
-                className="icon"
-                onClick={() => remove(index)}
-                onKeyPress={() => remove(index)}
-              >
-                <Minus color="crimson" size={18} />
-              </div>
-            )}
+            <div className="control">
+              {!index ? (
+                <div
+                  tabIndex="0"
+                  role="button"
+                  className="button no-text"
+                  onClick={() => add()}
+                  onKeyPress={() => add()}
+                >
+                  <Plus size={12} />
+                </div>
+              ) : (
+                <div
+                  tabIndex="0"
+                  role="button"
+                  className="button important no-text"
+                  onClick={() => remove(index)}
+                  onKeyPress={() => remove(index)}
+                >
+                  <Minus size={12} />
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </label>

@@ -3,15 +3,15 @@
 button,
 .button {
   outline: 0;
+  color: #999;
   display: flex;
   cursor: pointer;
   border-radius: 2px;
   align-items: center;
   justify-content: center;
-  color: variables.$link-color;
+  background-color: white;
+  border: 1px solid #dfe2e5;
   font-size: variables.$font-size;
-  background-color: variables.$base-color;
-  border: 1px solid variables.$link-color;
   padding: variables.$base-margin * 0.1 variables.$base-margin / 2;
 
   svg {
@@ -31,27 +31,30 @@ button,
     background-color: variables.$link-color;
   }
 
-  &:hover,
-  &:focus {
-    color: variables.$base-color;
+  &:focus,
+  &:hover {
+    color: variables.$link-color;
     text-decoration: none !important;
-    border-color: lighten(variables.$link-color, 5%);
-    background-color: lighten(variables.$link-color, 5%);
+    border: 1px solid variables.$link-color;
   }
 
   &:active {
+    color: variables.$base-color;
     border-color: darken(variables.$link-color, 5%);
     background-color: darken(variables.$link-color, 5%);
   }
 
   &.important {
-    color: variables.$secondary-color;
-    border-color: variables.$secondary-color;
-
     &:hover,
     &:focus {
-      color: white;
-      background-color: variables.$secondary-color;
+      color: variables.$secondary-color;
+      border-color: variables.$secondary-color;
+    }
+
+    &:active {
+      color: variables.$base-color;
+      border-color: darken(variables.$secondary-color, 5%);
+      background-color: darken(variables.$secondary-color, 5%);
     }
   }
 }

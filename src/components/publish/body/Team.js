@@ -2,7 +2,15 @@ import { useTeams } from "@lib/teams"
 import { useUser } from "@lib/user"
 import React from "react"
 
-const Team = ({ field, form: { touched, errors }, ...props }) => {
+const Team = ({
+  field,
+  form,
+  form: { touched, errors, initialValues },
+  ...props
+}) => {
+  console.log("field", field)
+  console.log("form", form)
+  console.log("initialValues SELECT", initialValues)
   const user = useUser() || {}
   const allTeams = useTeams() || []
   const teams = user.isAdmin
@@ -13,6 +21,7 @@ const Team = ({ field, form: { touched, errors }, ...props }) => {
     <select
       {...field}
       {...props}
+      value={initialValues.team_slug}
       className={touched[field.name] && errors[field.name] ? "error" : ""}
     >
       {teams.map((team, i) => (

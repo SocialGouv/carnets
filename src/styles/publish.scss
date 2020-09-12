@@ -22,6 +22,7 @@
       variables.$base-margin * 2;
 
     .header {
+      margin: 0 0 0.3rem;
       padding: 0 0 variables.$base-margin;
       border-bottom: 1px solid variables.$border-color;
     }
@@ -34,7 +35,7 @@
 
       .team-mood {
         display: flex;
-        align-items: center;
+        // align-items: center;
         margin-bottom: variables.$base-margin;
 
         select {
@@ -51,6 +52,11 @@
           margin-bottom: variables.$base-margin !important;
         }
 
+        span {
+          color: #999;
+          font-size: variables.$font-size * 0.8;
+        }
+
         textarea,
         input {
           width: 100%;
@@ -65,15 +71,19 @@
         }
 
         .preview {
-          top: 1px;
-          right: 0;
-          outline: 0;
-          opacity: 0.5;
-          cursor: pointer;
+          top: 25px;
+          right: 0px;
           position: absolute;
+          border-radius: 0 0 0 2px;
+          border-width: 0 0 1px 1px;
+          background-color: variables.$background-color;
+          box-shadow: -2px 2px 3px -3px rgba(0, 0, 0, 0.3);
 
-          &:hover {
-            opacity: 1;
+          &:hover,
+          &:focus,
+          &:active {
+            border-color: #dfe2e5;
+            color: variables.$link-color;
           }
         }
 
@@ -81,26 +91,42 @@
           flex: 1;
           padding: 1rem;
           overflow: auto;
+          min-height: 150px;
           border-radius: 2px;
           background-color: ivory;
           margin-top: variables.$base-margin / 2;
           border: 1px solid variables.$border-color;
+        }
+
+        &.error {
+          textarea,
+          .preview,
+          .markdown-body {
+            border-color: variables.$secondary-color;
+          }
         }
       }
     }
 
     .moods {
       display: flex;
-      margin: 0 variables.$base-margin;
+      align-items: center;
+      margin: 0 0 0 variables.$base-margin;
       font-size: variables.$font-size * 2;
 
       .mood {
         opacity: 0.5;
         cursor: pointer;
+        margin-top: 3px;
+        margin-right: variables.$base-margin / 2;
 
         &.selected {
           opacity: 1;
           outline: none;
+        }
+
+        &:last-child {
+          margin-right: 0;
         }
       }
     }
@@ -131,18 +157,11 @@
           }
         }
 
-        .icon {
-          opacity: 0.6;
+        .control {
           display: flex;
-          line-height: 0;
-          cursor: pointer;
           align-items: center;
           justify-content: center;
-          font-size: variables.$font-size * 2.2;
-
-          &:hover {
-            opacity: 1;
-          }
+          // background-color: pink;
         }
       }
     }
