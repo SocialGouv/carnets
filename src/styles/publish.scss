@@ -15,16 +15,22 @@
     border-radius: 2px;
     position: relative;
     flex-direction: column;
-    box-shadow: rgb(201, 211, 223) 0px 1px 2px;
-    background-color: variables.$background-color;
-
     padding: variables.$base-margin variables.$base-margin * 1.5
       variables.$base-margin * 2;
 
+    @include variables.themify() {
+      box-shadow: variables.themed("box-shadow");
+      background-color: variables.themed("background-color");
+    }
+
     .header {
       margin: 0 0 0.3rem;
+      border-style: solid;
+      border-width: 0 0 1px 0;
       padding: 0 0 variables.$base-margin;
-      border-bottom: 1px solid variables.$border-color;
+      @include variables.themify() {
+        border-color: variables.themed("border-color");
+      }
     }
 
     .body {
@@ -35,7 +41,6 @@
 
       .team-mood {
         display: flex;
-        // align-items: center;
         margin-bottom: variables.$base-margin;
 
         select {
@@ -76,14 +81,15 @@
           position: absolute;
           border-radius: 0 0 0 2px;
           border-width: 0 0 1px 1px;
-          background-color: variables.$background-color;
-          box-shadow: -2px 2px 3px -3px rgba(0, 0, 0, 0.3);
 
           &:hover,
           &:focus,
           &:active {
-            border-color: #dfe2e5;
-            color: variables.$link-color;
+            @include variables.themify() {
+              color: variables.themed("link-color");
+              border-color: variables.themed("border-color");
+              background-color: variables.themed("background-color");
+            }
           }
         }
 
@@ -93,16 +99,29 @@
           overflow: auto;
           min-height: 150px;
           border-radius: 2px;
-          background-color: ivory;
           margin-top: variables.$base-margin / 2;
-          border: 1px solid variables.$border-color;
+          @include variables.themify() {
+            background-color: variables.themed("base-color");
+            border: 1px solid variables.themed("border-color");
+          }
         }
 
         &.error {
           textarea,
           .preview,
           .markdown-body {
-            border-color: variables.$secondary-color;
+            @include variables.themify() {
+              border-color: variables.themed("font-color-important");
+            }
+          }
+          .preview {
+            &:hover,
+            &:focus,
+            &:active {
+              @include variables.themify() {
+                border-color: variables.themed("font-color-important");
+              }
+            }
           }
         }
       }
@@ -161,7 +180,6 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          // background-color: pink;
         }
       }
     }
@@ -174,7 +192,6 @@
       button {
         min-width: 30%;
         font-weight: bold;
-        border-width: 2px;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         font-size: variables.$font-size * 1.2;
@@ -192,10 +209,18 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: variables.$background-color;
+    @include variables.themify() {
+      background-color: variables.themed("background-color");
+    }
 
     p {
       margin-top: variables.$base-margin * 2;
+    }
+
+    & > div > div {
+      @include variables.themify() {
+        background-color: variables.themed("link-color");
+      }
     }
   }
 

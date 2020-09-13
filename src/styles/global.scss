@@ -47,13 +47,18 @@ select,
 textarea,
 button {
   font-weight: 400;
-  // color: variables.$font-color;
   font-size: variables.$font-size;
   line-height: variables.$font-size * 1.2;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
   @include variables.themify() {
-    color: variables.themed("font-color");
-    background-color: variables.themed("base-color");
+    -webkit-text-fill-color: variables.themed("font-color") !important;
+    -webkit-box-shadow: 0 0 0 30px variables.themed("base-color") inset !important;
   }
 }
 
@@ -61,11 +66,20 @@ small {
   display: block;
 }
 
-#__next {
+#__next,
+#__next > [class^="theme-"],
+#__next > [class^="theme-"] > .app {
   flex: 1;
   display: flex;
   overflow: auto;
   flex-direction: column;
+}
+
+.app {
+  @include variables.themify() {
+    color: variables.themed("font-color");
+    background-color: variables.themed("base-color");
+  }
 }
 
 .markdown-body {
@@ -77,7 +91,6 @@ small {
 
 a {
   text-decoration: none;
-  // color: variables.$link-color;
   @include variables.themify() {
     color: variables.themed("link-color");
   }
@@ -93,11 +106,18 @@ input {
   outline: none;
   border-radius: 2px;
   font-size: variables.$font-size;
-  background-color: variables.$base-color;
-  border: 1px solid variables.$border-color;
+  border-width: 1px;
+  border-style: solid;
+  @include variables.themify() {
+    color: variables.themed("font-color");
+    border-color: variables.themed("border-color");
+    background-color: variables.themed("base-color");
+  }
 
   &.error {
-    border: 1px solid variables.$secondary-color;
+    @include variables.themify() {
+      border-color: variables.themed("font-color-important");
+    }
   }
 }
 

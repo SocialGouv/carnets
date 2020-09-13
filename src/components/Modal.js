@@ -25,7 +25,7 @@ const Modal = ({ isVisible, children, onClose, loading }) => {
             <div className="body">
               {loading ? (
                 <div className="loader">
-                  <PongSpinner size={100} color="darkblue" loading={loading} />
+                  <PongSpinner size={100} loading={loading} />
                 </div>
               ) : (
                 children

@@ -1,26 +1,52 @@
 @use "./variables";
 
-#__next > .footer {
+.app > .footer {
   left: 0;
   right: 0;
   bottom: 0;
   display: flex;
   position: absolute;
-  justify-content: space-between;
-  padding: variables.$base-margin / 2;
-  font-size: variables.$font-size * 0.8;
-  // background-color: rgba(255, 255, 255, 0.8);
   border-style: solid;
   border-width: 1px 0 0 0;
-  // border-top: 1px solid variables.$border-color;
+  padding: variables.$base-margin / 2;
+  font-size: variables.$font-size * 0.8;
   @include variables.themify() {
     border-color: variables.themed("border-color");
     background-color: transparentize(variables.themed("base-color"), 0.2);
   }
+
+  .info {
+    flex: 1;
+  }
+
+  .themes {
+    display: flex;
+    align-items: center;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    margin-right: variables.$base-margin / 2;
+    @include variables.themify() {
+      border-color: variables.themed("border-color");
+    }
+    button {
+      border: none;
+      background-color: transparent;
+      padding: 0 variables.$base-margin / 2 0 0;
+      @include variables.themify() {
+        color: variables.themed("font-color");
+      }
+
+      &.disabled {
+        @include variables.themify() {
+          color: variables.themed("link-color");
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 640px) {
-  #__next > .footer {
+  .app > .footer {
     font-size: variables.$font-size * 0.7;
   }
 }

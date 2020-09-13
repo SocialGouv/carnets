@@ -8,9 +8,6 @@ const Team = ({
   form: { touched, errors, initialValues },
   ...props
 }) => {
-  console.log("field", field)
-  console.log("form", form)
-  console.log("initialValues SELECT", initialValues)
   const user = useUser() || {}
   const allTeams = useTeams() || []
   const teams = user.isAdmin

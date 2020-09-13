@@ -1,6 +1,6 @@
-import React from "react"
-import Link from "next/link"
 import moment from "moment/moment"
+import Link from "next/link"
+import React from "react"
 
 moment.locale("fr")
 
@@ -15,6 +15,23 @@ const getClass = (team) => {
     ? "warning"
     : "error"
 }
+
+const Labels = () => (
+  <div className="labels">
+    <div className="label">
+      <div className="color valid" />
+      <div className="description">A jour</div>
+    </div>
+    <div className="label">
+      <div className="color warning" />
+      <div className="description">Mise à jour récemment</div>
+    </div>
+    <div className="label">
+      <div className="color important" />
+      <div className="description">Pas de publication récente</div>
+    </div>
+  </div>
+)
 
 const Teams = ({ data, teams }) => {
   teams = teams.map((team) => {
@@ -64,6 +81,7 @@ const Teams = ({ data, teams }) => {
             ))}
         </tbody>
       </table>
+      <Labels />
     </div>
   )
 }

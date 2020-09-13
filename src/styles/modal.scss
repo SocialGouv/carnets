@@ -16,8 +16,10 @@
     min-width: 380px;
     border-radius: 4px;
     position: relative;
-    background-color: variables.$base-color;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+    @include variables.themify() {
+      background-color: variables.themed("background-color");
+    }
 
     .close {
       outline: 0;
@@ -38,6 +40,12 @@
       .loader {
         display: flex;
         justify-content: center;
+
+        & > div > div {
+          @include variables.themify() {
+            background-color: variables.themed("link-color");
+          }
+        }
       }
 
       p {
@@ -49,23 +57,30 @@
         display: flex;
         justify-content: space-evenly;
 
-        button {
+        button,
+        .buttons {
           width: 30%;
-          color: variables.$link-color;
-          border: 1px solid variables.$link-color;
+          @include variables.themify() {
+            color: variables.themed("link-color");
+            border-color: variables.themed("link-color");
+          }
 
           &:hover {
-            color: variables.$base-color;
-            background-color: lighten(variables.$link-color, 5%);
+            @include variables.themify() {
+              color: variables.themed("base-color");
+            }
           }
 
           &.important {
-            color: variables.$secondary-color;
-            border-color: variables.$secondary-color;
+            @include variables.themify() {
+              color: variables.themed("font-color-important");
+              border-color: variables.themed("font-color-important");
+            }
 
             &:hover {
-              color: variables.$base-color;
-              background-color: variables.$secondary-color;
+              @include variables.themify() {
+                color: variables.themed("base-color");
+              }
             }
           }
         }
