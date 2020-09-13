@@ -3,7 +3,7 @@ import { ChevronRight } from "react-feather"
 
 const Footer = ({ isSubmitting }) => (
   <div className="footer">
-    <button type="submit" className="plain" disabled={isSubmitting}>
+    <button type="submit" disabled={isSubmitting}>
       <ChevronRight size={24} /> Publier
     </button>
   </div>

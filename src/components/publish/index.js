@@ -11,11 +11,8 @@ import Message from "./Message"
 
 const Publish = ({ post }) => {
   const user = useUser() || {}
-  console.log("user", user)
   const { teams = [] } = user
-  console.log("teams", teams)
   const [team = ""] = teams
-  console.log("team", team)
   const [message, setMessage] = useState()
 
   const submit = (values) => {
@@ -38,7 +35,6 @@ const Publish = ({ post }) => {
   }
 
   const validate = (values) => {
-    console.log("validate", values)
     const errors = {}
     if (!values.team_slug) {
       errors.team_slug = "Required"
@@ -67,8 +63,6 @@ const Publish = ({ post }) => {
     }
     setSubmitting(false)
   }
-
-  console.log("initialValues FORM", initialValues)
 
   return (
     <div className="publish">

@@ -17,14 +17,20 @@
       overflow: auto;
       margin: 0.5rem;
       flex-direction: column;
-      box-shadow: rgb(201, 211, 223) 0px 1px 2px;
-      background-color: variables.$background-color;
+      @include variables.themify() {
+        box-shadow: variables.themed("box-shadow");
+        background-color: variables.themed("background-color");
+      }
 
       .header {
         display: flex;
         align-items: center;
+        border-style: solid;
+        border-width: 0 0 1px 0;
         padding: 0 variables.$base-margin;
-        border-bottom: 1px solid variables.$border-color;
+        @include variables.themify() {
+          border-color: variables.themed("border-color");
+        }
 
         h3 {
           flex: 1;
@@ -39,22 +45,6 @@
         .delete {
           margin-left: 0.5rem;
         }
-
-        a.button {
-          color: #999;
-          background-color: white;
-          border: 1px solid #dfe2e5;
-
-          &:hover {
-            color: variables.$link-color;
-            border-color: variables.$link-color;
-
-            &.delete {
-              color: variables.$secondary-color;
-              border-color: variables.$secondary-color;
-            }
-          }
-        }
       }
 
       .body {
@@ -65,17 +55,25 @@
 
         .kpis {
           display: flex;
+          border-width: 1px;
+          border-style: solid;
           padding: variables.$base-margin;
-          background-color: variables.$base-color;
-          border: 1px solid variables.$border-color;
           margin: variables.$base-margin variables.$base-margin 0;
+          @include variables.themify() {
+            border-color: variables.themed("border-color");
+            background-color: variables.themed("base-color");
+          }
 
           .kpi {
             flex: 1;
             min-width: 0;
             text-align: center;
-            border-right: 1px solid variables.$border-color;
+            border-style: solid;
+            border-width: 0 1px 0 0;
             padding: variables.$base-margin / 4 variables.$base-margin 0;
+            @include variables.themify() {
+              border-color: variables.themed("border-color");
+            }
 
             .value,
             .name {
@@ -89,8 +87,8 @@
             }
 
             .value {
-              line-height: variables.$font-size * 1.8;
               font-size: variables.$font-size * 2;
+              line-height: variables.$font-size * 1.8;
               font-family: "Source Sans Pro Semi Bold";
             }
           }
@@ -103,10 +101,14 @@
           .panels > div {
             min-height: 10rem;
             max-height: 10rem;
+            border-width: 1px;
+            border-style: solid;
             padding: variables.$base-margin;
-            background-color: variables.$base-color;
-            border: 1px solid variables.$border-color;
             margin: variables.$base-margin / 2 variables.$base-margin 0;
+            @include variables.themify() {
+              border-color: variables.themed("border-color");
+              background-color: variables.themed("base-color");
+            }
           }
         }
       }

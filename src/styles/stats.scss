@@ -24,13 +24,18 @@
     flex-direction: column;
 
     table {
-      flex: 1;
+      border-width: 1px;
+      border-style: solid;
       border-collapse: collapse;
-      border: 1px solid variables.$border-color;
+      @include variables.themify() {
+        border-color: variables.themed("border-color");
+      }
 
       thead {
         display: block;
-        background-color: variables.$background-color;
+        @include variables.themify() {
+          background-color: variables.themed("background-color");
+        }
       }
 
       tbody {
@@ -38,8 +43,8 @@
         display: block;
 
         tr:last-child {
-
-          td, th {
+          td,
+          th {
             border-bottom: none;
           }
         }
@@ -55,26 +60,68 @@
         font-family: "Source Sans Pro Semi Bold";
       }
 
-      td, th {
-        border-right: 1px solid variables.$border-color;
-        border-bottom: 1px solid variables.$border-color;
-        padding: variables.$base-margin * 0.2
-            variables.$base-margin * 0.5;
+      td,
+      th {
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        padding: variables.$base-margin * 0.2 variables.$base-margin * 0.5;
+        @include variables.themify() {
+          border-color: variables.themed("border-color");
+        }
 
         &:last-child {
           border-right: none;
         }
 
         &.ok a {
-          color: seagreen;
+          @include variables.themify() {
+            color: variables.themed("font-color-valid");
+          }
         }
 
         &.warning a {
-          color: darkorange;
+          @include variables.themify() {
+            color: variables.themed("font-color-warning");
+          }
         }
 
         &.error a {
-          color: variables.$secondary-color;
+          @include variables.themify() {
+            color: variables.themed("font-color-important");
+          }
+        }
+      }
+    }
+
+    .labels {
+      display: flex;
+      justify-content: space-evenly;
+      padding: variables.$base-margin;
+
+      .label {
+        display: flex;
+        .color {
+          min-width: 16px;
+          min-height: 16px;
+          margin-right: variables.$base-margin / 2;
+
+          &.valid {
+            @include variables.themify() {
+              background-color: variables.themed("font-color-valid");
+            }
+          }
+
+          &.warning {
+            @include variables.themify() {
+              background-color: variables.themed("font-color-warning");
+            }
+          }
+
+          &.important {
+            @include variables.themify() {
+              background-color: variables.themed("font-color-important");
+            }
+          }
         }
       }
     }

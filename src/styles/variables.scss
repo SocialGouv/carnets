@@ -6,3 +6,52 @@ $font-color: #212121;
 $border-color: #dfe2e5;
 $secondary-color: crimson;
 $background-color: #f6f8fa;
+
+$themes: (
+  light: (
+    base-color: #fff,
+    link-color: darkblue,
+    font-color: #212121,
+    border-color: #dfe2e5,
+    font-color-important: crimson,
+    font-color-warning: CHOCOLATE,
+    font-color-valid: LIGHTSEAGREEN,
+    background-color: #f6f8fa,
+    box-shadow: rgb(0, 0, 0, 0.2) 0px 1px 2px,
+  ),
+  dark: (
+    base-color: #121212,
+    link-color: #4894fe,
+    font-color: darken(#fff, 30%),
+    border-color: #424242,
+    font-color-important: DEEPPINK,
+    font-color-warning: SANDYBROWN,
+    font-color-valid: LIGHTSEAGREEN,
+    background-color: #212121,
+    box-shadow: rgb(0, 0, 0, 0.9) 0px 1px 2px,
+  ),
+);
+
+@mixin themify() {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

@@ -6,8 +6,7 @@ $border-width: 0.3rem;
   padding: 0;
   overflow: auto;
   list-style: none;
-  padding: variables.$base-margin * 6 0
-    variables.$base-margin * 2;
+  padding: variables.$base-margin * 6 0 variables.$base-margin * 2;
 
   .team {
     display: flex;
@@ -25,27 +24,36 @@ $border-width: 0.3rem;
     a {
       flex: 1;
       white-space: nowrap;
-      color: lighten(variables.$font-color, 20%);
-      padding: variables.$base-margin / 1.2
-                variables.$base-margin * 2
-                variables.$base-margin / 1.2
-                variables.$base-margin / 1.5;
+      @include variables.themify() {
+        color: variables.themed("font-color");
+      }
+      padding: variables.$base-margin / 1.2 variables.$base-margin * 2
+        variables.$base-margin / 1.2 variables.$base-margin / 1.5;
     }
 
     &:hover {
-      border-left: $border-width solid variables.$secondary-color;
+      @include variables.themify() {
+        border-left: $border-width solid
+          variables.themed("font-color-important");
+      }
 
       a {
         text-decoration: none;
-        color: variables.$secondary-color;
+        @include variables.themify() {
+          color: variables.themed("font-color-important");
+        }
       }
     }
 
     &.selected {
-      border-left: $border-width solid variables.$secondary-color;
+      @include variables.themify() {
+        border-color: variables.themed("font-color-important");
+      }
 
       a {
-        color: variables.$secondary-color;
+        @include variables.themify() {
+          color: variables.themed("font-color-important");
+        }
       }
     }
   }

@@ -1,20 +1,34 @@
+import { useTheme } from "@lib/theme"
 import React from "react"
 import ContainerDimensions from "react-container-dimensions"
-import { VictoryChart, VictoryBar, VictoryAxis } from "victory"
+import { VictoryAxis, VictoryBar, VictoryChart } from "victory"
 
 const Posts = ({ data }) => {
+  const { theme } = useTheme()
   const weeks = Array.from(Array(52), (e, i) => i + 1)
+  const primaryColor = theme === "light" ? "#212121" : "#b3b3b3"
+  const secondaryColor = theme === "light" ? "#eee" : "#424242"
 
   const styles = {
-    bar: {
-      data: { fill: "#54677A" },
-    },
     axis: {
-      grid: { stroke: "#eee" },
-      axis: { stroke: "#54677A" },
-      ticks: { stroke: "#54677A", size: 5 },
-      axisLabel: { fontSize: 16, padding: 25, stroke: "#54677A" },
-      tickLabels: { fontSize: 12, padding: 4, stroke: "#54677A" },
+      axis: { stroke: primaryColor },
+      axisLabel: {
+        fontSize: 16,
+        fontWeight: "lighter",
+        padding: 25,
+        stroke: primaryColor,
+      },
+      grid: { stroke: secondaryColor },
+      tickLabels: {
+        fontSize: 12,
+        fontWeight: "lighter",
+        padding: 4,
+        stroke: primaryColor,
+      },
+      ticks: { size: 5, stroke: primaryColor },
+    },
+    bar: {
+      data: { fill: primaryColor },
     },
   }
 
@@ -28,7 +42,7 @@ const Posts = ({ data }) => {
               width={width || 0}
               height={height || 0}
               domainPadding={{ x: 20, y: 0 }}
-              padding={{ top: 10, bottom: 40, left: 40, right: 0 }}
+              padding={{ bottom: 40, left: 40, right: 0, top: 10 }}
             >
               <VictoryAxis
                 dependentAxis
