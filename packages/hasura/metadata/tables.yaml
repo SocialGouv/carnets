@@ -124,6 +124,7 @@
       - name
       - value
       filter: {}
+      check: null
   delete_permissions:
   - role: user
     permission:
@@ -186,6 +187,7 @@
       - priorities
       - term
       filter: {}
+      check: null
   delete_permissions:
   - role: user
     permission:

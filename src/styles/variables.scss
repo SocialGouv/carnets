@@ -1,33 +1,29 @@
-$base-color: #fff;
 $font-size: 0.9rem;
 $base-margin: 1rem;
-$link-color: darkblue;
-$font-color: #212121;
-$border-color: #dfe2e5;
-$secondary-color: crimson;
-$background-color: #f6f8fa;
 
 $themes: (
   light: (
     base-color: #fff,
-    link-color: darkblue,
-    font-color: #212121,
+    border-radius: 2px,
     border-color: #dfe2e5,
-    font-color-important: crimson,
-    font-color-warning: CHOCOLATE,
-    font-color-valid: LIGHTSEAGREEN,
     background-color: #f6f8fa,
+    font-color: #424242,
+    font-color-link: #003189,
+    font-color-important: crimson,
+    font-color-warning: SANDYBROWN,
+    font-color-valid: LIGHTSEAGREEN,
     box-shadow: rgb(0, 0, 0, 0.2) 0px 1px 2px,
   ),
   dark: (
     base-color: #121212,
-    link-color: #4894fe,
-    font-color: darken(#fff, 30%),
+    border-radius: 2px,
     border-color: #424242,
-    font-color-important: DEEPPINK,
-    font-color-warning: SANDYBROWN,
-    font-color-valid: LIGHTSEAGREEN,
     background-color: #212121,
+    font-color: darken(#fff, 30%),
+    font-color-link: #4894fe,
+    font-color-important: #e2011c,
+    font-color-warning: GOLDENROD,
+    font-color-valid: LIGHTSEAGREEN,
     box-shadow: rgb(0, 0, 0, 0.9) 0px 1px 2px,
   ),
 );

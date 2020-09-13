@@ -1,15 +1,16 @@
+import Weather from "@components/Weather"
 import React from "react"
 
 const Mood = ({ field }) => {
   const onClick = (mood) =>
     field.onChange({
       persist: () => {},
-      target: { name: "mood", value: mood, type: "change" },
+      target: { name: "mood", type: "change", value: mood },
     })
 
   return (
     <div className="moods">
-      {["😤", "😓", "😐", "😁", "🤩"].map((mood, i) => (
+      {["good", "average", "bad"].map((mood, i) => (
         <div
           key={i}
           id="mood"
@@ -18,9 +19,9 @@ const Mood = ({ field }) => {
           role="menuitem"
           onClick={() => onClick(mood)}
           onKeyPress={() => onClick(mood)}
-          className={`mood${field.value === mood ? " selected" : ""}`}
+          className={`mood ${mood === field.value ? "" : "disabled"}`}
         >
-          {mood}
+          <Weather status={mood} />
         </div>
       ))}
     </div>

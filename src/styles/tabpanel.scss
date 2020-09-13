@@ -23,7 +23,7 @@
       margin: 0 variables.$base-margin / 1.5;
       padding: variables.$base-margin / 2 variables.$base-margin / 5;
       @include variables.themify() {
-        color: variables.themed("link-color");
+        color: variables.themed("font-color-link");
       }
 
       &.selected {
