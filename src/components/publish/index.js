@@ -9,6 +9,8 @@ import Header from "./Header"
 import Loader from "./Loader"
 import Message from "./Message"
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+
 const Publish = ({ post }) => {
   const user = useUser() || {}
   const { teams = [] } = user
@@ -53,15 +55,14 @@ const Publish = ({ post }) => {
     return errors
   }
 
-  const onSubmit = async (values, { setSubmitting }) => {
+  const onSubmit = async (values) => {
     const response = await submit(values)
     if (response.status === 200) {
-      Router.push(`/team/${values.team_slug}`)
+      return Router.push(`/team/${values.team_slug}`)
     } else {
       setMessage(response.statusText)
       console.error("ERROR:", response.statusText)
     }
-    setSubmitting(false)
   }
 
   return (

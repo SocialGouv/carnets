@@ -25,7 +25,6 @@ const Post = ({ post }) => {
         <Header post={post} />
         <div className="body">
           <KPIs post={post} />
-          {/* <Tabs post={post} /> */}
           <TabPanel tabs={tabs} />
         </div>
         <div className="footer">
