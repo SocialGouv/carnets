@@ -9,13 +9,13 @@ const Header = ({ post }) => {
   const { team_slug } = post
   const user = useUser() || {}
   const teams = useTeams() || {}
-  const isAllowed = user.isAdmin || user.teams?.includes(team_slug)
-  const team = teams.find((team) => team.slug === post.team_slug) || {}
+  const team = teams.find((team) => team.slug === post.team_slug)
+  const isAllowed = team && (user.isAdmin || user.teams?.includes(team_slug))
 
   return (
     <div className="header">
       <div className="mood">{post.mood}</div>
-      <h3>{team.name}</h3>
+      <h3>{team?.name || team_slug}</h3>
       {isAllowed && (
         <>
           <Edit post={post} />
