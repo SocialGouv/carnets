@@ -9,8 +9,6 @@ import Header from "./Header"
 import Loader from "./Loader"
 import Message from "./Message"
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
-
 const Publish = ({ post }) => {
   const user = useUser() || {}
   const { teams = [] } = user
