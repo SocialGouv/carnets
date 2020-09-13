@@ -12,7 +12,6 @@
     width: 80%;
     display: flex;
     max-width: 35rem;
-    border-radius: 2px;
     position: relative;
     flex-direction: column;
     padding: variables.$base-margin variables.$base-margin * 1.5
@@ -20,6 +19,7 @@
 
     @include variables.themify() {
       box-shadow: variables.themed("box-shadow");
+      border-radius: variables.themed("border-radius");
       background-color: variables.themed("background-color");
     }
 
@@ -79,15 +79,15 @@
           top: 25px;
           right: 0px;
           position: absolute;
-          border-radius: 0 0 0 2px;
           border-width: 0 0 1px 1px;
 
           &:hover,
           &:focus,
           &:active {
             @include variables.themify() {
-              color: variables.themed("link-color");
+              color: variables.themed("font-color-link");
               border-color: variables.themed("border-color");
+              border-radius: 0 0 0 variables.themed("border-radius");
               background-color: variables.themed("background-color");
             }
           }
@@ -98,9 +98,9 @@
           padding: 1rem;
           overflow: auto;
           min-height: 150px;
-          border-radius: 2px;
           margin-top: variables.$base-margin / 2;
           @include variables.themify() {
+            border-radius: variables.themed("border-radius");
             background-color: variables.themed("base-color");
             border: 1px solid variables.themed("border-color");
           }
@@ -134,14 +134,38 @@
       font-size: variables.$font-size * 2;
 
       .mood {
-        opacity: 0.5;
         cursor: pointer;
         margin-top: 3px;
+        outline: none;
         margin-right: variables.$base-margin / 2;
 
-        &.selected {
-          opacity: 1;
+        &.disabled {
           outline: none;
+          [class^="icon-"] {
+            @include variables.themify() {
+              color: variables.themed("border-color");
+            }
+          }
+        }
+
+        &:hover.disabled {
+          .icon-sun {
+            @include variables.themify() {
+              color: variables.themed("font-color-warning");
+            }
+          }
+
+          .icon-cloud {
+            @include variables.themify() {
+              color: variables.themed("font-color");
+            }
+          }
+
+          .icon-rain {
+            @include variables.themify() {
+              color: variables.themed("font-color-important");
+            }
+          }
         }
 
         &:last-child {
@@ -219,7 +243,7 @@
 
     & > div > div {
       @include variables.themify() {
-        background-color: variables.themed("link-color");
+        background-color: variables.themed("font-color-link");
       }
     }
   }
@@ -234,7 +258,9 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: variables.$background-color;
+    @include variables.themify() {
+      background-color: variables.themed("background-color");
+    }
 
     p {
       margin-top: variables.$base-margin * 2;

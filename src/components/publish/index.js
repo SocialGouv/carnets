@@ -27,7 +27,7 @@ const Publish = ({ post }) => {
 
   const initialValues = post || {
     kpis: [{ name: "", value: "" }],
-    mood: "😐",
+    mood: "average",
     needs: "",
     priorities: "",
     team_slug: team,

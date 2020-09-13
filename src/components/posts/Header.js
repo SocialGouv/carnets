@@ -1,3 +1,4 @@
+import Weather from "@components/Weather"
 import { useTeams } from "@lib/teams"
 import { useUser } from "@lib/user"
 import React from "react"
@@ -14,7 +15,7 @@ const Header = ({ post }) => {
 
   return (
     <div className="header">
-      <div className="mood">{post.mood}</div>
+      <Weather status={post.mood} />
       <h3>{team?.name || team_slug}</h3>
       {isAllowed && (
         <>

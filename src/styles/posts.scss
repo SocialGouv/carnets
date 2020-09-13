@@ -129,8 +129,10 @@
   text-align: center;
   align-self: center;
   margin: variables.$base-margin 0;
-  background-color: variables.$background-color;
   padding: variables.$base-margin variables.$base-margin * 2;
+  @include variables.themify() {
+    background-color: variables.themed("background-color");
+  }
 }
 
 @media screen and (max-width: 1800px) {

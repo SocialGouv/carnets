@@ -7,7 +7,6 @@ button,
   display: flex;
   cursor: pointer;
   border-width: 1px;
-  border-radius: 2px;
   border-style: solid;
   align-items: center;
   justify-content: center;
@@ -16,6 +15,7 @@ button,
   @include variables.themify() {
     color: variables.themed("font-color");
     border-color: variables.themed("border-color");
+    border-radius: variables.themed("border-radius");
     background-color: variables.themed("background-color");
   }
 
@@ -32,8 +32,8 @@ button,
     text-decoration: none !important;
     @include variables.themify() {
       color: variables.themed("base-color");
-      border-color: variables.themed("link-color");
-      background-color: variables.themed("link-color");
+      border-color: variables.themed("font-color-link");
+      background-color: variables.themed("font-color-link");
     }
   }
 

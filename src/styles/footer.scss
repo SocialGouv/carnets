@@ -38,7 +38,7 @@
 
       &.disabled {
         @include variables.themify() {
-          color: variables.themed("link-color");
+          color: variables.themed("font-color-link");
         }
       }
     }

@@ -9,7 +9,6 @@
     display: flex;
     padding: 2rem;
     border-width: 2px;
-    border-radius: 2px;
     align-items: center;
     border-style: dashed;
     margin: 1rem 0.5rem 0;
@@ -18,6 +17,7 @@
     @include variables.themify() {
       color: variables.themed("font-color");
       border-color: variables.themed("border-color");
+      border-radius: variables.themed("border-radius");
       background-color: variables.themed("background-color");
     }
 
