@@ -1,10 +1,10 @@
 import React from "react"
-import { Cloud, CloudRain, Sun } from "react-feather"
+import { Cloud, CloudLightning, Sun } from "react-feather"
 
 const Weather = ({ status }) => {
   const mapping = {
     average: <Cloud className="icon-cloud" />,
-    bad: <CloudRain className="icon-rain" />,
+    bad: <CloudLightning className="icon-rain" />,
     good: <Sun className="icon-sun" />,
   }
 
