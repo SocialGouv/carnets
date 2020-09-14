@@ -1,3 +1,4 @@
+import Weather from "@components/Weather"
 import moment from "moment/moment"
 import Link from "next/link"
 import React from "react"
@@ -75,7 +76,7 @@ const Teams = ({ data, teams }) => {
                   {team.kpis_count || 0}
                 </td>
                 <td width="100px" style={{ textAlign: "center" }}>
-                  {team.mood}
+                  <Weather status={team.mood} />
                 </td>
               </tr>
             ))}
