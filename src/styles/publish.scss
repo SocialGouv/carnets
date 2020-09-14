@@ -2,11 +2,8 @@
 
 .content > .publish {
   flex: 1;
-  display: flex;
-  overflow: auto;
-  align-items: center;
-  flex-direction: column;
-  padding: variables.$base-margin * 7 0 variables.$base-margin * 5;
+  overflow-y: auto;
+  display: block;
 
   form {
     width: 80%;
@@ -14,6 +11,9 @@
     max-width: 35rem;
     position: relative;
     flex-direction: column;
+
+    margin: variables.$base-margin * 7 auto variables.$base-margin * 5;
+
     padding: variables.$base-margin variables.$base-margin * 1.5
       variables.$base-margin * 2;
 
