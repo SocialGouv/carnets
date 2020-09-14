@@ -134,9 +134,8 @@
       font-size: variables.$font-size * 2;
 
       .mood {
-        cursor: pointer;
-        margin-top: 3px;
         outline: none;
+        cursor: pointer;
         margin-right: variables.$base-margin / 2;
 
         &.disabled {

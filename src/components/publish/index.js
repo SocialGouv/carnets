@@ -1,7 +1,7 @@
 import { useUser } from "@lib/user"
 import { Form, Formik } from "formik"
 import Router from "next/router"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import Body from "./body/Body"
 import Footer from "./Footer"
@@ -11,9 +11,22 @@ import Message from "./Message"
 
 const Publish = ({ post }) => {
   const user = useUser() || {}
-  const { teams = [] } = user
-  const [team = ""] = teams
+  const [team, setTeam] = useState("")
   const [message, setMessage] = useState()
+
+  const initialValues = post || {
+    kpis: [{ name: "", value: "" }],
+    mood: "average",
+    needs: "",
+    priorities: "",
+    team_slug: team,
+    term: "",
+  }
+
+  useEffect(() => {
+    const { teams = [] } = user
+    setTeam(teams[0])
+  }, [user])
 
   const submit = (values) => {
     const { id } = values
@@ -23,15 +36,6 @@ const Publish = ({ post }) => {
       method: id ? "PUT" : "POST",
     }
     return fetch(`/api/posts${id ? `/${id}` : ""}`, options)
-  }
-
-  const initialValues = post || {
-    kpis: [{ name: "", value: "" }],
-    mood: "average",
-    needs: "",
-    priorities: "",
-    team_slug: team,
-    term: "",
   }
 
   const validate = (values) => {
@@ -68,6 +72,7 @@ const Publish = ({ post }) => {
       <Formik
         onSubmit={onSubmit}
         validate={validate}
+        enableReinitialize={true}
         initialValues={initialValues}
       >
         {({ isSubmitting }) => (

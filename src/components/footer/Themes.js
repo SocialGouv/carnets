@@ -4,11 +4,13 @@ import { Moon, Sun } from "react-feather"
 
 const Themes = () => {
   const { theme, setTheme } = useTheme()
+  console.log("theme", theme)
 
   return (
     <div className="themes">
       <button
         tabIndex={0}
+        title="Theme light"
         onClick={() => setTheme("light")}
         onKeyPress={() => setTheme("light")}
         className={theme === "light" ? "disabled" : ""}
@@ -17,6 +19,7 @@ const Themes = () => {
       </button>
       <button
         tabIndex={0}
+        title="Theme dark"
         onClick={() => setTheme("dark")}
         onKeyPress={() => setTheme("dark")}
         className={theme === "dark" ? "disabled" : ""}

@@ -33,12 +33,12 @@
       background-color: transparent;
       padding: 0 variables.$base-margin / 2 0 0;
       @include variables.themify() {
-        color: variables.themed("font-color");
+        color: variables.themed("font-color-link");
       }
 
       &.disabled {
         @include variables.themify() {
-          color: variables.themed("font-color-link");
+          color: variables.themed("font-color");
         }
       }
     }

@@ -6,6 +6,5 @@
       "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"]
     }
-  },
-  "exclude": ["node_modules"]
+  }
 }
