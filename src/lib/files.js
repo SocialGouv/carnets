@@ -7,6 +7,13 @@ import {
 import { fetch } from "@lib/hasura"
 import { v4 as uuid } from "uuid"
 
+function msleep(n) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n)
+}
+function sleep(n) {
+  msleep(n * 1000)
+}
+
 export const get = async (id) => {
   const query = `
     query getFile($id: uuid) {
@@ -94,7 +101,10 @@ export const registerFiles = async (files, token) => {
 const uploadFile = async (container, file) => {
   const { name, path, size, type } = file
   const blob_name = uuid()
+  console.log("uploadFile", container, blob_name, path)
   await createBlob(container, blob_name, path)
+  console.log("blob created")
+  sleep(3)
   return { blob_name, name, size, type }
 }
 
@@ -102,7 +112,10 @@ export const uploadFiles = async (files, id) => {
   const keys = Object.keys(files)
 
   if (keys.length > 0) {
+    sleep(3)
     const container = await createBlobContainer(id)
+    console.log("container created")
+    sleep(3)
     return Promise.all(keys.map((key) => uploadFile(container, files[key])))
   }
 
