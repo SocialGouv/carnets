@@ -63,7 +63,7 @@ export const list = async (slug) => {
   return files
 }
 
-export const register = async (files, token) => {
+export const registerFiles = async (files, token) => {
   const query = `
     mutation insert_files($objects: [files_insert_input!]!) {
       insert_files(objects: $objects) {

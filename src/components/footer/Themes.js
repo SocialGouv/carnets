@@ -4,7 +4,6 @@ import { Moon, Sun } from "react-feather"
 
 const Themes = () => {
   const { theme, setTheme } = useTheme()
-  console.log("theme", theme)
 
   return (
     <div className="themes">

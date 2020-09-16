@@ -42,7 +42,7 @@ const File = ({ file, slug }) => {
       <div className="file">
         <div className="icon">
           {file.loading ? (
-            <CircleSpinner size={16} color="#212121" />
+            <CircleSpinner size={16} color="#424242" />
           ) : (
             <FileIcon size={24} />
           )}

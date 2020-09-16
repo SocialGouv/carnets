@@ -1,8 +1,20 @@
-import { list, register, uploadFiles } from "@lib/files"
+import { list, registerFiles, uploadFiles } from "@lib/files"
 import { getInfo } from "@lib/user"
 import formidable from "formidable"
 
 export const config = { api: { bodyParser: false } }
+
+const getFiles = (req) => {
+  const form = formidable({ multiples: true })
+  return new Promise((resolve, reject) => {
+    try {
+      form.parse(req, async (err, fields, files) => resolve(files))
+    } catch (error) {
+      console.log(error)
+      reject([])
+    }
+  })
+}
 
 export default async (req, res) => {
   try {
@@ -15,15 +27,13 @@ export default async (req, res) => {
       res.json(files)
     } else if (req.method === "POST") {
       const [, token] = await getInfo(req, res)
-      const form = formidable({ multiples: true })
-      form.parse(req, async (err, fields, files) => {
-        const uploadedFiles = await uploadFiles(files, team)
-        uploadedFiles.forEach((file) => {
-          file.team_slug = team
-        })
-        const registeredFiles = await register(uploadedFiles, token)
-        return res.send(registeredFiles)
+      const files = await getFiles(req, team, token)
+      const uploadedFiles = await uploadFiles(files, team)
+      uploadedFiles.forEach((file) => {
+        file.team_slug = team
       })
+      const registeredFiles = await registerFiles(uploadedFiles, token)
+      return res.json(registeredFiles)
     } else {
       res.status(405)
       throw new Error("Wrong method")
