@@ -85,7 +85,7 @@
     "@opentelemetry/api" "^0.6.1"
     tslib "^2.0.0"
 
-"@azure/core-http@^1.0.0", "@azure/core-http@^1.1.1":
+"@azure/core-http@^1.1.1":
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/@azure/core-http/-/core-http-1.1.8.tgz#33e2725380f92d34d5f09b25c0ebbf8963086447"
   integrity sha512-hJ9ZblU99sY2dTD6U5EqZ5zjd0QmwwvSp8RYp2zS9s5mhsNobLQFI09bIE6yo891bOySCEepNCE5tL15dLYhIA==
@@ -106,7 +106,7 @@
     uuid "^8.1.0"
     xml2js "^0.4.19"
 
-"@azure/core-lro@^1.0.0":
+"@azure/core-lro@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@azure/core-lro/-/core-lro-1.0.2.tgz#b7b51ff7b84910b7eb152a706b0531d020864f31"
   integrity sha512-Yr0JD7GKryOmbcb5wHCQoQ4KCcH5QJWRNorofid+UvudLaxnbCfvKh/cUfQsGUqRjO9L/Bw4X7FP824DcHdMxw==
@@ -116,21 +116,12 @@
     events "^3.0.0"
     tslib "^1.10.0"
 
-"@azure/core-paging@^1.0.0":
+"@azure/core-paging@^1.1.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@azure/core-paging/-/core-paging-1.1.2.tgz#c2ae740b1ab8a443ad83983a9b5b5211959f2c79"
   integrity sha512-6wZ+LrF8zwAuukvYsiff+uMNkVu9HZt8gRs/1o5377Cz9354y23QI7eZM0iwTfO38c8LZUSvzLJSqdM4T1QXxA==
   dependencies:
     "@azure/core-asynciterator-polyfill" "^1.0.0"
-
-"@azure/core-tracing@1.0.0-preview.7":
-  version "1.0.0-preview.7"
-  resolved "https://registry.yarnpkg.com/@azure/core-tracing/-/core-tracing-1.0.0-preview.7.tgz#e9ee9c88f0dcf50d8e5b468fc827203165ecbc3f"
-  integrity sha512-pkFCw6OiJrpR+aH1VQe6DYm3fK2KWCC5Jf3m/Pv1RxF08M1Xm08RCyQ5Qe0YyW5L16yYT2nnV48krVhYZ6SGFA==
-  dependencies:
-    "@opencensus/web-types" "0.0.7"
-    "@opentelemetry/types" "^0.2.0"
-    tslib "^1.9.3"
 
 "@azure/core-tracing@1.0.0-preview.8":
   version "1.0.0-preview.8"
@@ -157,18 +148,18 @@
   dependencies:
     tslib "^1.9.3"
 
-"@azure/storage-blob@12.1.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@azure/storage-blob/-/storage-blob-12.1.0.tgz#02d388b8bd1463c6836a1b7802a9e50ce2cc6e68"
-  integrity sha512-fdYDpxRmdqOqoIwuKHV1w6lfAcBcZTdnxl0a1iHFsVoo5m3Vifawmvw6p/mhk3qFAavpchiOdthUfVJ78xurzA==
+"@azure/storage-blob@12.1.2":
+  version "12.1.2"
+  resolved "https://registry.yarnpkg.com/@azure/storage-blob/-/storage-blob-12.1.2.tgz#046d146a3bd2622b61d6bdc5708955893a5b4f04"
+  integrity sha512-PCHgG4r3xLt5FaFj+uiMqrRpuzD3TD17cvxCeA1JKK2bJEf8b07H3QRLQVf0DM1MmvYY8FgQagkWZTp+jr9yew==
   dependencies:
     "@azure/abort-controller" "^1.0.0"
-    "@azure/core-http" "^1.0.0"
-    "@azure/core-lro" "^1.0.0"
-    "@azure/core-paging" "^1.0.0"
-    "@azure/core-tracing" "1.0.0-preview.7"
+    "@azure/core-http" "^1.1.1"
+    "@azure/core-lro" "^1.0.2"
+    "@azure/core-paging" "^1.1.1"
+    "@azure/core-tracing" "1.0.0-preview.8"
     "@azure/logger" "^1.0.0"
-    "@opentelemetry/types" "^0.2.0"
+    "@opentelemetry/api" "^0.6.1"
     events "^3.0.0"
     tslib "^1.10.0"
 
@@ -1525,11 +1516,6 @@
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.6.1.tgz#b260e454ee4f9635ea024fc83be225e397f15363"
   integrity sha512-5bHhlTBBq82ti3qPT15TRxkYTFPPQWbnkkQkmHPtqiS1XcTB69cEKd3Jm7Cfi/vkPoyxapmePE9tyA7EzLt8SQ==
-
-"@opentelemetry/types@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@opentelemetry/types/-/types-0.2.0.tgz#2a0afd40fa7026e39ea56a454642bda72b172f80"
-  integrity sha512-GtwNB6BNDdsIPAYEdpp3JnOGO/3AJxjPvny53s3HERBdXSJTGQw8IRhiaTEX0b3w9P8+FwFZde4k+qkjn67aVw==
 
 "@panva/asn1.js@^1.0.0":
   version "1.0.0"
@@ -7109,10 +7095,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.1.1.tgz#d9485dd5e499daa6cb547023b87a6cf51bee37d6"
-  integrity sha512-9bY+5ZWCfqj3ghYBLxApy2zf6m+NJo5GzmLTpr9FsApsfjriNnS2dahWReHMi7qNPhhHl9SYHJs2cHZLgexNIw==
+prettier@2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.1.2.tgz#3050700dae2e4c8b67c4c3f666cdb8af405e1ce5"
+  integrity sha512-16c7K+x4qVlJg9rEbXl7HEGmQyZlG4R9AgP+oHKRMsMsuk8s+ATStlf1NpDqyBI1HpVyfjLOeMhH2LvuNvV5Vg==
 
 pretty-format@^25.2.1, pretty-format@^25.5.0:
   version "25.5.0"
@@ -7785,10 +7771,10 @@ sass-loader@8.0.2:
     schema-utils "^2.6.1"
     semver "^6.3.0"
 
-sass@^1.26.10:
-  version "1.26.10"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.10.tgz#851d126021cdc93decbf201d1eca2a20ee434760"
-  integrity sha512-bzN0uvmzfsTvjz0qwccN1sPm2HxxpNI/Xa+7PlUEMS+nQvbyuEK7Y0qFqxlPHhiNHb1Ze8WQJtU31olMObkAMw==
+sass@^1.26.11:
+  version "1.26.11"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.11.tgz#0f22cc4ab2ba27dad1d4ca30837beb350b709847"
+  integrity sha512-W1l/+vjGjIamsJ6OnTe0K37U2DBO/dgsv2Z4c89XQ8ZOO6l/VwkqwLSqoYzJeJs6CLuGSTRWc91GbQFL3lvrvw==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
@@ -8402,10 +8388,10 @@ supports-hyperlinks@^2.0.0:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
 
-swr@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-0.3.2.tgz#1197e06553f71afbc42dba758459f12daea96805"
-  integrity sha512-Bs5Bihq1hQ66O5bdKaL47iZ2nlAaBsd8tTLRLkw9stZeuBEfH7zSuQI95S2TpchL0ybsMq3isWwuso2uPvCfHA==
+swr@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-0.3.3.tgz#8e820360e3fece26df6f30ca09c478f70bf1f880"
+  integrity sha512-UxjfbvLdk4CzdchQBKmthUc1rO7KaCXdNL69oW7V/I2BOMv905rsL+kJdpO19OYwOPOpWZPvffTEE7yACwXc8w==
   dependencies:
     fast-deep-equal "2.0.1"
 
