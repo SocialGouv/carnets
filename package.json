@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.16.0",
-    "@azure/storage-blob": "12.1.0",
+    "@azure/storage-blob": "12.1.2",
     "@sentry/browser": "^5.23.0",
     "@zeit/next-source-maps": "^0.0.3",
     "bytes": "^3.1.0",
@@ -32,8 +32,8 @@
     "react-feather": "^2.0.8",
     "react-markdown": "^4.3.1",
     "react-spinners-kit": "^1.9.1",
-    "sass": "^1.26.10",
-    "swr": "^0.3.2",
+    "sass": "^1.26.11",
+    "swr": "^0.3.3",
     "uuid": "^8.3.0",
     "victory": "^35.0.9"
   },
@@ -46,10 +46,10 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-react": "^7.20.6",
     "jest": "^26.4.2",
-    "prettier": "2.1.1",
+    "prettier": "2.1.2",
     "react-test-renderer": "^16.13.1"
   },
   "resolutions": {
-    "@azure/storage-blob": "12.1.0"
+    "@azure/storage-blob": "12.1.2"
   }
 }
