@@ -19,7 +19,7 @@ const Page = ({ posts, files, slug }) => {
     },
     {
       content: <Files files={files} slug={slug} />,
-      name: "Fichiers",
+      name: <span>Fichiers {files.length ? `(${files.length})` : ""}</span>,
     },
   ]
 
