@@ -33,7 +33,7 @@
     "react-markdown": "^4.3.1",
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.26.11",
-    "swr": "^0.3.3",
+    "swr": "^0.3.5",
     "uuid": "^8.3.0",
     "victory": "^35.0.9"
   },
@@ -43,7 +43,7 @@
     "@testing-library/react": "^11.0.4",
     "eslint": "^7.9.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.20.6",
     "jest": "^26.4.2",
     "prettier": "2.1.2",
