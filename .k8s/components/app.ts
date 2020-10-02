@@ -19,11 +19,11 @@ const manifests = create("app", {
     container: {
       resources: {
         requests: {
-          cpu: "5m",
-          memory: "128Mi",
+          cpu: "50m",
+          memory: "256Mi",
         },
         limits: {
-          cpu: "1000m",
+          cpu: "100m",
           memory: "256Mi",
         },
       },
