@@ -18,10 +18,18 @@ const manifests = create({
         },
       },
       livenessProbe: {
+        httpGet: {
+          path: "/healthz",
+          port: "http",
+        },
         initialDelaySeconds: 60,
         periodSeconds: 20,
       },
       readinessProbe: {
+        httpGet: {
+          path: "/healthz",
+          port: "http",
+        },
         initialDelaySeconds: 60,
         periodSeconds: 20,
       },
