@@ -4,7 +4,7 @@ import { create } from "@socialgouv/kosko-charts/components/hasura"
 
 const manifests = create({
   env,
-  config: { containerPort: 3000 },
+  // config: { containerPort: 3000 },
   deployment: {
     container: {
       resources: {
