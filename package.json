@@ -19,7 +19,7 @@
     "bytes": "^3.1.0",
     "crypto": "^1.0.1",
     "formidable": "^1.2.2",
-    "formik": "^2.1.5",
+    "formik": "^2.1.7",
     "github-markdown-css": "^4.0.0",
     "graphql-request": "^2.0.0",
     "isomorphic-unfetch": "^3.1.0",
@@ -34,7 +34,7 @@
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.26.11",
     "swr": "^0.3.5",
-    "uuid": "^8.3.0",
+    "uuid": "^8.3.1",
     "victory": "^35.1.1"
   },
   "devDependencies": {
