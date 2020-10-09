@@ -1,3 +1,10 @@
+## [1.3.9](https://github.com/SocialGouv/carnets/compare/v1.3.8...v1.3.9) (2020-10-09)
+
+
+### Bug Fixes
+
+* Use sre-secrets tool to generate sealed secrets. ([#221](https://github.com/SocialGouv/carnets/issues/221)) ([c419015](https://github.com/SocialGouv/carnets/commit/c419015e9af26cbd15df6f0f776503da785b9d27))
+
 ## [1.3.8](https://github.com/SocialGouv/carnets/compare/v1.3.7...v1.3.8) (2020-09-22)
 
 
