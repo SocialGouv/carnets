@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start",
     "test:dev": "jest --watch",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "seal-secrets": "sre-secrets"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.16.0",
