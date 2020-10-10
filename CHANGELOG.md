@@ -1,3 +1,10 @@
+## [1.3.11](https://github.com/SocialGouv/carnets/compare/v1.3.10...v1.3.11) (2020-10-10)
+
+
+### Bug Fixes
+
+* Generate pg sealed secrets via sre-secrets. ([0ff982a](https://github.com/SocialGouv/carnets/commit/0ff982a3daae63f6ee9fbc6d8b1d09df4d45a02c))
+
 ## [1.3.10](https://github.com/SocialGouv/carnets/compare/v1.3.9...v1.3.10) (2020-10-10)
 
 
