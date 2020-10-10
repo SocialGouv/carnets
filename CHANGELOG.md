@@ -1,3 +1,10 @@
+## [1.3.12](https://github.com/SocialGouv/carnets/compare/v1.3.11...v1.3.12) (2020-10-10)
+
+
+### Bug Fixes
+
+* Add graphql dependency. ([0a8cda1](https://github.com/SocialGouv/carnets/commit/0a8cda1d136471c5e9b2b46fd7595c12d3a9c0cd))
+
 ## [1.3.11](https://github.com/SocialGouv/carnets/compare/v1.3.10...v1.3.11) (2020-10-10)
 
 
