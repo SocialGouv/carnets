@@ -1,3 +1,10 @@
+## [1.3.10](https://github.com/SocialGouv/carnets/compare/v1.3.9...v1.3.10) (2020-10-10)
+
+
+### Bug Fixes
+
+* Add sre-screts as dev dependency. ([50f67c1](https://github.com/SocialGouv/carnets/commit/50f67c122a9449712712cfa8528076806e70d89e))
+
 ## [1.3.9](https://github.com/SocialGouv/carnets/compare/v1.3.8...v1.3.9) (2020-10-09)
 
 
