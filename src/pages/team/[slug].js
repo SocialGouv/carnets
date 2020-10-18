@@ -1,4 +1,5 @@
 import Files from "@components/files"
+import Followup from "@components/followup"
 import Intro from "@components/Intro"
 import Posts from "@components/posts/Posts"
 import TabPanel from "@components/TabPanel"
@@ -16,6 +17,10 @@ const Page = ({ posts, files, slug }) => {
         </PostsContext.Provider>
       ),
       name: "Publications",
+    },
+    {
+      content: <Followup slug={slug} />,
+      name: "Suivi technique",
     },
     {
       content: <Files files={files} slug={slug} />,
