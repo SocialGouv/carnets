@@ -2,7 +2,7 @@ import { Form, Formik, useFormikContext } from "formik"
 import { debounce } from "lodash"
 import React, { useCallback, useEffect, useState } from "react"
 
-import Controls from "./Controls"
+import Controls from "./controls"
 import Items from "./items"
 
 const originalData = {
@@ -207,7 +207,7 @@ const Followup = ({ slug }) => {
 
   return (
     <div className="followup">
-      <Controls toggle={toggle} edit={edit} />
+      <Controls toggle={toggle} edit={edit} data={data} />
       <Formik onSubmit={onSubmit} initialValues={data}>
         {({ values }) => (
           <Form>
