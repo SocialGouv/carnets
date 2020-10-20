@@ -8,7 +8,7 @@ import fetcher from "@lib/fetcher"
 import { PostsContext } from "@lib/posts"
 import React from "react"
 
-const Page = ({ posts, files, slug }) => {
+const Page = ({ posts, files, followup, slug }) => {
   const tabs = [
     {
       content: (
@@ -19,7 +19,7 @@ const Page = ({ posts, files, slug }) => {
       name: "Publications",
     },
     {
-      content: <Followup slug={slug} />,
+      content: <Followup slug={slug} followup={followup} />,
       name: "Suivi technique",
     },
     {
@@ -47,10 +47,11 @@ export async function getServerSideProps({ req, params }) {
   try {
     const posts = await fetcher(`${baseUrl}/api/teams/${slug}/posts`)
     const files = await fetcher(`${baseUrl}/api/teams/${slug}/files`)
-    return { props: { files, posts, slug } }
+    const followups = await fetcher(`${baseUrl}/api/teams/${slug}/followup`)
+    return { props: { files, followup: followups[0] || {}, posts, slug } }
   } catch (error) {
     console.log(error)
-    return { props: { files: [], posts: [], slug } }
+    return { props: { files: [], followup: {}, posts: [], slug } }
   }
 }
 

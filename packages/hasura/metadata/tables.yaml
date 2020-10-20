@@ -40,6 +40,33 @@
       filter: {}
 - table:
     schema: public
+    name: followups
+  insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+      - data
+      - team_slug
+      backend_only: false
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - data
+      - team_slug
+      - updated_at
+      - id
+      filter: {}
+  update_permissions:
+  - role: user
+    permission:
+      columns:
+      - data
+      filter: {}
+      check: null
+- table:
+    schema: public
     name: github_data
   insert_permissions:
   - role: user

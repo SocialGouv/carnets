@@ -193,14 +193,25 @@ const AutoSave = ({ debounceMs = 1000 }) => {
   )
 }
 
-const Followup = ({ slug }) => {
+const Followup = ({ followup, slug }) => {
   const [edit, setEdit] = useState(false)
   const [data, setData] = useState(originalData)
-  console.log("slug", slug, 42)
+  console.log("slug", slug, followup)
 
-  const onSubmit = (data) => {
+  const submit = (values) => {
+    // const { id } = values
+    const options = {
+      body: JSON.stringify({ data: values.fields }),
+      headers: { "Content-Type": "application/json" },
+      method: "PUT",
+    }
+    return fetch(`/api/teams/${slug}/followup`, options)
+  }
+
+  const onSubmit = async (data) => {
     console.log("onSubmit", data)
     setData(data)
+    await submit(data)
   }
 
   const toggle = () => setEdit(!edit)
@@ -219,7 +230,7 @@ const Followup = ({ slug }) => {
                 </div>
               </div>
             ))}
-            {/* <AutoSave debounceMs={500} /> */}
+            <AutoSave debounceMs={500} />
           </Form>
         )}
       </Formik>
