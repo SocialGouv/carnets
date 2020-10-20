@@ -67,6 +67,9 @@
       check: null
 - table:
     schema: public
+    name: followups2
+- table:
+    schema: public
     name: github_data
   insert_permissions:
   - role: user
