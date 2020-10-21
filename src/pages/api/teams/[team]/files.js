@@ -11,7 +11,7 @@ const getFiles = (req) => {
     try {
       form.parse(req, (err, fields, files) => resolve(files))
     } catch (error) {
-      console.log(error)
+      console.error(error)
       reject([])
     }
   })

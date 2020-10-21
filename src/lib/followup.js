@@ -1,7 +1,6 @@
 import { fetch } from "@lib/hasura"
 
 export const get = async (slug) => {
-  console.log("GET", slug)
   const query = `
     query getFollowup($slug: String) {
       followups(
@@ -10,20 +9,18 @@ export const get = async (slug) => {
         id
         data
         team_slug
-        updated_at
+        created_at
       }
     }
   `
 
   const res = await fetch(query, { slug })
   const { followups } = res
-  console.log("RES", followups)
   return followups
 }
 
 export const upsert = (followup, slug, accessToken) => {
   followup.team_slug = followup.team_slug || slug
-  console.log("UPSERT", followup, accessToken)
 
   const query = `
     mutation insert_followups(
@@ -48,6 +45,5 @@ export const upsert = (followup, slug, accessToken) => {
   `
 
   const variables = { objects: [followup], slug: followup.team_slug }
-  console.log("VARIABLES", variables)
   return fetch(query, variables, accessToken)
 }

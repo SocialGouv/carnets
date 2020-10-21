@@ -4,7 +4,7 @@ import React from "react"
 import Footer from "./Footer"
 import Section from "./Section"
 
-const PDF = ({ data }) => {
+const PDF = ({ followup }) => {
   const styles = {
     body: {
       fontSize: 12,
@@ -21,7 +21,7 @@ const PDF = ({ data }) => {
     <Document>
       <Page style={styles.body}>
         <Text style={styles.title}>Suivi Technique</Text>
-        {data.fields.map((section, i) => (
+        {followup.data.map((section, i) => (
           <Section key={i} section={section} />
         ))}
         <Footer />

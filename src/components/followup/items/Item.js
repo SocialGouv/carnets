@@ -8,7 +8,7 @@ import Status from "./Status"
 import Value from "./Value"
 
 const Item = ({ item, edit }) => (
-  /*console.log("item", item) || */ <>
+  <>
     {Object.prototype.hasOwnProperty.call(item, "status") && (
       <Status item={item} edit={edit} />
     )}

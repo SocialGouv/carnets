@@ -53,9 +53,17 @@
   - role: anonymous
     permission:
       columns:
+      - id
+      - team_slug
+      - data
+      - created_at
+      filter: {}
+  - role: user
+    permission:
+      columns:
       - data
       - team_slug
-      - updated_at
+      - created_at
       - id
       filter: {}
   update_permissions:
@@ -65,9 +73,6 @@
       - data
       filter: {}
       check: null
-- table:
-    schema: public
-    name: followups2
 - table:
     schema: public
     name: github_data

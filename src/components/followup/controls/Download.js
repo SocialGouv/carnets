@@ -14,7 +14,7 @@ const Download = ({ fileName, data }) => {
     <div title="Télécharger">
       {isClient && (
         <PDFDownloadLink
-          document={<PDF data={data} />}
+          document={<PDF followup={data} />}
           fileName={fileName}
           className="button no-text"
         >

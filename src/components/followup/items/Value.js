@@ -1,13 +1,12 @@
 import { Field } from "formik"
 import React from "react"
 
-const Write = ({ item }) =>
-  console.log("item", item) || (
-    <>
-      <div>{item.label}</div>
-      <Field name={`${item.fieldIndex}.value`} />
-    </>
-  )
+const Write = ({ item }) => (
+  <>
+    <div>{item.label}</div>
+    <Field name={`${item.fieldIndex}.value`} />
+  </>
+)
 
 const Read = ({ item }) => (
   <>

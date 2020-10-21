@@ -76,7 +76,7 @@ Carnets.getInitialProps = async (appContext) => {
       const { admins, teams } = await fetcher(`${baseUrl}/api/teams`)
       appProps.pageProps = { admins, teams }
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 

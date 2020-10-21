@@ -50,7 +50,7 @@ export async function getServerSideProps({ req, params }) {
     const followups = await fetcher(`${baseUrl}/api/teams/${slug}/followup`)
     return { props: { files, followup: followups[0] || {}, posts, slug } }
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return { props: { files: [], followup: {}, posts: [], slug } }
   }
 }

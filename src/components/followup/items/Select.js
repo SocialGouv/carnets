@@ -14,29 +14,27 @@ const Write = ({ item }) => {
   }
 
   return (
-    console.log("select", item) || (
+    <>
+      <div className="label">
+        {item.label}
+        <Field
+          as="select"
+          onChange={onChange}
+          name={`${item.fieldIndex}.options.${selected}.name`}
+        >
+          {item.options.map((option, i) => (
+            <option key={i} value={option.name}>
+              {option.name}
+            </option>
+          ))}
+        </Field>
+      </div>
       <>
-        <div className="label">
-          {item.label}
-          <Field
-            as="select"
-            onChange={onChange}
-            name={`${item.fieldIndex}.options.${selected}.name`}
-          >
-            {item.options.map((option, i) => (
-              <option key={i} value={option.name}>
-                {option.name}
-              </option>
-            ))}
-          </Field>
-        </div>
-        <>
-          {item.options[selected].items && (
-            <Items items={item.options[selected].items} edit={true} />
-          )}
-        </>
+        {item.options[selected].items && (
+          <Items items={item.options[selected].items} edit={true} />
+        )}
       </>
-    )
+    </>
   )
 }
 
