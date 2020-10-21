@@ -1,6 +1,10 @@
-// import Download from "@components/followup/controls/Download"
+import moment from "moment"
 import React from "react"
 
-const Update = () => <div>Mise à jour il y a 5 minutes</div>
+moment.locale("fr")
+
+const Update = ({ date }) => (
+  <div>{date && `Mis à jour ${moment(date).fromNow()}`}</div>
+)
 
 export default Update

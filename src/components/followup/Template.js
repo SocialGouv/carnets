@@ -8,7 +8,7 @@ const Template = {
         },
         {
           label: "Schema d'architecture technique",
-          status: true,
+          status: false,
         },
         {
           label: "Matrice des flux",
@@ -29,7 +29,7 @@ const Template = {
               items: [
                 {
                   label: "Version de l'autodevops:",
-                  value: 17,
+                  value: "",
                 },
                 {
                   label: "Gestion des secrets",
@@ -37,17 +37,17 @@ const Template = {
                 },
                 {
                   label: "Gestion des ingress",
-                  status: true,
+                  status: false,
                 },
                 {
                   label: "Gestion des releases",
-                  status: true,
+                  status: false,
                 },
               ],
               name: "Cluster Azure",
             },
           ],
-          selected: 1,
+          selected: 0,
         },
       ],
       title: "CI/CD",
@@ -62,17 +62,17 @@ const Template = {
             },
           ],
           label: "Application homologuée",
-          status: true,
+          status: false,
         },
         {
           items: [
             {
               label: "Hébergeur certifié HDS",
-              status: true,
+              status: false,
             },
             {
               label: "Chiffrement des données",
-              status: true,
+              status: false,
             },
           ],
           label: "Données de santé",
@@ -82,7 +82,7 @@ const Template = {
           items: [
             {
               label: "Chiffrement des données",
-              status: true,
+              status: false,
             },
           ],
           label: "Données sensibles",
@@ -95,11 +95,11 @@ const Template = {
       items: [
         {
           label: "Mise à jour des dépendences (renovate)",
-          status: true,
+          status: false,
         },
         {
           label: "Maintenance du code (eslint, prettier)",
-          status: true,
+          status: false,
         },
         {
           label: "Tests (jest, gerkins)",
@@ -111,7 +111,7 @@ const Template = {
         },
         {
           label: "Rapport de bugs (sentry)",
-          status: true,
+          status: false,
         },
       ],
       title: "Qualité",
@@ -130,15 +130,15 @@ const Template = {
         },
         {
           label: "Mentions légales",
-          status: true,
+          status: false,
         },
         {
           label: "CGU",
-          status: true,
+          status: false,
         },
         {
           label: "Politique de confidentialité",
-          status: true,
+          status: false,
         },
       ],
       title: "RGPD",

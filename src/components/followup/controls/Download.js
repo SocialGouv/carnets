@@ -1,27 +1,27 @@
 import PDF from "@components/followup/pdf"
-import { PDFDownloadLink } from "@react-pdf/renderer"
-import React, { useEffect, useState } from "react"
+import { useTeams } from "@lib/teams"
+import { pdf } from "@react-pdf/renderer"
+import { saveAs } from "file-saver"
+import React from "react"
 import { Download as DownloadIcon } from "react-feather"
 
-const Download = ({ fileName, data }) => {
-  const [isClient, setIsClient] = useState(false)
+const Download = ({ fileName, data, slug }) => {
+  const teams = useTeams()
+  const team = teams.find((team) => slug === team.slug)
 
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
+  const generatePdfDocument = async () => {
+    const blob = await pdf(<PDF followup={data} team={team} />).toBlob()
+    saveAs(blob, fileName)
+  }
 
   return (
-    <div title="Télécharger">
-      {isClient && (
-        <PDFDownloadLink
-          document={<PDF followup={data} />}
-          fileName={fileName}
-          className="button no-text"
-        >
-          <DownloadIcon size={12} />
-        </PDFDownloadLink>
-      )}
-    </div>
+    <button
+      title="Télécharger"
+      className="button no-text"
+      onClick={() => generatePdfDocument()}
+    >
+      <DownloadIcon size={12} />
+    </button>
   )
 }
 

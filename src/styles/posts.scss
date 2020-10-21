@@ -99,6 +99,7 @@
             margin: variables.$base-margin / 2 variables.$base-margin;
           }
           .panels > div {
+            flex: 1;
             min-height: 10rem;
             max-height: 10rem;
             border-width: 1px;

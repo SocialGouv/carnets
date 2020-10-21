@@ -1,6 +1,7 @@
 @use "./variables";
 
 .files {
+  flex: 1;
   margin: variables.$base-margin / 2 0 0;
   padding-bottom: variables.$base-margin * 3;
 

@@ -9,7 +9,7 @@ export const get = async (slug) => {
         id
         data
         team_slug
-        created_at
+        updated_at
       }
     }
   `
@@ -20,6 +20,7 @@ export const get = async (slug) => {
 }
 
 export const upsert = (followup, slug, accessToken) => {
+  followup.updated_at = new Date()
   followup.team_slug = followup.team_slug || slug
 
   const query = `
@@ -31,7 +32,7 @@ export const upsert = (followup, slug, accessToken) => {
         objects: $objects,
         on_conflict: {
           constraint: followups_team_slug_key,
-          update_columns: [data],
+          update_columns: [data, updated_at],
           where: {
             team_slug: {_eq: $slug}
           }

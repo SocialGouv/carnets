@@ -3,7 +3,7 @@ import React from "react"
 
 import Item from "./Item"
 
-const Items = ({ items }) => {
+const Items = ({ items = [] }) => {
   const styles = {
     items: {
       // backgroundColor: "crimson",

@@ -109,3 +109,25 @@
     }
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .followup {
+    form {
+      .section {
+        flex: 1 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .followup {
+    form {
+      .section {
+        flex: 1 0 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
