@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/SocialGouv/carnets/compare/v1.3.12...v1.4.0) (2020-10-22)
+
+
+### Features
+
+* Add team technical followups. ([#233](https://github.com/SocialGouv/carnets/issues/233)) ([49ba809](https://github.com/SocialGouv/carnets/commit/49ba8099ab5d4f8af3392354b04062e9cb8079eb))
+
 ## [1.3.12](https://github.com/SocialGouv/carnets/compare/v1.3.11...v1.3.12) (2020-10-10)
 
 
