@@ -1,5 +1,6 @@
 import "@styles/main.scss"
 import "github-markdown-css"
+import "react-datepicker/dist/react-datepicker.css"
 
 import Footer from "@components/footer"
 import Nav from "@components/nav"
@@ -75,7 +76,7 @@ Carnets.getInitialProps = async (appContext) => {
       const { admins, teams } = await fetcher(`${baseUrl}/api/teams`)
       appProps.pageProps = { admins, teams }
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 

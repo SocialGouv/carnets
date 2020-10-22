@@ -38,6 +38,7 @@
 
       &.disabled {
         @include variables.themify() {
+          cursor: default;
           color: variables.themed("font-color");
         }
       }

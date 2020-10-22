@@ -47,7 +47,7 @@ export const createBlob = async (container, blobName, filePath) => {
   try {
     return client.uploadStream(stream, blockSize, concurrency, options)
   } catch (err) {
-    console.log("Error", err)
+    console.error("Error", err)
   }
 }
 
@@ -62,7 +62,7 @@ export const readBlob = async (container, blobName, fileSize) => {
   try {
     await client.downloadToBuffer(buffer, 0, undefined, options)
   } catch (err) {
-    console.log("Error", err)
+    console.error("Error", err)
   }
 
   return buffer
@@ -79,6 +79,6 @@ export const deleteBlob = async (container, blobName) => {
   try {
     return client.delete()
   } catch (err) {
-    console.log("Error", err)
+    console.error("Error", err)
   }
 }

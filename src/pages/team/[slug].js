@@ -1,4 +1,5 @@
 import Files from "@components/files"
+import Followup from "@components/followup"
 import Intro from "@components/Intro"
 import Posts from "@components/posts/Posts"
 import TabPanel from "@components/TabPanel"
@@ -7,7 +8,7 @@ import fetcher from "@lib/fetcher"
 import { PostsContext } from "@lib/posts"
 import React from "react"
 
-const Page = ({ posts, files, slug }) => {
+const Page = ({ posts, files, followup, slug }) => {
   const tabs = [
     {
       content: (
@@ -16,6 +17,10 @@ const Page = ({ posts, files, slug }) => {
         </PostsContext.Provider>
       ),
       name: "Publications",
+    },
+    {
+      content: <Followup slug={slug} followup={followup} />,
+      name: "Suivi technique",
     },
     {
       content: <Files files={files} slug={slug} />,
@@ -42,10 +47,11 @@ export async function getServerSideProps({ req, params }) {
   try {
     const posts = await fetcher(`${baseUrl}/api/teams/${slug}/posts`)
     const files = await fetcher(`${baseUrl}/api/teams/${slug}/files`)
-    return { props: { files, posts, slug } }
+    const followups = await fetcher(`${baseUrl}/api/teams/${slug}/followup`)
+    return { props: { files, followup: followups[0] || {}, posts, slug } }
   } catch (error) {
-    console.log(error)
-    return { props: { files: [], posts: [], slug } }
+    console.error(error)
+    return { props: { files: [], followup: {}, posts: [], slug } }
   }
 }
 

@@ -10,7 +10,7 @@ import Loader from "./Loader"
 import Message from "./Message"
 
 const Publish = ({ post }) => {
-  const user = useUser() || {}
+  const user = useUser()
   const [team, setTeam] = useState("")
   const [message, setMessage] = useState()
 
@@ -24,7 +24,7 @@ const Publish = ({ post }) => {
   }
 
   useEffect(() => {
-    const { teams = [] } = user
+    const { teams = [] } = user || {}
     setTeam(teams[0])
   }, [user])
 

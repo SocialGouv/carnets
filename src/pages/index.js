@@ -24,7 +24,7 @@ export async function getServerSideProps({ req }) {
     const posts = await fetcher(`${baseUrl}/api/posts`)
     return { props: { posts } }
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return { props: { posts: [] } }
   }
 }

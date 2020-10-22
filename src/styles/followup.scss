@@ -1,0 +1,133 @@
+@use "./variables" as *;
+
+.followup {
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: $base-margin / 2 0 $base-margin;
+
+    & > * {
+      margin-right: $base-margin / 2;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $base-margin * 4;
+
+    .section {
+      display: flex;
+      flex: 1 0 33.333%;
+      max-width: 33.333%;
+
+      .section-wrapper {
+        flex: 1;
+        margin: 0 $base-margin / 2 $base-margin;
+        padding: $base-margin $base-margin $base-margin / 2 $base-margin;
+
+        @include themify() {
+          box-shadow: themed("box-shadow");
+          box-radius: themed("box-radius");
+          border: 1px solid themed("border-color");
+          background-color: themed("background-color");
+        }
+
+        h4 {
+          margin: 0 0 $base-margin / 2 0;
+        }
+
+        .items {
+          .item {
+            margin-bottom: $base-margin / 2;
+
+            &.date,
+            &.value,
+            &.status {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+
+            &.value,
+            &.date {
+              & > div:first-child {
+                flex: 2;
+              }
+
+              & > input:last-child {
+                flex: 1;
+                min-width: 0;
+              }
+            }
+
+            .text {
+              padding: 1px 4px;
+              @include themify() {
+                border-radius: themed("border-radius");
+                background-color: themed("base-color");
+                border: 1px solid themed("border-color");
+              }
+            }
+
+            &.list,
+            &.select {
+              &.edit {
+                .label {
+                  margin-bottom: 0.5rem;
+                }
+              }
+              .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+              .entries {
+                .entry {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 0.5rem;
+                  justify-content: space-between;
+
+                  input {
+                    flex: 1;
+                    margin-left: $base-margin;
+                    margin-right: $base-margin;
+                  }
+                }
+              }
+            }
+          }
+
+          .items {
+            padding: 0;
+            margin-left: $base-margin;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .followup {
+    form {
+      .section {
+        flex: 1 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .followup {
+    form {
+      .section {
+        flex: 1 0 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

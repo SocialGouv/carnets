@@ -48,16 +48,11 @@
     flex: 1;
     display: flex;
     overflow: auto;
+    justify-content: center;
 
     & > div {
-      display: none;
       overflow: auto;
       padding: 0 variables.$base-margin / 2;
-
-      &.selected {
-        flex: 1;
-        display: block;
-      }
     }
   }
 }

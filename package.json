@@ -15,10 +15,12 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.16.0",
     "@azure/storage-blob": "12.2.1",
+    "@react-pdf/renderer": "^1.6.11",
     "@sentry/browser": "^5.25.0",
     "@zeit/next-source-maps": "^0.0.3",
     "bytes": "^3.1.0",
     "crypto": "^1.0.1",
+    "file-saver": "^2.0.2",
     "formidable": "^1.2.2",
     "formik": "^2.2.0",
     "github-markdown-css": "^4.0.0",
@@ -29,6 +31,7 @@
     "next": "^9.5.5",
     "react": "16.13.1",
     "react-container-dimensions": "^1.4.1",
+    "react-datepicker": "^3.3.0",
     "react-dom": "16.13.1",
     "react-dropzone": "^11.2.0",
     "react-feather": "^2.0.8",
@@ -36,6 +39,7 @@
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.27.0",
     "swr": "^0.3.5",
+    "use-debounce": "^5.0.1",
     "uuid": "^8.3.1",
     "victory": "^35.2.0"
   },
