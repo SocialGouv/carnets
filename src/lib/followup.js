@@ -19,7 +19,7 @@ export const get = async (slug) => {
   return followups
 }
 
-export const upsert = (followup, slug, accessToken) => {
+export const upsert = async (followup, slug, accessToken) => {
   followup.updated_at = new Date()
   followup.team_slug = followup.team_slug || slug
 
@@ -40,11 +40,17 @@ export const upsert = (followup, slug, accessToken) => {
       ) {
         returning {
           id
+          data
+          team_slug
+          updated_at
         }
       }
     }
   `
 
   const variables = { objects: [followup], slug: followup.team_slug }
-  return fetch(query, variables, accessToken)
+  const {
+    insert_followups: { returning },
+  } = await fetch(query, variables, accessToken)
+  return returning[0]
 }

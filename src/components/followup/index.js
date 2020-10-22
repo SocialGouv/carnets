@@ -21,8 +21,10 @@ const Followup = ({ followup = {}, slug }) => {
   }
 
   const onSubmit = async (data) => {
-    setData(data)
-    await submit(data)
+    const result = await submit(data)
+    const followup = await result.json()
+    console.log("onSubmit", followup)
+    setData(followup)
   }
 
   const toggle = () => setEdit(!edit)

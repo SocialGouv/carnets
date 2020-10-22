@@ -2,6 +2,7 @@
 
 .page > .posts,
 .panels .posts {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   margin: variables.$base-margin / 2 0 0;
