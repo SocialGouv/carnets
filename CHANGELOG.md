@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/SocialGouv/carnets/compare/v1.4.0...v1.4.1) (2020-10-22)
+
+
+### Bug Fixes
+
+* Bump version to create new tag. ([2203fd9](https://github.com/SocialGouv/carnets/commit/2203fd9fddda51941b99ebd8e86e6664e417d5dd))
+
 # [1.4.0](https://github.com/SocialGouv/carnets/compare/v1.3.12...v1.4.0) (2020-10-22)
 
 
