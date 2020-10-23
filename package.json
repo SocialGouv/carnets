@@ -36,7 +36,7 @@
     "react-dom": "16.14.0",
     "react-dropzone": "^11.2.3",
     "react-feather": "^2.0.8",
-    "react-markdown": "^4.3.1",
+    "react-markdown": "^5.0.2",
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.29.0",
     "swr": "^0.3.8",
