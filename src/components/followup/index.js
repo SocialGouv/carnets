@@ -72,7 +72,7 @@ const Followup = ({ followup = {}, slug }) => {
                   </div>
                 </div>
               ))}
-            {edit && <Autosave debounceMs={5000} />}
+            {edit && <Autosave debounceMs={2000} />}
             {edit && dirty && <button type="submit">SAVE</button>}
           </Form>
         )}
