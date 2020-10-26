@@ -7,11 +7,12 @@ import Items from "./items"
 import Template from "./Template"
 
 const Followup = ({ followup = {}, slug }) => {
+  console.log("FOLLOWUP::create")
   const [edit, setEdit] = useState(false)
   const [data, setData] = useState()
 
   const submit = (values) => {
-    console.info("SAVE", values)
+    console.log("SAVE", values)
     const options = {
       body: JSON.stringify({ data: values.data }),
       headers: { "Content-Type": "application/json" },
@@ -20,16 +21,37 @@ const Followup = ({ followup = {}, slug }) => {
     return fetch(`/api/teams/${slug}/followup`, options)
   }
 
-  const onSubmit = async (data) => {
-    const result = await submit(data)
+  const onSubmit = async (values, { resetForm }) => {
+    console.log("FOLLOWUP::submit start")
+    console.log(
+      "Schema d'architecture technique:",
+      values.data[0].items[1].status
+    )
+    console.log("Matrice des flux:", values.data[0].items[2].status)
+    const result = await submit(values)
     const followup = await result.json()
-    console.log("onSubmit", followup)
+    console.log("FOLLOWUP::submit end")
+    console.log(
+      "Schema d'architecture technique:",
+      followup.data[0].items[1].status
+    )
+    console.log("Matrice des flux:", followup.data[0].items[2].status)
+    // resetForm(followup)
     setData(followup)
+    // return Promise.resolve()
+    return true
   }
 
   const toggle = () => setEdit(!edit)
 
-  useEffect(() => setData({ ...Template, ...followup }), [followup])
+  useEffect(() => {
+    console.log("FOLLOWUP::render")
+  }, [])
+  useEffect(
+    () =>
+      console.log("FOLLOWUP::change") || setData({ ...Template, ...followup }),
+    [followup]
+  )
 
   return (
     <div className="followup">
@@ -39,7 +61,7 @@ const Followup = ({ followup = {}, slug }) => {
         initialValues={data}
         enableReinitialize={true}
       >
-        {({ values }) => (
+        {({ dirty, values }) => (
           <Form>
             {values &&
               values.data.map((section, i) => (
@@ -50,7 +72,8 @@ const Followup = ({ followup = {}, slug }) => {
                   </div>
                 </div>
               ))}
-            {edit && <Autosave debounceMs={500} />}
+            {edit && <Autosave debounceMs={5000} />}
+            {edit && dirty && <button type="submit">SAVE</button>}
           </Form>
         )}
       </Formik>

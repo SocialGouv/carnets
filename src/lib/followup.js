@@ -6,9 +6,7 @@ export const get = async (slug) => {
       followups(
         where: {team_slug: {_eq: $slug}}
       ) {
-        id
         data
-        team_slug
         updated_at
       }
     }
@@ -49,8 +47,10 @@ export const upsert = async (followup, slug, accessToken) => {
   `
 
   const variables = { objects: [followup], slug: followup.team_slug }
+
   const {
     insert_followups: { returning },
   } = await fetch(query, variables, accessToken)
+
   return returning[0]
 }
