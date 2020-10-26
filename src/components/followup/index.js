@@ -7,12 +7,12 @@ import Items from "./items"
 import Template from "./Template"
 
 const Followup = ({ followup = {}, slug }) => {
-  console.log("FOLLOWUP::create")
   const [edit, setEdit] = useState(false)
   const [data, setData] = useState()
 
+  const toggle = () => setEdit(!edit)
+
   const submit = (values) => {
-    console.log("SAVE", values)
     const options = {
       body: JSON.stringify({ data: values.data }),
       headers: { "Content-Type": "application/json" },
@@ -21,37 +21,14 @@ const Followup = ({ followup = {}, slug }) => {
     return fetch(`/api/teams/${slug}/followup`, options)
   }
 
-  const onSubmit = async (values, { resetForm }) => {
-    console.log("FOLLOWUP::submit start")
-    console.log(
-      "Schema d'architecture technique:",
-      values.data[0].items[1].status
-    )
-    console.log("Matrice des flux:", values.data[0].items[2].status)
+  const onSubmit = async (values) => {
     const result = await submit(values)
     const followup = await result.json()
-    console.log("FOLLOWUP::submit end")
-    console.log(
-      "Schema d'architecture technique:",
-      followup.data[0].items[1].status
-    )
-    console.log("Matrice des flux:", followup.data[0].items[2].status)
-    // resetForm(followup)
     setData(followup)
-    // return Promise.resolve()
     return true
   }
 
-  const toggle = () => setEdit(!edit)
-
-  useEffect(() => {
-    console.log("FOLLOWUP::render")
-  }, [])
-  useEffect(
-    () =>
-      console.log("FOLLOWUP::change") || setData({ ...Template, ...followup }),
-    [followup]
-  )
+  useEffect(() => setData({ ...Template, ...followup }), [followup])
 
   return (
     <div className="followup">
