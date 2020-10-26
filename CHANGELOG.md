@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/SocialGouv/carnets/compare/v1.4.2...v1.4.3) (2020-10-26)
+
+
+### Bug Fixes
+
+* Swap form KIPs placeholder. ([98d2742](https://github.com/SocialGouv/carnets/commit/98d2742b20a74e86aad5b43b6735d88348b80068))
+
 ## [1.4.2](https://github.com/SocialGouv/carnets/compare/v1.4.1...v1.4.2) (2020-10-22)
 
 
