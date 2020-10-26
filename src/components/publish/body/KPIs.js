@@ -39,7 +39,7 @@ const KPIs = ({
                 value={kpi[field]}
                 name={`kpis.${index}.${field}`}
                 className={checkError(index, field)}
-                placeholder={field === "name" ? "KPI" : "description"}
+                placeholder={field === "name" ? "description" : "KPI"}
               />
             ))}
             <div className="control">
