@@ -10,8 +10,9 @@ const Followup = ({ followup = {}, slug }) => {
   const [edit, setEdit] = useState(false)
   const [data, setData] = useState()
 
+  const toggle = () => setEdit(!edit)
+
   const submit = (values) => {
-    console.info("SAVE", values)
     const options = {
       body: JSON.stringify({ data: values.data }),
       headers: { "Content-Type": "application/json" },
@@ -20,14 +21,12 @@ const Followup = ({ followup = {}, slug }) => {
     return fetch(`/api/teams/${slug}/followup`, options)
   }
 
-  const onSubmit = async (data) => {
-    const result = await submit(data)
+  const onSubmit = async (values) => {
+    const result = await submit(values)
     const followup = await result.json()
-    console.log("onSubmit", followup)
     setData(followup)
+    return true
   }
-
-  const toggle = () => setEdit(!edit)
 
   useEffect(() => setData({ ...Template, ...followup }), [followup])
 
@@ -39,7 +38,7 @@ const Followup = ({ followup = {}, slug }) => {
         initialValues={data}
         enableReinitialize={true}
       >
-        {({ values }) => (
+        {({ dirty, values }) => (
           <Form>
             {values &&
               values.data.map((section, i) => (
@@ -50,7 +49,8 @@ const Followup = ({ followup = {}, slug }) => {
                   </div>
                 </div>
               ))}
-            {edit && <Autosave debounceMs={500} />}
+            {edit && <Autosave debounceMs={2000} />}
+            {edit && dirty && <button type="submit">SAVE</button>}
           </Form>
         )}
       </Formik>

@@ -1,4 +1,4 @@
-import TabPanel from "@components/TabPanel"
+import TabPanel from "@components/tabpanel"
 import React from "react"
 import ReactMarkdown from "react-markdown"
 

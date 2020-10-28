@@ -12,10 +12,12 @@ const Select = ({ item }) => {
     },
   }
 
+  const { items, name: value } = item.options[item.selected]
+
   return (
     <View style={styles.select}>
-      <Value item={{ ...item, value: item.options[item.selected].name }} />
-      <Items items={item.options[item.selected].items} />
+      <Value item={{ label: item.label, value }} />
+      <Items items={items} />
     </View>
   )
 }

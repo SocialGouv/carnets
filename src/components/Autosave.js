@@ -1,28 +1,31 @@
 import { useFormikContext } from "formik"
 import { debounce } from "lodash"
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useRef } from "react"
 
-const Autosave = ({ debounceMs = 1000 }) => {
+function useDebounce(callback, delay) {
+  const memoizedCallback = useCallback(callback, [callback])
+  const debouncedFn = useRef(debounce(memoizedCallback, delay))
+
+  useEffect(() => {
+    debouncedFn.current = debounce(memoizedCallback, delay)
+  }, [memoizedCallback, debouncedFn, delay])
+
+  return debouncedFn.current
+}
+
+const Autosave = ({ debounceMs = 500 }) => {
   const formik = useFormikContext()
-  const [isSaved, setIsSaved] = useState(null)
-  const debouncedSubmit = useCallback(
-    debounce(() => {
-      return formik.submitForm().then(() => setIsSaved(true))
-    }, debounceMs),
-    [formik.submitForm, debounceMs]
-  )
+  const { dirty, isValid, isSubmitting } = formik
+  const submit = useDebounce(formik.submitForm, debounceMs)
+  const submitCallback = useCallback(submit, [submit])
 
-  useEffect(() => debouncedSubmit, [debouncedSubmit, formik.values])
+  useEffect(() => {
+    if (isValid && dirty && !isSubmitting) {
+      submitCallback()
+    }
+  }, [dirty, isValid, isSubmitting, submitCallback])
 
-  return (
-    <p className="text-center text-success">
-      {formik.isSubmitting
-        ? "Saving..."
-        : isSaved
-        ? "Your changes saved."
-        : null}
-    </p>
-  )
+  return <p className="text-center text-success">toto</p>
 }
 
 export default Autosave
