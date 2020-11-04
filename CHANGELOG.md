@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/SocialGouv/carnets/compare/v1.4.4...v1.4.5) (2020-11-04)
+
+
+### Bug Fixes
+
+* Refactor ci jobs. ([#245](https://github.com/SocialGouv/carnets/issues/245)) ([d2aa733](https://github.com/SocialGouv/carnets/commit/d2aa73308b0730ad01e6943a8e2503d2afaf129d))
+
 ## [1.4.4](https://github.com/SocialGouv/carnets/compare/v1.4.3...v1.4.4) (2020-10-28)
 
 
