@@ -35,15 +35,15 @@ stages:
 
 Register image Hasura:
   extends: .autodevops_register_image
-  dependencies: []
-  needs: []
+  # dependencies: []
+  # needs: []
   environment:
     name: ${CI_COMMIT_REF_NAME}-dev2
   variables:
     CONTEXT: ./packages/hasura
     IMAGE_NAME: $CI_REGISTRY_IMAGE/hasura
 
-.e2e_tests:
+.on_branches_only:
   environment:
     name: ${CI_COMMIT_REF_NAME}-dev2
     url: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
@@ -60,7 +60,7 @@ Register image Hasura:
 
 Wait hasura:
   stage: Wait
-  extends: .e2e_tests
+  extends: .on_branches_only
   image:
     name: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:1.18.0
     entrypoint: [""]
@@ -69,7 +69,7 @@ Wait hasura:
 
 Create seeds DB (dev):
   stage: Seed
-  extends: .e2e_tests
+  extends: .on_branches_only
   image:
     name: postgres:11
     entrypoint: [""]
