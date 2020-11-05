@@ -5,7 +5,8 @@ include:
 
 variables:
   AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
-  AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "OMG!"
+  AUTO_DEVOPS_TEST_DISABLED: "🛑"
+  # AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "OMG!"
 
 stages:
   - Install
@@ -17,25 +18,10 @@ stages:
   - Wait
   - Seed
 
-# Lint:
-#   rules:
-#     - when: never
-
-# Test:
-#   rules:
-#     - when: never
-
-# Register image:
-#   extends: .autodevops_register_image
-#   variables:
-#     DOCKER_BUILD_ARGS: >-
-#       --shm-size 512M
-#     IMAGE_NAME: $CI_REGISTRY_IMAGE/app
-
-Register image Hasura:
+Register Hasura:
   extends: .autodevops_register_image
-  # dependencies: []
-  # needs: []
+  dependencies: []
+  needs: []
   environment:
     name: ${CI_COMMIT_REF_NAME}-dev2
   variables:
