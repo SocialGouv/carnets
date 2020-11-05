@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/SocialGouv/carnets/compare/v1.4.5...v1.4.6) (2020-11-05)
+
+
+### Bug Fixes
+
+* Simpler CI ([#246](https://github.com/SocialGouv/carnets/issues/246)) ([c869435](https://github.com/SocialGouv/carnets/commit/c869435d1aab660adfd18e14da1a7db8671b4373))
+
 ## [1.4.5](https://github.com/SocialGouv/carnets/compare/v1.4.4...v1.4.5) (2020-11-04)
 
 
