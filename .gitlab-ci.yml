@@ -15,8 +15,7 @@ variables:
 
 stages:
   - Install
-  - Quality check
-  - Build
+  - Code Quality
   - Registration
   - Release
   - Deploy
