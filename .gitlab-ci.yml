@@ -1,17 +1,16 @@
 include:
   - project: SocialGouv/gitlab-ci-yml
-    file: /autodevops.yml
-    ref: v18.11.0
+    file: /autodevops_simple.yml
+    ref: rulez-gary2
 
 variables:
   AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
-  AUTO_DEVOPS_QUALITY_DISABLED: "🛑"
-  AUTO_DEVOPS_TEST_DISABLED: "🛑"
-  # AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "OMG!"
+  AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "OMG!"
 
 stages:
   - Install
-  - Code Quality
+  - Quality check
+  - Build
   - Registration
   - Release
   - Deploy
@@ -26,12 +25,12 @@ stages:
 #   rules:
 #     - when: never
 
-Register image:
-  extends: .autodevops_register_image
-  variables:
-    DOCKER_BUILD_ARGS: >-
-      --shm-size 512M
-    IMAGE_NAME: $CI_REGISTRY_IMAGE/app
+# Register image:
+#   extends: .autodevops_register_image
+#   variables:
+#     DOCKER_BUILD_ARGS: >-
+#       --shm-size 512M
+#     IMAGE_NAME: $CI_REGISTRY_IMAGE/app
 
 Register image Hasura:
   extends: .autodevops_register_image
