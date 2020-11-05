@@ -9,8 +9,7 @@ variables:
 
 stages:
   - Install
-  - Quality check
-  - Build
+  - Code Quality
   - Registration
   - Release
   - Deploy
@@ -25,12 +24,12 @@ stages:
 #   rules:
 #     - when: never
 
-# Register image:
-#   extends: .autodevops_register_image
-#   variables:
-#     DOCKER_BUILD_ARGS: >-
-#       --shm-size 512M
-#     IMAGE_NAME: $CI_REGISTRY_IMAGE/app
+Register image:
+  extends: .autodevops_register_image
+  variables:
+    DOCKER_BUILD_ARGS: >-
+      --shm-size 512M
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/app
 
 Register image Hasura:
   extends: .autodevops_register_image
