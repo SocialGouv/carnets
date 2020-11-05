@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/SocialGouv/carnets/compare/v1.4.6...v1.4.7) (2020-11-05)
+
+
+### Bug Fixes
+
+* Preprod tag based deployment ([#247](https://github.com/SocialGouv/carnets/issues/247)) ([ed12a19](https://github.com/SocialGouv/carnets/commit/ed12a19b179130666b07218ea9cde114c5146cac))
+
 ## [1.4.6](https://github.com/SocialGouv/carnets/compare/v1.4.5...v1.4.6) (2020-11-05)
 
 
