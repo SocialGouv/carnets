@@ -1,7 +1,7 @@
 include:
   - project: SocialGouv/gitlab-ci-yml
-    file: /autodevops.yml
-    ref: v18.11.0
+    file: /autodevops_simple.yml
+    ref: rulez-gary2
 
 variables:
   AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
@@ -15,7 +15,8 @@ variables:
 
 stages:
   - Install
-  - Code Quality
+  - Quality check
+  - Build
   - Registration
   - Release
   - Deploy
