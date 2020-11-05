@@ -6,7 +6,6 @@ include:
 variables:
   AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
   AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "OMG!"
-  # AUTO_DEVOPS_PRODUCTION_AUTO: "🚀"
 
 stages:
   - Install
