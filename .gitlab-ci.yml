@@ -21,7 +21,9 @@ stages:
 Register Hasura:
   extends: .autodevops_register_image
   dependencies: []
-  needs: []
+  # needs: []
+  needs:
+    - job: Build
   environment:
     name: ${CI_COMMIT_REF_NAME}-dev2
   variables:
