@@ -11,7 +11,7 @@ stages:
   - Install
   - Quality check
   - Build
-  - Register
+  - Registration
   - Release
   - Deploy
   - Wait
