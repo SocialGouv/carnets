@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/SocialGouv/carnets/compare/v1.4.8...v1.4.9) (2020-11-06)
+
+
+### Bug Fixes
+
+* Add Hasura job rules. ([#250](https://github.com/SocialGouv/carnets/issues/250)) ([a192ec2](https://github.com/SocialGouv/carnets/commit/a192ec2948c18b2a3e1c0dc0b451b2592261172d))
+
 ## [1.4.8](https://github.com/SocialGouv/carnets/compare/v1.4.7...v1.4.8) (2020-11-06)
 
 
