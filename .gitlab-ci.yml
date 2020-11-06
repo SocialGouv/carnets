@@ -5,7 +5,7 @@ include:
 
 variables:
   AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
-  AUTO_DEVOPS_TEST_DISABLED: "🛑"
+  # AUTO_DEVOPS_TEST_DISABLED: "🛑"
   # AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "OMG!"
 
 .rule_on_release: &rule_on_release
@@ -27,14 +27,18 @@ Register Hasura:
   extends: .autodevops_register_image
   dependencies:
     - Build
-  # needs: []
-  # needs:
-  #   - job: Build
+  needs: []
   environment:
     name: ${CI_COMMIT_REF_NAME}-dev2
   variables:
     CONTEXT: ./packages/hasura
     IMAGE_NAME: $CI_REGISTRY_IMAGE/hasura
+  rules:
+    - <<: *rule_on_release
+      when: on_success
+    - <<: *rule_on_feature_branch
+      when: on_success
+    - when: never
 
 .on_branches_only:
   environment:
