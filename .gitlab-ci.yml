@@ -33,6 +33,7 @@ Register Hasura:
   variables:
     CONTEXT: ./packages/hasura
     IMAGE_NAME: $CI_REGISTRY_IMAGE/hasura
+<<<<<<< HEAD
   rules:
     - <<: *rule_on_release
       when: on_success
@@ -44,22 +45,29 @@ Register Hasura:
   environment:
     name: ${CI_COMMIT_REF_NAME}-dev2
     url: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+=======
+>>>>>>> fix: Hasura job rules.
   rules:
     - <<: *rule_on_release
       when: on_success
     - <<: *rule_on_feature_branch
       when: on_success
     - when: never
-  # only:
-  #   refs:
-  #     - branches
-  # except:
-  #   refs:
-  #     - master
-  #   variables:
-  #     # Don't run when deploying in production or releasing
-  #     - $PRODUCTION
-  #     - $RELEASE
+
+.on_branches_only:
+  environment:
+    name: ${CI_COMMIT_REF_NAME}-dev2
+    url: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+  only:
+    refs:
+      - branches
+  except:
+    refs:
+      - master
+    variables:
+      # Don't run when deploying in production or releasing
+      - $PRODUCTION
+      - $RELEASE
 
 Wait hasura:
   stage: Wait
