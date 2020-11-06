@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/SocialGouv/carnets/compare/v1.4.7...v1.4.8) (2020-11-06)
+
+
+### Bug Fixes
+
+* Fix Hasura deployment job dependencies. ([#249](https://github.com/SocialGouv/carnets/issues/249)) ([703db4a](https://github.com/SocialGouv/carnets/commit/703db4ad67fa1f2f4c6d40b0d63af930a59d15f5))
+
 ## [1.4.7](https://github.com/SocialGouv/carnets/compare/v1.4.6...v1.4.7) (2020-11-05)
 
 
