@@ -1,3 +1,10 @@
+## [1.4.11](https://github.com/SocialGouv/carnets/compare/v1.4.10...v1.4.11) (2020-11-06)
+
+
+### Bug Fixes
+
+* Add rules to seeds jobs. ([#252](https://github.com/SocialGouv/carnets/issues/252)) ([752ea77](https://github.com/SocialGouv/carnets/commit/752ea77e783587b2fc91b1363b7da929b93c7c02))
+
 ## [1.4.10](https://github.com/SocialGouv/carnets/compare/v1.4.9...v1.4.10) (2020-11-06)
 
 
