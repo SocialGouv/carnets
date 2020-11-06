@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "k8s": "yarn --silent --cwd .k8s",
-    "test": "jest --ci && yarn k8s test",
+    "test": "jest --ci",
     "build": "next build",
     "start": "next start",
     "test:dev": "jest --watch",
