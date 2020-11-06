@@ -1,3 +1,10 @@
+## [1.4.12](https://github.com/SocialGouv/carnets/compare/v1.4.11...v1.4.12) (2020-11-06)
+
+
+### Bug Fixes
+
+* Try out refactored pipeline. ([#253](https://github.com/SocialGouv/carnets/issues/253)) ([4d7ae23](https://github.com/SocialGouv/carnets/commit/4d7ae2351a0b11fb766e9ef6d27bb0430bc2c5e5))
+
 ## [1.4.11](https://github.com/SocialGouv/carnets/compare/v1.4.10...v1.4.11) (2020-11-06)
 
 
