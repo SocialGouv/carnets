@@ -6,7 +6,7 @@ include:
 variables:
   AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
   # AUTO_DEVOPS_TEST_DISABLED: "🛑"
-  # AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "OMG!"
+  AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "🛑"
 
 .rule_on_release: &rule_on_release
   if: $CI_COMMIT_TAG && $AUTO_DEVOPS_RELEASE_AUTO && $PRODUCTION == null
