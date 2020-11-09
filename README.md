@@ -4,7 +4,7 @@ Carnet de bord des produits de la fabrique numériques des Ministères sociaux
 
 ## Fonctionnement
 
-Toutes les infos pour mettre à jour vos informations sont [sur le wiki](https://github.com/SocialGouv/www/wiki/Inscrire-son-%C3%A9quipe-au-standup)
+Toutes les informations relatives au fonctionement de l'application sont [sur le wiki](https://github.com/SocialGouv/www/wiki/Inscrire-son-%C3%A9quipe-au-standup)
 
 ## Environment variables
 
