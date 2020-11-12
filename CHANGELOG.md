@@ -1,3 +1,11 @@
+## [1.4.13](https://github.com/SocialGouv/carnets/compare/v1.4.12...v1.4.13) (2020-11-12)
+
+
+### Bug Fixes
+
+* Add comments to team followup sections. ([#255](https://github.com/SocialGouv/carnets/issues/255)) ([95610d0](https://github.com/SocialGouv/carnets/commit/95610d0e7efca6cf6c03477d22113bfeeb75e407))
+* Update Readme. ([#254](https://github.com/SocialGouv/carnets/issues/254)) ([e31d75e](https://github.com/SocialGouv/carnets/commit/e31d75e6aaa48359153c6cf27e72dd05830ad5c8))
+
 ## [1.4.12](https://github.com/SocialGouv/carnets/compare/v1.4.11...v1.4.12) (2020-11-06)
 
 
