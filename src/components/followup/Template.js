@@ -3,7 +3,7 @@ const Template = {
     {
       items: [
         {
-          label: "Services",
+          label: "Services:",
           list: ["hasura", "postgres", "Azure blob storage"],
         },
         {
@@ -13,6 +13,10 @@ const Template = {
         {
           label: "Matrice des flux",
           status: false,
+        },
+        {
+          comment: "Ceci est un super commentaire",
+          label: "Commentaires:",
         },
       ],
       title: "Architecture",
@@ -48,6 +52,10 @@ const Template = {
             },
           ],
           selected: 0,
+        },
+        {
+          comment: "Ceci est un super commentaire",
+          label: "Commentaires:",
         },
       ],
       title: "CI/CD",
@@ -88,6 +96,10 @@ const Template = {
           label: "Données sensibles",
           status: false,
         },
+        {
+          comment: "Ceci est un super commentaire",
+          label: "Commentaires:",
+        },
       ],
       title: "Sécurité",
     },
@@ -112,6 +124,10 @@ const Template = {
         {
           label: "Rapport de bugs (sentry)",
           status: false,
+        },
+        {
+          comment: "Ceci est un super commentaire",
+          label: "Commentaires:",
         },
       ],
       title: "Qualité",
@@ -139,6 +155,10 @@ const Template = {
         {
           label: "Politique de confidentialité",
           status: false,
+        },
+        {
+          comment: "Ceci est un super commentaire",
+          label: "Commentaires:",
         },
       ],
       title: "RGPD",
