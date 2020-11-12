@@ -1,4 +1,5 @@
 import Autosave from "@components/Autosave"
+import merge from "@lib/merge"
 import { Form, Formik } from "formik"
 import React, { useEffect, useState } from "react"
 
@@ -22,13 +23,14 @@ const Followup = ({ followup = {}, slug }) => {
   }
 
   const onSubmit = async (values) => {
+    console.info("!!! SAVE !!!", values)
     const result = await submit(values)
     const followup = await result.json()
     setData(followup)
     return true
   }
 
-  useEffect(() => setData({ ...Template, ...followup }), [followup])
+  useEffect(() => setData(merge(Template, followup)), [followup])
 
   return (
     <div className="followup">
@@ -49,7 +51,7 @@ const Followup = ({ followup = {}, slug }) => {
                   </div>
                 </div>
               ))}
-            {edit && <Autosave debounceMs={2000} />}
+            {edit && <Autosave debounceMs={3000} />}
             {edit && dirty && <button type="submit">SAVE</button>}
           </Form>
         )}

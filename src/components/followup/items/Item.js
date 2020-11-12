@@ -1,6 +1,7 @@
 import React from "react"
 
 import Items from "."
+import Comment from "./Comment"
 import Date from "./Date"
 import List from "./List"
 import Select from "./Select"
@@ -19,6 +20,7 @@ const Item = ({ item, edit }) => (
     {item.list && <List item={item} edit={edit} />}
     {item.items && item.status && <Items items={item.items} edit={edit} />}
     {item.options && <Select item={item} edit={edit} />}
+    {item.comment && <Comment item={item} edit={edit} />}
   </>
 )
 

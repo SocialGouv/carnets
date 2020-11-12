@@ -43,6 +43,14 @@ const manifests = create("app", {
         initialDelaySeconds: 30,
         periodSeconds: 15,
       },
+      startupProbe: {
+        httpGet: {
+          path: "/api/healthz",
+          port: "http",
+        },
+        initialDelaySeconds: 30,
+        periodSeconds: 15,
+      },
     },
   },
 })
