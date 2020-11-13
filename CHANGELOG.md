@@ -1,3 +1,10 @@
+## [1.4.14](https://github.com/SocialGouv/carnets/compare/v1.4.13...v1.4.14) (2020-11-13)
+
+
+### Bug Fixes
+
+* Followup auto save. ([#256](https://github.com/SocialGouv/carnets/issues/256)) ([8322705](https://github.com/SocialGouv/carnets/commit/8322705a3be5662dc9c0ff179039f41a736023c6))
+
 ## [1.4.13](https://github.com/SocialGouv/carnets/compare/v1.4.12...v1.4.13) (2020-11-12)
 
 
