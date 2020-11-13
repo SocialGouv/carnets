@@ -23,7 +23,7 @@ const Followup = ({ followup = {}, slug }) => {
   }
 
   const onSubmit = async (values) => {
-    console.info("!!! SAVE !!!", values)
+    // console.info("!!! SAVE !!!", values)
     const result = await submit(values)
     const followup = await result.json()
     setData(followup)
@@ -34,26 +34,34 @@ const Followup = ({ followup = {}, slug }) => {
 
   return (
     <div className="followup">
-      <Controls toggle={toggle} edit={edit} data={data} slug={slug} />
       <Formik
         onSubmit={onSubmit}
         initialValues={data}
         enableReinitialize={true}
       >
-        {({ dirty, values }) => (
-          <Form>
-            {values &&
-              values.data.map((section, i) => (
-                <div key={i} className="section">
-                  <div key={i} className="section-wrapper">
-                    <h4>{section.title}</h4>
-                    <Items items={section.items} edit={edit} />
+        {({ dirty, values, isSubmitting }) => (
+          <>
+            <Controls
+              edit={edit}
+              data={data}
+              slug={slug}
+              toggle={toggle}
+              isSubmitting={isSubmitting}
+            />
+            <Form>
+              {values &&
+                values.data.map((section, i) => (
+                  <div key={i} className="section">
+                    <div key={i} className="section-wrapper">
+                      <h4>{section.title}</h4>
+                      <Items items={section.items} edit={edit} />
+                    </div>
                   </div>
-                </div>
-              ))}
-            {edit && <Autosave debounceMs={3000} />}
-            {edit && dirty && <button type="submit">SAVE</button>}
-          </Form>
+                ))}
+              {edit && <Autosave debounceMs={2000} />}
+              {/* {edit && dirty && <button type="submit">SAVE</button>} */}
+            </Form>
+          </>
         )}
       </Formik>
     </div>

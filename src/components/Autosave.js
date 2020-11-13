@@ -15,7 +15,7 @@ function useDebounce(callback, delay) {
 
 const Autosave = ({ debounceMs = 500 }) => {
   const formik = useFormikContext()
-  const { dirty, isValid, isSubmitting } = formik
+  const { dirty, isValid, isSubmitting, values } = formik
   const submit = useDebounce(formik.submitForm, debounceMs)
   const submitCallback = useCallback(submit, [submit])
 
@@ -23,9 +23,10 @@ const Autosave = ({ debounceMs = 500 }) => {
     if (isValid && dirty && !isSubmitting) {
       submitCallback()
     }
-  }, [dirty, isValid, isSubmitting, submitCallback])
+  }, [dirty, isValid, isSubmitting, submitCallback, values])
 
-  return <p className="text-center text-success">toto</p>
+  // return <p className="text-center text-success">toto</p>
+  return <></>
 }
 
 export default Autosave
