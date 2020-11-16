@@ -1,3 +1,10 @@
+## [1.4.15](https://github.com/SocialGouv/carnets/compare/v1.4.14...v1.4.15) (2020-11-16)
+
+
+### Bug Fixes
+
+* 3 states followup statuses. ([#257](https://github.com/SocialGouv/carnets/issues/257)) ([c30fc80](https://github.com/SocialGouv/carnets/commit/c30fc80dbc665ffac1fd448d7523a2f615281e2c))
+
 ## [1.4.14](https://github.com/SocialGouv/carnets/compare/v1.4.13...v1.4.14) (2020-11-13)
 
 
