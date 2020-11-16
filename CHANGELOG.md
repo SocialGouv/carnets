@@ -1,3 +1,10 @@
+## [1.4.18](https://github.com/SocialGouv/carnets/compare/v1.4.17...v1.4.18) (2020-11-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-dom to v17 ([#241](https://github.com/SocialGouv/carnets/issues/241)) ([cb153f0](https://github.com/SocialGouv/carnets/commit/cb153f099c073e15cc8046043a279159357f8adf))
+
 ## [1.4.17](https://github.com/SocialGouv/carnets/compare/v1.4.16...v1.4.17) (2020-11-16)
 
 
