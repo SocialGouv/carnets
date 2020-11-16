@@ -67,7 +67,8 @@
                 border: none;
                 opacity: 0.8;
 
-                &:hover {
+                &:hover,
+                &:focus {
                   opacity: 1;
                   background-color: transparent;
                 }
@@ -141,6 +142,7 @@
           }
 
           .items {
+            flex: none;
             padding: 0;
             margin-left: $base-margin;
           }

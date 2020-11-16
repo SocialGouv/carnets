@@ -18,7 +18,9 @@ const Item = ({ item, edit }) => (
     )}
     {item.date && <Date item={item} edit={edit} />}
     {item.list && <List item={item} edit={edit} />}
-    {item.items && item.status && <Items items={item.items} edit={edit} />}
+    {item.items && item.status !== "na" && (
+      <Items items={item.items} edit={edit} />
+    )}
     {item.options && <Select item={item} edit={edit} />}
     {item.comment && <Comment item={item} edit={edit} />}
   </>
