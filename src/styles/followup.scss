@@ -1,6 +1,8 @@
 @use "./variables" as *;
 
 .followup {
+  flex: 1;
+
   .controls {
     display: flex;
     align-items: center;
@@ -37,7 +39,7 @@
         }
 
         h4 {
-          margin: 0 0 $base-margin / 2 0;
+          margin: 0 0 $base-margin 0;
         }
 
         .items {
@@ -54,6 +56,12 @@
               display: flex;
               align-items: center;
               justify-content: space-between;
+
+              & .label {
+                &.na {
+                  text-decoration: line-through;
+                }
+              }
             }
 
             &.comment {

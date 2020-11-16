@@ -8,11 +8,11 @@ const Template = {
         },
         {
           label: "Schema d'architecture technique",
-          status: false,
+          status: "ko",
         },
         {
           label: "Matrice des flux",
-          status: false,
+          status: "ko",
         },
         {
           comment: "Ceci est un super commentaire",
@@ -37,15 +37,15 @@ const Template = {
                 },
                 {
                   label: "Gestion des secrets",
-                  status: false,
+                  status: "ko",
                 },
                 {
                   label: "Gestion des ingress",
-                  status: false,
+                  status: "ko",
                 },
                 {
                   label: "Gestion des releases",
-                  status: false,
+                  status: "ko",
                 },
               ],
               name: "Cluster Azure",
@@ -70,31 +70,31 @@ const Template = {
             },
           ],
           label: "Application homologuée",
-          status: false,
+          status: "ko",
         },
         {
           items: [
             {
               label: "Hébergeur certifié HDS",
-              status: false,
+              status: "ko",
             },
             {
               label: "Chiffrement des données",
-              status: false,
+              status: "ko",
             },
           ],
           label: "Données de santé",
-          status: false,
+          status: "ko",
         },
         {
           items: [
             {
               label: "Chiffrement des données",
-              status: false,
+              status: "ko",
             },
           ],
           label: "Données sensibles",
-          status: false,
+          status: "ko",
         },
         {
           comment: "Ceci est un super commentaire",
@@ -107,23 +107,23 @@ const Template = {
       items: [
         {
           label: "Mise à jour des dépendences (renovate)",
-          status: false,
+          status: "ko",
         },
         {
           label: "Maintenance du code (eslint, prettier)",
-          status: false,
+          status: "ko",
         },
         {
           label: "Tests (jest, gerkins)",
-          status: false,
+          status: "ko",
         },
         {
           label: "Analytics (matomo)",
-          status: false,
+          status: "ko",
         },
         {
           label: "Rapport de bugs (sentry)",
-          status: false,
+          status: "ko",
         },
         {
           comment: "Ceci est un super commentaire",
@@ -138,23 +138,23 @@ const Template = {
           items: [
             {
               label: "Bandeau de consentement",
-              status: false,
+              status: "ko",
             },
           ],
           label: "Utilisation des cookies",
-          status: false,
+          status: "ko",
         },
         {
           label: "Mentions légales",
-          status: false,
+          status: "ko",
         },
         {
           label: "CGU",
-          status: false,
+          status: "ko",
         },
         {
           label: "Politique de confidentialité",
-          status: false,
+          status: "ko",
         },
         {
           comment: "Ceci est un super commentaire",
