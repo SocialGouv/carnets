@@ -1,3 +1,10 @@
+## [1.4.17](https://github.com/SocialGouv/carnets/compare/v1.4.16...v1.4.17) (2020-11-16)
+
+
+### Bug Fixes
+
+* **deps:** update registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db docker tag to v1.60.0 ([#238](https://github.com/SocialGouv/carnets/issues/238)) ([1ba6234](https://github.com/SocialGouv/carnets/commit/1ba62343c2b6931fb11b9dce4aa09438f77b0424))
+
 ## [1.4.16](https://github.com/SocialGouv/carnets/compare/v1.4.15...v1.4.16) (2020-11-16)
 
 
