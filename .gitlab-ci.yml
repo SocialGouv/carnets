@@ -53,7 +53,7 @@ Wait hasura:
   stage: Wait
   extends: .on_branches_only
   image:
-    name: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:1.18.0
+    name: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:1.60.0
     entrypoint: [""]
   script:
     - kubectl rollout status deployment.v1.apps/hasura
