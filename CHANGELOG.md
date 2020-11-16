@@ -1,3 +1,10 @@
+## [1.4.16](https://github.com/SocialGouv/carnets/compare/v1.4.15...v1.4.16) (2020-11-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency next to v10 ([#239](https://github.com/SocialGouv/carnets/issues/239)) ([3c78803](https://github.com/SocialGouv/carnets/commit/3c78803650886e4fb1d404e2b620203e2083e59f))
+
 ## [1.4.15](https://github.com/SocialGouv/carnets/compare/v1.4.14...v1.4.15) (2020-11-16)
 
 
