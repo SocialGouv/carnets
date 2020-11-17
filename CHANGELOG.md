@@ -1,3 +1,11 @@
+## [1.4.19](https://github.com/SocialGouv/carnets/compare/v1.4.18...v1.4.19) (2020-11-17)
+
+
+### Bug Fixes
+
+* Ci rules ([#258](https://github.com/SocialGouv/carnets/issues/258)) ([a949123](https://github.com/SocialGouv/carnets/commit/a949123bae13a28c551426bc3d381f48e0701f05))
+* Hide followup item children. ([2573320](https://github.com/SocialGouv/carnets/commit/25733204323c63746af10e837799659d6ad86140))
+
 ## [1.4.18](https://github.com/SocialGouv/carnets/compare/v1.4.17...v1.4.18) (2020-11-16)
 
 
