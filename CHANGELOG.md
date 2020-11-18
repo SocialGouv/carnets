@@ -1,3 +1,11 @@
+## [1.4.20](https://github.com/SocialGouv/carnets/compare/v1.4.19...v1.4.20) (2020-11-18)
+
+
+### Bug Fixes
+
+* Add title to post buttons. ([ce46384](https://github.com/SocialGouv/carnets/commit/ce463847b71c7862bd2df6eb819f71256462d14b))
+* Use RELEASE env var in pipeline rules. ([ea9c50b](https://github.com/SocialGouv/carnets/commit/ea9c50bfd9857f87b7abd2e14e3ebc7978221bf1))
+
 ## [1.4.19](https://github.com/SocialGouv/carnets/compare/v1.4.18...v1.4.19) (2020-11-17)
 
 
