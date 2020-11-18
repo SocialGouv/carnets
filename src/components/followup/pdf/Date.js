@@ -7,7 +7,6 @@ moment.locale("fr")
 const Date = ({ item }) => (
   <View
     style={{
-      // backgroundColor: "cyan",
       flexDirection: "row",
       justifyContent: "space-between",
       marginBottom: 5,

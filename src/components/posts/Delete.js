@@ -38,6 +38,7 @@ const Post = ({ post }) => {
         <a
           role="button"
           tabIndex={0}
+          title="supprimer"
           className="delete button important no-text"
           onClick={() => setModalVisibility(true)}
           onKeyPress={() => setModalVisibility(true)}

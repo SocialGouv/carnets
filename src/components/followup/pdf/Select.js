@@ -7,7 +7,6 @@ import Value from "./Value"
 const Select = ({ item }) => {
   const styles = {
     select: {
-      // backgroundColor: "green",
       marginLeft: 10,
     },
   }

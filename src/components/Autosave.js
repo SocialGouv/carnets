@@ -25,7 +25,6 @@ const Autosave = ({ debounceMs = 500 }) => {
     }
   }, [dirty, isValid, isSubmitting, submitCallback, values])
 
-  // return <p className="text-center text-success">toto</p>
   return <></>
 }
 

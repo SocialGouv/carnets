@@ -6,7 +6,6 @@ import Item from "./Item"
 const Items = ({ items = [] }) => {
   const styles = {
     items: {
-      // backgroundColor: "crimson",
       marginLeft: 10,
     },
   }

@@ -15,7 +15,6 @@ const List = ({ item }) => {
       marginLeft: 10,
     },
     list: {
-      // backgroundColor: "yellow",
       marginBottom: 5,
     },
   }

@@ -4,7 +4,6 @@ import React from "react"
 const Value = ({ item }) => (
   <View
     style={{
-      // backgroundColor: "gray",
       flexDirection: "row",
       justifyContent: "space-between",
       marginBottom: 5,

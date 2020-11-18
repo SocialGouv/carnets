@@ -4,7 +4,6 @@ import React from "react"
 const Status = ({ item }) => (
   <View
     style={{
-      // backgroundColor: "purple",
       flexDirection: "row",
       justifyContent: "space-between",
       marginBottom: 5,

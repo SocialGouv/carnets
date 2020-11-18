@@ -59,7 +59,6 @@ const Read = ({ item }) => (
 )
 
 const StatusItem = ({ item, edit }) => (
-  // <div className={`item status ${item.status === "ko" ? "disabled" : ""}`}>
   <div className="item status">
     {edit ? <Write item={item} /> : <Read item={item} />}
   </div>

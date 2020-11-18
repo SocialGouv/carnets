@@ -1,4 +1,3 @@
-// import Download from "@components/followup/controls/Download"
 import React from "react"
 import { Edit3, Eye } from "react-feather"
 

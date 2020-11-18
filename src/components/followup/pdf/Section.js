@@ -5,11 +5,8 @@ import Items from "./Items"
 
 const Section = ({ section }) => {
   const styles = {
-    section: {
-      // backgroundColor: "pink",
-    },
+    section: {},
     title: {
-      // backgroundColor: "lightblue",
       fontSize: 18,
       marginBottom: 5,
       marginTop: 10,
