@@ -45,6 +45,8 @@ Register Hasura:
     # - when: never
     - <<: *rule_before_release
       when: never
+    - <<: *rule_on_production
+      when: never
     - when: on_success
 
 .on_branches_only:
