@@ -10,7 +10,7 @@
     "gitlab:prod": "yarn --silent gitlab --env prod",
     "pretest": "yarn add jest @babel/plugin-transform-modules-commonjs --prefer-offline",
     "posttest": "yarn remove jest @babel/plugin-transform-modules-commonjs",
-    "test": "npx --no-install jest"
+    "test": "yarn jest"
   },
   "dependencies": {
     "@kosko/env": "^0.5.2",
