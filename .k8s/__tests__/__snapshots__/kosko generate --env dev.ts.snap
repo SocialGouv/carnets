@@ -1,0 +1,496 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kosko generate --dev 1`] = `
+"---
+metadata:
+  annotations:
+    field.cattle.io/creatorId: gitlab
+    field.cattle.io/projectId: 'c-bd7z2:p-4jhn6'
+    git/branch: master
+    git/remote: ''
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: carnets-99-master-dev2
+apiVersion: v1
+kind: Namespace
+---
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    app: app
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: app
+  namespace: carnets-99-master-dev2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: master-dev2
+        app.gitlab.com/env.name: master-dev2
+      labels:
+        app: app
+        application: master-dev2-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    spec:
+      containers:
+        - image: >-
+            registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/app:d812e95b88c9cfe926d0dd67abd560e69be20127
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /api/healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+          name: app
+          ports:
+            - containerPort: 3000
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /api/healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 256Mi
+            requests:
+              cpu: 5m
+              memory: 128Mi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /api/healthz
+              port: http
+            periodSeconds: 15
+            initialDelaySeconds: 30
+          envFrom:
+            - secretRef:
+                name: app-sealed-secret
+            - configMapRef:
+                name: app-configmap
+          env:
+            - name: APP_BASE_URL
+              value: 'https://master-dev2-carnets.dev2.fabrique.social.gouv.fr'
+apiVersion: apps/v1
+kind: Deployment
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: 'true'
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  name: app-sealed-secret
+  namespace: carnets-99-master-dev2
+  labels:
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+spec:
+  encryptedData:
+    AUTH0_CLIENT_ID: >-
+      AgBNmAsUQzY/DqD8eitnBQm7HpOmWOjWmKfax+WXEm595y0YApi0yGuwYwxo/Lc3LWiYKZaTGh93qIcdlsCakk75pOF6HjNyt2Puunu5ZZ4aVWLUEII0mDoBZFTNjH/keMDj1cVxtHZxE67F9C0zdczrr8lFgpKp9KdrPrEvQzNunF7wEnKJY6ivh+uF0gK4iEekYhdUwOlTAui3Q3AOFmM2lLunLuzGJju42aYKnhq+g3n6xj8RujCHfuot8IqelE0lZDyVfATYv9Ciw5kaEYDI4U25IhV0+ehArs+xs86OTQth3gdNoS/WypixAoWLxGeEBXbxKr0Kvyjiy0KTaYfxccUBQNLrGTSlOTY1rK0zxE1kUXCkcfz7r63oGxiNoP1ElFvPV4ABQoo2YT+Ml8hXgOqJdKq/9R1tKm2bfTzsikj1BKCbQt7fuLHuLe2wYFnX3v6bu2wxnj9FE6P64oUgeO1qj7157bael6Sl2FUlk2FV87WbaZoa2gHUYKIWLAUQHWrP5H44zX+tpedMBL0ip8fd0fUdQCRIG1bSg+gUgaXsEyn82nc7A90Gy9n3mE0NJAtXFn+1L9Z8o9nvXARAxEfDpgsXrCfMenaIEl8znlgEX6ET0yWJLIBG+DZmmDAsC8ccyPo0PY9z/DFDELQPzEmsfnF6669lH/NYmtqhKaA6yLKM0vhIZiqdElgoNQPgGTjh3vVXf5vMLjrTXEf0F/A5es+aNmBQH6ddJnsyVw==
+    AUTH0_CLIENT_SECRET: >-
+      AgAotb+Pf3Bgb+VickeHRb4TMYap+7z8BTFRhJ8PPcB91W3dY+UbU0tZwiZS5RlTqBemk2g8e3a26wyCfjc+y15ev6ywfo+DSP+uCBQamngslDEqdBk0iOkFLded+/NnmApGBTNgLwvef8dppiOBBBhlkZWLEpQZkiFobbW8mt4VMiiWyzIoxMphMQV3l+TR4ilKxYYdQfFZBTfTy6EHcHIqHHOGzLNZlWTjjqPHcx62+3GLjfn3DX6aTNDRJrHBfbbPmDEDrlFmA9gekZTmWbUqMlpILsOQpxdKC0JwFtZ7R+GfPH4dny9Aptw9NyRYc0Y1dI5c5tWiJ4mm8OAJwc26Yfn8pb5LIXvwwcc8MGOt6G3pVpjPzmvb8YlGy0N8wGhnHgNufynzuNkmCOg7W2+VtmQM/uiCUHxfVb69m53zrDZUxYOxtLxCrGyCiuVIwnYk/DsJDinlRZENMkOP4tM+oKVN+3kRm0wxtUFER3/3OJcOPWPw7thuHUhMdNXB8e6XyrtjsZgtZs1CAiYEA7rKY8G7ZqwHW4YcKla+Z6BMHmrBC/Uv7N/RA+eTymq01LqgSPwZcJoD8A8liwQ7it4ZtYYR4bS6H8ZxKKn0ckNmlnCukXZqx81BE1erDTP9WM5PxH6JEZcRW7IhAHRgUdxjzoNFvEZUIrCV7MEKcx9JyUrMBX9CZD8Kg4RdC4mwMPc18LeSia3dtwDrHDeMa91udh8O7objK5PcR9vtctI6niPsns8wQCG7QUhTg5UX0xfHaGsZ22Hi9EfiBW7GiB9j
+    AUTH0_SESSION_COOKIE_SECRET: >-
+      AgCO04te+aQxR662Rztbr+b8HqSnGFqu40RmFIFR2RjxxBg1SbfScqAeeNAqfwhBt2IsX18LZUr9paXl+3/x39+EQw7svEPtCGoEZ461zTQ7oq6GHqgZKBWgEp0BJ+Tnn6SJquhyBCPh/e6tyN3oW4PxbNrmanvGmGZpFAvhvUX2Xr+jI904b/ACpX+DAIT8DkkjoWhX/IneB9FpqZo1g3eIeH+W6uSjJZS9XKxV90oiIiQr6QbSIdw/kczwdtpT2F2YB9C6eNqEXW8oL3LRQN8DLyXx56whIJpsc8+lE3K+lceNEK/gcsfrxmQ1BzyWUNjIoaFe9LutO+aDFevPoUnejyAKjW1VjHVBXa4jgD4iU5py3JJwG3TZaOS+PeqpM1OcPAFT4WX1UxgfDfvrUJgqcJoPtvMahTJxluXDLF3B++r4TEjxpWHpg1OcpSc0LcKfDJFYTlngyZRkSfWni6neKHGZR9TaHp7f+GhA6BTnuSFJb6VKQCQfWsqhuRUcJ6Ogc/ebep/0JE2KV3DpZ8xpVM7Se8LtxUnNjReTIhK5DLCNVxBjnkOzeu/g9iKUNIY8e89o7/I6fLBgYHrvPz8rtjqoRzc+tiEoqPQKZrT5K/NzZO2raD8dDR3jLba4maBdJ3KKUQGGokmsv7lDBpqD7meUFoafnucKTIV6PYMtvVoFIJ1PKm8jBhLOclc/EJ5Ed8k4diJNZx6eMZpyotSXS7dj17UrlEM8X3OxHxpoyh4EwI5WtndhnWf+d7NZYnP4kfk3ZVOGF2Xo5kfRCHNoGLrhzsClJyd+hnuTu+ScR5XSMhSZVkXBGLKj1n8=
+    AZURE_ACCOUNT_KEY: >-
+      AgBAuwrWnlXQIFEtc8dd48JgVB8gU4raestFO0qmWw96bXMDwDWhpfnoWiS0LTQLLwK7+kG9ZrzUUbxXUFDEDeTBVHrrhzPv5q0lfnSosKdgjSOOwPsJMd8mArSNMzCbHPU3eLQhJc8u6R3d+HR08hmVQLUG+ZiIeZ63r2IL7I4Oir3mv9UxuBhCNcQpT32QnCC1osINg7r1G+AvvaqbrZGzUiyUWtD2rUq99XaoJLUXBvBr0SlThMhwL34YOzxBGN8G5m5KUlHNHK87ui8rVV9EEQpF86ZYALE+vJd/HJSX0/oykL0qe4sYPJ/8CSeBz+YthduQfWmNXQGJAmAF9GCqn4c1qWEyUqOsyD7bZ3rh5HjGMvNgtBmXnNZD+fWfaa5N3vs4U1EI+U4tlIprjD0/LncXbPsOwO6iaMN0wHoC3u3uzQ0uUu9BEy0whOVt4cqjq2JQ99Gi56zIAcf4mMTBrJIEjAfwoIUvnWR6vvxFynsfim7CbTeR468fdsalpFzcjL1tN0LM6BEv8ECvlz0UnXNkqziaLmysUBezFCDoveFzg/FW5N/lQ7olSYzJjmo+rcMWX3yAcWKAsKC2X6RA44VDlEF6CUJwYXk7MNV02C2cmLWqL7Iyiq1LhnfgC/y1n0sveaur6fkYyb7liMNQu9Naqks0143a69PSDiwG8d1JabEnE2vLgJskcx6KYZ4u8513PJzomtXFBg1U+0XWpg9V8+9mbnLIF5VDkRqkQl1Dj1gfuvH6eekg0zV7kiZC6yFl6kKo+xf8z12/nn+12b/XsFcb8jAtl87sTDfbY5QBi43uXu4Y
+    AZURE_ACCOUNT_NAME: >-
+      AgCDcHqRjc5rqCGYbiMJ1LY/XCynsKlvIn1bYaMg2s0tONJyfjBfpZPCbwmzJDQJ8c3H6OYgvth55dCOHuk2teTfp+MKDd1Nz2ITep8oT4IsSa00N3ngz7cqw3+WuUQdv35hEjNKxP/OyYXnZbKSzBmF7nawJOiXq6a39zluJH3z/DmNb3qPpSRfj1CkRseXHn+9lNBQpFQdz4IomgFNuK1E8XHEKVuMZ6PSnJx6T7Kzkd6K1rSnNdJlz+/8PKHBHCO98UHykhl4vwV6sPov8TMPqTyg0ZLWtEiVdK4zEy9E7KxyGGu56zlBTjLW5K98/UZ14Haf6Ev7aO0IJhX1RqS1bCIpaD4A2cuWBMtFTSPaSwrrfGAanmdKLK4CME9ZT24WEbasjNYbXOcVSTyNHpNxggr0NDeKPd7z97CUMoFGzwwdmyFdl49MD68uYkCwNipkVz4EZ5iRTRjAhLIhpnlwOE3ZGUAf4HZ2uPfyRyhUycgbwYrbri6I15ANzZwzCtrhaMFLSBSI+ch3BvmqLG4HC3U66Gq6EpWJOxuXu3PRhtnCInq+vSlAICxmj78iVvvxRTP6WIXfkxmSIQ8JAnFl4VqKmDwuq0oHrZJ+zwcBs7BvvRGA84jJ8bOncsnPkl0y2ebWOP2rS7CGyPbhQL2eUQEOZyBxIWhJ452E+ANS+zFBwi8x3PUgYBgn0T1O5de74zG9kY7NAMX6
+    GITHUB_AUTHORIZATION_HEADER: >-
+      AgDP5OFBKGdTU92MFQ6+ScMMrX3fV12yMY9hyRBmlRbet1sSQWycO5vYYMB0ITCIgzAwdRu4+zsuknk4g2DmhGOoppwHhJZ4BI3SggM1szuPPaUkfnKDgTtP+6TsBqgA7Srj3RisxIPMKHZlBnyYUdo3RL/fgHE3MHQEtnRmhQqZ3uj14qym7XlAcnE+EEqFzdcoUY7+AQKIIm2HScf49SEksT5XZVofXHkR1y/wdlQblckMKlvKoVTVRD6cNkjONt/DsAYgyMOVXxZMtKQei1DbiAtjbisClmjY50pHv+8Z1taEl9xylKsIARCDcB5IOoNy2dDTsGn+CK7upURgQ+G3XdIt6mQZiifyMeXfjpcwUcQAYoJcYasIJi0P53Tw+GRNvFtegprI3IteVljCrfNh/e7kkxkegooc0Di4yV7cZEa51V9DCWNKCtsTa8HZ0drztIYrlLegBF38Fntl4gBBBLSym1GSBuuoGG45nFe0z0utab4wNjeBb2IIMH6qWqk5ah/gAQq0LO/LkInHwG6mmgByULe3i4cWTC7q8vQbd/an3kUG224hc+97jqDkjqWuSRiUaHXSesQg0PPyDRZrFEtBV7TLMwvG7qFHwIXh5+V78Ep4FDM+kfzXy8AZr6tw/DgnQbC0a2cOihdlbQdEp1LhOJZZ9syVVX4EuCvvcoel54fRIrlcdhrzQ2wNegM/5eA3Lip6cMH1XyHCyp68Jmfs6qchiGnm7G2FR9Eyqczluka0TclxwKjl8vziaU3LbHfKJrc6Nx/d/NXREuv5e2PVfanngbRCvKHAaNB3cI3h
+    GITHUB_WEBHOOKS_TOKEN: >-
+      AgBo4TWtKNpC+7fR2DfU9jVhXjcFOBBDl3Vvf9RH8jT0V/J3bzTx+LvrWMqmaBWd8o7XEIzHFAIHDL8AN/tJInCK8CbJgw7aF2vn3bDCclK3TmQ9cgYiD3PIHuu9yEwZHC6ediisOf14+Q1PzzMKovEpud14QlRX4VyxZ/pj086LOQm5I18y7TJzGCK37+z+B0vIBiZaHoO1vxyqsG59TbjUyjc0AzS3w/y0Lo+FIZiXoma7K+4BTANMaIk+Rbllna3gCB18tDCDW5voGc5N8IJmeGd/JqbEraLexXbA7KaZvCoe7e4CVYvgT+9HUlzeVQok0tbfgclMl5u/ty64q0ELhOsafhE/YKJ8NAp3JgG3N0WZufoPT3Uwdhm+zMOhi9pQ6gJX+711dsgk3lcQgVB8BEr1Q3Kg8o/nBOKL21dAsJ5Z9f1lZB1BcsozVX3TLPHa/NrlBqXgMqvtMpZfSck0D4MSkcrSbh/BaAl9KN2u6Cn1DbOHfXWEChtpSL9Dx/EJGrDsd3MnByGmrxBWiRMlfr52R6jnVMVz5jlrd0glKJipPNPHjJhrKFcTDNrHSv5M52WMveVD2sXjqljiF1AhddaALccF3JXosmL6p0VcpDusrBMKct8oZ+MNsflHCCwVC5W0rKQoZI3B1smF0RQhlex8z7jj1uwdwlm2oSJl+u39p25ObGuqezfU1y4ePXQdd+ZChLFDyAG8Ycj/+49KoXDB7O/wN68FVG8fKwZqVITbuVkmfBcU
+    HASURA_GRAPHQL_ADMIN_SECRET: >-
+      AgDJobklsYx+Hy+gQwh+If9KDBfD2PLSUxOkivYHNmA8SHsfr7QETjjR2WBMZDcnu3ta5Ht+8txmwIrf7WGVs5f0uHuUQJY7M6g8i1fIZrVVVEGu+dNnNTf8Nyrk+LyCDeO4qUnrAIVgbe1nwR5LWVEO1/FNE6FjiVj1t1XJ+mTHVaUawQ16jy9Ab1f2J6wFOEEN84fL1DKdNa+Ck4L9HRlEe45GHN5AYYac9bhfmZqTkawc/aDMTAJZpp9hpFJFz9DDRhSzoXjoIfnTUvlKcxj5vL9RHrIy2yD1ToX3zVdl9JvvQBBW4EUkrpQGtmt5F88KzPbbLVQLhhegSmVqaSYjZhHN1uLEx/zE+NxJyOnm/MgmLDrXDR0Ho2g38lkGLkrn/Y2bjEWHUgIuFCdOjjJ2VP3vKXuFDheUKkw6Vz64BdyVABV6jmawAX49yjz6UA29a8M9mrty0HdOa1/lJYBSzz9zRsBMBL2CQKk6BB/kzImjIYHvU54LJeOHfjYe6AC2fxoTZimXPO32v+x+PeyMnEv8hfdnftkQs0iMuLN7z2INbXt8aRVn0G7Grbe74wohjWlZLoGH8ORL1yymzEwRKB3BHMgPTFrXn7eokRwE+TIkkVHhBTNfZRPbTQ4LOFJFmtjYy9E/W58tQEIitNHuqPHbFL+2OmjLPmDSo3SYL6YwzurombaU+YJdaJQgZTZy8Lc/GWl3mqjVN+wktQ==
+    HASURA_GRAPHQL_JWT_SECRET: >-
+      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
+    SENTRY_DSN: >-
+      AgC1yaZRHjGptW3BY7qUKsHAoXScEjA+mht1Dm0kahzJsb9NDU1FhVBvZvVxbTjo5cINlvkT+v3jHwEP+Xcvz9uqHQuuQ5Pxiz4/QkteOg+iiCLP3KJzl9SLmq6Ukc7wgmOXaVa3U8y3brOF2r/PW77zP9m7zfWLJHIAY5xoyV8fLcwo21nE9peJmS8pw6SzoTzDHWr3kFVHqLKmgBAzkgcbDZ2ZcK1ypkdnkkmpFobJWROfmVZuQmgu5f24vTypJU4qogt9Bvm1UTIVMzqo3QhKi9MVJVauQbjfd9zPkKV6sHHDJL4TTo8mzowNW8Zur9HDkP3j77OHbvKO+KVSayjOimBAPs2pPBDM8V1uIZ54YCp1VPNPsVjZng58ZyXPgilBXmVAq2UT3BqELe0y1wLqWz7YUp2AllIOYNDt9ZKCrkXAI8MHImcq3OnjO/uBGrSe4y4zdlCy+K4c+3Nj6WqlQuaC5u+DbFxn9Q/ttvMnAHoeox1zQCPpGzlStol7of8FCSd+/2tbob19DuOX9+wnTEeDPI5GFlZ6pllEg7/ct/wPQRVC72YKbsLJ321v3vtaAlCcmPZTEAPjJKsTL8t1N+YqfoJyhpFw3zDxuHKPoaB5xshGn99xiNKZBexzn9E9YhSpZJUgnvj9IISfSIFRiMUEe9n3JkXLiCpnaUge1JmVwYezDpsvd8McIwdgayTL0lmuuSQ7KGZwQT+uN6tqBzFNWRQBIsTcamw7IFXELjLgS+7n3swrmALSaLRte1QI8bNszSqpY0z/3/CQPi/AFjHVuOZDTZBbkw==
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: 'true'
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: master-dev2
+        app.gitlab.com/env.name: master-dev2
+      name: app-sealed-secret
+      labels:
+        application: master-dev2-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    type: Opaque
+---
+metadata:
+  name: app-configmap
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  namespace: carnets-99-master-dev2
+data:
+  GITHUB_ORGANIZATION: SocialGouv
+  AUTH0_AUDIENCE: hasura
+  AUTH0_DOMAIN: socialgouv.eu.auth0.com
+  HASURA_URL: 'http://hasura/v1/graphql'
+  NODE_ENV: production
+apiVersion: v1
+kind: ConfigMap
+---
+metadata:
+  labels:
+    app: app
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: app
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  namespace: carnets-99-master-dev2
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+  selector:
+    app: app
+  type: ClusterIP
+apiVersion: v1
+kind: Service
+---
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    app: app
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: app
+  namespace: carnets-99-master-dev2
+spec:
+  rules:
+    - host: master-dev2-carnets.dev2.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: app
+              servicePort: 80
+            path: /
+  tls:
+    - hosts:
+        - master-dev2-carnets.dev2.fabrique.social.gouv.fr
+      secretName: wildcard-crt
+apiVersion: extensions/v1beta1
+kind: Ingress
+---
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    app: hasura
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: hasura
+  namespace: carnets-99-master-dev2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hasura
+  template:
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: master-dev2
+        app.gitlab.com/env.name: master-dev2
+      labels:
+        app: hasura
+        application: master-dev2-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    spec:
+      containers:
+        - image: >-
+            registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/hasura:d812e95b88c9cfe926d0dd67abd560e69be20127
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 5
+          name: hasura
+          ports:
+            - containerPort: 80
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 5
+          envFrom:
+            - secretRef:
+                name: azure-pg-user-d812e95b
+            - secretRef:
+                name: hasura-sealed-secret
+            - configMapRef:
+                name: hasura-configmap
+      initContainers:
+        - env:
+            - name: WAIT_FOR_RETRIES
+              value: '24'
+          envFrom:
+            - secretRef:
+                name: azure-pg-user-d812e95b
+          image: >-
+            registry.gitlab.factory.social.gouv.fr/socialgouv/docker/wait-for-postgres:2.0.0
+          imagePullPolicy: Always
+          name: wait-for-postgres
+          resources:
+            limits:
+              cpu: 20m
+              memory: 32Mi
+            requests:
+              cpu: 5m
+              memory: 16Mi
+apiVersion: apps/v1
+kind: Deployment
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: 'true'
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  name: hasura-sealed-secret
+  namespace: carnets-99-master-dev2
+  labels:
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+spec:
+  encryptedData:
+    GITHUB_AUTHORIZATION_HEADER: >-
+      AgA2ghkSeuFVgV/VDOV5Cuj3UKT86L4XcuSE+3oMOme3dnv8DblLubEcU77TDLzZXR4M85nNlQHgvu/OfEVI0oxv2royGmBrH/LhLOoC+w6WxM7m1H0++FMc1LIrRJVDXxKXQmyqt9QppWT497SE611B3R0Whx47DcOzw6e2WWb/i/T8M70PlKSS3CaYPeUTiL+YUYtgtf/cnv9oPHSjaHUQGxVumuq2ToVde7j9yEreZGoRJBVecaMCVWh1KVJwECo6TZiIzFUC03jPCJUKpMCiCrghUfr2K4vEHyU2V9qD0y+oGLj4g4jQsWB1SUcQZHlWk7JHHWsoP54+Xyvtk8TTjniLNuQ8nMdGfFEtOBM1v//WJlMKLKat+PL2Z8Hn2WIntuU2LlusOmnqmwVoSqPWiYAmMktPI1sQ2plFHdpHIDsBSRv3G1rYECrvKwXVpvpjPg0BxQhgGCAvzSlgJNsn9ovEvESHbXMWO9VSw3/tT+f5rFsKRmecifliQ01yvdXGAsPpVO3MJc49BXnzVQV+k4lRo4lri7zzW4XT2O1Xx7cO7E9lWA5DsCEOS79+iu05MgEX0zx1/5i41p307G0hF8GY7ICtZpQ/LY2qaYR00rif/0C2p8JiP57JqryT3zk/snJfnJvYSP/v3NoP8xrgwEoecKTSD81AD1Bedr2KkO6AJXsKWjW3Jayv3G8U26yOmjnXYDQYwdj0DLV7B7SavgDWo8v+qXQOrxgdIJlWlkDy7l86Zb63aK+AupKKRzXsZZzpHHh3UWd1EX88ne+m3Lt9eGRhVm4lcYzGCA84zXP3
+    HASURA_GRAPHQL_ADMIN_SECRET: >-
+      AgCcb5mXRwJjvRORs39EBaxRar1oji8NaKg6X7XHbVGc2RnmXuc5RDMw0n7/DD92ev8eO/kAjZ2si6eaF+DEc+Prq6rZUKZNV3xequsD6oUGkfRCkifayPfP5TY5LVgLMcoD8w7Gk+xn6dzO3CjJxuSCeiSwqy/v0lNyjMkDD4RYpVfZrVhQ97EGM5KDjt0ZWR0Bd3Cje50Fi1LiY6P/HnNy94qAcayf8hM1e/R6nhNY/9nWa6GpEtX44pbhM4JiLoaamSb6VIGV38rvhU6KGMNAEQwUvdyKFrDnFKZGG0Yb+L0FiF0391TpQ28YYmUV06r6zXDgO/KVPRHFumUmHqOzOXQ4S/rJBJy5Hk7IRCjmEb7gfO0bGCrDglQYfF1ZhCJoMCMvuCVTfSTqYKH8EQnPjDMXdwC/2XN9HEwkgN4YysAi8lJgw7SBjsuvMOWnGWZmCtmonfyG4+Slx8kW8HFNG/i22d4WfSETZ6Nd062pa97lZzrNYt0xWbE4yT0LaR67yGkIB6QdRLU7dHWltmnWz2gA8ARdcevypAwDSgpjzVZSJV4yPzX1KXCAEspt8w31eR+ULpFx+RaGNgeWT1JuqBHy5gUBY0dcKU1IMhsdJFRyDcYsQcZvhFM0qGZNGeWpaDbRO5c+pNPFIoy0v8b97JOa2Ec2mQdV5dNrV+904SDKCc/pOsMzKuTxm3hj+aT5fA2NHNg9Hf15Zlg+ew==
+    HASURA_GRAPHQL_JWT_SECRET: >-
+      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
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: 'true'
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: master-dev2
+        app.gitlab.com/env.name: master-dev2
+      name: hasura-sealed-secret
+      labels:
+        application: master-dev2-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    type: Opaque
+---
+metadata:
+  name: hasura-configmap
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  namespace: carnets-99-master-dev2
+data:
+  HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
+  HASURA_GRAPHQL_ENABLED_LOG_TYPES: 'startup, http-log, webhook-log, websocket-log, query-log'
+  HASURA_GRAPHQL_LOG_LEVEL: debug
+  HASURA_GRAPHQL_NO_OF_RETRIES: '5'
+  HASURA_GRAPHQL_SERVER_PORT: '80'
+  HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
+apiVersion: v1
+kind: ConfigMap
+---
+metadata:
+  labels:
+    app: hasura
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: hasura
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  namespace: carnets-99-master-dev2
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: hasura
+  type: ClusterIP
+apiVersion: v1
+kind: Service
+---
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - command:
+            - create-db-user
+          env:
+            - name: NEW_DB_NAME
+              value: autodevops_d812e95b
+            - name: NEW_USER
+              value: user_d812e95b
+            - name: NEW_PASSWORD
+              value: password_d812e95b
+            - name: NEW_DB_EXTENSIONS
+              value: hstore pgcrypto citext
+          envFrom:
+            - secretRef:
+                name: azure-pg-admin-user
+          image: >-
+            registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:2.1.0
+          imagePullPolicy: IfNotPresent
+          name: create-db-user
+          resources:
+            limits:
+              cpu: 300m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+      restartPolicy: Never
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: master-dev2
+        app.gitlab.com/env.name: master-dev2
+      labels:
+        application: master-dev2-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+  ttlSecondsAfterFinished: 86400
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: create-db-job-d812e95b
+  namespace: carnets-secret
+---
+stringData:
+  DATABASE_URL: >-
+    postgresql://user_d812e95b%40carnetsdevserver.postgres.database.azure.com:password_d812e95b@carnetsdevserver.postgres.database.azure.com/autodevops_d812e95b?sslmode=require
+  DB_URI: >-
+    postgresql://user_d812e95b%40carnetsdevserver.postgres.database.azure.com:password_d812e95b@carnetsdevserver.postgres.database.azure.com/autodevops_d812e95b?sslmode=require
+  HASURA_GRAPHQL_DATABASE_URL: >-
+    postgresql://user_d812e95b%40carnetsdevserver.postgres.database.azure.com:password_d812e95b@carnetsdevserver.postgres.database.azure.com/autodevops_d812e95b?sslmode=require
+  PGDATABASE: autodevops_d812e95b
+  PGHOST: carnetsdevserver.postgres.database.azure.com
+  PGPASSWORD: password_d812e95b
+  PGRST_DB_URI: >-
+    postgresql://user_d812e95b%40carnetsdevserver.postgres.database.azure.com:password_d812e95b@carnetsdevserver.postgres.database.azure.com/autodevops_d812e95b?sslmode=require
+  PGSSLMODE: require
+  PGUSER: user_d812e95b@carnetsdevserver.postgres.database.azure.com
+apiVersion: v1
+kind: Secret
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    application: master-dev2-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: azure-pg-user-d812e95b
+  namespace: carnets-99-master-dev2
+"
+`;

@@ -1,0 +1,455 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kosko generate --preprod 1`] = `
+"---
+metadata:
+  annotations:
+    field.cattle.io/creatorId: gitlab
+    field.cattle.io/projectId: 'c-bd7z2:p-4jhn6'
+    git/branch: v1.4.22
+    git/remote: ''
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  labels:
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: carnets-99-preprod-dev2
+apiVersion: v1
+kind: Namespace
+---
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  labels:
+    app: app
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: app
+  namespace: carnets-99-preprod-dev2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: preprod-dev2
+        app.gitlab.com/env.name: preprod-dev2
+      labels:
+        app: app
+        application: v1-4-22-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    spec:
+      containers:
+        - image: 'registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/app:1.4.22'
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /api/healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+          name: app
+          ports:
+            - containerPort: 3000
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /api/healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 256Mi
+            requests:
+              cpu: 5m
+              memory: 128Mi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /api/healthz
+              port: http
+            periodSeconds: 15
+            initialDelaySeconds: 30
+          envFrom:
+            - secretRef:
+                name: app-sealed-secret
+            - configMapRef:
+                name: app-configmap
+          env:
+            - name: APP_BASE_URL
+              value: 'https://preprod-carnets.dev2.fabrique.social.gouv.fr'
+apiVersion: apps/v1
+kind: Deployment
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: 'true'
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  name: app-sealed-secret
+  namespace: carnets-99-preprod-dev2
+  labels:
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+spec:
+  encryptedData:
+    AUTH0_CLIENT_ID: >-
+      AgDD54GzQqk4Gi6RPDjc06dmEJVtpSf2u4ABVkm0l/gLObXSXj/YXt1tW4BM1bsbeGJcEOvDjsTzP9QqaDgUbk/imHoCDCxm9QVAPg+LksceXVfZAvFVeIZBMzf/qknuRmqI5AzHo/JCJht8BL9uXo4wu6HLIR32QBjDD4PnqEkjkULy2jRy0rZezOKBj7+y8E3Xerh4sDiWFYLWAYEB3CuhVg+M4yhlmS487gjQZVLtQIe7mtbw3Nd27wH1D8kpcWO8Iizohl+LA3OTm8Sdc7EV+SQYDBfC+IMpJ3f1ORJCcFeeD4UOBvWrn9zwPrN0kVIxkuvPxTEABobKO2n1omH7h8wqA5dY4SClmL/44GhgCydPtoU9OfYrGsvF/euyE3gPm+0tPBLtRhLJenooxoWjZx9l6NA2D1gcQkKbJt/r5VROsgA6OttJo2AumhBylMR20d0DOei5kO64EMdnZs6fp8hvnDVvWU1RSBx/LESuaAh6r+3Q+zGIw4E9+YYkB10lJCkx/7djqGE39QN3fDamipjZRLjjvV6btYenIn5M2d07yblpCpsZuDbNtfmu/mMIQmKBFz+TCuPmwiAOrzvdKAM8bj+1ztQGBQ8sWF0jW/iNaRhb9c9Hc4R3ycGFGqJKp730UxcIXwadDnO00MN1VSPSio3zu59di7cCwFb7XFMSwqZL70re3sRpAwuvv74SxMsc55dPNDow1ao9Fdfo75aT7Z4iRik6iWriKDr8AA==
+    AUTH0_CLIENT_SECRET: >-
+      AgAWsmnnckUAWR6FW10uKdOkLHdrRAEZWbbFaNHSltDk0qomXs3Lg0FB8har6NFFlZ5wZUNzuy06AuJRiUmcUILfEVWXmm4SXhT8TA4QFkMSejzZbVZpvTHCHFZFr45MKlboCCs6vp1gmRJJjFc3uOnZkXtRoQnJ5qyLrn5ayW+7VAACZ63Opaa9YLx0xKke4SWW5TDQNVLbyW+xN/+YiGeQEZ6FUGlwlpYVQOu5jMU9GhuGx9SkznQC8Vm71QSReY0yRH5cZ+yXZIBvsTiHAxrpMS0hSdAETSzo4DSZKZc/HAYNxQ99DWWh0zBdu6LEnLwE03mS/jq4wRZqdyCjk/GHH4wHiXS0CqTMxaTkC/MpivV1j2gI7pVXu8VHfRp7MKltyXvpbIhRbItwhS50rrjrjhxY/T7eaYNlWssobG/9fgRd6ANLlOsGWzolQPqbXXILmio1Ma8zKbtUFJtHVCstlURZKV19EHsazsGrMOqWZ2Hg2t5Yopn4zJeVhoqXkp+Zgg9Vend2I3oLkgQ7lQkH3jCExWHb4dsTO2BrTUtFk8dtl8WU+dejsl/mcLUseZMl5m/YTz8EjSgwVotTYU52qHOTiIwY/N395iRz74z8+e1Aa504pORCLEKN4wlj6p07keF7fbz0DQAvhqjcofHueBstfC8x1gcL/e2jzqvQI8ONdRHg+wT6SXFz+qGa9aQJIdgvWk3sGG0OkXmoCH0bdjbT0QO4uAB7DF/krxEJ/oiSuCIJEiiLhNqLfRWPlcCjSDQ31nnPvo6M39FqUG4w
+    AUTH0_SESSION_COOKIE_SECRET: >-
+      AgAI9eJtmsPAzsomXH8II74c99Ernbt7ckucxNKwDwJU3VseYOwZ7mqwWwsL5QMR6qnkM+H22D0+eIDDz4qWTlwN+HtBNxib0jljCmo+ygPnEwxnZ9IkTfVJoCt3w8lmbcdzG+aG3l5oty0+Kmibx9vdh0mQ9cTa5bQSZ+2DYbmagn1lAvTV840CvwJ+yNcSUf5w1LVxZb2U3OdyfXpfRRb4N2I1JvgDWvgmOnrXNxWQLzwbyK12+SkHItpeziB9JjukiBVdc0ZJ2rbTKSmG+3uGWpnaDVIus9xLdYRAd1BzndCC+bYr06RAHBUSYAMmKyjOqW8ln1IPIDDi71Dtmlj4FRMUK1D7TR60zy9m0BwDYkdu6SN92+0lRuQBC1VSOYL4j/xFlZ0Ms1Fv/DN4B/PqZun1XO22adDRfQXcKEiCkFnyaPKAk2aIk41ZrWPtlP7XXtZGmQbH58bN59vxdeRLQuxY6gDqfPIpfK4Te6+huE5gEjfOc6Svcd9T9TjcE4wMC3zDc7UKs2MTHRR5NAknBz7nZRTYB9sGSDUAYriUcMGkhEZdpaK4Lz3QWpnTGkvoyhtAxcZVndw/6byc9DsvQsVuKoWvkGkBcKxWDNCPBpQD9G0LmwuVueAmj4n5wdr4Rk5yrn15EM9OEJwASi/d9m8nOR/4llCYMyksuPlYyjal0Pk2uxtkwrXiAtBkonOxjUd+ZZtMs83n/QNys4iUwlvNTxxBmOZuRy2xVQ5sbmci8yOCEnh7ooWvI6amx3l/B5iWl9GISBP4t+rzY6acVtfxKeWcJtrYwzyvyYnOsB9nsl0rNNkY+4nE1O0=
+    AZURE_ACCOUNT_KEY: >-
+      AgCZ82fdosmMy8byayl7OBfgkLu03XvS/z/Ul0yVFL1IVJeS8Jv1fpKCCo1glPYW0JXHV4SjajQY59SPFfJBF7X1zVw9YTzGgDn39ZD27dNOVrbPXqaKjgePSS8+kqNgkgv4Tz+Fzm0386wEVGX783jhSzzOzdGGr6Tw10/LOA3SMcfCMP9A2iaWaMznJLfayxoBjKQb3PpAXqFwKETk95lnESqVaKujFu50iWQPlOu7B7yN3XiyTzUINxj+PJ9AouDGDarVO44MPA9/7N16fBN4rAIZJoon51g4lP9NR3B9p6x69qi79gLienRhUBR3JOXYrVxxnaBlwXNexIwOGvdA+lKw2jZc3I/ZhAHxdzlYHHdVkPERmc+e0vOCdjBFNF+xHAM69B69ib53TH9CXn2fOZ28dPIfGezAOuPSwwojqG12eKa0RZX1n29d5ONTpvfMlNZmY00qIAYCKOGFxrBlSQ4jDBsyV2oHoh2+mwyCmbswNxgsKlcYYAjMj4FAZfLYCMO6evrmy8le0+qHsq17TXKQ+z58FJfN0uYxMCZbKOpa+TcOWS9LRswl12HSKjkFdtpMmdCFN295uBSdLUSbSJy1rlm/0Bx2QGJI4M8qc52L+Cul9V8bpFjN9LBA5+bflu8MeK8sm08M4CSctGpfoL+mVsvd1csA1PXux8eK+n9t8/jriP/8cWeIKBGvXjDLqflfxnydVJXsuAS1hhHu8uZxoOKoMS6Tk6CU9BCx/oToXiuSmWWa25o6C6rE41GtH8PbASOFM4eBLG0EbB+yX/09nC7sb6aZqzaw9nx4WG5sMDquJI4/
+    AZURE_ACCOUNT_NAME: >-
+      AgAWWWbyh8wAJjxMouilmky/LpaDu3LfF6412CcLYgE0+DZtSm1WGoyN62KqnQdOevkLR9rcu4xheEORhxAzB23Uy/Lby1OzMeYdXLEzZyyNDhyFDYh/PJWUtIvej8fgetxElpQOR9ReL+H+IQOs99IpasK6Fgn1jwj7ERTloKnnDCQQKiNS1/9ezU4pjtJa8sAmiArFP7ooXIvNqLTw9vmIaDuL3Nj1u3c8b8NNIx+JI/hJQ8PFjJzoqYxoQjinUEt7t4Qb3soQiXQPIsOlKZldkWpRefL5tjUaKrCpJIE4q2d9e0Tj9XFfFrgP6na4ZHblwwm0jSIP6RD1t/LQJ5c0bs28WHz6JFvxfGbFp+gW1wMJXiCTty3m14XpPwetuMBZ9oxFuuwpDrUm2Ae0VMwCZ8DKCR4t6qUIkiDHB9HnN8PFzxkFr2DRc9pXcI4hi76X/hCDtMyW/CuHsmAhDvrSdHq3cfztOkVhh618AosO7hBbRZ3nF69W9DmePR0QjjzoF8xEoktmxB3UYcx+y+NPrbuCELCP/IdW63DTyA9KmutE/zUF0A16lLB3XZ0oWn0JmycUBLVXX5D24OUkkHCnv0y6kf2VD3dUsA2IKy3tMaSy2cvle6u/7/m1yQ4/gPuqmP0o2CKbr306WPvzKEMublbR+8/xqqGcE6Dc2eo8OqDYlIItGC6nmCCvLPkApGQNwytEri3CmN0o
+    GITHUB_AUTHORIZATION_HEADER: >-
+      AgAwP4iw7uSt8GovXWLJRFkxx4JzMKnvSG/j6uGTB+14WUhnqf4b1MUS7634OOxZwSlAIJHKWwrwkmHKcUvZTvVfDxhoyFX/wnd/f9r7MG9XWMMKFl7ju568X01OWVc4dRKDTqwh1YlXUBVrCTpalvYiMp/oBYtsh2sWeaV6KwJck82N2M5x9OVEkzCCzRJd9ot/uFSroT5ZpTvUuQhtkzo0K8SWfjIsXXe/oQOI7yI62aK/vDiusIAJcMKCND7CuuKihtG0mZE+ea+DNo3C/H6NCLKYjHxYWHsOMOoGtnPcsdKDh/oR635PBvTsbkk4W4sz4vnDQ5sV6W8vvPUSfcXrE9XgphLr85hiAMI7pdVel4pPeFwtOUkxcGKD9pkE+zh48B1jA551Qo/qU2nSn9cCxCIaSSgiylPiHite0tNoY6b4bvqmRijWWYltJywH6w4GsRYVyFiQyeZfHnoeSHD+Yhlpefan7SVK5CpzM+EFUauh/SRXeHm8Rldz5WGbgMzLFhxHImWo9mENbWmaNCwLNgP0qfPy4yuC26iEvI6ox1uB30KVbPLQpNjAHxctY7XYRkoEs36xiNSHP6aYyxlK1ItX/5/wFiDv3I0E6pYebGGVA5NqhkK0JXyl22HqWyKX/j1oiXKUgH2PnsysnB+wtfEpqoSaXpUOKps+gImWLVWjBAEqjpWQA5UgSGkLWXmPFStfhDT+N4+nZtrWaLlLczK/qM7YzJi5KCUtjzDa8X0yZvPXdJHYQEOWCuFhwKTB6EPAezJOQb9dIP51SLxvg16MmpdPsTXtVStHeNVzMNWO
+    GITHUB_WEBHOOKS_TOKEN: >-
+      AgDT//BYcvUQnpcqK5w2xxlSba4HdHkxjKKFwl+wGDOHyg76oMx14koRezLT+Qd2LVqkKrWNPN2CTq4AHZ+leWW+IVAcVugTKFnJ15XuzIj6MtsLXLmcyBdAxNWa0jrnOAQbuzEf2jp26/nrswSq6lFsXytugrB9oKySdR+Z/9jOgw79hc9GOnr5Hp95UiHVqDOi0X/ZRWAGy8SLghMbX1tJnivY7UmwFvwqEZsdRGCmbllkvz85r+OAZvOvKf6Xf05C2EmPHW5DtG5tz8ARlxoK7nYGrn5Z7HaLNdx+0SBe/rqC0aUjk75nRFvVCW1BrIdhe7sYw2eP006ErL9L0cC2lHs1ZpD3DtVfEe4h+joT5XWP7GO76McYMxEaco1W0J1r7nxn7a/EweCesBnLSegaLL8iLjBpjoTNBXIb7/XIHq7HZDK19c2+qRylFd4ZwCMTPtPePMP5J9y3qjSYHSoDItwWJ9Jdt7UMxvMRkZ0BkCRInKfEyB+390/Z73sh6M1iEFLU10Ed0LYkxNfzigfvJys9Lui7D6ay5cw/5uk6p/SfDdZ/irZH9WSJZKlgMyn63HCDeZIuwGazN0ahuwNLQPKM8RQ2F1GOPC1tt8iCVsjqr67NAFW6jBYldgYfOX+ZEXkaNI8lf2K3W6JlJqsyA3cTHpCinfPfs41SiiH00XoYq0P6UVAL+eOEYODT2ZqmxDnNQNUOyYfsvgS00YnhNWgc6K8xpk/MthRXs8mGC2aN2k5gzDUb
+    HASURA_GRAPHQL_ADMIN_SECRET: >-
+      AgAk2b+TShZr5TpcVfR30BLbCFmJKycKymhu5EAwELLp/T/GeJId3xieaQe9qyzTUHqDsHcPllQE4GnzvYJHMEcDEntRlCnh0DDJIP9/1X0ozEplT/ruBXD7lZz/fOmGa+h3iJb7SU18Qd3pC8x17DNDSQc5Yporb+HlG3QnOMNeCmmJqrMYAWf3N/JBVywZfpmlgGrje3p0l9H+xmxkQpMamEBjtC/mM77kJu+3DRCRDhDIK9G3DDJ9CnAxaR4NWx7dnz8ynutMPK702y/kYGxSmIejPee6eTBAdwj1qd9431RQYgW5jIekdUSkKV3+BGPsoGeSLdWCEKu780c808GFaNEgoCqkXbtFEXtBQb/EH68itgJF9UpGXRRJ/eMdKF1mBHEg7QKYiLa6AYhiN11BE56txirgzVW83aXUrFeTZp0EIF/PJ8MXnJFM2DSD+Jw81aZVfZKyPFa+8G+9dBx/3i000Yg/xWZrJ9iwbN87Jr+sr2mA3qEmeZ54BgwhdZlvfYsRyoIZLXOvPNV5E8qIjqoJ8H9jqGSBYHAOfo8pcudQ1GUl31pKyPSyeBwwZmrnU83BuyPKcxAg8vTfrAWvEKR+Pi57Mpap7rjhEAdcYJ4rsgHu/mjIB2yyTf4sT3eyHBMoBsLqsiFvyQZk+dzI9JPetas6JG8yYNwxGDSDE2/Q357CgDYD9XDQzAFJjtStNXAa+1MhA0Rnru2lHg==
+    HASURA_GRAPHQL_JWT_SECRET: >-
+      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
+    SENTRY_DSN: >-
+      AgCKmjhCclCnZeWvZN2+ssnwNGpS3pgUXaiKkRQJRBNKez1p+EUa0L3zUHZTqt9BWCvEk7IpUZdBs+xjSz0lSNA0/k6ulBq0lngGSQF0vOU9qmKfWdJhVL94wOjB8cXvImW1Z1DZncZ7PTWctKdzR9LqGp1NxYe53Ys4RpoB6BX+/Z1hIcW2zQaO2/C3G7vTCRd/Foz8IcgBwxtqDxatTUE4aO6M0QZruQK7kfQSx0BLiUWWAVBEb6xBZuFwLRy+s35dYk/kpkOyJy0hA536dki5a6UEMm6PbdiEi2/0ChZizP+nsXVJr+99rZNCOiYvf4ZvATUubxO+Gw4+YbsVyCP3bp88F+kZOpE906+Gaah9HEhGllsK7GySo5VcNaE8TiVIjaElzK5ZkGL8HC/VNEH0EMU9RvXiPoCEUQVNqKX675GCh5wgh3C/0SjDfGen3kDMksoVYKSMmmfc3S7epb+PwOa7iKl4I63ld9hXwa+hES5zfpJrnwrM8+6Vj1peT9tRS+rj8AuGKLKuSKWrkEBlZLelkYpO8A8FzvgKfLiCOf15tGmrt0TL3Diy0IWij/i4M/8JEGMDQovAdoeXfP8JLe14tZMagna+8sKPJNz1yaBVZHfpAuVKGVFFqF7WSXtktXigO7DbZeQvsOL50aW7tb8lhkDfObZVqlN1TJIYYZP6vXhznrycUmKDA1IxXbP7xyYTE5eCD+HNBgl+8g3jA2N6M3FBbLe55Nxu9tDPSyPiEuMYy/8jRtShZp1UI3VE65hE2YDP4BzLp15tzzCT8E0jZduXUNDmug==
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: 'true'
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: preprod-dev2
+        app.gitlab.com/env.name: preprod-dev2
+      name: app-sealed-secret
+      labels:
+        application: v1-4-22-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    type: Opaque
+---
+metadata:
+  name: app-configmap
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  labels:
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  namespace: carnets-99-preprod-dev2
+data:
+  GITHUB_ORGANIZATION: SocialGouv
+  AUTH0_AUDIENCE: hasura
+  AUTH0_DOMAIN: socialgouv.eu.auth0.com
+  HASURA_URL: 'http://hasura/v1/graphql'
+  NODE_ENV: production
+apiVersion: v1
+kind: ConfigMap
+---
+metadata:
+  labels:
+    app: app
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: app
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  namespace: carnets-99-preprod-dev2
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+  selector:
+    app: app
+  type: ClusterIP
+apiVersion: v1
+kind: Service
+---
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  labels:
+    app: app
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: app
+  namespace: carnets-99-preprod-dev2
+spec:
+  rules:
+    - host: preprod-carnets.dev2.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: app
+              servicePort: 80
+            path: /
+  tls:
+    - hosts:
+        - preprod-carnets.dev2.fabrique.social.gouv.fr
+      secretName: wildcard-crt
+apiVersion: extensions/v1beta1
+kind: Ingress
+---
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  labels:
+    app: hasura
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: hasura
+  namespace: carnets-99-preprod-dev2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hasura
+  template:
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: preprod-dev2
+        app.gitlab.com/env.name: preprod-dev2
+      labels:
+        app: hasura
+        application: v1-4-22-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    spec:
+      containers:
+        - image: >-
+            registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/hasura:1.4.22
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 5
+          name: hasura
+          ports:
+            - containerPort: 80
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 5
+          envFrom:
+            - secretRef:
+                name: azure-pg-user
+            - secretRef:
+                name: hasura-sealed-secret
+            - configMapRef:
+                name: hasura-configmap
+      initContainers:
+        - env:
+            - name: WAIT_FOR_RETRIES
+              value: '24'
+          envFrom:
+            - secretRef:
+                name: azure-pg-user
+          image: >-
+            registry.gitlab.factory.social.gouv.fr/socialgouv/docker/wait-for-postgres:2.0.0
+          imagePullPolicy: Always
+          name: wait-for-postgres
+          resources:
+            limits:
+              cpu: 20m
+              memory: 32Mi
+            requests:
+              cpu: 5m
+              memory: 16Mi
+apiVersion: apps/v1
+kind: Deployment
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: 'true'
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  name: hasura-sealed-secret
+  namespace: carnets-99-preprod-dev2
+  labels:
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+spec:
+  encryptedData:
+    GITHUB_AUTHORIZATION_HEADER: >-
+      AgADNOUnQAk+28pFxemcPHsQ8Oukis5z1CHD97IzqReRvg5GO671SsjI8UfM6w2n38zMuNK+0S2d0qL+NNAXGh9XqzDsBe2rB/hwIG08sPY6VyDnUZKpawwji3HwzJUZVkTdT5j8IywkCpaNClo7Ba+FnzpGwgCeyFx/wKKLvM6nCZzf3S5HLIdetXEXDa6T3hnbtqriioNjfhL+aAF3BNsDKPrN6W5xWkGBAbOqiJXvuaC5HXoI4O80QoOnMFUpLu4IB39N+bRZPtytEDJin4vloh78twtj2hCtwmGPyS2BGd27Ie39osEgUa3dfbDt/rZoSh2Q7YjsYimWvHJXv8NMHFSAOopyjms4tNnVpRLgRHxkAiI9ZDltxC5Qf2kMYLVEXEp00hd4nWnPYqYe0qekvqOnsSE8dG6YLlfrC4iu2tfxEPYZZx+m2SffLX4tIr7lo9s0U1XOkZ5oLjn1HkjkhOJXZzuocwAlz15Tx2tS2PYK4iG5sJ5/eQs4J81MSr8nfr3m7k157Gsjrq9D6SeX9SaxzSniw/ORyWJYFu7I4xYqgZ4JLiGWyySvUZzWcX0whqC8NzvEnq3oQyZM8fFH1PCbMVrr0VBDeG0JYEPioPosoHX/zkzFuLtWRBm/4cEBSLy42zSbjwwbo2bomPCQUqFOpHT7BR1m1aU0PARGRmeSNWR/22VI/9hPPuVpI4EHuVda232NIHiN1oqQSMF4+gImUXyA9rChDyAMs7YlxtFBKEXGzWUUr/ZJbDeKSkEA2Rum3/258pU4c7iawfmirFIdTG44Tiv5XR6REdX9IoHy
+    HASURA_GRAPHQL_ADMIN_SECRET: >-
+      AgCZpE8KT5yQehcqC2MVmZc+ewZdLAGI+UTMPgfAh3g+hVWoHRtxRafGs6Xgdb35D7OBVFbMu23x4MEIqLmiVfLcf+UModHgfAOdRDmQ5sRzi/YJQFZkpqp0fU2zj39N5p1WlSP05JbWGLVU30Abp15Er8wmrDzDCpIfILUZASbTsCAIH1z6iM+BgmK0WB0Y/E6z97EqoWBzDtDJUTomrNakkSJrs29MFwU+LNodLC5btpBBfqUjGd45TuF30fy+jcDbHHA3EIJ+bS8aN2CjMVQPPO0/WvBbxwf39AqPPRQjdJW8+u1cJSVyrBKrPcyKUgpaVdZJoEATwqOjIG/S+rFMOcBHn0V2ckTd5UlLkfFIDUWnHIfSMWrmwhEHRIISY/3jzf15M5/FSxcNKXOWNb7bTaN1Hl5vbdmVfqRRDrKtaDuToWeQvEwsnsdvShMGLnjpxn36GclvI29LJmQF0UBJlKvCi/bQ+O0twbQLjVnMEK2zEH5OGw7OlgxHkrgeotQL8IRoXctqMeJ81RykJtlYG4cfjW7kEZ+5e/NMRQPIWfZsBAf1UEZjdRzWep4NbEuCwxkoQM68gQ5YjFHGA9phJ05Z54fpbqY8U8Bsp6iSdJW2DLp6YmesYVTBE+5d7KDKEcQx2oTIKmCL7lBCtxyVl77ZE2lJ+epoMQIuiBil4201JrmBo39g3WZINKj6fG3DFgDsnpf1OhN04Zma2A==
+    HASURA_GRAPHQL_DATABASE_URL: >-
+      AgDJjKVn/1gxzj9xbDJTyEpFf+8dYm4hCFfLpywPxK4+k8yfMwNqzhO5hkaFzyTjgdVNLK5DsfoeahvUaJ7GoI8Se7cFMfkdqBTA45RxHsXKv2pS7aELDm0hALinBERat/VDsDlCRmUlbm1TNp7F4j/ByryZ/dnRpqTwjZpPIwNiNVExGywWomVvKi7VJ3O2asi5M1Wxjtve2693aIouWEhP9zm4zXkbXmmv82u/ukU9fkQBLbAlOqvgAcb/AkKEbAP1Dy8tWIgdzWgTqgPBhQSTeJrjPczbmmmoACHUcNMMnDJhe9fk5VmvB0NOg6nyOwjfwlcxb045Mzsg6MjpJPeBqVMQFr9q3ONNy4GSgpQE0K2Gj/e91eU//pt+jWoMRcwz822cov4EH/VIECCMjsyW27ueZgW5pTswqVaTPJTWogZcH+/VCmigY8+w2nuDafTHG57n7GHc/6PT+iFNuQgvvjanEBrDlSTGGj6qDT+1CQ1yCpsFJ8EfhXRULMjMLCwPTzeg8iWW6H7FpQzQWaYsxR8RYvYKyGNxyuYPA4NNfECr8BKplq15QtQ3bJT1Kf0WaGi/pK3M5T6cer0QC3X/rIZRagpVzHUBXhj/TgsTK27FRc2sjSOchWDxY3bY3gNOB4/tgGKEgCWBdyNY/ml8GFP7OzGrF5FcKVqSOX/kPfFwE/nEeNBs3zpb3ZqwWXO7/HVIvFIMeSXv4T1NmCgmf9Ind16LCKlyAx+5dIlaLDvw4jenEUUs5w7xOYBjdQA/7pFoZSr8Hb0etmm0U7IRLBU58dfs+q31rVZZEppl1LZaa43u39WCjqd2EG/+wMZEPRl8JQ==
+    HASURA_GRAPHQL_JWT_SECRET: >-
+      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
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: 'true'
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: preprod-dev2
+        app.gitlab.com/env.name: preprod-dev2
+      name: hasura-sealed-secret
+      labels:
+        application: v1-4-22-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    type: Opaque
+---
+metadata:
+  name: hasura-configmap
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  labels:
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  namespace: carnets-99-preprod-dev2
+data:
+  HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
+  HASURA_GRAPHQL_ENABLED_LOG_TYPES: 'startup, http-log, webhook-log, websocket-log, query-log'
+  HASURA_GRAPHQL_LOG_LEVEL: debug
+  HASURA_GRAPHQL_NO_OF_RETRIES: '5'
+  HASURA_GRAPHQL_SERVER_PORT: '80'
+  HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
+apiVersion: v1
+kind: ConfigMap
+---
+metadata:
+  labels:
+    app: hasura
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: hasura
+  annotations:
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  namespace: carnets-99-preprod-dev2
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: hasura
+  type: ClusterIP
+apiVersion: v1
+kind: Service
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: 'true'
+    app.gitlab.com/app: socialgouv-carnets
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  name: azure-pg-user
+  namespace: carnets-99-preprod-dev2
+  labels:
+    application: v1-4-22-carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+spec:
+  encryptedData:
+    DATABASE_URL: >-
+      AgBs3QAI0TpawPTPzj4KlP9I+U1RN4nE9MF+RLrcPQiV+hN2fYhHUlSSQ0euellFI32JpDfQJzt2c/sfERbRtC+Q/meih2oCGZWLNMxfOSdDHoxiMKIChR//kUIyOTz7QGUEna6OvY/d1miVbgLRhJXJcp/GBDwbgupczg6INdfi6s8KA5pS5rlNPj8MCVhLtboUxD4tRL+jnBmNFTXGTD85N4rQxiHp5J2FfkOhRUFKxAGY3hORgmZ5QNSztZ9seTTu1tFRrogdzzDQKfjNsdvdoxe1w6Gu0CD5Uj3MdjzsAJU+w9V3NgHdOcu/yKJ49s6TIQiXd0Lbuh4rfZKJSlyhelu4Pcuz9q6rg1X3FM4kawZX7UYUYTgg7wW2FWBIHXlOKiZUBRpfO+YAw7kjkSeVBdn/On1a36a5Gig98eXm1cOkt78CK8Bdx4HWfdOYTfubCm8KaAtIzPgBgrRlh1b/gohY6hnG+VWFqE+5DcwMESvSo7lYKO/lX27NATAXK9FfF4LfcYwlLwKnwTgaDoUE+WXRUz8+jxcCTeo9AHIwM8ce4L5eGfwrvg3u0B3aPD2UoFEzZfDmb0P+FxPLO00warhHQhHFXJuLmYEdT0yQwqRmeLEX6D/g40AxvZIZYYgclO0F1oNbjTHw17vS/b/RdG1XMOkZTe/qDIAvmQEIKeQzk1EpysBWYGZuYYnOWUcMHxXhABCEFbBsj8xFuL2FtwJjqJ1+kZFKavoYubHKmBE4O6oeRXThOy2d+86ib050wCYLbY3IdWjzK5GnjeAsP2mUU9z2yjXKNSGuXvsclHgDz/7qPEkAM2Pj25BHRpbt5RY6Fg==
+    PGDATABASE: >-
+      AgAF1GdG+0E57J719UzgcoU+IMWTVqr6oUfBizY2UrTdNTVcgdmzhFjabU7/9sprmg4IBDsWF2z+DDoTSVBH7YwFRJA9Ul3kxHmjOqSUSFn0nh4cIaLP19UyEZno3F8sqymAyMl1TsvN3Co5qzUtTWSrsuDEGcWPHCU5EeZzEfdYGLmBYJdRm5ix9e/I8RuVl+m+T2R/gFxmSvMHCa3dbOzG6/td+XsQbY48qZSBDn59vBn3WawmvOf08zcnjzgQeSy3sd+VysAf6qsru5sHVDw41DXX0RCOqk8AEdmhYP1ha1M/80DLzbYPxphm3BAeoomGsjSSoaE+AqJEn/xmQM9samrWTEOpn4fVBHR0Yxi5SRP062HTvs9n7lgR5vjWwvZzQFLc9vg1PBUuYUjSwbHJaNtCtZxGwIL2OBVgrE4BDSEGnhYKQYs9WrsgIRvKB6OBHS7IE4Ru0vKqwgye4pIOXO9/PZ+NJNaXCuUr9t7F7A7kYtTMfUTLpgtF22OLpdYn8HOf8EQCvnYarm1nb3HmXgny9+Qs1p2r95pzMItUdUs4viea5lGP1elwjPbkRhtQE2azXWjqW5e+KqOs/sc21dD7ZkOkta+0hriB2bKplDrp1qppzbPoM8xHb1rADj/f8v3dpNwHecDcwKUA+iQU1FOvVNp+cxyrhIjy8KdCQfF56kuzf6DZ3DEa6LmTSy4BZGMaPlf2
+    PGHOST: >-
+      AgBeXgPT6kJEVAoXSiKdRjPXAT0Wou2Y/+PcOhRjlVxWP8SHFE4ex2s0sgfsxSb2cBxertlTK4FAJAX7f8okcqK5lcvFr8epGqyNaMSqhfWn+cBzNkKLdc49tClw7+TU+8tlKztBgikndSNhR3tkUexbb9YjX7ylN1SxBaC3wn+YNn5f5zoy4IxlxI+a0HajvIF17+ZykCjCRSvpky6A+Z/PjUnDs9NsTq7xgRVEF2J9yqqulhTuf+uX5qN1HCM5kRE+0RyMY7neT5ELMPYq8OpZLA9pnBJea9ctE3s/tU/rNr/Xuh/G++ECjO6x9rpwUnIP/oWXAA9adps24tbJU8Pzx889w6cf/w3QZPsayub17EwR0w8qf6QLgahoKSh2fkWO7nrQDU+QBCve3RKN6jQ9ZEqE7tr5Lcqr0rFiia1pJkJODvBU2g5LB1r7kCkTeKWfOqKSjOAvF078N87WV5dTBcbZa4kgsecT00MT14YdIz0WHRd6L4rNW3YD9VjS3rCcdRFA5euArgG+5XG8NqwQ5QrdkZG6HBtdTK5ZaTvaahw2Q14AQAcXBUjFhrF9t1e9zUs0QxGVc/3macOJbEbCW2makeGSPvrmoBjIj/Af5bVIN4QoUfw+RYqSS9rxwnSs/xJyf5HaHhY8Geu4YE/qW6MA5pyFkVOn9gtZw+4tHofyJ/vhSk2CmnbZTo3oxFKUWM5DuDgGJHD0W9u7R/wZvbqdTAlShD2AObHP2B8b0cIV8eDfJdoWkmNZog==
+    PGPASSWORD: >-
+      AgDJYZk6D7xbdDhFT76rJq84Rt0HSU7IUAvq32qRrYG2f+wmvcGQ8upnqPHWayL0kTp6AnYK1Z1Iblk14p15tXJ9TepkKXud4VUss7DRU7ybRtRjTJoXuNCLgF9meNh8fmYhaPLQV5rK26tc0RIjCHT7I+jSBaxRmcJQBrHDkVESkX417M0EGZBVvXt4654gMjFI/zDmYXsO9LjdqiVddGMUH8D3RMBXM9RqHFjticU0AYctCaIHFnf638EluBLwmLBWGf/WaUsykBgAFuXk+Xm+zQ6MjWm7AKRjb9hDvTLD7HxvHuPzh3d5URE38FYDwL0oIRBiLNrgmxEEzmLLaRrPhUEkxe4XRC/GdLjBXnZq16pyGiIMxgZGEQHEvUfta05z7XPZsfj4BwUQZRhKsm1GcqNBZlu2iTET+WUpO17RG8c1Qo3oUUjfqD9i9F4y0d8VHXSNMirDMAUloBczeYfo5u0L/eBaYVevVf4UsOWM6NnhBo8lUPsS8r9q1j+zlkOThS2tstK41rhr/7mqEq6hgs/72hvH32amTaVHZ8QnvyaNlFthFdW15d6p+2sqZr0/Veo4HncQ690CtCmSEkykkbIWzWBjQmUjXg3zN0rCQRE5VZJ4ttoWkFU8BAxzWt0Z/HxmalugzRpsykDjECKbytPqU8jjTJep7a8eN/1AnCfih5YBLLebw0prmbU3e0CdsEaxEtGJw38KJh9wU26z
+    PGSSLMODE: >-
+      AgANfPjS+tH6EpHMgMD2rhQP4Qo3XmgPaes3kD7kVBmMTg5Vgn5+CvUec4CGF/GbmhrY5NldsELSfZlUkj1N9Wyk0OBZOLWcPHALUy3Px/VDp2Js+F2o9IDyReRIXNS9bIZltb6HlHog0K00MUrZpPmA3b+1KeyvA4FXyoYmcjiIpWhE30TicFlo7lxNaJ7Nbv7yCjGQ5Lp3GABa6YlqxN6VnSm+rFmAlbppoI85Bm2n1nccqYhk6IhjJgj107KyVtksTLpbtv8wpablTjnUQwutKe52V9bVveU4l/79gBCgKVwiP0dNCSqp9491veijamKKrjpr/xwLCbfwLfgWM3aChBdKOR4ybypVL/115XsbxJacHw8V6WtNxoBZ00Rx2aTleaE5eKqFhfkZUAQtGH72q91VNFAnLPumYA9UcWRMV3kbZ8nsJgQbcVO9rSZ9hAow2wMCClzgyDpxTiWAxH0nOuVQYPDx81DaoW6Cg0GgMrSudaajjsgC590O4uXPjtkD8oBGpYuZ4o7hEOLro7CKFjT9eg+n7flSY61Jb6k+GyM2357R7k7qBesvHsOb/pVGwRwxJVDOjquL6Ll25WypZgqkyD6IEg4jq0fkzw+v1lMjORgWzW2Zs4q6RSSLpf0SE3ApjXvqpn+GSiVE/1L8bdT6/6khEhl5OaY1aCx0Mb+xTAe4KJ5quA17fd4yECg0S9KOVZ26
+    PGUSER: >-
+      AgDLC5ZW1sveRZ9z/SlKtGtiSTvGmvrCBHh9gsy7Z4a6CHzksmyPGlyxaiR5HMwcgG7bm7qWW1dNAFCWQOAXk0Wnyhe5+7SSVXYUn0PcNCzR3fTgOLwyZquVwKGfHjkDLaXvQ8zkp/B/+avUcyyjbOyp3XnjW4RNbj9Q6XGNb97IVV8/EHoyK5vcd4IwA2rpbw2kcBYSbmxJaW2CIZpceeaGbRQzezsYWfDXeOC8IEJAaYjJIcTWMw9a3gPSF2W12UxVewrkUp1xj7J0n1VebYzNWBG4JwLQWd0g+aBS5ENQEG/wOOG8sM1+45YWHHpBOXHA4gcJXOtV+z6tjEuTpnBS+hhfdSgi0Cdcz+fsasTGdXc/ZxG0wcPIcu0Jm06mocWembMTrBIFsi/QK4s+zW+lEvX5T5M9Vjusw9QFHrtwkyCEQGkz74K8bt8mh5Zs/I8idoU+mB5AhELn5zJ8/fXshu3jqq29vE+YpFxor9O+7b8/mKJRb1Vnq7Tr8bPwXRAxZQFcs6++V6oaAbhkaxXLpBe2wXCz3sk6GYLT9U8HQ3NN2jtUn768xUXpWLtw73UnMSSHx0D/0yWnsRakHbxE9kq9FQMd/MeYGgvQcjLqtQ9iKJp1NcTn4RToY76nAvkp/UY2TMjBR/UlsnvILr/hE3Ez+QLyIiehs9gpnemu+ezvT0fWtVJfeQGdOoAU4izQLB/DxJl/u+atQgBerXJWKNlOfQA6aKE=
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: 'true'
+        app.gitlab.com/app: socialgouv-carnets
+        app.gitlab.com/env: preprod-dev2
+        app.gitlab.com/env.name: preprod-dev2
+      name: azure-pg-user
+      labels:
+        application: v1-4-22-carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    type: Opaque
+"
+`;
