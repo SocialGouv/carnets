@@ -87,3 +87,12 @@ Create seeds DB (dev):
     PGSSLMODE: require
   script:
     - psql < ./scripts/seeds-dev.sql
+
+Test k8s :
+  stage: .pre
+  extends: .on_branches_only
+  image:
+    name: node:14-alpine
+  script:
+    - yarn k8s
+    - yarn k8s test
