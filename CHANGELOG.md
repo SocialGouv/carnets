@@ -1,3 +1,17 @@
+## [1.4.22](https://github.com/SocialGouv/carnets/compare/v1.4.21...v1.4.22) (2020-11-25)
+
+
+### Bug Fixes
+
+* Skip hasura registration on prod deployment. ([d812e95](https://github.com/SocialGouv/carnets/commit/d812e95b88c9cfe926d0dd67abd560e69be20127))
+
+## [1.4.21](https://github.com/SocialGouv/carnets/compare/v1.4.20...v1.4.21) (2020-11-25)
+
+
+### Bug Fixes
+
+* Hide followup sub items. ([c72236f](https://github.com/SocialGouv/carnets/commit/c72236fb0436c34e3fbb17426b63ebc2b92fb615))
+
 ## [1.4.20](https://github.com/SocialGouv/carnets/compare/v1.4.19...v1.4.20) (2020-11-18)
 
 
