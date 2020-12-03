@@ -7,7 +7,8 @@ metadata:
     field.cattle.io/creatorId: gitlab
     field.cattle.io/projectId: 'c-bd7z2:p-4jhn6'
     git/branch: master
-    git/remote: ''
+    git/remote: >-
+      https://gitlab-ci-token:[MASKED]@gitlab.factory.social.gouv.fr/SocialGouv/carnets.git
     app.gitlab.com/app: socialgouv-carnets
     app.gitlab.com/env: master-dev2
     app.gitlab.com/env.name: master-dev2
@@ -53,7 +54,7 @@ spec:
     spec:
       containers:
         - image: >-
-            registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/app:d812e95b88c9cfe926d0dd67abd560e69be20127
+            registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/app:c18cfdbb191c5c401f4110e1f15707b21ca995df
           livenessProbe:
             failureThreshold: 6
             httpGet:
@@ -260,7 +261,7 @@ spec:
     spec:
       containers:
         - image: >-
-            registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/hasura:d812e95b88c9cfe926d0dd67abd560e69be20127
+            registry.gitlab.factory.social.gouv.fr/socialgouv/carnets/hasura:c18cfdbb191c5c401f4110e1f15707b21ca995df
           livenessProbe:
             failureThreshold: 6
             httpGet:
@@ -297,7 +298,7 @@ spec:
             periodSeconds: 5
           envFrom:
             - secretRef:
-                name: azure-pg-user-d812e95b
+                name: azure-pg-user-c18cfdbb
             - secretRef:
                 name: hasura-sealed-secret
             - configMapRef:
@@ -308,7 +309,7 @@ spec:
               value: '24'
           envFrom:
             - secretRef:
-                name: azure-pg-user-d812e95b
+                name: azure-pg-user-c18cfdbb
           image: >-
             registry.gitlab.factory.social.gouv.fr/socialgouv/docker/wait-for-postgres:2.0.0
           imagePullPolicy: Always
@@ -416,11 +417,11 @@ spec:
             - create-db-user
           env:
             - name: NEW_DB_NAME
-              value: autodevops_d812e95b
+              value: autodevops_c18cfdbb
             - name: NEW_USER
-              value: user_d812e95b
+              value: user_c18cfdbb
             - name: NEW_PASSWORD
-              value: password_d812e95b
+              value: password_c18cfdbb
             - name: NEW_DB_EXTENSIONS
               value: hstore pgcrypto citext
           envFrom:
@@ -461,23 +462,23 @@ metadata:
     owner: carnets
     team: carnets
     cert: wildcard
-  name: create-db-job-d812e95b
+  name: create-db-job-c18cfdbb
   namespace: carnets-secret
 ---
 stringData:
   DATABASE_URL: >-
-    postgresql://user_d812e95b%40carnetsdevserver.postgres.database.azure.com:password_d812e95b@carnetsdevserver.postgres.database.azure.com/autodevops_d812e95b?sslmode=require
+    postgresql://user_c18cfdbb%40carnetsdevserver.postgres.database.azure.com:password_c18cfdbb@carnetsdevserver.postgres.database.azure.com/autodevops_c18cfdbb?sslmode=require
   DB_URI: >-
-    postgresql://user_d812e95b%40carnetsdevserver.postgres.database.azure.com:password_d812e95b@carnetsdevserver.postgres.database.azure.com/autodevops_d812e95b?sslmode=require
+    postgresql://user_c18cfdbb%40carnetsdevserver.postgres.database.azure.com:password_c18cfdbb@carnetsdevserver.postgres.database.azure.com/autodevops_c18cfdbb?sslmode=require
   HASURA_GRAPHQL_DATABASE_URL: >-
-    postgresql://user_d812e95b%40carnetsdevserver.postgres.database.azure.com:password_d812e95b@carnetsdevserver.postgres.database.azure.com/autodevops_d812e95b?sslmode=require
-  PGDATABASE: autodevops_d812e95b
+    postgresql://user_c18cfdbb%40carnetsdevserver.postgres.database.azure.com:password_c18cfdbb@carnetsdevserver.postgres.database.azure.com/autodevops_c18cfdbb?sslmode=require
+  PGDATABASE: autodevops_c18cfdbb
   PGHOST: carnetsdevserver.postgres.database.azure.com
-  PGPASSWORD: password_d812e95b
+  PGPASSWORD: password_c18cfdbb
   PGRST_DB_URI: >-
-    postgresql://user_d812e95b%40carnetsdevserver.postgres.database.azure.com:password_d812e95b@carnetsdevserver.postgres.database.azure.com/autodevops_d812e95b?sslmode=require
+    postgresql://user_c18cfdbb%40carnetsdevserver.postgres.database.azure.com:password_c18cfdbb@carnetsdevserver.postgres.database.azure.com/autodevops_c18cfdbb?sslmode=require
   PGSSLMODE: require
-  PGUSER: user_d812e95b@carnetsdevserver.postgres.database.azure.com
+  PGUSER: user_c18cfdbb@carnetsdevserver.postgres.database.azure.com
 apiVersion: v1
 kind: Secret
 metadata:
@@ -490,7 +491,7 @@ metadata:
     owner: carnets
     team: carnets
     cert: wildcard
-  name: azure-pg-user-d812e95b
+  name: azure-pg-user-c18cfdbb
   namespace: carnets-99-master-dev2
 "
 `;

@@ -7,7 +7,8 @@ metadata:
     field.cattle.io/creatorId: gitlab
     field.cattle.io/projectId: 'c-bd7z2:p-4jhn6'
     git/branch: v1.4.22
-    git/remote: ''
+    git/remote: >-
+      https://gitlab-ci-token:[MASKED]@gitlab.factory.social.gouv.fr/SocialGouv/carnets.git
     app.gitlab.com/app: socialgouv-carnets
     app.gitlab.com/env: preprod-dev2
     app.gitlab.com/env.name: preprod-dev2
