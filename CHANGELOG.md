@@ -1,3 +1,10 @@
+## [1.4.23](https://github.com/SocialGouv/carnets/compare/v1.4.22...v1.4.23) (2021-01-28)
+
+
+### Bug Fixes
+
+* Link local and Github schemas. ([#263](https://github.com/SocialGouv/carnets/issues/263)) ([fb14da1](https://github.com/SocialGouv/carnets/commit/fb14da1f1aa0e71c4aacb44e43ea9e6dbb928d63))
+
 ## [1.4.22](https://github.com/SocialGouv/carnets/compare/v1.4.21...v1.4.22) (2020-11-25)
 
 
