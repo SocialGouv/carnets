@@ -1,0 +1,7 @@
+{
+  "name": "carnets",
+  "type": "app",
+  "subdomain": "carnets",
+  "hasura": false,
+  "azure-pg": false
+}
