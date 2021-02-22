@@ -12,6 +12,56 @@ variables:
   # AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "🛑"
 #
 
+Register image Hasura:
+  extends: .autodevops_register_kaniko_image
+  dependencies: []
+  needs: []
+  environment:
+    name: ${CI_COMMIT_REF_NAME}-dev2
+  variables:
+    CONTEXT: ./packages/hasura
+    # IMAGE_NAME: fabrique/hasura
+
+.e2e_tests:
+  environment:
+    name: ${CI_COMMIT_REF_NAME}-dev2
+    url: https://${CI_ENVIRONMENT_SLUG}-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+  only:
+    refs:
+      - branches
+  except:
+    refs:
+      - master
+    variables:
+      # Don't run when deploying in production or releasing
+      - $PRODUCTION
+      - $RELEASE
+
+Wait hasura:
+  stage: Wait
+  extends: .e2e_tests
+  image:
+    name: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:1.18.0
+    entrypoint: [""]
+  script:
+    - kubectl rollout status deployment.v1.apps/hasura
+
+Create seeds DB (dev):
+  stage: Seed
+  extends: .e2e_tests
+  image:
+    name: postgres:11
+    entrypoint: [""]
+  variables:
+    GIT_STRATEGY: clone
+    PGHOST: carnetsdevserver.postgres.database.azure.com
+    PGUSER: user_${CI_COMMIT_SHORT_SHA}@${PGHOST}
+    PGPASSWORD: password_${CI_COMMIT_SHORT_SHA}
+    PGDATABASE: autodevops_${CI_COMMIT_SHORT_SHA}
+    PGSSLMODE: require
+  script:
+    - psql < ./scripts/seeds-dev.sql
+#
 # variables:
 #   AUTO_DEVOPS_RELEASE_AUTO: "YEAH"
 #   # AUTO_DEVOPS_TEST_DISABLED: "🛑"
