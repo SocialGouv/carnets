@@ -21,15 +21,15 @@ variables:
   # AUTO_DEVOPS_QUALITY_CHECK_DISABLED: "🛑"
 #
 
-Register image Hasura:
+Register hasura image:
   extends: .autodevops_register_kaniko_image
   dependencies: []
   needs: []
-  environment:
-    name: ${CI_COMMIT_REF_NAME}-dev2
   variables:
-    CONTEXT: ./packages/hasura
-    # IMAGE_NAME: fabrique/hasura
+    DOCKER_BUILD_ARGS: >-
+      --dockerfile=packages/hasura/Dockerfile
+    CONTEXT: packages/hasura
+    IMAGE_NAME: hasura
 
 .e2e_tests:
   environment:
