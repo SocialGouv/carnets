@@ -4,6 +4,15 @@ include:
     ref: v20.7.5
     # ref: rulez-gary2
 
+stages:
+  - Install
+  - Code Quality
+  - Registration
+  - Release
+  - Deploy
+  - Wait
+  - Seed
+
 variables:
   AUTO_DEVOPS_KANIKO: "pouet"
   AUTO_DEVOPS_RELEASE_AUTO: "🔖"
