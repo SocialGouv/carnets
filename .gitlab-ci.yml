@@ -29,7 +29,7 @@ Register hasura image:
     DOCKER_BUILD_ARGS: >-
       --dockerfile=packages/hasura/Dockerfile
     CONTEXT: packages/hasura
-    IMAGE_NAME: hasura
+    IMAGE_NAME: carnets-hasura
 
 .e2e_tests:
   environment:
