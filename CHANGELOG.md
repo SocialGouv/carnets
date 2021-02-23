@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/SocialGouv/carnets/compare/v1.5.0...v1.5.1) (2021-02-23)
+
+
+### Bug Fixes
+
+* Get APP_BASE_URL from no-k8s. ([15c7b34](https://github.com/SocialGouv/carnets/commit/15c7b34c006606f39f83339c225e0ec0449b9f8c))
+
 # [1.5.0](https://github.com/SocialGouv/carnets/compare/v1.4.24...v1.5.0) (2021-02-23)
 
 
