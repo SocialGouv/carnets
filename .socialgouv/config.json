@@ -1,0 +1,8 @@
+{
+  "name": "carnets",
+  "type": "app",
+  "subdomain": "carnets",
+  "hasura": true,
+  "azurepg": true,
+  "probesPath": "/api/healthz"
+}
