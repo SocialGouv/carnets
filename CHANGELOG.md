@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/SocialGouv/carnets/compare/v1.4.24...v1.5.0) (2021-02-23)
+
+
+### Features
+
+* Use no-k8s autodevops option. ([#266](https://github.com/SocialGouv/carnets/issues/266)) ([7c88d42](https://github.com/SocialGouv/carnets/commit/7c88d42ba7d7b9b313e36495adc8e01e5ed3069c))
+
 ## [1.4.24](https://github.com/SocialGouv/carnets/compare/v1.4.23...v1.4.24) (2021-02-15)
 
 
