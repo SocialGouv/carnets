@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/SocialGouv/carnets/compare/v1.5.1...v1.5.2) (2021-02-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency socialgouv/gitlab-ci-yml to v20.7.9 ([#272](https://github.com/SocialGouv/carnets/issues/272)) ([06a674b](https://github.com/SocialGouv/carnets/commit/06a674bc04e54f6f83b49dfc2bd7d8fa51278cb5))
+
 ## [1.5.1](https://github.com/SocialGouv/carnets/compare/v1.5.0...v1.5.1) (2021-02-23)
 
 
