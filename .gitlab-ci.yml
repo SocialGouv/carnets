@@ -50,7 +50,7 @@ Wait hasura:
   stage: Wait
   extends: .e2e_tests
   image:
-    name: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:1.18.0
+    name: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:5.0.1
     entrypoint: [""]
   script:
     - kubectl rollout status deployment.v1.apps/hasura
