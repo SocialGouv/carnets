@@ -48,6 +48,7 @@ Register hasura image:
 
 Wait hasura:
   stage: Wait
+  allow_failure: true
   extends: .e2e_tests
   image:
     name: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:1.18.0
@@ -58,6 +59,7 @@ Wait hasura:
 Create seeds DB (dev):
   stage: Seed
   extends: .e2e_tests
+  allow_failure: true
   image:
     name: postgres:11
     entrypoint: [""]
