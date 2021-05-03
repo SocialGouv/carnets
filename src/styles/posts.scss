@@ -7,11 +7,11 @@
   flex-wrap: wrap;
   margin: variables.$base-margin / 2 0 0;
   padding-bottom: variables.$base-margin * 3;
+  justify-content: center;
 
   .post {
-    flex: 1 0 33%;
     overflow: auto;
-    max-width: 33.333333%;
+    flex: 1 0 80%;
 
     .content {
       display: flex;
@@ -137,24 +137,3 @@
   }
 }
 
-@media screen and (max-width: 1800px) {
-  .page {
-    .posts {
-      .post {
-        flex: 1 0 50%;
-        max-width: 50%;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .page {
-    .posts {
-      .post {
-        flex: 1 0 100%;
-        max-width: 100%;
-      }
-    }
-  }
-}
