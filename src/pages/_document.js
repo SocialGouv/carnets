@@ -20,6 +20,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>Carnets</title>
           <link rel="shortcut icon" href="/favicon.png" />
           <script
             type="text/javascript"
