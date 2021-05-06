@@ -14,7 +14,7 @@ const Header = ({ post }) => {
   const user = useUser() || {}
   const teams = useTeams() || {}
   const team = teams.find((team) => team.slug === post.team_slug)
-  const isAllowed = team && !isOldPost(post) && (user.isAdmin || user.teams?.includes(team_slug))
+  const isAllowed = team && (user.isAdmin || (user.teams?.includes(team_slug) && !isOldPost(post)))
 
   return (
     <div className="header">
