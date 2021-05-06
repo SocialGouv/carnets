@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/SocialGouv/carnets/compare/v1.5.2...v1.5.3) (2021-05-06)
+
+
+### Bug Fixes
+
+* set page title ([#280](https://github.com/SocialGouv/carnets/issues/280)) ([b39441e](https://github.com/SocialGouv/carnets/commit/b39441e652804b109c6df91f76de0a37b6517d29))
+
 ## [1.5.2](https://github.com/SocialGouv/carnets/compare/v1.5.1...v1.5.2) (2021-02-26)
 
 
