@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/SocialGouv/carnets/compare/v1.5.3...v1.6.0) (2021-05-12)
+
+
+### Features
+
+* **posts:** dont edit after 4 days ([#282](https://github.com/SocialGouv/carnets/issues/282)) ([e31d485](https://github.com/SocialGouv/carnets/commit/e31d485744ad31f9c69ddf649849fdc508b07bb1))
+
 ## [1.5.3](https://github.com/SocialGouv/carnets/compare/v1.5.2...v1.5.3) (2021-05-06)
 
 
