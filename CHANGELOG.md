@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/SocialGouv/carnets/compare/v1.6.0...v1.6.1) (2021-05-27)
+
+
+### Bug Fixes
+
+* Move to the new cluster. ([#284](https://github.com/SocialGouv/carnets/issues/284)) ([63da00b](https://github.com/SocialGouv/carnets/commit/63da00bf2928ef4ce6dfae72c2ae9e781f99fd28))
+
 # [1.6.0](https://github.com/SocialGouv/carnets/compare/v1.5.3...v1.6.0) (2021-05-12)
 
 
