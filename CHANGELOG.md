@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/SocialGouv/carnets/compare/v1.6.1...v1.6.2) (2021-05-27)
+
+
+### Bug Fixes
+
+* Upgrade autodevops. ([#285](https://github.com/SocialGouv/carnets/issues/285)) ([d479537](https://github.com/SocialGouv/carnets/commit/d479537edb6b47adc23baefef1a3dd756caab383))
+
 ## [1.6.1](https://github.com/SocialGouv/carnets/compare/v1.6.0...v1.6.1) (2021-05-27)
 
 
