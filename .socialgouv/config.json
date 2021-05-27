@@ -2,7 +2,7 @@
   "name": "carnets",
   "type": "app",
   "subdomain": "carnets",
-  "hasura": true,
+  "hasura": "exposed",
   "azurepg": true,
   "probesPath": "/api/healthz"
 }
