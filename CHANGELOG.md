@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/SocialGouv/carnets/compare/v1.6.2...v1.6.3) (2021-06-16)
+
+
+### Bug Fixes
+
+* Display date instead of duration in post info. ([#291](https://github.com/SocialGouv/carnets/issues/291)) ([49f3a24](https://github.com/SocialGouv/carnets/commit/49f3a24d5d7b5e461e2f7b754f9e8b994377a96c))
+
 ## [1.6.2](https://github.com/SocialGouv/carnets/compare/v1.6.1...v1.6.2) (2021-05-27)
 
 
