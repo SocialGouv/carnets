@@ -4,5 +4,7 @@
   "subdomain": "carnets",
   "hasura": "exposed",
   "azurepg": true,
-  "probesPath": "/api/healthz"
+  "probesPath": "/api/healthz",
+  "registry": "ghcr",
+  "project": "fabrique"
 }

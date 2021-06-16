@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json /app/
 COPY yarn.lock /app/
 
-RUN yarn --production
+RUN yarn --production --frozen-lockfile && yarn cache clean
 
 COPY .next/ /app/.next/
 COPY public/ /app/public/
