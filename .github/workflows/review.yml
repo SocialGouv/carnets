@@ -38,9 +38,9 @@ jobs:
     - name: Build application
       run: |
         yarn build
-        yarn export
-      env:
-        HASURA_URL: "%%HASURA_URL%%"
+      #   yarn export
+      # env:
+      #   HASURA_URL: "%%HASURA_URL%%"
 
     - name: Archive application build
       uses: actions/upload-artifact@v2
