@@ -1,3 +1,10 @@
+## [1.6.4-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.2...v1.6.4-alpha.3) (2021-08-16)
+
+
+### Bug Fixes
+
+* Rename restore job. ([336e57e](https://github.com/SocialGouv/carnets/commit/336e57ec8ad460177558afd073448fccc19a46e6))
+
 ## [1.6.4-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.1...v1.6.4-alpha.2) (2021-08-16)
 
 
