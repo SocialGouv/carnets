@@ -1,3 +1,10 @@
+## [1.6.4-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.1...v1.6.4-alpha.2) (2021-08-16)
+
+
+### Bug Fixes
+
+* Use seeding autodevops job. ([276bdfa](https://github.com/SocialGouv/carnets/commit/276bdfae823b106e5e2000389e2a54b9f0db0c44))
+
 ## [1.6.4-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.3...v1.6.4-alpha.1) (2021-08-12)
 
 
