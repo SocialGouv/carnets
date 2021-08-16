@@ -196,12 +196,25 @@ jobs:
       env:
         SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
         SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
+    
+    - name: Generate k8s manifests
+      run: |
+        yarn --cwd /tmp/autodevops --silent generate:dev jobs/restore-db > restore-db.yml
+      env:
+        SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
+        SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
 
     - name: Archive k8s manifests
       uses: actions/upload-artifact@v2
       with:
         name: manifests.yml
         path: manifests.yml
+
+    - name: Archive restore DB manifests
+      uses: actions/upload-artifact@v2
+      with:
+        name: restore-db.yml
+        path: restore-db.yml
 
   ##############################################################################
   ## DEPLOY APPLICATION OVER KUBERNETES
@@ -225,6 +238,11 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: manifests.yml
+
+    - name: Download restore DB manifests
+      uses: actions/download-artifact@v2
+      with:
+        name: restore-db.yml
 
     - name: Notify deployment start
       uses: bobheadxi/deployments@v0.4.3
@@ -254,6 +272,9 @@ jobs:
 
     - name: Deploy application
       run: kapp --dangerous-override-ownership-of-existing-resources -y deploy -a ${{ env.project }} --namespace ${{ env.namespace }} -f manifests.yml
+
+    - name: Restore database
+      run: kubectl apply --namespace=${{ env.namespace }} -f restore-db.yml
 
     - name: Notify deployment end
       uses: bobheadxi/deployments@v0.4.3
