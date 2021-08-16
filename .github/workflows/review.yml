@@ -196,8 +196,8 @@ jobs:
       env:
         SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
         SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
-    
-    - name: Generate k8s manifests
+
+    - name: Generate restore-db manifests
       run: |
         yarn --cwd /tmp/autodevops --silent generate:dev jobs/restore-db > restore-db.yml
       env:
