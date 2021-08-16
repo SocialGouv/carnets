@@ -38,9 +38,6 @@ jobs:
     - name: Build application
       run: |
         yarn build
-      #   yarn export
-      # env:
-      #   HASURA_URL: "%%HASURA_URL%%"
 
     - name: Archive application build
       uses: actions/upload-artifact@v2
@@ -127,16 +124,6 @@ jobs:
     - name: Get project name
       run: |
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-
-    # - name: Download application build
-    #   uses: actions/download-artifact@v2
-    #   with:
-    #     name: next
-    #     path: ./.next
-
-    # - run: |
-    #     ls -lah
-    #     ls -lah ./.next
 
     - name: Create image labels and tags
       id: docker_meta

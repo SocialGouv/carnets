@@ -6,5 +6,6 @@
   "azurepg": true,
   "probesPath": "/api/healthz",
   "registry": "ghcr",
-  "project": "fabrique"
+  "project": "fabrique",
+  "restoreDb": "scripts/seeds-dev.sql"
 }
