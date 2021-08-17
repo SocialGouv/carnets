@@ -1,3 +1,10 @@
+## [1.6.4-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.3...v1.6.4-alpha.4) (2021-08-17)
+
+
+### Bug Fixes
+
+* Bump version. ([32c7729](https://github.com/SocialGouv/carnets/commit/32c7729882ae8b48c764f830ace4d651456e6baa))
+
 ## [1.6.4-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.2...v1.6.4-alpha.3) (2021-08-16)
 
 
