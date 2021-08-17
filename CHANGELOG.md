@@ -1,3 +1,10 @@
+## [1.6.4-alpha.10](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.9...v1.6.4-alpha.10) (2021-08-17)
+
+
+### Bug Fixes
+
+* Hasura dockerfile. ([45f820a](https://github.com/SocialGouv/carnets/commit/45f820a9a8d8448080159c13f7bf04a125fe5c5c))
+
 ## [1.6.4-alpha.9](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.8...v1.6.4-alpha.9) (2021-08-17)
 
 
