@@ -33,7 +33,6 @@ test(
 
     const { stdout: manifest } = await exec(cmd, { env: process.env })
     expect(manifest).toMatchSnapshot()
-    // expect(result.exitCode).toEqual(0);
   },
   TIMEOUT
 )
