@@ -1,3 +1,10 @@
+## [1.6.4-alpha.9](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.8...v1.6.4-alpha.9) (2021-08-17)
+
+
+### Bug Fixes
+
+* Use root folder context to build Hasura image. ([01e5103](https://github.com/SocialGouv/carnets/commit/01e5103253fc061749f97d11ed38654e7b1a56a6))
+
 ## [1.6.4-alpha.8](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.7...v1.6.4-alpha.8) (2021-08-17)
 
 
