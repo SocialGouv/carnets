@@ -1,0 +1,431 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generate k8s manifests 1`] = `
+"---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    socialgouv/creator: autodevops
+    janitor/ttl: 15d
+    field.cattle.io/creatorId: gitlab
+    field.cattle.io/projectId: ''
+    git/branch: refs/heads/mybranch
+    git/remote: socialgouv/carnets
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  labels:
+    azure-pg-admin-user: carnets
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: carnets-mybranch
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  labels:
+    app: carnets
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: carnets
+  namespace: carnets-mybranch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: carnets
+  template:
+    metadata:
+      annotations:
+        kapp.k14s.io/disable-default-ownership-label-rules: ''
+        kapp.k14s.io/disable-default-label-scoping-rules: ''
+        app.github.com/job: '5678'
+        app.github.com/ref: refs/heads/mybranch
+        app.github.com/repo: socialgouv/carnets
+        app.github.com/run: '1234'
+        app.github.com/sha: '0123456'
+      labels:
+        app: carnets
+        application: carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    spec:
+      containers:
+        - image: >-
+            ghcr.io/socialgouv/fabrique/carnets:sha-0123456789abcdefghijklmnopqrstuvwxyz0123
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /api/healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+          name: carnets
+          ports:
+            - containerPort: 3000
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /api/healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /api/healthz
+              port: http
+            periodSeconds: 15
+            initialDelaySeconds: 30
+          env:
+            - name: APP_BASE_URL
+              value: https://carnets-mybranch.dev2.fabrique.social.gouv.fr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: carnets
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: carnets
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  namespace: carnets-mybranch
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+  selector:
+    app: carnets
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  labels:
+    app: carnets
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: carnets
+  namespace: carnets-mybranch
+spec:
+  rules:
+    - host: carnets-mybranch.dev2.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              service:
+                name: carnets
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - carnets-mybranch.dev2.fabrique.social.gouv.fr
+      secretName: wildcard-crt
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  labels:
+    app: hasura
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: hasura
+  namespace: carnets-mybranch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hasura
+  template:
+    metadata:
+      annotations:
+        kapp.k14s.io/disable-default-ownership-label-rules: ''
+        kapp.k14s.io/disable-default-label-scoping-rules: ''
+        app.github.com/job: '5678'
+        app.github.com/ref: refs/heads/mybranch
+        app.github.com/repo: socialgouv/carnets
+        app.github.com/run: '1234'
+        app.github.com/sha: '0123456'
+      labels:
+        app: hasura
+        application: carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+    spec:
+      containers:
+        - image: >-
+            ghcr.io/socialgouv/fabrique/hasura:sha-0123456789abcdefghijklmnopqrstuvwxyz0123
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 5
+          name: hasura
+          ports:
+            - containerPort: 80
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 5
+          envFrom:
+            - secretRef:
+                name: azure-pg-user-mybranch
+      initContainers:
+        - env:
+            - name: WAIT_FOR_RETRIES
+              value: '24'
+          envFrom:
+            - secretRef:
+                name: azure-pg-user-mybranch
+          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.39.1
+          imagePullPolicy: Always
+          name: wait-for-postgres
+          resources:
+            limits:
+              cpu: 20m
+              memory: 32Mi
+            requests:
+              cpu: 5m
+              memory: 16Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hasura
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: hasura
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  namespace: carnets-mybranch
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: hasura
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  labels:
+    app: hasura
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: hasura
+  namespace: carnets-mybranch
+spec:
+  rules:
+    - host: hasura-carnets-mybranch.dev2.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              service:
+                name: hasura
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - hasura-carnets-mybranch.dev2.fabrique.social.gouv.fr
+      secretName: wildcard-crt
+---
+apiVersion: batch/v1
+kind: Job
+spec:
+  backoffLimit: 5
+  template:
+    spec:
+      containers:
+        - command:
+            - create-db-user
+          env:
+            - name: NEW_DB_NAME
+              value: autodevops_mybranch
+            - name: NEW_USER
+              value: user_mybranch
+            - name: NEW_PASSWORD
+              value: password_mybranch
+            - name: NEW_DB_EXTENSIONS
+              value: hstore pgcrypto citext uuid-ossp
+          envFrom:
+            - secretRef:
+                name: azure-pg-admin-user
+          image: ghcr.io/socialgouv/docker/azure-db:6.39.1
+          imagePullPolicy: IfNotPresent
+          name: create-db-user
+          resources:
+            limits:
+              cpu: 300m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+      restartPolicy: Never
+    metadata:
+      annotations:
+        app.github.com/job: '5678'
+        app.github.com/ref: refs/heads/mybranch
+        app.github.com/repo: socialgouv/carnets
+        app.github.com/run: '1234'
+        app.github.com/sha: '0123456'
+      labels:
+        application: carnets
+        owner: carnets
+        team: carnets
+        cert: wildcard
+  ttlSecondsAfterFinished: 86400
+metadata:
+  annotations:
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  labels:
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: create-db-job-0123456
+  namespace: carnets-mybranch
+---
+apiVersion: v1
+kind: Secret
+stringData:
+  DATABASE_URL: >-
+    postgresql://user_mybranch%40carnetsdevserver.postgres.database.azure.com:password_mybranch@carnetsdevserver.postgres.database.azure.com/autodevops_mybranch?sslmode=require
+  DB_URI: >-
+    postgresql://user_mybranch%40carnetsdevserver.postgres.database.azure.com:password_mybranch@carnetsdevserver.postgres.database.azure.com/autodevops_mybranch?sslmode=require
+  HASURA_GRAPHQL_DATABASE_URL: >-
+    postgresql://user_mybranch%40carnetsdevserver.postgres.database.azure.com:password_mybranch@carnetsdevserver.postgres.database.azure.com/autodevops_mybranch?sslmode=require
+  PGDATABASE: autodevops_mybranch
+  PGHOST: carnetsdevserver.postgres.database.azure.com
+  PGPASSWORD: password_mybranch
+  PGRST_DB_URI: >-
+    postgresql://user_mybranch%40carnetsdevserver.postgres.database.azure.com:password_mybranch@carnetsdevserver.postgres.database.azure.com/autodevops_mybranch?sslmode=require
+  PGSSLMODE: require
+  PGUSER: user_mybranch@carnetsdevserver.postgres.database.azure.com
+metadata:
+  annotations:
+    app.github.com/job: '5678'
+    app.github.com/ref: refs/heads/mybranch
+    app.github.com/repo: socialgouv/carnets
+    app.github.com/run: '1234'
+    app.github.com/sha: '0123456'
+  labels:
+    application: carnets
+    owner: carnets
+    team: carnets
+    cert: wildcard
+  name: azure-pg-user-mybranch
+  namespace: carnets-mybranch
+"
+`;
