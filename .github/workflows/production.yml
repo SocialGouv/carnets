@@ -44,7 +44,7 @@ jobs:
         path: .next
 
   ##############################################################################
-  ## BUILD AND REGISTER DOCKER IMAGES
+  ## BUILD AND REGISTER APPLICATION IMAGE
   ##############################################################################
   register:
     name: Build & Register images
@@ -103,6 +103,61 @@ jobs:
       with:
         context: .
         push: 'true'
+        builder: ${{ steps.buildx.outputs.name }}
+        tags: "${{ steps.docker_meta.outputs.tags }}"
+        labels: "${{ steps.docker_meta.outputs.labels }}"
+
+  ##############################################################################
+  ## BUILD AND REGISTER HASURA IMAGE
+  ##############################################################################
+  register-hasura:
+    name: Build & Register Hasura
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Get project name
+      run: |
+        echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+
+    - name: Create image labels and tags
+      id: docker_meta
+      uses: "crazy-max/ghaction-docker-meta@2e1a5c7fa42123697f82d479b551a1bbdb1bef88"
+      with:
+        images: ghcr.io/socialgouv/fabrique/hasura
+        labels: |
+          org.opencontainers.image.title=hasura
+          org.opencontainers.image.documentation=https://github.com/SocialGouv/${{ env.project }}/tree/${{ github.sha }}
+        tags: |
+          type=sha
+          type=ref,event=pr
+          type=ref,event=branch
+          type=semver,pattern={{version}}
+          type=raw,value=sha-${{ github.sha }}
+          type=semver,pattern={{major}}.{{minor}}
+
+    - name: Set up Buildx
+      id: buildx
+      uses: docker/setup-buildx-action@master
+      with:
+        install: true
+
+    - name: Registry authentication
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.SOCIALGROOVYBOT_NAME }}
+        password: ${{ secrets.SOCIALGROOVYBOT_GHCR_PAT }}
+
+    - name: Image build and register
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: 'true'
+        file: ./packages/hasura/Dockerfile
         builder: ${{ steps.buildx.outputs.name }}
         tags: "${{ steps.docker_meta.outputs.tags }}"
         labels: "${{ steps.docker_meta.outputs.labels }}"
