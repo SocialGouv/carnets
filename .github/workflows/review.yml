@@ -64,12 +64,12 @@ jobs:
     - name: Download application build
       uses: actions/download-artifact@v2
       with:
-        name: next
-        path: ./.next
+        name: out
+        path: ./out
 
     - run: |
         ls -lah
-        ls -lah ./.next
+        ls -lah ./out
 
     - name: Create image labels and tags
       id: docker_meta
