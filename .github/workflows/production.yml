@@ -62,12 +62,12 @@ jobs:
     - name: Download application build
       uses: actions/download-artifact@v2
       with:
-        name: out
-        path: ./out
+        name: next
+        path: ./.next
 
     - run: |
         ls -lah
-        ls -lah ./out
+        ls -lah ./.next
 
     - name: Create image labels and tags
       id: docker_meta
