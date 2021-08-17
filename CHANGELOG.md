@@ -1,3 +1,10 @@
+## [1.6.4-alpha.6](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.5...v1.6.4-alpha.6) (2021-08-17)
+
+
+### Bug Fixes
+
+* Add tempy as dev dependency. ([31a2b6f](https://github.com/SocialGouv/carnets/commit/31a2b6fdb1e93eb0078b20fa862f596a4fb21db3))
+
 ## [1.6.4-alpha.5](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.4...v1.6.4-alpha.5) (2021-08-17)
 
 
