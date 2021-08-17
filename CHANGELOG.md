@@ -1,3 +1,10 @@
+## [1.6.4-alpha.11](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.10...v1.6.4-alpha.11) (2021-08-17)
+
+
+### Bug Fixes
+
+* Add Hasura production image registration. ([db534b6](https://github.com/SocialGouv/carnets/commit/db534b6d7e84ff8d67337298ec5c2e8788d9a38f))
+
 ## [1.6.4-alpha.10](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.9...v1.6.4-alpha.10) (2021-08-17)
 
 
