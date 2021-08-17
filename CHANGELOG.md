@@ -1,3 +1,10 @@
+## [1.6.4-alpha.7](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.6...v1.6.4-alpha.7) (2021-08-17)
+
+
+### Bug Fixes
+
+* Production workflow. ([b2027ac](https://github.com/SocialGouv/carnets/commit/b2027ac916665f3183f60447faf06450140a9ac3))
+
 ## [1.6.4-alpha.6](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.5...v1.6.4-alpha.6) (2021-08-17)
 
 
