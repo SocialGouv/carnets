@@ -1,3 +1,10 @@
+## [1.6.4-alpha.12](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.11...v1.6.4-alpha.12) (2021-08-18)
+
+
+### Bug Fixes
+
+* Add preprod and prod workflows test. ([d421ab3](https://github.com/SocialGouv/carnets/commit/d421ab3bf0409d62117bd9cb9035543d7cdb0f38))
+
 ## [1.6.4-alpha.11](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.10...v1.6.4-alpha.11) (2021-08-17)
 
 
