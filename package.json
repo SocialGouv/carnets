@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.16.1",
-    "@azure/storage-blob": "12.4.1",
+    "@azure/storage-blob": "12.7.0",
     "@react-pdf/renderer": "^1.6.13",
     "@sentry/browser": "^5.30.0",
     "@zeit/next-source-maps": "^0.0.3",
@@ -26,39 +26,39 @@
     "formik": "^2.2.6",
     "github-markdown-css": "^4.0.0",
     "graphql": "^15.5.0",
-    "graphql-request": "^3.4.0",
+    "graphql-request": "^3.5.0",
     "isomorphic-unfetch": "^3.1.0",
     "moment": "2.29.1",
     "next": "^10.0.7",
     "react": "17.0.1",
     "react-container-dimensions": "^1.4.1",
-    "react-datepicker": "^3.6.0",
+    "react-datepicker": "^3.8.0",
     "react-dom": "17.0.1",
     "react-dropzone": "^11.3.1",
     "react-feather": "^2.0.9",
     "react-markdown": "^5.0.3",
     "react-spinners-kit": "^1.9.1",
-    "sass": "^1.32.8",
-    "swr": "^0.4.2",
+    "sass": "^1.38.0",
+    "swr": "^0.5.6",
     "use-debounce": "^5.2.1",
     "uuid": "^8.3.2",
-    "victory": "^35.4.9"
+    "victory": "^35.10.1"
   },
   "devDependencies": {
-    "@socialgouv/eslint-config-react": "^1.52.0",
-    "@socialgouv/sre-secrets": "^1.4.0",
-    "@testing-library/jest-dom": "^5.11.9",
+    "@socialgouv/eslint-config-react": "^1.85.0",
+    "@socialgouv/sre-secrets": "^1.9.4",
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.5",
-    "eslint": "^7.20.0",
+    "eslint": "^7.32.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-react": "^7.24.0",
     "jest": "^26.6.3",
-    "prettier": "2.2.1",
+    "prettier": "2.3.2",
     "react-test-renderer": "^17.0.1",
     "tempy": "^1.0.1"
   },
   "resolutions": {
-    "@azure/storage-blob": "12.4.1"
+    "@azure/storage-blob": "12.7.0"
   }
 }
