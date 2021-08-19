@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/SocialGouv/carnets/compare/v1.6.3...v1.6.4) (2021-08-19)
+
+
+### Bug Fixes
+
+* Add github workflows. ([#305](https://github.com/SocialGouv/carnets/issues/305)) ([1dd0abc](https://github.com/SocialGouv/carnets/commit/1dd0abc57db2d59b692cdcebe720ea82ad19961f))
+
 ## [1.6.4-alpha.13](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.12...v1.6.4-alpha.13) (2021-08-19)
 
 
