@@ -1,3 +1,10 @@
+## [1.6.4-alpha.13](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.12...v1.6.4-alpha.13) (2021-08-19)
+
+
+### Bug Fixes
+
+* Production manifests generation. ([d4d3464](https://github.com/SocialGouv/carnets/commit/d4d34648adc65e3fa3a27a55f916887c6cf3c35b))
+
 ## [1.6.4-alpha.12](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.11...v1.6.4-alpha.12) (2021-08-18)
 
 
