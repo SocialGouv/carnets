@@ -1,3 +1,94 @@
+## [1.6.4-alpha.13](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.12...v1.6.4-alpha.13) (2021-08-19)
+
+
+### Bug Fixes
+
+* Production manifests generation. ([d4d3464](https://github.com/SocialGouv/carnets/commit/d4d34648adc65e3fa3a27a55f916887c6cf3c35b))
+
+## [1.6.4-alpha.12](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.11...v1.6.4-alpha.12) (2021-08-18)
+
+
+### Bug Fixes
+
+* Add preprod and prod workflows test. ([d421ab3](https://github.com/SocialGouv/carnets/commit/d421ab3bf0409d62117bd9cb9035543d7cdb0f38))
+
+## [1.6.4-alpha.11](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.10...v1.6.4-alpha.11) (2021-08-17)
+
+
+### Bug Fixes
+
+* Add Hasura production image registration. ([db534b6](https://github.com/SocialGouv/carnets/commit/db534b6d7e84ff8d67337298ec5c2e8788d9a38f))
+
+## [1.6.4-alpha.10](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.9...v1.6.4-alpha.10) (2021-08-17)
+
+
+### Bug Fixes
+
+* Hasura dockerfile. ([45f820a](https://github.com/SocialGouv/carnets/commit/45f820a9a8d8448080159c13f7bf04a125fe5c5c))
+
+## [1.6.4-alpha.9](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.8...v1.6.4-alpha.9) (2021-08-17)
+
+
+### Bug Fixes
+
+* Use root folder context to build Hasura image. ([01e5103](https://github.com/SocialGouv/carnets/commit/01e5103253fc061749f97d11ed38654e7b1a56a6))
+
+## [1.6.4-alpha.8](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.7...v1.6.4-alpha.8) (2021-08-17)
+
+
+### Bug Fixes
+
+* Correct prod and review workflows. ([27e9b6c](https://github.com/SocialGouv/carnets/commit/27e9b6c61f55fcfec2543abc3e31ea8f7ccda3b4))
+
+## [1.6.4-alpha.7](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.6...v1.6.4-alpha.7) (2021-08-17)
+
+
+### Bug Fixes
+
+* Production workflow. ([b2027ac](https://github.com/SocialGouv/carnets/commit/b2027ac916665f3183f60447faf06450140a9ac3))
+
+## [1.6.4-alpha.6](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.5...v1.6.4-alpha.6) (2021-08-17)
+
+
+### Bug Fixes
+
+* Add tempy as dev dependency. ([31a2b6f](https://github.com/SocialGouv/carnets/commit/31a2b6fdb1e93eb0078b20fa862f596a4fb21db3))
+
+## [1.6.4-alpha.5](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.4...v1.6.4-alpha.5) (2021-08-17)
+
+
+### Bug Fixes
+
+* Add workflow test. ([5b9c74a](https://github.com/SocialGouv/carnets/commit/5b9c74a097c3ba283a4f371c22269250bc076904))
+
+## [1.6.4-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.3...v1.6.4-alpha.4) (2021-08-17)
+
+
+### Bug Fixes
+
+* Bump version. ([32c7729](https://github.com/SocialGouv/carnets/commit/32c7729882ae8b48c764f830ace4d651456e6baa))
+
+## [1.6.4-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.2...v1.6.4-alpha.3) (2021-08-16)
+
+
+### Bug Fixes
+
+* Rename restore job. ([336e57e](https://github.com/SocialGouv/carnets/commit/336e57ec8ad460177558afd073448fccc19a46e6))
+
+## [1.6.4-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.4-alpha.1...v1.6.4-alpha.2) (2021-08-16)
+
+
+### Bug Fixes
+
+* Use seeding autodevops job. ([276bdfa](https://github.com/SocialGouv/carnets/commit/276bdfae823b106e5e2000389e2a54b9f0db0c44))
+
+## [1.6.4-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.3...v1.6.4-alpha.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* Add github workflows. ([88bd31e](https://github.com/SocialGouv/carnets/commit/88bd31e2ec733d9d0c9ae11150b0daf81711c242))
+
 ## [1.6.3](https://github.com/SocialGouv/carnets/compare/v1.6.2...v1.6.3) (2021-06-16)
 
 

@@ -1,4 +1,0 @@
-livenessProbe:
-  path: "/health"
-readinessProbe:
-  path: "/health"
