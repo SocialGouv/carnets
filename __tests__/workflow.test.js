@@ -10,7 +10,6 @@ test(
   "generate development k8s manifests",
   async () => {
     const dir = directory()
-    console.log("dir development:", dir)
 
     const env = {
       GITHUB_JOB: "5678",
@@ -27,7 +26,7 @@ test(
     Object.assign(process.env, env)
 
     const cmd = `
-      npx degit SocialGouv/kosko-charts/templates/autodevops#alpha ${dir}/autodevops; \
+      npx degit SocialGouv/kosko-charts/templates/autodevops ${dir}/autodevops; \
       yarn --cwd ${dir}/autodevops --silent; \
       cp -r ${__dirname}/../.socialgouv/environments ${dir}/autodevops/; \
       yarn --cwd ${dir}/autodevops --silent generate --env dev
@@ -43,7 +42,6 @@ test(
   "generate preproduction k8s manifests",
   async () => {
     const dir = directory()
-    console.log("dir preproduction:", dir)
 
     const env = {
       GITHUB_JOB: "5678",
@@ -60,7 +58,7 @@ test(
     Object.assign(process.env, env)
 
     const cmd = `
-      npx degit SocialGouv/kosko-charts/templates/autodevops#alpha ${dir}/autodevops; \
+      npx degit SocialGouv/kosko-charts/templates/autodevops ${dir}/autodevops; \
       yarn --cwd ${dir}/autodevops --silent; \
       cp -r ${__dirname}/../.socialgouv/environments ${dir}/autodevops/; \
       yarn --cwd ${dir}/autodevops --silent generate --env preprod
@@ -76,7 +74,6 @@ test(
   "generate production k8s manifests",
   async () => {
     const dir = directory()
-    console.log("dir production:", dir)
 
     const env = {
       GITHUB_JOB: "5678",
@@ -93,7 +90,7 @@ test(
     Object.assign(process.env, env)
 
     const cmd = `
-      npx degit SocialGouv/kosko-charts/templates/autodevops#alpha ${dir}/autodevops; \
+      npx degit SocialGouv/kosko-charts/templates/autodevops ${dir}/autodevops; \
       yarn --cwd ${dir}/autodevops --silent; \
       cp -r ${__dirname}/../.socialgouv/environments ${dir}/autodevops/; \
       yarn --cwd ${dir}/autodevops --silent generate --env prod
