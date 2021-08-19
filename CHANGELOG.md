@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/SocialGouv/carnets/compare/v1.6.4...v1.6.5) (2021-08-19)
+
+
+### Bug Fixes
+
+* Use kosko-charts autodevops. ([168319d](https://github.com/SocialGouv/carnets/commit/168319dc5dcfb7a68da4f3e7b2ac5763dfd90045))
+
 ## [1.6.4](https://github.com/SocialGouv/carnets/compare/v1.6.3...v1.6.4) (2021-08-19)
 
 
