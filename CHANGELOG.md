@@ -1,3 +1,10 @@
+## [1.6.6](https://github.com/SocialGouv/carnets/compare/v1.6.5...v1.6.6) (2021-08-20)
+
+
+### Bug Fixes
+
+* Build application within docker. ([#311](https://github.com/SocialGouv/carnets/issues/311)) ([2235470](https://github.com/SocialGouv/carnets/commit/2235470abc8a09a450fddfbd581d605c52df9d13))
+
 ## [1.6.6-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.6-alpha.3...v1.6.6-alpha.4) (2021-08-20)
 
 
