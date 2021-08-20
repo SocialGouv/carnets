@@ -1,3 +1,10 @@
+## [1.6.8](https://github.com/SocialGouv/carnets/compare/v1.6.7...v1.6.8) (2021-08-20)
+
+
+### Bug Fixes
+
+* Use GITHUB_TOKEN to register docker images. ([2ebba52](https://github.com/SocialGouv/carnets/commit/2ebba52adb971c718a09bc6f6c1cdea709d8ec24))
+
 ## [1.6.7](https://github.com/SocialGouv/carnets/compare/v1.6.6...v1.6.7) (2021-08-20)
 
 
