@@ -15,7 +15,7 @@ jobs:
   ## BUILD AND REGISTER APPLICATION IMAGE
   ##############################################################################
   register:
-    name: Build & Register images
+    name: Build & Register application
     runs-on: ubuntu-latest
     steps:
 
@@ -60,6 +60,8 @@ jobs:
       with:
         context: .
         push: 'true'
+        cache-from: "type=gha"
+        cache-to: "type=gha,mode=max"
         builder: ${{ steps.buildx.outputs.name }}
         tags: "${{ steps.docker_meta.outputs.tags }}"
         labels: "${{ steps.docker_meta.outputs.labels }}"
@@ -113,6 +115,8 @@ jobs:
       with:
         context: .
         push: 'true'
+        cache-from: "type=gha"
+        cache-to: "type=gha,mode=max"
         file: ./packages/hasura/Dockerfile
         builder: ${{ steps.buildx.outputs.name }}
         tags: "${{ steps.docker_meta.outputs.tags }}"
