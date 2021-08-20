@@ -14,44 +14,11 @@ concurrency:
 jobs:
 
   ##############################################################################
-  ## BUILD APPLICATION 
-  ##############################################################################
-  build:
-    name: Build application
-    runs-on: ubuntu-latest
-    steps:
-
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Node setup
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Yarn cache setup
-      uses: c-hive/gha-yarn-cache@v1
-
-    - name: Install dependencies
-      run: yarn --frozen-lockfile --prefer-offline
-
-    - name: Build application
-      run: |
-        yarn build
-
-    - name: Archive application build
-      uses: actions/upload-artifact@v2
-      with:
-        name: next
-        path: .next
-
-  ##############################################################################
   ## BUILD AND REGISTER APPLICATION IMAGE
   ##############################################################################
   register:
     name: Build & Register application
     runs-on: ubuntu-latest
-    needs: build
     steps:
 
     - name: Checkout repository
@@ -60,16 +27,6 @@ jobs:
     - name: Get project name
       run: |
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-
-    - name: Download application build
-      uses: actions/download-artifact@v2
-      with:
-        name: next
-        path: ./.next
-
-    - run: |
-        ls -lah
-        ls -lah ./.next
 
     - name: Create image labels and tags
       id: docker_meta
@@ -115,7 +72,6 @@ jobs:
   register-hasura:
     name: Build & Register Hasura
     runs-on: ubuntu-latest
-    needs: build
     steps:
 
     - name: Checkout repository
@@ -225,7 +181,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [register, register-hasura, manifests]
     steps:
-  
+
     - name: Checkout repository
       uses: actions/checkout@v2
 

@@ -1,3 +1,31 @@
+## [1.6.6-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.6-alpha.3...v1.6.6-alpha.4) (2021-08-20)
+
+
+### Bug Fixes
+
+* Application deployment needs Hasura registration. ([a48cf89](https://github.com/SocialGouv/carnets/commit/a48cf89e4a07c7c49fba76ad456cd9707118c79f))
+
+## [1.6.6-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.6-alpha.2...v1.6.6-alpha.3) (2021-08-20)
+
+
+### Bug Fixes
+
+* Workflows dependencies. ([b26adc5](https://github.com/SocialGouv/carnets/commit/b26adc5e96924fdb321e2beffb0dc43ebe351196))
+
+## [1.6.6-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.6-alpha.1...v1.6.6-alpha.2) (2021-08-20)
+
+
+### Bug Fixes
+
+* Workflows. ([6af098a](https://github.com/SocialGouv/carnets/commit/6af098a19ad281d756b594d6821adabd49bdc458))
+
+## [1.6.6-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.5...v1.6.6-alpha.1) (2021-08-20)
+
+
+### Bug Fixes
+
+* Build application within docker. ([cebd207](https://github.com/SocialGouv/carnets/commit/cebd2074ace59d054c7f79e6aba57c90bb854b22))
+
 ## [1.6.5](https://github.com/SocialGouv/carnets/compare/v1.6.4...v1.6.5) (2021-08-19)
 
 
