@@ -1,3 +1,10 @@
+## [1.6.6-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.6-alpha.3...v1.6.6-alpha.4) (2021-08-20)
+
+
+### Bug Fixes
+
+* Application deployment needs Hasura registration. ([a48cf89](https://github.com/SocialGouv/carnets/commit/a48cf89e4a07c7c49fba76ad456cd9707118c79f))
+
 ## [1.6.6-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.6-alpha.2...v1.6.6-alpha.3) (2021-08-20)
 
 
