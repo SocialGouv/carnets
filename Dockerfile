@@ -2,13 +2,10 @@ FROM node:15.9-alpine
 
 WORKDIR /app
 
-COPY package.json /app/
-COPY yarn.lock /app/
+COPY . /app/
 
-RUN yarn --production
-
-COPY .next/ /app/.next/
-COPY public/ /app/public/
+RUN yarn --production --frozen-lockfile --prefer-offline && yarn cache clean
+RUN yarn build
 
 USER node
 
