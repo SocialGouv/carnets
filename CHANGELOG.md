@@ -1,3 +1,10 @@
+## [1.6.8-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.2...v1.6.8-alpha.3) (2021-08-24)
+
+
+### Bug Fixes
+
+* Rename manifests files according to env. ([0c078e7](https://github.com/SocialGouv/carnets/commit/0c078e7a07455fedb0e9e07953181973d88a267b))
+
 ## [1.6.8-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.1...v1.6.8-alpha.2) (2021-08-24)
 
 
