@@ -132,50 +132,55 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Use kosko-charts autodevops
+        uses: SocialGouv/actions/k8s-autodevops@k8s-autodevops
+        with:
+          environment: "dev"
 
-    - name: Load review environment variables
-      run: |
-        cat ".github/review.env" >> $GITHUB_ENV
+    # - name: Checkout repository
+    #   uses: actions/checkout@v2
 
-    - name: Yarn cache setup
-      uses: c-hive/gha-yarn-cache@v1
+    # - name: Load review environment variables
+    #   run: |
+    #     cat ".github/review.env" >> $GITHUB_ENV
 
-    - name: Install kosko-charts autodevops
-      run: |
-        npx degit SocialGouv/kosko-charts/templates/autodevops /tmp/autodevops
-        yarn --cwd /tmp/autodevops
+    # - name: Yarn cache setup
+    #   uses: c-hive/gha-yarn-cache@v1
 
-    - name: Copy application k8s config to autodevops
-      run: cp -r .socialgouv/environments .socialgouv/config.json /tmp/autodevops/
+    # - name: Install kosko-charts autodevops
+    #   run: |
+    #     npx degit SocialGouv/kosko-charts/templates/autodevops /tmp/autodevops
+    #     yarn --cwd /tmp/autodevops
 
-    - name: Generate k8s manifests
-      run: |
-        echo SOCIALGOUV_BASE_DOMAIN: $SOCIALGOUV_BASE_DOMAIN
-        yarn --cwd /tmp/autodevops --silent generate:dev > manifests.yml
-      env:
-        SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
-        SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
+    # - name: Copy application k8s config to autodevops
+    #   run: cp -r .socialgouv/environments .socialgouv/config.json /tmp/autodevops/
 
-    - name: Generate restore-db manifests
-      run: |
-        yarn --cwd /tmp/autodevops --silent generate:dev jobs/restore-db > restore-db.yml
-      env:
-        SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
-        SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
+    # - name: Generate k8s manifests
+    #   run: |
+    #     echo SOCIALGOUV_BASE_DOMAIN: $SOCIALGOUV_BASE_DOMAIN
+    #     yarn --cwd /tmp/autodevops --silent generate:dev > manifests.yml
+    #   env:
+    #     SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
+    #     SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
 
-    - name: Archive k8s manifests
-      uses: actions/upload-artifact@v2
-      with:
-        name: manifests.yml
-        path: manifests.yml
+    # - name: Generate restore-db manifests
+    #   run: |
+    #     yarn --cwd /tmp/autodevops --silent generate:dev jobs/restore-db > restore-db.yml
+    #   env:
+    #     SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
+    #     SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
 
-    - name: Archive restore DB manifests
-      uses: actions/upload-artifact@v2
-      with:
-        name: restore-db.yml
-        path: restore-db.yml
+    # - name: Archive k8s manifests
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: manifests.yml
+    #     path: manifests.yml
+
+    # - name: Archive restore DB manifests
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: restore-db.yml
+    #     path: restore-db.yml
 
   ##############################################################################
   ## DEPLOY APPLICATION OVER KUBERNETES
