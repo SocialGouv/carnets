@@ -1,3 +1,10 @@
+## [1.6.8-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.1...v1.6.8-alpha.2) (2021-08-24)
+
+
+### Bug Fixes
+
+* Rename workflow env files. ([d6d746a](https://github.com/SocialGouv/carnets/commit/d6d746a363670e52b12dde8923df6133854297fa))
+
 ## [1.6.8-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.7...v1.6.8-alpha.1) (2021-08-24)
 
 
