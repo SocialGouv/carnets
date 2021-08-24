@@ -212,7 +212,7 @@ jobs:
         kubectl annotate ns ${{ env.namespace }} azure-pg-admin-user=${{ env.project }} || true
 
     - name: Deploy application
-      run: kapp --dangerous-override-ownership-of-existing-resources -y deploy -a ${{ env.project }} --namespace ${{ env.namespace }} -f manifests.yml
+      run: kapp --dangerous-override-ownership-of-existing-resources -y deploy -a ${{ env.project }} --namespace ${{ env.namespace }} -f manifests-preprod.yml
 
   ##############################################################################
   ## GENERATE PRODUCTION MANIFESTS
