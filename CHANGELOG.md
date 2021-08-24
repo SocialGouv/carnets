@@ -1,3 +1,10 @@
+## [1.6.8-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.3...v1.6.8-alpha.4) (2021-08-24)
+
+
+### Bug Fixes
+
+* Manifests file names. ([b9406ed](https://github.com/SocialGouv/carnets/commit/b9406edc11143ac29de927ad92afc4928e27d9bc))
+
 ## [1.6.8-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.2...v1.6.8-alpha.3) (2021-08-24)
 
 
