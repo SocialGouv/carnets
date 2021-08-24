@@ -1,3 +1,10 @@
+## [1.6.8-alpha.5](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.4...v1.6.8-alpha.5) (2021-08-24)
+
+
+### Bug Fixes
+
+* Use proper workflow env files. ([803b651](https://github.com/SocialGouv/carnets/commit/803b65178406f8a7de532716fec9eb498919f15b))
+
 ## [1.6.8-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.3...v1.6.8-alpha.4) (2021-08-24)
 
 
