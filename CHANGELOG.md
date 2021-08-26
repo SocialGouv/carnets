@@ -1,3 +1,10 @@
+## [1.6.8-alpha.12](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.11...v1.6.8-alpha.12) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use proper autodevops actions. ([81396e7](https://github.com/SocialGouv/carnets/commit/81396e723d518ecf10575e6a6dbe628ed1ff4b78))
+
 ## [1.6.8-alpha.11](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.10...v1.6.8-alpha.11) (2021-08-26)
 
 
