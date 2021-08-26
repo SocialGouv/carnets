@@ -1,3 +1,10 @@
+## [1.6.8-alpha.10](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.9...v1.6.8-alpha.10) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use autodevops build and register action in production workflow. ([e777989](https://github.com/SocialGouv/carnets/commit/e77798983761b8cfd7805c2796a351d50be28bfe))
+
 ## [1.6.8-alpha.9](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.8...v1.6.8-alpha.9) (2021-08-26)
 
 
