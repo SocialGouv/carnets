@@ -1,3 +1,10 @@
+## [1.6.8-alpha.7](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.6...v1.6.8-alpha.7) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use autodevops action to register Hasura image. ([d00b4ec](https://github.com/SocialGouv/carnets/commit/d00b4ecf37d8733558f6fb384afaa9254cabf8d3))
+
 ## [1.6.8-alpha.6](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.5...v1.6.8-alpha.6) (2021-08-26)
 
 
