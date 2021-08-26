@@ -1,3 +1,10 @@
+## [1.6.8-alpha.9](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.8...v1.6.8-alpha.9) (2021-08-26)
+
+
+### Bug Fixes
+
+* Set docker file path. ([b18709c](https://github.com/SocialGouv/carnets/commit/b18709c87e0c3c0078615167b552022195c9e369))
+
 ## [1.6.8-alpha.8](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.7...v1.6.8-alpha.8) (2021-08-26)
 
 
