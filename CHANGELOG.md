@@ -1,3 +1,10 @@
+## [1.6.8-alpha.11](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.10...v1.6.8-alpha.11) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use autodevops-manifests in production workflow. ([8746af0](https://github.com/SocialGouv/carnets/commit/8746af031fbf00425686589beab2e94f8f4ec7c8))
+
 ## [1.6.8-alpha.10](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.9...v1.6.8-alpha.10) (2021-08-26)
 
 
