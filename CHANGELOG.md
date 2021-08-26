@@ -1,3 +1,10 @@
+## [1.6.8-alpha.8](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.7...v1.6.8-alpha.8) (2021-08-26)
+
+
+### Bug Fixes
+
+* Set image name for Hasura registration. ([99dce33](https://github.com/SocialGouv/carnets/commit/99dce3382b3b3f1ce7cdde3a4eff1e15a6d1f96d))
+
 ## [1.6.8-alpha.7](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.6...v1.6.8-alpha.7) (2021-08-26)
 
 
