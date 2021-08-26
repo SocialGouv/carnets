@@ -1,3 +1,10 @@
+## [1.6.8-alpha.6](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.5...v1.6.8-alpha.6) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use autodevops-build-register action. ([0ec843f](https://github.com/SocialGouv/carnets/commit/0ec843f2aefc443808aad4340760b801e1bebfb0))
+
 ## [1.6.8-alpha.5](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.4...v1.6.8-alpha.5) (2021-08-24)
 
 
