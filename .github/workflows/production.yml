@@ -147,7 +147,7 @@ jobs:
     steps:
 
       - name: Use kosko-charts autodevops
-        uses: SocialGouv/actions/k8s-autodevops@k8s-autodevops
+        uses: SocialGouv/actions/autodevops-manifests@k8s-autodevops
         with:
           environment: "preprod"
 
