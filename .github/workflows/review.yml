@@ -33,6 +33,7 @@ jobs:
       with:
         group: "fabrique"
         project: ${{ env.project }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     # - name: Create image labels and tags
     #   id: docker_meta
