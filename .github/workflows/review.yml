@@ -148,10 +148,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Use kosko-charts autodevops
-        uses: SocialGouv/actions/autodevops-manifests@k8s-autodevops
-        with:
-          environment: "dev"
+    - name: Use kosko-charts autodevops
+      uses: SocialGouv/actions/autodevops-manifests@k8s-autodevops
+      with:
+        environment: "dev"
 
     # - name: Checkout repository
     #   uses: actions/checkout@v2
@@ -207,63 +207,70 @@ jobs:
     needs: [register, register-hasura, manifests]
     steps:
 
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Get project and namespace names
-      run: |
-        cat ".github/dev.env" >> $GITHUB_ENV
-        echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-        echo "namespace=${GITHUB_REPOSITORY#*/}-${GITHUB_REF##*/}" >> $GITHUB_ENV
-
-    - name: Download k8s manifests
-      uses: actions/download-artifact@v2
+    - name: Use kosko-charts autodevops
+      uses: SocialGouv/actions/autodevops-deploy@k8s-autodevops
       with:
-        name: manifests-dev.yml
-
-    - name: Download restore DB manifests
-      uses: actions/download-artifact@v2
-      with:
-        name: restore-db.yml
-
-    - name: Notify deployment start
-      uses: bobheadxi/deployments@v0.4.3
-      id: deployment
-      with:
-        step: start
-        env: ${{ env.namespace }}
+        environment: "dev"
         token: ${{ secrets.GITHUB_TOKEN }}
-        desc: "Deploying environment: ${{ env.namespace }}"
+        kubeconfig: ${{ secrets.SOCIALGOUV_KUBE_CONFIG_DEV }}
 
-    - name: Install Kapp
-      uses: vmware-tanzu/carvel-setup-action@v1
-      with:
-        only: kapp
-        token: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Checkout repository
+    #   uses: actions/checkout@v2
 
-    - name: Create kubernetes config
-      run: |
-        mkdir ~/.kube
-        touch ~/.kube/config
-        echo ${{ secrets.SOCIALGOUV_KUBE_CONFIG_DEV }} | base64 -d > ~/.kube/config
+    # - name: Get project and namespace names
+    #   run: |
+    #     cat ".github/dev.env" >> $GITHUB_ENV
+    #     echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+    #     echo "namespace=${GITHUB_REPOSITORY#*/}-${GITHUB_REF##*/}" >> $GITHUB_ENV
 
-    - name: Create k8s namespace and annotations
-      run: |
-        kubectl create ns ${{ env.namespace }} || true
-        kubectl annotate ns ${{ env.namespace }} azure-pg-admin-user=${{ env.project }} || true
+    # - name: Download k8s manifests
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: manifests-dev.yml
 
-    - name: Deploy application
-      run: kapp --dangerous-override-ownership-of-existing-resources -y deploy -a ${{ env.project }} --namespace ${{ env.namespace }} -f manifests-dev.yml
+    # - name: Download restore DB manifests
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: restore-db.yml
 
-    - name: Restore database
-      run: kubectl apply --namespace=${{ env.namespace }} -f restore-db.yml
+    # - name: Notify deployment start
+    #   uses: bobheadxi/deployments@v0.4.3
+    #   id: deployment
+    #   with:
+    #     step: start
+    #     env: ${{ env.namespace }}
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     desc: "Deploying environment: ${{ env.namespace }}"
 
-    - name: Notify deployment end
-      uses: bobheadxi/deployments@v0.4.3
-      if: always()
-      with:
-        step: finish
-        status: ${{ job.status }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-        env_url: https://${{ env.namespace }}.${{ env.SOCIALGOUV_BASE_DOMAIN }}
+    # - name: Install Kapp
+    #   uses: vmware-tanzu/carvel-setup-action@v1
+    #   with:
+    #     only: kapp
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+
+    # - name: Create kubernetes config
+    #   run: |
+    #     mkdir ~/.kube
+    #     touch ~/.kube/config
+    #     echo ${{ secrets.SOCIALGOUV_KUBE_CONFIG_DEV }} | base64 -d > ~/.kube/config
+
+    # - name: Create k8s namespace and annotations
+    #   run: |
+    #     kubectl create ns ${{ env.namespace }} || true
+    #     kubectl annotate ns ${{ env.namespace }} azure-pg-admin-user=${{ env.project }} || true
+
+    # - name: Deploy application
+    #   run: kapp --dangerous-override-ownership-of-existing-resources -y deploy -a ${{ env.project }} --namespace ${{ env.namespace }} -f manifests-dev.yml
+
+    # - name: Restore database
+    #   run: kubectl apply --namespace=${{ env.namespace }} -f restore-db.yml
+
+    # - name: Notify deployment end
+    #   uses: bobheadxi/deployments@v0.4.3
+    #   if: always()
+    #   with:
+    #     step: finish
+    #     status: ${{ job.status }}
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+    #     env_url: https://${{ env.namespace }}.${{ env.SOCIALGOUV_BASE_DOMAIN }}
