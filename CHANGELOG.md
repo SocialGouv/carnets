@@ -1,3 +1,10 @@
+## [1.6.8-alpha.16](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.15...v1.6.8-alpha.16) (2021-08-28)
+
+
+### Bug Fixes
+
+* Restore database job name. ([832ef8e](https://github.com/SocialGouv/carnets/commit/832ef8e27194cbf9bb629401f3826bae180c3bcd))
+
 ## [1.6.8-alpha.15](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.14...v1.6.8-alpha.15) (2021-08-28)
 
 
