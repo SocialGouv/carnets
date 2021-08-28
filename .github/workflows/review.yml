@@ -85,7 +85,7 @@ jobs:
   ##############################################################################
   ## RESTORE DATABASE
   ##############################################################################
-  deploy:
+  restore-db:
     name: Restore database
     runs-on: ubuntu-latest
     needs: deploy
