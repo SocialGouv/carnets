@@ -1,3 +1,10 @@
+## [1.6.8-alpha.15](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.14...v1.6.8-alpha.15) (2021-08-28)
+
+
+### Bug Fixes
+
+* Restore database after deployment. ([a57f722](https://github.com/SocialGouv/carnets/commit/a57f7223a1c0b19170f4be099b3cb89043e0e992))
+
 ## [1.6.8-alpha.14](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.13...v1.6.8-alpha.14) (2021-08-27)
 
 
