@@ -1,3 +1,10 @@
+## [1.6.8-alpha.18](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.17...v1.6.8-alpha.18) (2021-08-30)
+
+
+### Bug Fixes
+
+* Get namespace from manifests. ([190c00e](https://github.com/SocialGouv/carnets/commit/190c00ebdddef847409b4867e880d4e59377e1de))
+
 ## [1.6.8-alpha.17](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.16...v1.6.8-alpha.17) (2021-08-30)
 
 
