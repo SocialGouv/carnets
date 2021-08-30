@@ -1,3 +1,10 @@
+## [1.6.8-alpha.22](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.21...v1.6.8-alpha.22) (2021-08-30)
+
+
+### Bug Fixes
+
+* Use autodevops master branch. ([c38fe4f](https://github.com/SocialGouv/carnets/commit/c38fe4fbb31e05d5ed89018818db9c41baed760c))
+
 ## [1.6.8-alpha.21](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.20...v1.6.8-alpha.21) (2021-08-30)
 
 
