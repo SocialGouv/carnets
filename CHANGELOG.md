@@ -1,3 +1,10 @@
+## [1.6.8-alpha.19](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.18...v1.6.8-alpha.19) (2021-08-30)
+
+
+### Bug Fixes
+
+* Renaming jobs. ([13008cf](https://github.com/SocialGouv/carnets/commit/13008cf5906c6d6a3230fb7ae5e4101e26680fe7))
+
 ## [1.6.8-alpha.18](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.17...v1.6.8-alpha.18) (2021-08-30)
 
 
