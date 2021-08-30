@@ -23,7 +23,7 @@ jobs:
       run: |
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
-    - name: Use kosko-charts autodevops
+    - name: Use autodevops build and register
       uses: SocialGouv/actions/autodevops-build-register@k8s-autodevops
       with:
         group: "fabrique"
@@ -42,7 +42,7 @@ jobs:
       run: |
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
-    - name: Use kosko-charts autodevops
+    - name: Use autodevops build and register
       uses: SocialGouv/actions/autodevops-build-register@k8s-autodevops
       with:
         image: "hasura"
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Use kosko-charts autodevops
+    - name: Use autodevops manifests generation
       uses: SocialGouv/actions/autodevops-manifests@k8s-autodevops
       with:
         environment: "preprod"
@@ -76,46 +76,12 @@ jobs:
       url: https://${{ env.namespace }}.${{ env.SOCIALGOUV_BASE_DOMAIN }}
     steps:
   
-    - name: Use kosko-charts autodevops
+    - name: Use autodevops deployment
       uses: SocialGouv/actions/autodevops-deploy@k8s-autodevops
       with:
         environment: "preprod"
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.SOCIALGOUV_KUBE_CONFIG_DEV }}
-
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
-
-    # - name: Load environment variables
-    #   run: |
-    #     cat ".github/preprod.env" >> $GITHUB_ENV
-    #     echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-    #     echo "namespace=${GITHUB_REPOSITORY#*/}-preprod" >> $GITHUB_ENV
-
-    # - name: Download k8s manifests
-    #   uses: actions/download-artifact@v2
-    #   with:
-    #     name: manifests-preprod.yml
-
-    # - name: Install Kapp
-    #   uses: vmware-tanzu/carvel-setup-action@v1
-    #   with:
-    #     only: kapp
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-
-    # - name: Create kubernetes config
-    #   run: |
-    #     mkdir ~/.kube
-    #     touch ~/.kube/config
-    #     echo ${{ secrets.SOCIALGOUV_KUBE_CONFIG_DEV }} | base64 -d > ~/.kube/config
-
-    # - name: Create k8s namespace and annotations
-    #   run: |
-    #     kubectl create ns ${{ env.namespace }} || true
-    #     kubectl annotate ns ${{ env.namespace }} azure-pg-admin-user=${{ env.project }} || true
-
-    # - name: Deploy application
-    #   run: kapp --dangerous-override-ownership-of-existing-resources -y deploy -a ${{ env.project }} --namespace ${{ env.namespace }} -f manifests-preprod.yml
 
   ##############################################################################
   ## GENERATE PRODUCTION MANIFESTS
@@ -125,7 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Use kosko-charts autodevops
+    - name: Use autodevops manifests generation
       uses: SocialGouv/actions/autodevops-manifests@k8s-autodevops
       with:
         environment: "prod"
@@ -142,43 +108,9 @@ jobs:
       url: https://${{ env.namespace }}.${{ env.SOCIALGOUV_BASE_DOMAIN }}
     steps:
 
-    - name: Use kosko-charts autodevops
+    - name: Use autodevops deployment
       uses: SocialGouv/actions/autodevops-deploy@k8s-autodevops
       with:
         environment: "prod"
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.SOCIALGOUV_KUBE_CONFIG_PROD }}
-
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
-
-    # - name: Load environment variables
-    #   run: |
-    #     cat ".github/prod.env" >> $GITHUB_ENV
-    #     echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-    #     echo "namespace=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-
-    # - name: Download k8s manifests
-    #   uses: actions/download-artifact@v2
-    #   with:
-    #     name: manifests-prod.yml
-
-    # - name: Install Kapp
-    #   uses: vmware-tanzu/carvel-setup-action@v1
-    #   with:
-    #     only: kapp
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-
-    # - name: Create kubernetes config
-    #   run: |
-    #     mkdir ~/.kube
-    #     touch ~/.kube/config
-    #     echo ${{ secrets.SOCIALGOUV_KUBE_CONFIG_PROD }} | base64 -d > ~/.kube/config
-
-    # - name: Create k8s namespace and annotations
-    #   run: |
-    #     kubectl create ns ${{ env.namespace }} || true
-    #     kubectl annotate ns ${{ env.namespace }} azure-pg-admin-user=${{ env.project }} || true
-
-    # - name: Deploy application
-    #   run: kapp --dangerous-override-ownership-of-existing-resources -y deploy -a ${{ env.project }} --namespace ${{ env.namespace }} -f manifests-prod.yml
