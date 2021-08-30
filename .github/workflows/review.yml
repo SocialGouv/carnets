@@ -93,3 +93,5 @@ jobs:
 
     - name: Use kosko-charts autodevops
       uses: SocialGouv/actions/autodevops-restore-db@k8s-autodevops
+      with:
+        kubeconfig: ${{ secrets.SOCIALGOUV_KUBE_CONFIG_DEV }}
