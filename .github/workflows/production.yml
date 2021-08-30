@@ -19,9 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
-
     - name: Get project name
       run: |
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
@@ -33,46 +30,6 @@ jobs:
         project: ${{ env.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    # - name: Create image labels and tags
-    #   id: docker_meta
-    #   uses: "crazy-max/ghaction-docker-meta@2e1a5c7fa42123697f82d479b551a1bbdb1bef88"
-    #   with:
-    #     images: ghcr.io/socialgouv/fabrique/${{ env.project }}
-    #     labels: |
-    #       org.opencontainers.image.title=${{ env.project }}
-    #       org.opencontainers.image.documentation=https://github.com/SocialGouv/${{ env.project }}/tree/${{ github.sha }}
-    #     tags: |
-    #       type=sha
-    #       type=ref,event=pr
-    #       type=ref,event=branch
-    #       type=semver,pattern={{version}}
-    #       type=raw,value=sha-${{ github.sha }}
-    #       type=semver,pattern={{major}}.{{minor}}
-
-    # - name: Set up Buildx
-    #   id: buildx
-    #   uses: docker/setup-buildx-action@master
-    #   with:
-    #     install: true
-
-    # - name: Registry authentication
-    #   uses: docker/login-action@v1
-    #   with:
-    #     registry: ghcr.io
-    #     username: ${{ github.actor }}
-    #     password: ${{ secrets.GITHUB_TOKEN }}
-
-    # - name: Image build and register
-    #   uses: docker/build-push-action@v2
-    #   with:
-    #     context: .
-    #     push: 'true'
-    #     cache-from: "type=gha"
-    #     cache-to: "type=gha,mode=max"
-    #     builder: ${{ steps.buildx.outputs.name }}
-    #     tags: "${{ steps.docker_meta.outputs.tags }}"
-    #     labels: "${{ steps.docker_meta.outputs.labels }}"
-
   ##############################################################################
   ## BUILD AND REGISTER HASURA IMAGE
   ##############################################################################
@@ -80,9 +37,6 @@ jobs:
     name: Build & Register Hasura
     runs-on: ubuntu-latest
     steps:
-
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
 
     - name: Get project name
       run: |
@@ -97,47 +51,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: ./packages/hasura/Dockerfile
 
-    # - name: Create image labels and tags
-    #   id: docker_meta
-    #   uses: "crazy-max/ghaction-docker-meta@2e1a5c7fa42123697f82d479b551a1bbdb1bef88"
-    #   with:
-    #     images: ghcr.io/socialgouv/fabrique/hasura
-    #     labels: |
-    #       org.opencontainers.image.title=hasura
-    #       org.opencontainers.image.documentation=https://github.com/SocialGouv/${{ env.project }}/tree/${{ github.sha }}
-    #     tags: |
-    #       type=sha
-    #       type=ref,event=pr
-    #       type=ref,event=branch
-    #       type=semver,pattern={{version}}
-    #       type=raw,value=sha-${{ github.sha }}
-    #       type=semver,pattern={{major}}.{{minor}}
-
-    # - name: Set up Buildx
-    #   id: buildx
-    #   uses: docker/setup-buildx-action@master
-    #   with:
-    #     install: true
-
-    # - name: Registry authentication
-    #   uses: docker/login-action@v1
-    #   with:
-    #     registry: ghcr.io
-    #     username: ${{ github.actor }}
-    #     password: ${{ secrets.GITHUB_TOKEN }}
-
-    # - name: Image build and register
-    #   uses: docker/build-push-action@v2
-    #   with:
-    #     context: .
-    #     push: 'true'
-    #     cache-from: "type=gha"
-    #     cache-to: "type=gha,mode=max"
-    #     file: ./packages/hasura/Dockerfile
-    #     builder: ${{ steps.buildx.outputs.name }}
-    #     tags: "${{ steps.docker_meta.outputs.tags }}"
-    #     labels: "${{ steps.docker_meta.outputs.labels }}"
-
   ##############################################################################
   ## GENERATE PREPRODUCTION MANIFESTS
   ##############################################################################
@@ -146,43 +59,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Use kosko-charts autodevops
-        uses: SocialGouv/actions/autodevops-manifests@k8s-autodevops
-        with:
-          environment: "preprod"
-
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
-
-    # - name: Load preproduction environment variables
-    #   run: |
-    #     cat ".github/preproduction.env" >> $GITHUB_ENV
-
-    # - name: Yarn cache setup
-    #   uses: c-hive/gha-yarn-cache@v1
-
-    # - name: Install kosko-charts autodevops
-    #   run: |
-    #     npx degit SocialGouv/kosko-charts/templates/autodevops /tmp/autodevops
-    #     yarn --cwd /tmp/autodevops
-
-    # - name: Copy application k8s config to autodevops
-    #   run: cp -r .socialgouv/environments .socialgouv/config.json /tmp/autodevops/
-
-    # - name: Generate k8s manifests
-    #   run: |
-    #     echo SOCIALGOUV_BASE_DOMAIN: $SOCIALGOUV_BASE_DOMAIN
-    #     yarn --cwd /tmp/autodevops --silent generate:preprod > manifests.yml
-    #   env:
-    #     SOCIALGOUV_PREPRODUCTION: true
-    #     SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
-    #     SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
-
-    # - name: Archive k8s manifests
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: manifests.yml
-    #     path: manifests.yml
+    - name: Use kosko-charts autodevops
+      uses: SocialGouv/actions/autodevops-manifests@k8s-autodevops
+      with:
+        environment: "preprod"
 
   ##############################################################################
   ## DEPLOY PREPRODUCTION APPLICATION
@@ -243,46 +123,12 @@ jobs:
   manifests-prod:
     name: Production manifests
     runs-on: ubuntu-latest
-    # needs: deploy
     steps:
 
     - name: Use kosko-charts autodevops
       uses: SocialGouv/actions/autodevops-manifests@k8s-autodevops
       with:
         environment: "prod"
-
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
-
-    # - name: Load production environment variables
-    #   run: |
-    #     cat ".github/production.env" >> $GITHUB_ENV
-
-    # - name: Yarn cache setup
-    #   uses: c-hive/gha-yarn-cache@v1
-
-    # - name: Install kosko-charts autodevops
-    #   run: |
-    #     npx degit SocialGouv/kosko-charts/templates/autodevops /tmp/autodevops
-    #     yarn --cwd /tmp/autodevops
-
-    # - name: Copy application k8s config to autodevops
-    #   run: cp -r .socialgouv/environments .socialgouv/config.json /tmp/autodevops/
-
-    # - name: Generate k8s manifests
-    #   run: |
-    #     echo SOCIALGOUV_BASE_DOMAIN: $SOCIALGOUV_BASE_DOMAIN
-    #     yarn --cwd /tmp/autodevops --silent generate --env prod > manifests-prod.yml
-    #   env:
-    #     SOCIALGOUV_PRODUCTION: true
-    #     SOCIALGOUV_CONFIG_PATH: /tmp/autodevops/config.json
-    #     SOCIALGOUV_BASE_DOMAIN: ${{ env.SOCIALGOUV_BASE_DOMAIN }}
-
-    # - name: Archive k8s manifests
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: manifests-prod.yml
-    #     path: manifests-prod.yml
 
   ##############################################################################
   ## DEPLOY PRODUCTION APPLICATION
