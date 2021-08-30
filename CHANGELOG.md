@@ -1,3 +1,10 @@
+## [1.6.8-alpha.17](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.16...v1.6.8-alpha.17) (2021-08-30)
+
+
+### Bug Fixes
+
+* Add kube config to restore-db. ([ceee057](https://github.com/SocialGouv/carnets/commit/ceee057196fcce94ef02dfea7b26f76a6caa6ca0))
+
 ## [1.6.8-alpha.16](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.15...v1.6.8-alpha.16) (2021-08-28)
 
 
