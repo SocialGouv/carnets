@@ -1,3 +1,10 @@
+## [1.6.8-alpha.20](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.19...v1.6.8-alpha.20) (2021-08-30)
+
+
+### Bug Fixes
+
+* Bump version. ([485a7f0](https://github.com/SocialGouv/carnets/commit/485a7f0be8040ba2a98a375117722353b2607d2c))
+
 ## [1.6.8-alpha.19](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.18...v1.6.8-alpha.19) (2021-08-30)
 
 
