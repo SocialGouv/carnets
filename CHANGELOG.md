@@ -1,3 +1,10 @@
+## [1.6.8-alpha.24](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.23...v1.6.8-alpha.24) (2021-08-30)
+
+
+### Bug Fixes
+
+* Use imageName within autodevops build and register action. ([ec3a733](https://github.com/SocialGouv/carnets/commit/ec3a73363576e64267dbae2039ca4607fcc8f674))
+
 ## [1.6.8-alpha.23](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.22...v1.6.8-alpha.23) (2021-08-30)
 
 
