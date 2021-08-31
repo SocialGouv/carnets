@@ -1,9 +1,188 @@
-## [1.6.8](https://github.com/SocialGouv/carnets/compare/v1.6.7...v1.6.8) (2021-08-20)
+## [1.6.9-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.9-alpha.1...v1.6.9-alpha.2) (2021-08-31)
+
+
+### Bug Fixes
+
+* Update tests. ([287e6de](https://github.com/SocialGouv/carnets/commit/287e6de47d8f00a4f4faac0b32b8766007a38774))
+
+## [1.6.9-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.8...v1.6.9-alpha.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* Use socialgouv action to generate manifests. ([29318da](https://github.com/SocialGouv/carnets/commit/29318da9d2b51bbf44031985710f5f89b7b99504))
+
+## [1.6.8-alpha.24](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.23...v1.6.8-alpha.24) (2021-08-30)
+
+
+### Bug Fixes
+
+* Use imageName within autodevops build and register action. ([ec3a733](https://github.com/SocialGouv/carnets/commit/ec3a73363576e64267dbae2039ca4607fcc8f674))
+
+## [1.6.8-alpha.23](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.22...v1.6.8-alpha.23) (2021-08-30)
+
+
+### Bug Fixes
+
+* Use autodevops master branch explicitly. ([934ebaf](https://github.com/SocialGouv/carnets/commit/934ebaffa2ed37366ad382ecd34c10de248d28bd))
+
+## [1.6.8-alpha.22](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.21...v1.6.8-alpha.22) (2021-08-30)
+
+
+### Bug Fixes
+
+* Use autodevops master branch. ([c38fe4f](https://github.com/SocialGouv/carnets/commit/c38fe4fbb31e05d5ed89018818db9c41baed760c))
+
+## [1.6.8-alpha.21](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.20...v1.6.8-alpha.21) (2021-08-30)
+
+
+### Bug Fixes
+
+* Bump version. ([4185dcf](https://github.com/SocialGouv/carnets/commit/4185dcf00704592446984b0f5cf0dafbe01321d5))
+
+## [1.6.8-alpha.20](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.19...v1.6.8-alpha.20) (2021-08-30)
+
+
+### Bug Fixes
+
+* Bump version. ([485a7f0](https://github.com/SocialGouv/carnets/commit/485a7f0be8040ba2a98a375117722353b2607d2c))
+
+## [1.6.8-alpha.19](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.18...v1.6.8-alpha.19) (2021-08-30)
+
+
+### Bug Fixes
+
+* Renaming jobs. ([13008cf](https://github.com/SocialGouv/carnets/commit/13008cf5906c6d6a3230fb7ae5e4101e26680fe7))
+
+## [1.6.8-alpha.18](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.17...v1.6.8-alpha.18) (2021-08-30)
+
+
+### Bug Fixes
+
+* Get namespace from manifests. ([190c00e](https://github.com/SocialGouv/carnets/commit/190c00ebdddef847409b4867e880d4e59377e1de))
+
+## [1.6.8-alpha.17](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.16...v1.6.8-alpha.17) (2021-08-30)
+
+
+### Bug Fixes
+
+* Add kube config to restore-db. ([ceee057](https://github.com/SocialGouv/carnets/commit/ceee057196fcce94ef02dfea7b26f76a6caa6ca0))
+
+## [1.6.8-alpha.16](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.15...v1.6.8-alpha.16) (2021-08-28)
+
+
+### Bug Fixes
+
+* Restore database job name. ([832ef8e](https://github.com/SocialGouv/carnets/commit/832ef8e27194cbf9bb629401f3826bae180c3bcd))
+
+## [1.6.8-alpha.15](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.14...v1.6.8-alpha.15) (2021-08-28)
+
+
+### Bug Fixes
+
+* Restore database after deployment. ([a57f722](https://github.com/SocialGouv/carnets/commit/a57f7223a1c0b19170f4be099b3cb89043e0e992))
+
+## [1.6.8-alpha.14](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.13...v1.6.8-alpha.14) (2021-08-27)
+
+
+### Bug Fixes
+
+* Use autodevops deploy action for preprod and prod. ([7dd7b8d](https://github.com/SocialGouv/carnets/commit/7dd7b8dfc0624b9274d2184dade143ce789428df))
+
+## [1.6.8-alpha.13](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.12...v1.6.8-alpha.13) (2021-08-27)
+
+
+### Bug Fixes
+
+* Use autodevops deploy action. ([44c924d](https://github.com/SocialGouv/carnets/commit/44c924dfa7659768b7b132fa66dc10e14d5cb8cf))
+
+## [1.6.8-alpha.12](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.11...v1.6.8-alpha.12) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use proper autodevops actions. ([81396e7](https://github.com/SocialGouv/carnets/commit/81396e723d518ecf10575e6a6dbe628ed1ff4b78))
+
+## [1.6.8-alpha.11](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.10...v1.6.8-alpha.11) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use autodevops-manifests in production workflow. ([8746af0](https://github.com/SocialGouv/carnets/commit/8746af031fbf00425686589beab2e94f8f4ec7c8))
+
+## [1.6.8-alpha.10](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.9...v1.6.8-alpha.10) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use autodevops build and register action in production workflow. ([e777989](https://github.com/SocialGouv/carnets/commit/e77798983761b8cfd7805c2796a351d50be28bfe))
+
+## [1.6.8-alpha.9](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.8...v1.6.8-alpha.9) (2021-08-26)
+
+
+### Bug Fixes
+
+* Set docker file path. ([b18709c](https://github.com/SocialGouv/carnets/commit/b18709c87e0c3c0078615167b552022195c9e369))
+
+## [1.6.8-alpha.8](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.7...v1.6.8-alpha.8) (2021-08-26)
+
+
+### Bug Fixes
+
+* Set image name for Hasura registration. ([99dce33](https://github.com/SocialGouv/carnets/commit/99dce3382b3b3f1ce7cdde3a4eff1e15a6d1f96d))
+
+## [1.6.8-alpha.7](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.6...v1.6.8-alpha.7) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use autodevops action to register Hasura image. ([d00b4ec](https://github.com/SocialGouv/carnets/commit/d00b4ecf37d8733558f6fb384afaa9254cabf8d3))
+
+## [1.6.8-alpha.6](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.5...v1.6.8-alpha.6) (2021-08-26)
+
+
+### Bug Fixes
+
+* Use autodevops-build-register action. ([0ec843f](https://github.com/SocialGouv/carnets/commit/0ec843f2aefc443808aad4340760b801e1bebfb0))
+
+## [1.6.8-alpha.5](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.4...v1.6.8-alpha.5) (2021-08-24)
+
+
+### Bug Fixes
+
+* Use proper workflow env files. ([803b651](https://github.com/SocialGouv/carnets/commit/803b65178406f8a7de532716fec9eb498919f15b))
+
+## [1.6.8-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.3...v1.6.8-alpha.4) (2021-08-24)
+
+
+### Bug Fixes
+
+* Manifests file names. ([b9406ed](https://github.com/SocialGouv/carnets/commit/b9406edc11143ac29de927ad92afc4928e27d9bc))
+
+## [1.6.8-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.2...v1.6.8-alpha.3) (2021-08-24)
+
+
+### Bug Fixes
+
+* Rename manifests files according to env. ([0c078e7](https://github.com/SocialGouv/carnets/commit/0c078e7a07455fedb0e9e07953181973d88a267b))
+
+## [1.6.8-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.1...v1.6.8-alpha.2) (2021-08-24)
+
+
+### Bug Fixes
+
+* Rename workflow env files. ([d6d746a](https://github.com/SocialGouv/carnets/commit/d6d746a363670e52b12dde8923df6133854297fa))
+
+## [1.6.8-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.7...v1.6.8-alpha.1) (2021-08-24)
 
 
 ### Bug Fixes
 
 * Use GITHUB_TOKEN to register docker images. ([2ebba52](https://github.com/SocialGouv/carnets/commit/2ebba52adb971c718a09bc6f6c1cdea709d8ec24))
+<<<<<<< HEAD
+=======
+* Use socialgouv action to generate manifests. ([2a7e416](https://github.com/SocialGouv/carnets/commit/2a7e416217eab925c0b1770e50da1aa9abe22d0d))
+>>>>>>> bcdf95b (fix: Use socialgouv action to generate manifests.)
 
 ## [1.6.7](https://github.com/SocialGouv/carnets/compare/v1.6.6...v1.6.7) (2021-08-20)
 
