@@ -15,7 +15,7 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.16.1",
     "@azure/storage-blob": "12.4.1",
-    "@react-pdf/renderer": "^1.6.16",
+    "@react-pdf/renderer": "^2.0.19",
     "@sentry/browser": "^5.30.0",
     "@zeit/next-source-maps": "^0.0.3",
     "bytes": "^3.1.0",
