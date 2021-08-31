@@ -1,3 +1,10 @@
+## [1.6.9-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.8...v1.6.9-alpha.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* Use socialgouv action to generate manifests. ([29318da](https://github.com/SocialGouv/carnets/commit/29318da9d2b51bbf44031985710f5f89b7b99504))
+
 ## [1.6.8-alpha.24](https://github.com/SocialGouv/carnets/compare/v1.6.8-alpha.23...v1.6.8-alpha.24) (2021-08-30)
 
 
