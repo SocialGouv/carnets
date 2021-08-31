@@ -1,3 +1,10 @@
+## [1.6.10](https://github.com/SocialGouv/carnets/compare/v1.6.9...v1.6.10) (2021-08-31)
+
+
+### Bug Fixes
+
+* **deps:** update all dependencies ([#275](https://github.com/SocialGouv/carnets/issues/275)) ([9640414](https://github.com/SocialGouv/carnets/commit/9640414269b8dd41fdbb1469b55645e2e2f5b2ca))
+
 ## [1.6.9](https://github.com/SocialGouv/carnets/compare/v1.6.8...v1.6.9) (2021-08-31)
 
 
