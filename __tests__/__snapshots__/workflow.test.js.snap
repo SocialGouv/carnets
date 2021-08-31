@@ -2,29 +2,6 @@
 
 exports[`generate development k8s manifests 1`] = `
 "---
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    socialgouv/creator: autodevops
-    janitor/ttl: 15d
-    field.cattle.io/creatorId: gitlab
-    field.cattle.io/projectId: ''
-    git/branch: refs/heads/mybranch
-    git/remote: socialgouv/carnets
-    app.github.com/job: '5678'
-    app.github.com/ref: refs/heads/mybranch
-    app.github.com/repo: socialgouv/carnets
-    app.github.com/run: '1234'
-    app.github.com/sha: '0123456'
-  labels:
-    azure-pg-admin-user: carnets
-    application: carnets
-    owner: carnets
-    team: carnets
-    cert: wildcard
-  name: carnets-mybranch
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,6 +16,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -62,6 +40,7 @@ spec:
       labels:
         app: carnets
         application: carnets
+        component: carnets
         owner: carnets
         team: carnets
         cert: wildcard
@@ -129,6 +108,7 @@ metadata:
   namespace: carnets-mybranch
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -168,6 +148,7 @@ spec:
       name: app-sealed-secret
       labels:
         application: carnets
+        component: carnets
         owner: carnets
         team: carnets
         cert: wildcard
@@ -187,6 +168,7 @@ metadata:
     app.github.com/sha: '0123456'
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -204,6 +186,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -241,6 +224,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -277,6 +261,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -300,6 +285,7 @@ spec:
       labels:
         app: hasura
         application: carnets
+        component: hasura
         owner: carnets
         team: carnets
         cert: wildcard
@@ -355,7 +341,7 @@ spec:
           envFrom:
             - secretRef:
                 name: azure-pg-user-mybranch
-          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.39.1
+          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.45.0
           imagePullPolicy: Always
           name: wait-for-postgres
           resources:
@@ -382,6 +368,7 @@ metadata:
   namespace: carnets-mybranch
   labels:
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -407,6 +394,7 @@ spec:
       name: hasura-sealed-secret
       labels:
         application: carnets
+        component: hasura
         owner: carnets
         team: carnets
         cert: wildcard
@@ -426,6 +414,7 @@ metadata:
     app.github.com/sha: '0123456'
   labels:
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -444,6 +433,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -481,6 +471,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -524,7 +515,7 @@ spec:
           envFrom:
             - secretRef:
                 name: azure-pg-admin-user
-          image: ghcr.io/socialgouv/docker/azure-db:6.39.1
+          image: ghcr.io/socialgouv/docker/azure-db:6.45.0
           imagePullPolicy: IfNotPresent
           name: create-db-user
           resources:
@@ -535,21 +526,10 @@ spec:
               cpu: 100m
               memory: 64Mi
       restartPolicy: Never
-    metadata:
-      annotations:
-        app.github.com/job: '5678'
-        app.github.com/ref: refs/heads/mybranch
-        app.github.com/repo: socialgouv/carnets
-        app.github.com/run: '1234'
-        app.github.com/sha: '0123456'
-      labels:
-        application: carnets
-        owner: carnets
-        team: carnets
-        cert: wildcard
   ttlSecondsAfterFinished: 86400
 metadata:
   annotations:
+    kapp.k14s.io/update-strategy: skip
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -557,10 +537,11 @@ metadata:
     app.github.com/sha: '0123456'
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
-  name: create-db-job-0123456
+  name: create-db-job-mybranch
   namespace: carnets-mybranch
 ---
 apiVersion: v1
@@ -581,6 +562,7 @@ stringData:
   PGUSER: user_mybranch@carnetsdevserver.postgres.database.azure.com
 metadata:
   annotations:
+    kapp.k14s.io/update-strategy: skip
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -588,6 +570,7 @@ metadata:
     app.github.com/sha: '0123456'
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -623,28 +606,6 @@ spec:
 
 exports[`generate preproduction k8s manifests 1`] = `
 "---
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    socialgouv/creator: autodevops
-    field.cattle.io/creatorId: gitlab
-    field.cattle.io/projectId: ''
-    git/branch: refs/heads/mybranch
-    git/remote: socialgouv/carnets
-    app.github.com/job: '5678'
-    app.github.com/ref: refs/heads/mybranch
-    app.github.com/repo: socialgouv/carnets
-    app.github.com/run: '1234'
-    app.github.com/sha: '0123456'
-  labels:
-    azure-pg-admin-user: carnets
-    application: carnets
-    owner: carnets
-    team: carnets
-    cert: wildcard
-  name: carnets-preprod
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -659,6 +620,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -682,6 +644,7 @@ spec:
       labels:
         app: carnets
         application: carnets
+        component: carnets
         owner: carnets
         team: carnets
         cert: wildcard
@@ -749,6 +712,7 @@ metadata:
   namespace: carnets-preprod
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -788,6 +752,7 @@ spec:
       name: app-sealed-secret
       labels:
         application: carnets
+        component: carnets
         owner: carnets
         team: carnets
         cert: wildcard
@@ -807,6 +772,7 @@ metadata:
     app.github.com/sha: '0123456'
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -824,6 +790,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -861,6 +828,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -897,6 +865,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -920,6 +889,7 @@ spec:
       labels:
         app: hasura
         application: carnets
+        component: hasura
         owner: carnets
         team: carnets
         cert: wildcard
@@ -975,7 +945,7 @@ spec:
           envFrom:
             - secretRef:
                 name: azure-pg-user
-          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.39.1
+          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.45.0
           imagePullPolicy: Always
           name: wait-for-postgres
           resources:
@@ -1002,6 +972,7 @@ metadata:
   namespace: carnets-preprod
   labels:
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -1029,6 +1000,7 @@ spec:
       name: hasura-sealed-secret
       labels:
         application: carnets
+        component: hasura
         owner: carnets
         team: carnets
         cert: wildcard
@@ -1048,6 +1020,7 @@ metadata:
     app.github.com/sha: '0123456'
   labels:
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -1066,6 +1039,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -1103,6 +1077,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
     cert: wildcard
@@ -1139,6 +1114,7 @@ metadata:
   namespace: carnets-preprod
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
     cert: wildcard
@@ -1168,6 +1144,7 @@ spec:
       name: azure-pg-user
       labels:
         application: carnets
+        component: carnets
         owner: carnets
         team: carnets
         cert: wildcard
@@ -1177,27 +1154,6 @@ spec:
 
 exports[`generate production k8s manifests 1`] = `
 "---
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    socialgouv/creator: autodevops
-    field.cattle.io/creatorId: gitlab
-    field.cattle.io/projectId: ''
-    git/branch: refs/heads/mybranch
-    git/remote: socialgouv/carnets
-    app.github.com/job: '5678'
-    app.github.com/ref: refs/heads/mybranch
-    app.github.com/repo: socialgouv/carnets
-    app.github.com/run: '1234'
-    app.github.com/sha: '0123456'
-  labels:
-    azure-pg-admin-user: carnets
-    application: carnets
-    owner: carnets
-    team: carnets
-  name: carnets
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -1212,6 +1168,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
   name: carnets
@@ -1234,6 +1191,7 @@ spec:
       labels:
         app: carnets
         application: carnets
+        component: carnets
         owner: carnets
         team: carnets
     spec:
@@ -1299,6 +1257,7 @@ metadata:
   namespace: carnets
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
 spec:
@@ -1336,6 +1295,7 @@ spec:
       name: app-sealed-secret
       labels:
         application: carnets
+        component: carnets
         owner: carnets
         team: carnets
     type: Opaque
@@ -1354,6 +1314,7 @@ metadata:
     app.github.com/sha: '0123456'
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
   namespace: carnets
@@ -1370,6 +1331,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
   name: carnets
@@ -1408,6 +1370,7 @@ metadata:
   labels:
     app: carnets
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
   name: carnets
@@ -1443,6 +1406,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
   name: hasura
@@ -1465,6 +1429,7 @@ spec:
       labels:
         app: hasura
         application: carnets
+        component: hasura
         owner: carnets
         team: carnets
     spec:
@@ -1519,7 +1484,7 @@ spec:
           envFrom:
             - secretRef:
                 name: azure-pg-user
-          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.39.1
+          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.45.0
           imagePullPolicy: Always
           name: wait-for-postgres
           resources:
@@ -1545,6 +1510,7 @@ metadata:
   namespace: carnets
   labels:
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
 spec:
@@ -1570,6 +1536,7 @@ spec:
       name: hasura-sealed-secret
       labels:
         application: carnets
+        component: hasura
         owner: carnets
         team: carnets
     type: Opaque
@@ -1588,6 +1555,7 @@ metadata:
     app.github.com/sha: '0123456'
   labels:
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
   namespace: carnets
@@ -1605,6 +1573,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
   name: hasura
@@ -1643,6 +1612,7 @@ metadata:
   labels:
     app: hasura
     application: carnets
+    component: hasura
     owner: carnets
     team: carnets
   name: hasura
@@ -1677,6 +1647,7 @@ metadata:
   namespace: carnets
   labels:
     application: carnets
+    component: carnets
     owner: carnets
     team: carnets
 spec:
@@ -1704,6 +1675,7 @@ spec:
       name: azure-pg-user
       labels:
         application: carnets
+        component: carnets
         owner: carnets
         team: carnets
     type: Opaque
