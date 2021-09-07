@@ -2,7 +2,7 @@ FROM node:15.9-alpine
 
 WORKDIR /app
 
-COPY . /app/
+COPY . .
 
 RUN yarn --production --frozen-lockfile --prefer-offline && yarn cache clean
 RUN yarn build
