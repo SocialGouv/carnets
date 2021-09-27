@@ -1,3 +1,10 @@
+## [1.6.11-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.1...v1.6.11-alpha.2) (2021-09-27)
+
+
+### Bug Fixes
+
+* Update tests snapshots ([bb3b8be](https://github.com/SocialGouv/carnets/commit/bb3b8beb97067e6ada49661adfbaa0d71c41068e))
+
 ## [1.6.11-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.10...v1.6.11-alpha.1) (2021-09-27)
 
 
