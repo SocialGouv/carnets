@@ -1,3 +1,10 @@
+## [1.6.12](https://github.com/SocialGouv/carnets/compare/v1.6.11...v1.6.12) (2021-09-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-pdf/renderer to ^1.6.17 ([#321](https://github.com/SocialGouv/carnets/issues/321)) ([a6c80cf](https://github.com/SocialGouv/carnets/commit/a6c80cf5bd0b265bed4cf9c153ae279faad2c0ee))
+
 ## [1.6.11](https://github.com/SocialGouv/carnets/compare/v1.6.10...v1.6.11) (2021-09-27)
 
 
