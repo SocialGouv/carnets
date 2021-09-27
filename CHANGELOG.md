@@ -1,3 +1,10 @@
+## [1.6.13](https://github.com/SocialGouv/carnets/compare/v1.6.12...v1.6.13) (2021-09-27)
+
+
+### Bug Fixes
+
+* Add rancherId and socialgouvBaseDomain inputs to k8s-deactivate action ([b3f7643](https://github.com/SocialGouv/carnets/commit/b3f76438a07df5844483cbdc23be4343d5a4ada4))
+
 ## [1.6.12](https://github.com/SocialGouv/carnets/compare/v1.6.11...v1.6.12) (2021-09-27)
 
 
