@@ -1,3 +1,73 @@
+## [1.6.11-alpha.10](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.9...v1.6.11-alpha.10) (2021-09-27)
+
+
+### Bug Fixes
+
+* Update CODEOWNERS file, again ([2dbd341](https://github.com/SocialGouv/carnets/commit/2dbd341c2a56cdb39d5d8f840b96002b0e1d3eee))
+
+## [1.6.11-alpha.9](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.8...v1.6.11-alpha.9) (2021-09-27)
+
+
+### Bug Fixes
+
+* Update CODEOWNERS file ([8e93e4a](https://github.com/SocialGouv/carnets/commit/8e93e4a8d99b7348952909443c389404c6ecd483))
+
+## [1.6.11-alpha.8](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.7...v1.6.11-alpha.8) (2021-09-27)
+
+
+### Bug Fixes
+
+* Add CODEOWNERS file ([c3099c4](https://github.com/SocialGouv/carnets/commit/c3099c498a1160944f81085874e9147dcb398896))
+
+## [1.6.11-alpha.7](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.6...v1.6.11-alpha.7) (2021-09-27)
+
+
+### Bug Fixes
+
+* Use KUBECONFIG ([e3693cf](https://github.com/SocialGouv/carnets/commit/e3693cf2e53be7b4ece3d06ec28a4d8f6025750b))
+
+## [1.6.11-alpha.6](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.5...v1.6.11-alpha.6) (2021-09-27)
+
+
+### Bug Fixes
+
+* Restore DB ([2f064c0](https://github.com/SocialGouv/carnets/commit/2f064c0d48c4e2e4d311c0f554c4df14ef766529))
+
+## [1.6.11-alpha.5](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.4...v1.6.11-alpha.5) (2021-09-27)
+
+
+### Bug Fixes
+
+* Needs ([090e8a2](https://github.com/SocialGouv/carnets/commit/090e8a2ddde378bc216bedebefaa57974af2730c))
+
+## [1.6.11-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.3...v1.6.11-alpha.4) (2021-09-27)
+
+
+### Bug Fixes
+
+* Generate prod manifest under proper env ([a9f30d3](https://github.com/SocialGouv/carnets/commit/a9f30d357348f9257462f485ed689b5897656673))
+
+## [1.6.11-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.2...v1.6.11-alpha.3) (2021-09-27)
+
+
+### Bug Fixes
+
+* Add RANCHER_PROJECT_ID ([e2d70fb](https://github.com/SocialGouv/carnets/commit/e2d70fbea12bbdd522d52e240581542517070a71))
+
+## [1.6.11-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.1...v1.6.11-alpha.2) (2021-09-27)
+
+
+### Bug Fixes
+
+* Update tests snapshots ([bb3b8be](https://github.com/SocialGouv/carnets/commit/bb3b8beb97067e6ada49661adfbaa0d71c41068e))
+
+## [1.6.11-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.10...v1.6.11-alpha.1) (2021-09-27)
+
+
+### Bug Fixes
+
+* Use KUBECONFIG ([505ddfb](https://github.com/SocialGouv/carnets/commit/505ddfb6e37917ff1b4c5fecdf4377bb7b0c54ce))
+
 ## [1.6.10](https://github.com/SocialGouv/carnets/compare/v1.6.9...v1.6.10) (2021-08-31)
 
 
