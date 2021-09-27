@@ -1,3 +1,10 @@
+## [1.6.11-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.2...v1.6.11-alpha.3) (2021-09-27)
+
+
+### Bug Fixes
+
+* Add RANCHER_PROJECT_ID ([e2d70fb](https://github.com/SocialGouv/carnets/commit/e2d70fbea12bbdd522d52e240581542517070a71))
+
 ## [1.6.11-alpha.2](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.1...v1.6.11-alpha.2) (2021-09-27)
 
 
