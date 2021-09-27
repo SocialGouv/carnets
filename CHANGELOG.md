@@ -1,3 +1,10 @@
+## [1.6.11-alpha.4](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.3...v1.6.11-alpha.4) (2021-09-27)
+
+
+### Bug Fixes
+
+* Generate prod manifest under proper env ([a9f30d3](https://github.com/SocialGouv/carnets/commit/a9f30d357348f9257462f485ed689b5897656673))
+
 ## [1.6.11-alpha.3](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.2...v1.6.11-alpha.3) (2021-09-27)
 
 
