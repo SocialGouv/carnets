@@ -31,7 +31,6 @@ jobs:
         imageName: fabrique/carnets
         project: ${{ env.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
   ##############################################################################
   ## BUILD AND REGISTER HASURA IMAGE
@@ -52,7 +51,6 @@ jobs:
         project: ${{ env.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: ./packages/hasura/Dockerfile
-        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
   ##############################################################################
   ## GENERATE KUBERNETES MANIFESTS
@@ -66,6 +64,7 @@ jobs:
       uses: SocialGouv/actions/autodevops-manifests@v1
       with:
         environment: "dev"
+        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
   ##############################################################################
   ## DEPLOY APPLICATION OVER KUBERNETES
