@@ -1,3 +1,10 @@
+## [1.6.11-alpha.6](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.5...v1.6.11-alpha.6) (2021-09-27)
+
+
+### Bug Fixes
+
+* Restore DB ([2f064c0](https://github.com/SocialGouv/carnets/commit/2f064c0d48c4e2e4d311c0f554c4df14ef766529))
+
 ## [1.6.11-alpha.5](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.4...v1.6.11-alpha.5) (2021-09-27)
 
 
