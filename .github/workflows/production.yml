@@ -24,11 +24,12 @@ jobs:
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
     - name: Use autodevops build and register
-      uses: SocialGouv/actions/autodevops-build-register@master
+      uses: SocialGouv/actions/autodevops-build-register@v1
       with:
         imageName: fabrique/carnets
         project: ${{ env.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
+        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
   ##############################################################################
   ## BUILD AND REGISTER HASURA IMAGE
@@ -43,12 +44,13 @@ jobs:
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
     - name: Use autodevops build and register
-      uses: SocialGouv/actions/autodevops-build-register@master
+      uses: SocialGouv/actions/autodevops-build-register@v1
       with:
         imageName: fabrique/hasura
         project: ${{ env.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: ./packages/hasura/Dockerfile
+        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
   ##############################################################################
   ## GENERATE PREPRODUCTION MANIFESTS
@@ -59,7 +61,7 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/autodevops-manifests@master
+      uses: SocialGouv/actions/autodevops-manifests@v1
       with:
         environment: "preprod"
 
@@ -72,15 +74,16 @@ jobs:
     needs: [register, register-hasura, manifests]
     environment:
       name: preproduction
-      url: https://${{ env.namespace }}.${{ env.SOCIALGOUV_BASE_DOMAIN }}
+      url: ${{ steps.deploy-preprod.outputs.url }}
     steps:
   
     - name: Use autodevops deployment
-      uses: SocialGouv/actions/autodevops-deploy@master
+      uses: SocialGouv/actions/autodevops-deploy@v1
+      id: deploy-preprod
       with:
         environment: "preprod"
         token: ${{ secrets.GITHUB_TOKEN }}
-        kubeconfig: ${{ secrets.SOCIALGOUV_KUBE_CONFIG_DEV }}
+        kubeconfig: ${{ secrets.KUBECONFIG }}
 
   ##############################################################################
   ## GENERATE PRODUCTION MANIFESTS
@@ -91,7 +94,7 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/autodevops-manifests@master
+      uses: SocialGouv/actions/autodevops-manifests@v1
       with:
         environment: "prod"
 
@@ -104,11 +107,12 @@ jobs:
     needs: [deploy-preprod, manifests-prod]
     environment:
       name: production
-      url: https://${{ env.namespace }}.${{ env.SOCIALGOUV_BASE_DOMAIN }}
+      url: ${{ steps.deploy-prod.outputs.url }}
     steps:
 
     - name: Use autodevops deployment
-      uses: SocialGouv/actions/autodevops-deploy@master
+      uses: SocialGouv/actions/autodevops-deploy@v1
+      id: deploy-prod
       with:
         environment: "prod"
         token: ${{ secrets.GITHUB_TOKEN }}
