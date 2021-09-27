@@ -1,3 +1,10 @@
+## [1.6.11-alpha.10](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.9...v1.6.11-alpha.10) (2021-09-27)
+
+
+### Bug Fixes
+
+* Update CODEOWNERS file, again ([2dbd341](https://github.com/SocialGouv/carnets/commit/2dbd341c2a56cdb39d5d8f840b96002b0e1d3eee))
+
 ## [1.6.11-alpha.9](https://github.com/SocialGouv/carnets/compare/v1.6.11-alpha.8...v1.6.11-alpha.9) (2021-09-27)
 
 

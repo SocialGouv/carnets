@@ -1,6 +1,6 @@
 {
   "name": "carnets",
-  "version": "1.6.11-alpha.9",
+  "version": "1.6.11-alpha.10",
   "private": true,
   "scripts": {
     "dev": "next dev",
