@@ -1,3 +1,10 @@
+## [1.6.11-alpha.1](https://github.com/SocialGouv/carnets/compare/v1.6.10...v1.6.11-alpha.1) (2021-09-27)
+
+
+### Bug Fixes
+
+* Use KUBECONFIG ([505ddfb](https://github.com/SocialGouv/carnets/commit/505ddfb6e37917ff1b4c5fecdf4377bb7b0c54ce))
+
 ## [1.6.10](https://github.com/SocialGouv/carnets/compare/v1.6.9...v1.6.10) (2021-08-31)
 
 
