@@ -64,6 +64,7 @@ jobs:
       uses: SocialGouv/actions/autodevops-manifests@v1
       with:
         environment: "dev"
+        rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
   ##############################################################################
@@ -81,6 +82,7 @@ jobs:
         environment: "dev"
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.KUBECONFIG }}
+        rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
 
   ##############################################################################
   ## RESTORE DATABASE
