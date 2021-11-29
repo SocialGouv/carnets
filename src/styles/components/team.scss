@@ -1,0 +1,11 @@
+.team {
+  @apply flex items-center pb-10;
+
+  .name-description {
+    @apply flex-1 px-5;
+
+    .description {
+      @apply font-spectral pt-1;
+    }
+  }
+}

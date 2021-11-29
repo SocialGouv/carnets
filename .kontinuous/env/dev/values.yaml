@@ -1,0 +1,27 @@
+database:
+  ~chart: jobs
+  runs:
+    create-db:
+      use: create-db
+    seed-db:
+      use: seed-db
+      ~needs: [hasura]
+      with:
+        seedPath: scripts/seeds-dev.sql
+
+hasura:
+  ~needs: [create-db]
+  envFrom:
+  - configMapRef:
+      name: hasura-configmap
+  - secretRef:
+      name: hasura-sealed-secrets
+  - secretRef:
+      name: "{{ .Values.global.pgSecretName }}"
+
+app:
+  envFrom:
+  - configMapRef:
+      name: carnets-configmap
+  - secretRef:
+      name: app-sealed-secrets

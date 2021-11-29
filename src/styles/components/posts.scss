@@ -1,0 +1,13 @@
+.posts {
+  @apply flex-1 overflow-auto -mr-3;
+
+  & > ul > li {
+    @apply w-1/2 sm:w-full md:w-full lg:w-full xl:w-1/2 p-[2px];
+
+    article {
+      @apply p-6;
+      @apply mb-6 mr-6;
+      @apply shadow-md bg-white border-gray-100 border;
+    }
+  }
+}

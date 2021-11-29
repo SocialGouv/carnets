@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply
+      flex
+      flex-col
+      text-base
+      font-sans
+      font-normal
+      antialiased
+      min-h-screen
+      text-gray-700;
+
+    text-size-adjust: 100%;
+    text-rendering: optimizeSpeed;
+  }
+
+  h1 {
+    @apply text-xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl font-bold;
+  }
+
+  a {
+    @apply text-blue-france-113-main;
+  }
+
+  button {
+    @apply cursor-pointer disabled:cursor-default;
+  }
+
+  input[type="text"] {
+    @apply
+      py-2
+      px-4
+      border
+      rounded-t
+      border-x-0
+      border-t-0
+      border-b-2
+      bg-gray-200
+      border-gray-600;
+
+    &.disabled,
+    &:disabled {
+      @apply border-gray-400;
+    }
+  }
+
+  table {
+    @apply table-fixed border-collapse w-full;
+
+    thead {
+      tr {
+        @apply bg-grey-950-main;
+
+        th {
+          @apply p-2 border-b-2 border-gray-600 text-gray-700;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        @apply even:bg-grey-950-main;
+      }
+    }
+
+    td {
+      @apply border-r last:border-0 p-2;
+    }
+  }
+
+  #__next { /* stylelint-disable-line */
+    @apply flex flex-col flex-1;
+  }
+
+  @font-face {
+    font-style: normal;
+    font-display: swap;
+    font-weight: normal;
+    font-family: Marianne;
+    src: local("Marianne Regular"), url("/fonts/Marianne/Marianne-Regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+    font-family: Marianne;
+    src: local("Marianne Bold"), url("/fonts/Marianne/Marianne-Bold.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-style: normal;
+    font-display: swap;
+    font-weight: normal;
+    font-family: Spectral;
+    src: local("Spectral"), url("/fonts/Spectral/Spectral-Regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+    font-family: Spectral;
+    src: local("Spectral"), url("/fonts/Spectral/Spectral-Bold.ttf") format("truetype");
+  }
+}

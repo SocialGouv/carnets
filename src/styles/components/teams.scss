@@ -1,0 +1,37 @@
+ul.teams {
+  @apply
+    pr-8
+    border-r
+    border-grey-925-main;
+
+  li {
+    @apply
+      p-2
+      mb-2
+      flex
+      border-l-2
+      border-white
+      whitespace-nowrap
+      hover:bg-grey-975-main
+      hover:border-grey-975-main
+      ;
+
+    a {
+      @apply
+        flex
+        px-2
+        flex-1
+        items-center
+        text-gray-700
+        ;
+    }
+
+    &.selected {
+      @apply border-blue-france-113-main;
+
+      a {
+        @apply text-blue-france-113-main;
+      }
+    }
+  }
+}

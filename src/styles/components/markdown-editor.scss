@@ -1,0 +1,15 @@
+.markdown-editor {
+  @apply flex flex-col flex-1 pb-10;
+
+  & > div {
+    @apply flex flex-1;
+
+    textarea {
+      @apply flex-1 p-5 border rounded mr-5 bg-grey-950-main;
+    }
+
+    & > div:last-child {
+      @apply flex-1 p-5 border border-gray-100 shadow-lg z-10 bg-white;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+button,
+a.btn {
+  @apply
+    px-4
+    py-3
+    flex
+    relative
+    leading-4;
+
+  &.primary {
+    @apply
+      shadow
+      font-medium
+      text-white
+      active:shadow-sm
+      bg-blue-france-113-main
+      hover:bg-blue-france-113-hover
+      active:bg-blue-france-113-active;
+  }
+
+  &.sm {
+    @apply text-sm px-3 py-2;
+  }
+
+  i {
+    @apply relative top-px mr-1;
+  }
+}

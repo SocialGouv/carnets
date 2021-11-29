@@ -1,0 +1,53 @@
+.kpis-editor {
+  @apply flex-1 mb-10 mx-60;
+
+  .kpi-editor {
+    @apply flex flex-1 pl-4 mb-6 gap-x-4 border-l-4 border-blue-ecume-950-main;
+
+    .fields {
+      @apply flex flex-1 flex-col;
+
+      input {
+        @apply mb-2;
+
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+    }
+
+    .kpi {
+      @apply flex flex-1 flex-col bg-grey-950-main justify-center items-center;
+
+      .value {
+        @apply text-xl font-bold;
+      }
+    }
+  }
+
+  .controls {
+    @apply flex pl-4 gap-x-4;
+
+    button {
+      @apply
+        flex
+        py-0
+        w-full
+        text-4xl
+        font-bold
+        text-white
+        items-center
+        justify-center;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      &.add {
+        @apply bg-blue-500;
+      }
+
+      &.remove {
+        @apply bg-red-500;
+      }
+    }
+  }
+}
