@@ -1,3 +1,10 @@
+## [1.6.15](https://github.com/SocialGouv/carnets/compare/v1.6.14...v1.6.15) (2021-11-29)
+
+
+### Bug Fixes
+
+* **workflows:** Rename configmaps and secrets ([50846a4](https://github.com/SocialGouv/carnets/commit/50846a4bb395d465d886b4004a6fbb3befba9f3b))
+
 ## [1.6.14](https://github.com/SocialGouv/carnets/compare/v1.6.13...v1.6.14) (2021-11-29)
 
 
