@@ -1,4 +1,5 @@
-FROM hasura/graphql-engine:v1.3.3.cli-migrations-v2
-ENV HASURA_GRAPHQL_ENABLE_TELEMETRY false
-COPY ./packages/hasura/migrations /hasura-migrations
-COPY ./packages/hasura/metadata /hasura-metadata
+FROM hasura/graphql-engine:latest.cli-migrations-v3
+ENV HASURA_GRAPHQL_ENABLE_CONSOLE=false
+ENV HASURA_GRAPHQL_ENABLE_TELEMETRY=false
+COPY ./migrations /hasura-migrations
+COPY ./metadata /hasura-metadata

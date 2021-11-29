@@ -1,0 +1,44 @@
+.tab-panel {
+  .tabs {
+    @apply flex border-b border-gray-300;
+
+    .tab {
+      @apply flex flex-1 justify-center justify-items-stretch;
+
+      button {
+        @apply
+          px-2
+          pb-1
+          top-px
+          relative
+          border-b-2
+          border-transparent
+          hover:text-blue-500;
+
+        &:disabled {
+          @apply text-gray-400;
+        }
+      }
+
+      &.selected {
+        button {
+          @apply border-b-2 border-blue-500 text-blue-500;
+        }
+      }
+    }
+  }
+
+  .panels {
+    @apply relative grid grid-cols-1 bg-white;
+
+    .panel {
+      @apply invisible p-5;
+
+      grid-area: 1 / 1 / 1 / 1;
+
+      &.selected {
+        @apply visible;
+      }
+    }
+  }
+}

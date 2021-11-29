@@ -1,0 +1,15 @@
+ul.teams {
+  li {
+    @apply flex whitespace-nowrap text-sm;
+
+    a {
+      @apply flex-1 px-2 py-1 text-gray-700 hover:bg-gray-300;
+    }
+
+    &.selected {
+      a {
+        @apply bg-gray-300 font-bold;
+      }
+    }
+  }
+}

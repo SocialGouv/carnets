@@ -1,11 +1,14 @@
-FROM node:15.9-alpine
+FROM node:16-alpine
 
 WORKDIR /app
 
 COPY . .
 
-RUN yarn --production --frozen-lockfile --prefer-offline && yarn cache clean
+RUN yarn --frozen-lockfile --prefer-offline && yarn cache clean
 RUN yarn build
+
+RUN rm -rf node_modules
+RUN yarn --production --frozen-lockfile --prefer-offline && yarn cache clean
 
 USER node
 

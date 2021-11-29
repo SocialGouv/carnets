@@ -1,0 +1,14 @@
+.posts {
+  @apply flex-1;
+
+  .list {
+    @apply xl:col-count-2;
+
+    & > li {
+      @apply pb-8;
+
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+}

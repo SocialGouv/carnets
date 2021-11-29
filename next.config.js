@@ -1,14 +1,7 @@
-const { version } = require("./package.json")
-const withSourceMaps = require("@zeit/next-source-maps")
-
-const revision = process.env.CI_COMMIT_SHA || "dev"
-
-module.exports = withSourceMaps({
-  env: {
-    APP_VERSION: version,
-    APP_REVISION: revision,
+/** @type {import('next').NextConfig} */
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: ["avatars.githubusercontent.com"],
   },
-  webpack(config) {
-    return config
-  },
-})
+}

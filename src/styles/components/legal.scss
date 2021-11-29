@@ -1,0 +1,10 @@
+#__next > .legal { /* stylelint-disable-line */
+  @apply container mx-auto py-10 flex-none;
+
+  h2,
+  h3,
+  p,
+  address {
+    @apply pb-5;
+  }
+}

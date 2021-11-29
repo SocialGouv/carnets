@@ -1,0 +1,64 @@
+table:
+  name: posts
+  schema: public
+array_relationships:
+- name: kpis
+  using:
+    foreign_key_constraint_on:
+      column: post_id
+      table:
+        name: kpis
+        schema: public
+remote_relationships:
+- definition:
+    hasura_fields:
+    - team_slug
+    remote_field:
+      organization:
+        arguments:
+          login: socialgouv
+        field:
+          team:
+            arguments:
+              slug: $team_slug
+    remote_schema: github
+  name: team
+insert_permissions:
+- permission:
+    backend_only: false
+    check:
+      team_slug:
+        _in: x-hasura-allowed-teams
+    columns:
+    - author
+    - mood
+    - needs
+    - priorities
+    - team_slug
+    - term
+  role: user
+select_permissions:
+- permission:
+    columns:
+    - team_slug
+    - created_at
+    - id
+    - mood
+    - priorities
+    - term
+    - needs
+    - author
+    filter: {}
+  role: anonymous
+- permission:
+    columns:
+    - author
+    - mood
+    - needs
+    - priorities
+    - team_slug
+    - term
+    - created_at
+    - id
+    filter: {}
+  role: user

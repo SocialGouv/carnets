@@ -1,86 +1,42 @@
 # Carnets
 
-Carnet de bord des produits de la fabrique numériques des Ministères sociaux
-
-## Fonctionnement
-
-Toutes les informations relatives au fonctionement de l'application sont [sur le wiki](https://github.com/SocialGouv/www/wiki/Inscrire-son-%C3%A9quipe-au-standup)
+Carnets est une application...
 
 ## Environment variables
 
-#### Application
+### Application
 
-| Variable                      | Usage                            |
-| ----------------------------- | -------------------------------- |
-| `APP_BASE_URL`                | Base application URL             |
-| `HASURA_URL`                  | Hasura service URL               |
-| `AUTH0_AUDIENCE`              | Auth0 audience name              |
-| `AUTH0_CLIENT_ID`             | Auth0 client ID                  |
-| `AUTH0_CLIENT_SECRET`         | Auth0 client secret              |
-| `AUTH0_DOMAIN`                | Auth0 application domain         |
-| `AUTH0_SESSION_COOKIE_SECRET` | Auth0 session cookie secret      |
-| `GITHUB_ORGANIZATION`         | Github organisation name         |
-| `SENTRY_DSN`                  | Sentry application dedicated URL |
-| `AZURE_ACCOUNT_NAME`          | Azure blob storage account name  |
-| `AZURE_ACCOUNT_KEY`           | Azure blob storage account key   |
+| variable                       | usage | visibility | description                                                              |
+|--------------------------------|-------|------------|--------------------------------------------------------------------------|
+| NEXT_PUBLIC_HASURA_URL         | build | public     | Hasura API URL (eg: `http://localhost:8080/v1/graphql`)                  |
+| NEXT_PUBLIC_APP_VERSION        | build | public     | Version of the application (eg: `1.4.2`)                                 |
+| NEXT_PUBLIC_APP_VERSION_COMMIT | build | public     | Hash of the commit related to the application version                    |
+| NEXT_PUBLIC_APP_REPOSITORY_URL | build | public     | Application repository URL (eg: `https://github.com/SocialGouv/carnets`) |
+| HASURA_JWT_KEY                 | run   | private    | Hasura jwt signature private key                                         |
+| GITHUB_ID                      | run   | private    | Github authentication ID                                                 |
+| GITHUB_SECRET                  | run   | private    | Github authentication secret                                             |
+| NEXTAUTH_URL                   | run   | private    | Next Auth base URL                                                       |
 
-#### Hasura service
+### Hasura
 
-| Variable                      | Usage                 |
-| ----------------------------- | --------------------- |
-| `HASURA_GRAPHQL_ADMIN_SECRET` | Hasura admin secret   |
-| `HASURA_GRAPHQL_DATABASE_URL` | Postgres database URL |
-| `HASURA_GRAPHQL_JWT_SECRET`   | Hasura JWT secret     |
+| variable                         | usage | visibility | description                                                                         |
+|----------------------------------|-------|------------|-------------------------------------------------------------------------------------|
+| HASURA_GRAPHQL_ADMIN_SECRET      | run   | private    | Hasura admin password                                                               |
+| HASURA_GRAPHQL_UNAUTHORIZED_ROLE | run   | private    | Unauthenticated role allowed to access Hasura API (eg: `anonymous`)                 |
+| HASURA_GRAPHQL_DATABASE_URL      | run   | private    | Postgres database URL (eg: `postgres://<user>:<password>@<host>:<port>/<database>`) |
+| HASURA_GRAPHQL_ENABLED_LOG_TYPES | run   | private    | Hasura log types                                                                    |
+| HASURA_GRAPHQL_JWT_SECRET        | run   | private    | Hasura jwt signature public key                                                     |
+| GITHUB_AUTHORIZATION_HEADER      | run   | private    | Github API authentication header (eg: `bearer <github_key>`)                        |
 
-## Development
+## Install
 
-This project is based on [Next.js](https://nextjs.org/).
-
-Run Postgres and Hasura containers:
+### Hasura JWT public/private key pair
 
 ```bash
-docker-compose up
+sh-keygen -t rsa -b 4096 -E SHA512 -m PEM -f jwtRS512.key
 ```
-
-Launch Hasura console:
-
 ```bash
-cd ./packages/hasura
-hasura console
+openssl rsa -in jwtRS512.key -pubout -outform PEM -out jwtRS512.key.pub
 ```
 
-Run the development server:
-
-```bash
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Test
-
-Run linter check:
-
-```bash
-yarn lint
-```
-
-Run tests:
-
-```bash
-yarn test
-```
-
-Build the application:
-
-```bash
-yarn build
-```
-
-Run the test server:
-
-```bash
-yarn start
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Provide the generated public/private key pair to Hasura (`HASURA_GRAPHQL_JWT_SECRET`) and the application (`HASURA_JWT_KEY`).

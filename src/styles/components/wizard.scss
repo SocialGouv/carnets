@@ -1,0 +1,51 @@
+.wizard {
+  @apply flex flex-1 flex-col;
+
+  .paging {
+    @apply flex items-center px-80 pb-5;
+
+    .indicator {
+      @apply
+        h-16
+        w-16
+        flex
+        border-4
+        bg-white
+        text-2xl
+        font-bold
+        items-center
+        rounded-full
+        text-gray-400
+        justify-center
+        border-gray-400;
+
+      &.active {
+        @apply border-blue-500 text-blue-500;
+      }
+
+      &.completed {
+        @apply bg-blue-500 border-blue-500 text-white;
+      }
+    }
+
+    .line {
+      @apply flex-1 border-2 border-gray-400;
+
+      &.completed {
+        @apply border-blue-500;
+      }
+    }
+  }
+
+  .steps {
+    @apply flex flex-col flex-1;
+
+    .step {
+      @apply flex flex-col flex-1;
+    }
+
+    .actions {
+      @apply flex justify-end;
+    }
+  }
+}

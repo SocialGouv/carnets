@@ -1,0 +1,27 @@
+.mood-selector {
+  @apply pb-20 px-60 flex-1 flex justify-evenly items-center;
+
+  .mood {
+    @apply
+      flex
+      p-8
+      h-40
+      w-40
+      border
+      flex-col
+      shadow-lg
+      bg-gray-100
+      items-center
+      text-gray-500
+      justify-center
+      cursor-pointer
+      border-gray-100
+      hover:shadow
+      hover:bg-white
+      hover:text-blue-500;
+
+    &.selected {
+      @apply bg-white text-blue-500 shadow;
+    }
+  }
+}

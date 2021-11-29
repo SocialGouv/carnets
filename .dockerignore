@@ -1,7 +1,9 @@
-.git
-.github
-.socialgouv
-*.md
+node_modules
+coverage
 .next
-**/node_modules
+.DS_Store
 .vscode
+yarn-debug.log*
+yarn-error.log*
+assets
+packages
