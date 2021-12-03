@@ -3,7 +3,7 @@ name: New Review
 on:
   push:
     branches:
-      - alpha
+      - beta
     tags-ignore:
       - v*
 
