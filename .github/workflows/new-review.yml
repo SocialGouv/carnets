@@ -14,7 +14,7 @@ on:
 jobs:
 
   create-db:
-    name: Create database
+    name: Create postgres database
     runs-on: ubuntu-latest
     steps:
 
