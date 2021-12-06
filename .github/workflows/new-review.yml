@@ -18,12 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: SocialGouv/actions/autodevops-create-db@v1
+    - uses: SocialGouv/actions/autodevops-create-db@debug-create-db
       with:
         environment: dev
         kubeconfig: ${{ secrets.KUBECONFIG }}
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+
+
 
   # ##############################################################################
   # ## BUILD AND REGISTER APPLICATION IMAGE
