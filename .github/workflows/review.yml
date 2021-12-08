@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: SocialGouv/actions/autodevops-create-db@v1
+    - uses: SocialGouv/actions/autodevops-create-db@fix-secret
       with:
         environment: dev
         kubeconfig: ${{ secrets.KUBECONFIG }}
@@ -47,22 +47,22 @@ jobs:
   ##############################################################################
   ## BUILD AND REGISTER HASURA IMAGE
   ##############################################################################
-  register-hasura:
-    name: Build & Register Hasura
-    runs-on: ubuntu-latest
-    steps:
+  # register-hasura:
+  #   name: Build & Register Hasura
+  #   runs-on: ubuntu-latest
+  #   steps:
 
-    - name: Get project name
-      run: |
-        echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+  #   - name: Get project name
+  #     run: |
+  #       echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
-    - name: Use autodevops build and register
-      uses: SocialGouv/actions/autodevops-build-register@v1
-      with:
-        imageName: fabrique/hasura
-        project: ${{ env.project }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-        dockerfile: ./packages/hasura/Dockerfile
+  #   - name: Use autodevops build and register
+  #     uses: SocialGouv/actions/autodevops-build-register@v1
+  #     with:
+  #       imageName: fabrique/hasura
+  #       project: ${{ env.project }}
+  #       token: ${{ secrets.GITHUB_TOKEN }}
+  #       dockerfile: ./packages/hasura/Dockerfile
 
   # ##############################################################################
   # ## GENERATE KUBERNETES MANIFESTS
