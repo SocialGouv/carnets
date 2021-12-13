@@ -62,7 +62,7 @@ jobs:
         imageName: fabrique/hasura
         project: ${{ env.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        dockercontext: ./packages/hasura/Dockerfile
+        dockercontext: ./packages/hasura
 
   # ##############################################################################
   # ## GENERATE KUBERNETES MANIFESTS
