@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: SocialGouv/actions/autodevops-create-db@fix-secret
+    - uses: SocialGouv/actions/autodevops-create-db@v1
       with:
         environment: dev
         kubeconfig: ${{ secrets.KUBECONFIG }}
@@ -69,7 +69,7 @@ jobs:
   ## GENERATE HASURA MANIFESTS
   ##############################################################################
   manifests-hasura:
-    name: Hasura manifests
+    name: Generate Hasura manifests
     runs-on: ubuntu-latest
     steps:
 
@@ -95,6 +95,23 @@ jobs:
   #       environment: "dev"
   #       rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
   #       socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+
+  ##############################################################################
+  ## DEPLOY HASURA OVER KUBERNETES
+  ##############################################################################
+  deploy:
+    name: Deploy Hasura
+    runs-on: ubuntu-latest
+    needs: [create-db, register-hasura, manifests-hasura]
+    steps:
+
+    - name: Use autodevops deployment
+      uses: SocialGouv/actions/autodevops-deploy@v1
+      with:
+        environment: "dev"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        kubeconfig: ${{ secrets.KUBECONFIG }}
+        rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
 
   # ##############################################################################
   # ## DEPLOY APPLICATION OVER KUBERNETES
