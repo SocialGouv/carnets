@@ -65,6 +65,22 @@ jobs:
         dockercontext: ./packages/hasura
         dockerfile: ./packages/hasura/Dockerfile
 
+  ##############################################################################
+  ## GENERATE HASURA MANIFESTS
+  ##############################################################################
+  manifests-hasura:
+    name: Hasura manifests
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Use autodevops manifests generation
+      uses: SocialGouv/actions/autodevops-manifests@manifests-kosko-args
+      with:
+        environment: "dev"
+        kosko-args: hasura
+        rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
+        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+
   # ##############################################################################
   # ## GENERATE KUBERNETES MANIFESTS
   # ##############################################################################
