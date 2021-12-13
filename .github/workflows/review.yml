@@ -63,6 +63,7 @@ jobs:
         project: ${{ env.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
         dockercontext: ./packages/hasura
+        dockerfile: ./packages/hasura/Dockerfile
 
   # ##############################################################################
   # ## GENERATE KUBERNETES MANIFESTS
