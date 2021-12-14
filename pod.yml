@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: rss-site
-  namespace: carnets-test1
+  namespace: test-carnets1
   labels:
     app: web
 spec:
