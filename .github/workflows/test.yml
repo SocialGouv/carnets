@@ -10,24 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - shell: sh
-        run: |
-          echo $ID | tr 'A-Za-z0-9' 'N-ZA-Mn-za-m5-90-4'
-          echo $ID
-          echo $ID | base64
-          ENCODED= ${{ secrets.RANCHER_PROJECT_ID }} | base64
-          echo ${{ secrets.RANCHER_PROJECT_ID }}
-          echo $ENCODED
-        env:
-          ID: ${{ secrets.RANCHER_PROJECT_ID }}
       - uses: danielr1996/kubectl-action@1.0.0
         continue-on-error: true
         name: Create namespace
         with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          kubeconfig: ${{ secrets.KUBECONFIG }}
           args: create -f namespace.yml
       - uses: danielr1996/kubectl-action@1.0.0
         name: Deploy Pod
         with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          kubeconfig: ${{ secrets.KUBECONFIG }}
           args: apply -f pod.yml 
