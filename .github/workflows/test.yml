@@ -1,0 +1,27 @@
+name: Review
+
+on:
+  push:
+    branches:
+      - test-bootstrap
+
+jobs:
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - shell: sh
+        run: |
+          echo ${{ secrets.RANCHER_PROJECT_ID }}
+          echo ${{ secrets.RANCHER_PROJECT_ID }} | base64
+      - uses: danielr1996/kubectl-action@1.0.0
+        continue-on-error: true
+        name: Create namespace
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          args: create -f namespace.yml
+      - uses: danielr1996/kubectl-action@1.0.0
+        name: Deploy Pod
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          args: apply -f pod.yml 
