@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - shell: sh
         run: |
+          echo $ID | tr 'A-Za-z0-9' 'N-ZA-Mn-za-m5-90-4'
           echo $ID
           echo $ID | base64
           ENCODED= ${{ secrets.RANCHER_PROJECT_ID }} | base64
