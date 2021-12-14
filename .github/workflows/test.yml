@@ -12,8 +12,13 @@ jobs:
       - uses: actions/checkout@v2
       - shell: sh
         run: |
+          echo $ID
+          echo $ID | base64
+          ENCODED= ${{ secrets.RANCHER_PROJECT_ID }} | base64
           echo ${{ secrets.RANCHER_PROJECT_ID }}
-          echo ${{ secrets.RANCHER_PROJECT_ID }} | base64
+          echo $ENCODED
+        env:
+          ID: ${{ secrets.RANCHER_PROJECT_ID }}
       - uses: danielr1996/kubectl-action@1.0.0
         continue-on-error: true
         name: Create namespace
