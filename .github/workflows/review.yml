@@ -116,7 +116,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         dockerbuildargs: |
           HASURA_JWT_KEY=${{ secrets.HASURA_JWT_KEY }}
-          NEXT_PUBLIC_HASURA_URL=${{ steps.deploy-hasura.outputs.url }}
+          NEXT_PUBLIC_HASURA_URL=${{ steps.deploy-hasura.outputs.url }}/v1/graphql
 
   # ##############################################################################
   # ## DEPLOY APPLICATION OVER KUBERNETES
