@@ -42,7 +42,7 @@
     "swr": "^0.4.2",
     "use-debounce": "^5.2.1",
     "uuid": "^8.3.2",
-    "victory": "^35.11.4"
+    "victory": "^36.0.0"
   },
   "devDependencies": {
     "@socialgouv/eslint-config-react": "^1.52.0",
