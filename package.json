@@ -39,7 +39,7 @@
     "react-markdown": "^5.0.3",
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.32.13",
-    "swr": "^0.4.2",
+    "swr": "^1.0.0",
     "use-debounce": "^5.2.1",
     "uuid": "^8.3.2",
     "victory": "^35.11.4"
