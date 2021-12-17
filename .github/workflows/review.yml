@@ -55,10 +55,11 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/autodevops-manifests@manifests-kosko-args
+      uses: SocialGouv/actions/autodevops-manifests@v1
       with:
         environment: "dev"
         kosko-args: hasura
+        koskoChartsVersion: 706effb61a1de4c8e4b48d1a9a987af2e5cd20f5
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 

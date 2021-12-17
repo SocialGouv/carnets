@@ -3,7 +3,19 @@
   "azurepg": true,
   "name": "carnets",
   "registry": "ghcr",
-  "hasura": "exposed",
+  "hasura": {
+    "exposed": true,
+    "resources": {
+      "limits": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+      },
+      "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+      }
+    }
+  },
   "project": "fabrique",
   "subdomain": "carnets",
   "probesPath": "/api/healthz",
