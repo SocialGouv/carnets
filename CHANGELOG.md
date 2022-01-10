@@ -1,3 +1,10 @@
+## [1.6.16](https://github.com/SocialGouv/carnets/compare/v1.6.15...v1.6.16) (2022-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @azure/storage-blob to v12.8.0 ([#315](https://github.com/SocialGouv/carnets/issues/315)) ([8eaaf78](https://github.com/SocialGouv/carnets/commit/8eaaf78694d1d7ba8dc56bc7ba35b5d03add0aa7))
+
 ## [1.6.15](https://github.com/SocialGouv/carnets/compare/v1.6.14...v1.6.15) (2021-11-29)
 
 
