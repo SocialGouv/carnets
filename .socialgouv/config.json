@@ -18,6 +18,5 @@
   },
   "project": "fabrique",
   "subdomain": "carnets",
-  "probesPath": "/api/healthz",
   "restoreDb": "scripts/seeds-dev.sql"
 }
