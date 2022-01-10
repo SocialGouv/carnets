@@ -1,3 +1,10 @@
+## [1.6.17](https://github.com/SocialGouv/carnets/compare/v1.6.16...v1.6.17) (2022-01-10)
+
+
+### Bug Fixes
+
+* Rename app prod sealed secret ([610fe97](https://github.com/SocialGouv/carnets/commit/610fe97b8de669e65b75646a9079929452934f29))
+
 ## [1.6.16](https://github.com/SocialGouv/carnets/compare/v1.6.15...v1.6.16) (2022-01-10)
 
 
