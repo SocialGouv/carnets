@@ -59,7 +59,7 @@ jobs:
       with:
         environment: "dev"
         kosko-args: hasura
-        koskoChartsVersion: 706effb61a1de4c8e4b48d1a9a987af2e5cd20f5
+        koskoChartsVersion: ff3544f4719d0284e4b58a569f602d825859d454
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
