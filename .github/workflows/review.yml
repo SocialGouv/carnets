@@ -133,7 +133,7 @@ jobs:
 
     - name: Debug
       run: |
-        echo URL ${{ needs.deploy-hasura.outputs.url }}
+        echo URL yop**${{ needs.deploy-hasura.outputs.url }}**yop
 
     - name: Use autodevops build and register
       uses: SocialGouv/actions/autodevops-build-register@v1
