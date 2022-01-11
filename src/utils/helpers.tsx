@@ -15,11 +15,10 @@ import {
 
 export const getTeams = async () => {
   const token = getJwt()
+  const data = await fetcher(getTeamsQuery, token)
   const {
-    organization: {
-      teams: { nodes: teams },
-    },
-  } = await fetcher(getTeamsQuery, token)
+    admins_and_teams: { teams },
+  } = data.github_data[0]
 
   return teams
 }
