@@ -98,6 +98,9 @@ jobs:
         kubeconfig: ${{ secrets.KUBECONFIG }}
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
 
+    - name: Debug
+      run: echo URL ==> ${{ steps.deploy-hasura.outputs.url }}
+
   ##############################################################################
   ## RESTORE DATABASE
   ##############################################################################
@@ -126,6 +129,9 @@ jobs:
     - name: Get project name
       run: |
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+
+    - name: Debug
+      run: echo URL ==> ${{ needs.deploy-hasura.outputs.url }}
 
     - name: Use autodevops build and register
       uses: SocialGouv/actions/autodevops-build-register@v1
