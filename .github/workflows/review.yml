@@ -85,6 +85,8 @@ jobs:
     name: Deploy Hasura
     runs-on: ubuntu-latest
     needs: [create-db, register-hasura, manifests-hasura]
+    outputs:
+      url: ${{ steps.deploy-hasura.outputs.url }}
     steps:
 
     - name: Use autodevops deployment
@@ -118,7 +120,7 @@ jobs:
   register-app:
     name: Build & Register application
     runs-on: ubuntu-latest
-    needs: [restore-db]
+    needs: [restore-db, deploy-hasura]
     steps:
 
     - name: Get project name
@@ -133,7 +135,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         dockerbuildargs: |
           HASURA_JWT_KEY=${{ secrets.HASURA_JWT_KEY }}
-          NEXT_PUBLIC_HASURA_URL=${{ steps.deploy-hasura.outputs.url }}/v1/graphql
+          NEXT_PUBLIC_HASURA_URL=${{ needs.deploy-hasura.outputs.url }}/v1/graphql
 
   # ##############################################################################
   # ## DEPLOY APPLICATION OVER KUBERNETES
