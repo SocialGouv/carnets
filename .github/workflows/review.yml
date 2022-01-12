@@ -142,7 +142,10 @@ jobs:
         project: ${{ env.project }}
         token: ${{ secrets.GITHUB_TOKEN }}
         dockerbuildargs: |
+          NEXT_PUBLIC_APP_VERSION=dev
+          NEXT_PUBLIC_APP_VERSION_COMMIT="123456"
           NEXT_PUBLIC_HASURA_URL=${{ needs.deploy-hasura.outputs.url }}/v1/graphql
+          NEXT_PUBLIC_APP_REPOSITORY_URL=https://github.com/gary-van-woerkens/carnets
 
   ##############################################################################
   ## DEPLOY APPLICATION OVER KUBERNETES
