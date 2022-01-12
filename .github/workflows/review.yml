@@ -58,10 +58,11 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/autodevops-manifests@v1
+      uses: SocialGouv/actions/autodevops-manifests@manifests-name
       with:
         environment: "dev"
         kosko-args: hasura
+        manifestsName: hasura-manifests
         koskoChartsVersion: a1eba1f709754d014ee272ac1891123ff95bf991
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
@@ -78,10 +79,11 @@ jobs:
     steps:
 
     - name: Use autodevops deployment
-      uses: SocialGouv/actions/autodevops-deploy@v1
+      uses: SocialGouv/actions/autodevops-deploy@manifests-name
       id: deploy-hasura
       with:
         environment: "dev"
+        manifestsName: hasura-manifests
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.KUBECONFIG }}
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
@@ -134,10 +136,11 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/autodevops-manifests@v1
+      uses: SocialGouv/actions/autodevops-manifests@manifests-name
       with:
         environment: "dev"
         kosko-args: app
+        manifestsName: app-manifests
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
@@ -151,9 +154,10 @@ jobs:
     steps:
 
     - name: Use autodevops deployment
-      uses: SocialGouv/actions/autodevops-deploy@v1
+      uses: SocialGouv/actions/autodevops-deploy@manifests-name
       with:
         environment: "dev"
+        manifestsName: app-manifests
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.KUBECONFIG }}
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
