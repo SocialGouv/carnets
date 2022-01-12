@@ -63,20 +63,20 @@ jobs:
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
-  # ##############################################################################
-  # ## GENERATE KUBERNETES MANIFESTS
-  # ##############################################################################
-  # manifests:
-  #   name: Generate k8s manifests
-  #   runs-on: ubuntu-latest
-  #   steps:
+  ##############################################################################
+  ## GENERATE KUBERNETES MANIFESTS
+  ##############################################################################
+  manifests-app:
+    name: Generate k8s manifests
+    runs-on: ubuntu-latest
+    steps:
 
-  #   - name: Use autodevops manifests generation
-  #     uses: SocialGouv/actions/autodevops-manifests@v1
-  #     with:
-  #       environment: "dev"
-  #       rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
-  #       socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+    - name: Use autodevops manifests generation
+      uses: SocialGouv/actions/autodevops-manifests@v1
+      with:
+        environment: "dev"
+        rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
+        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
   ##############################################################################
   ## DEPLOY HASURA OVER KUBERNETES
@@ -97,10 +97,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.KUBECONFIG }}
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
-
-    - name: Debug
-      run: |
-        echo URL ${{ steps.deploy-hasura.outputs.url }}
 
   ##############################################################################
   ## RESTORE DATABASE
@@ -131,10 +127,6 @@ jobs:
       run: |
         echo "project=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
-    - name: Debug
-      run: |
-        echo URL yop**${{ needs.deploy-hasura.outputs.url }}**yop
-
     - name: Use autodevops build and register
       uses: SocialGouv/actions/autodevops-build-register@v1
       with:
@@ -144,22 +136,22 @@ jobs:
         dockerbuildargs: |
           NEXT_PUBLIC_HASURA_URL=${{ needs.deploy-hasura.outputs.url }}/v1/graphql
 
-  # ##############################################################################
-  # ## DEPLOY APPLICATION OVER KUBERNETES
-  # ##############################################################################
-  # deploy:
-  #   name: Deploy application
-  #   runs-on: ubuntu-latest
-  #   needs: [register, register-hasura, manifests]
-  #   steps:
+  ##############################################################################
+  ## DEPLOY APPLICATION OVER KUBERNETES
+  ##############################################################################
+  deploy-app:
+    name: Deploy application
+    runs-on: ubuntu-latest
+    needs: [register-app, manifests-app]
+    steps:
 
-  #   - name: Use autodevops deployment
-  #     uses: SocialGouv/actions/autodevops-deploy@v1
-  #     with:
-  #       environment: "dev"
-  #       token: ${{ secrets.GITHUB_TOKEN }}
-  #       kubeconfig: ${{ secrets.KUBECONFIG }}
-  #       rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
+    - name: Use autodevops deployment
+      uses: SocialGouv/actions/autodevops-deploy@v1
+      with:
+        environment: "dev"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        kubeconfig: ${{ secrets.KUBECONFIG }}
+        rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
 
   # ##############################################################################
   # ## RESTORE DATABASE
