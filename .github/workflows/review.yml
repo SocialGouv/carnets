@@ -13,6 +13,9 @@ concurrency:
 
 jobs:
 
+  ##############################################################################
+  ## CREATE POSTGRES DATABASE
+  ##############################################################################
   create-db:
     name: Create postgres database
     runs-on: ubuntu-latest
@@ -59,7 +62,7 @@ jobs:
       with:
         environment: "dev"
         kosko-args: hasura
-        koskoChartsVersion: ff3544f4719d0284e4b58a569f602d825859d454
+        koskoChartsVersion: a1eba1f709754d014ee272ac1891123ff95bf991
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
