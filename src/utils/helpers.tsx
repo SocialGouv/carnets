@@ -45,13 +45,19 @@ export const getPosts = async (slug?: string) => {
 }
 
 const useTeams = () => {
-  const [token] = useToken()
+  // const [token] = useToken()
+  // const { data, error, isValidating } = useSWR("teams", () =>
+  //   token ? fetcher(getTeamsQuery, token) : Promise.resolve(undefined)
+  // )
   const { data, error, isValidating } = useSWR("teams", () =>
-    token ? fetcher(getTeamsQuery, token) : Promise.resolve(undefined)
+    fetcher(getTeamsQuery)
   )
 
-  if (error) throw new Error(`${error} (${token})`)
-  return Array.isArray(data) ? data : data?.organization.teams.nodes
+  // if (error) throw new Error(`${error} (${token})`)
+  // return Array.isArray(data) ? data : data?.organization.teams.nodes
+  return Array.isArray(data)
+    ? data
+    : data?.github_data[0].admins_and_teams.teams
 }
 
 const usePosts = (slug?: string) => {
