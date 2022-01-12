@@ -14,8 +14,9 @@ import {
 } from "@/queries/index"
 
 export const getTeams = async () => {
-  const token = getJwt()
-  const data = await fetcher(getTeamsQuery, token)
+  // const token = getJwt()
+  // const data = await fetcher(getTeamsQuery, token)
+  const data = await fetcher(getTeamsQuery)
   const {
     admins_and_teams: { teams },
   } = data.github_data[0]
@@ -24,13 +25,14 @@ export const getTeams = async () => {
 }
 
 export const getPosts = async (slug?: string) => {
-  const token = getJwt()
+  // const token = getJwt()
   const query = slug ? getTeamPostsQuery : getLastPostsQuery
-  const { posts: data } = await fetcher(
-    query,
-    token,
-    slug ? { slug } : undefined
-  )
+  // const { posts: data } = await fetcher(
+  //   query,
+  //   token,
+  //   slug ? { slug } : undefined
+  // )
+  const { posts: data } = await fetcher(query, "", slug ? { slug } : undefined)
 
   const posts =
     data &&

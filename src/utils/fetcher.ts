@@ -6,7 +6,7 @@ const fetcher = (query: string, token?: string, params = {}) => {
   console.log("----> FETCHER URL:", url)
 
   const client = new GraphQLClient(url)
-  if (token) {
+  if (token && token.length) {
     client.setHeader("authorization", `Bearer ${token}`)
   }
   return client.request(query, params)
