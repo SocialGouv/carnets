@@ -63,9 +63,9 @@ jobs:
         environment: "dev"
         kosko-args: hasura
         manifestsName: hasura-manifests
-        koskoChartsVersion: 7af893eb2c689e8da5ea1d6b22ae7c4df81d25ee
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+        koskoChartsVersion: 7a9707e298818ee5612d6d85ec29836d3bb2372c
 
   ##############################################################################
   ## GENERATE KUBERNETES MANIFESTS
@@ -84,6 +84,7 @@ jobs:
         manifestsName: app-manifests
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+        koskoChartsVersion: 7a9707e298818ee5612d6d85ec29836d3bb2372c
 
   ##############################################################################
   ## DEPLOY HASURA OVER KUBERNETES
