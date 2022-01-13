@@ -1,9 +1,10 @@
-import { Bar } from "react-chartjs-2"
+import "chart.js/auto"
+import { Chart } from "react-chartjs-2"
 import type { ChartDataset } from "chart.js"
 
 import useStat from "@/services/stat"
 
-const Chart = () => {
+const BarChart = () => {
   const [{ posts_stat: data }] = useStat()
 
   const labels =
@@ -24,7 +25,7 @@ const Chart = () => {
     responsive: true,
   }
 
-  return <Bar data={{ labels, datasets }} options={options} />
+  return <Chart type="line" data={{ labels, datasets }} options={options} />
 }
 
-export default Chart
+export default BarChart
