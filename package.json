@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NEXTAUTH_URL=$APP_BASE_URL next start",
     "lint": "next lint",
     "test": "jest"
   },
