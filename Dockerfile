@@ -18,10 +18,8 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 
-#ARG HASURA_JWT_KEY
 ARG NEXT_PUBLIC_HASURA_URL
 
-#ENV HASURA_JWT_KEY $HASURA_JWT_KEY
 ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
 ENV NODE_OPTIONS --openssl-legacy-provider
 
@@ -36,8 +34,7 @@ ENV NODE_ENV production
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-# You only need to copy next.config.js if you are NOT using the default configuration
-# COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
@@ -55,24 +52,3 @@ ENV PORT 3000
 ENV NEXT_TELEMETRY_DISABLED 1
 
 CMD ["node_modules/.bin/next", "start"]
-
-
-
-# FROM node:16-alpine
-
-# WORKDIR /app
-
-# COPY . .
-
-# RUN yarn --frozen-lockfile --prefer-offline && yarn cache clean
-# RUN yarn build
-
-# RUN rm -rf node_modules
-# RUN yarn --production --frozen-lockfile --prefer-offline && yarn cache clean
-
-# USER node
-
-# ENV NODE_ENV=production
-# ENV NEXT_TELEMETRY_DISABLED=1
-
-# CMD ["yarn", "start"]
