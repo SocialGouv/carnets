@@ -4,7 +4,4 @@ module.exports = {
   images: {
     domains: ["avatars.githubusercontent.com"],
   },
-  // env: {
-  //   NEXTAUTH_URL: process.env.APP_BASE_URL,
-  // },
 }
