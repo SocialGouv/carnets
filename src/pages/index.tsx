@@ -24,7 +24,7 @@ const Page = ({
       <aside>
         <TeamsLoader />
       </aside>
-      <main className="flex flex-1">
+      <main>
         <PostsLoader />
       </main>
     </SWRConfig>

@@ -12,21 +12,27 @@
 
 #__next { /* stylelint-disable-line */
   & > .container {
-    @apply flex flex-1 mx-auto py-10;
+    @apply flex flex-1 mx-auto;
   }
+}
+
+main {
+  @apply flex flex-1 pt-10;
+
+  margin-top: 108px;
 }
 
 aside {
   @apply
-    flex
     mr-8
     w-48
-    top-0
+    pt-10
     sticky
-    border-r
     min-h-full
-    max-h-screen
-    border-gray-300;
+    max-h-screen;
+
+  top: 108px;
+  margin-top: 108px;
 }
 
 a {

@@ -1,5 +1,5 @@
 header {
-  @apply shadow-lg sticky top-0 z-30 bg-white;
+  @apply shadow-lg fixed top-0 z-30 bg-white right-0 left-0;
 
   .container {
     @apply flex py-5 items-center mx-auto;
@@ -13,7 +13,7 @@ header {
     }
 
     nav {
-      @apply flex flex-1 items-center justify-end text-sm;
+      @apply flex flex-1 items-center justify-end;
 
       & > * {
         @apply border-r border-gray-400 px-5;

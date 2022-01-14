@@ -47,7 +47,7 @@ const Page = ({ fallback }: { fallback: Record<string, Team[] | Post[]> }) => {
         <aside>
           <TeamsLoader />
         </aside>
-        <main className="flex flex-col flex-1">
+        <main className="flex-col">
           <TeamLoader slug={slug} />
           <PostsLoader slug={slug} />
         </main>
