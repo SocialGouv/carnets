@@ -20,7 +20,6 @@ const Posts = ({ posts }: { posts: Post[] }) => {
       : false
 
   const deletePost = async (id: string | undefined) => {
-    console.log("deletePost", id)
     if (id) {
       await fetcher(deletePostQuery, token, { id })
     }

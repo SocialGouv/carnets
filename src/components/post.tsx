@@ -53,12 +53,15 @@ const Post = ({
     {editable && (
       <div className="flex justify-end">
         <Link href={`/team/${team_slug}/post/${id}`}>
-          <a className="btn primary">
+          <a className="btn primary sm">
             <i className="ri-edit-fill ri-fw" />
             Editer
           </a>
         </Link>
-        <button className="primary ml-2" onClick={() => handlePostDeletion(id)}>
+        <button
+          className="primary sm ml-2"
+          onClick={() => handlePostDeletion(id)}
+        >
           <i className="ri-delete-bin-7-fill ri-fw" />
           Supprimer
         </button>

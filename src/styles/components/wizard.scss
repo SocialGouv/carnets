@@ -19,6 +19,8 @@
         justify-center
         border-gray-400;
 
+      line-height: 1.4rem;
+
       &.active {
         @apply border-blue-500 text-blue-500;
       }
@@ -45,7 +47,7 @@
     }
 
     .actions {
-      @apply flex justify-end;
+      @apply flex;
     }
   }
 }

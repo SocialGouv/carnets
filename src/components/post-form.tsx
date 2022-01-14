@@ -85,12 +85,10 @@ const PostForm = () => {
   const [post, setPost] = useState(data || defaultValues)
 
   const submit = async () => {
-    console.log("ON SUBMIT", post)
     try {
-      const result = await fetcher(createPost, token, {
+      await fetcher(createPost, token, {
         post: { ...post, team_slug: slug, author: session?.user.login },
       })
-      console.log("result", result)
       setStatus("success")
     } catch (error) {
       setStatus("failure")

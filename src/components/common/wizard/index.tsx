@@ -36,7 +36,18 @@ const Wizard = ({
             )
           : step}
         {status === "steps" && (
-          <div className="actions">
+          <div className={`actions justify-${activeStep ? "between" : "end"}`}>
+            {activeStep > 0 && (
+              <button
+                className="primary"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setActiveStep(activeStep - 1)
+                }}
+              >
+                Précédent
+              </button>
+            )}
             <button
               className="primary"
               onClick={(e) => {

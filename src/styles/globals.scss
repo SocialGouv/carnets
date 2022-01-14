@@ -50,8 +50,10 @@ button,
 a.btn {
   @apply
     px-4
-    py-2
+    py-3
+    flex
     relative
+    leading-4
     inline-block;
 
   &.primary {
@@ -65,11 +67,11 @@ a.btn {
       active:bg-blue-300;
   }
 
+  &.sm {
+    @apply text-sm px-3 py-2;
+  }
+
   i {
     @apply relative top-px mr-1;
-
-    &.ri-lg {
-      top: 3px;
-    }
   }
 }
