@@ -5,6 +5,7 @@ module.exports = {
   images: {
     domains: [
       "githubusercontent.com",
+      "*.githubusercontent.com",
       "avatars.githubusercontent.com",
       "avatars1.githubusercontent.com",
     ],
