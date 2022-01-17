@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
     "chart.js": "^3.5.1",
+    "chartjs-plugin-datalabels": "^2.0.0",
     "date-fns": "^2.25.0",
     "graphql": "^15.6.0",
     "graphql-request": "^3.5.0",

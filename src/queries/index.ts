@@ -104,7 +104,7 @@ export const createPost = gql`
 
 export const getStat = gql`
   query getStat {
-    posts_stat(order_by: { year: asc, week: asc }) {
+    posts_stat(order_by: [{ year: asc }, { week: asc }]) {
       count
       week
       year
