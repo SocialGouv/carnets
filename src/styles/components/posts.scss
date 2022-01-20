@@ -1,5 +1,8 @@
 .posts {
-  @apply flex-1;
+  @apply flex-1 overflow-auto;
+
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
 
   .list {
     @apply xl:col-count-2;

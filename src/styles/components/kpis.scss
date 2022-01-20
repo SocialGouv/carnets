@@ -1,0 +1,17 @@
+.kpis {
+  @apply flex justify-around pt-5 pb-5 gap-x-5;
+
+  .kpi {
+    @apply flex flex-1 flex-col bg-beige p-5 text-center;
+
+    min-width: 0;
+
+    .value {
+      @apply text-lg font-bold;
+    }
+
+    .name {
+      @apply text-sm truncate;
+    }
+  }
+}

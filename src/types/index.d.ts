@@ -31,7 +31,7 @@ interface Team {
   description: string
 }
 
-interface Kpi {
+interface KPI {
   id: string
   name: string
   value: string
@@ -41,7 +41,7 @@ interface Post {
   mood: Mood
   id?: string
   team?: Team
-  kpis?: [Kpi]
+  kpis?: [KPI]
   term: string
   needs: string
   author?: string

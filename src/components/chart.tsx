@@ -37,6 +37,9 @@ const BarChart = () => {
 
   const options = {
     responsive: true,
+    plugins: {
+      legend: { display: false },
+    },
     scales: {
       x: {
         grid: {

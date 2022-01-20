@@ -2,6 +2,7 @@ import Link from "next/link"
 import { format } from "date-fns"
 import ReactMarkdown from "react-markdown"
 
+import KPIs from "@/components/common/kpis"
 import Mood from "@/components/common/mood"
 import TabPanel, { Tab, Tabs, Panels } from "@/components/common/tab-panel"
 
@@ -10,6 +11,7 @@ const Post = ({
   mood,
   team,
   term,
+  kpis,
   needs,
   author,
   editable,
@@ -38,9 +40,10 @@ const Post = ({
       </div>
       <Mood mood={mood} />
     </div>
+    <KPIs kpis={kpis || []}></KPIs>
     <TabPanel>
       <Tabs>
-        <Tab disabled={!priorities.length}>Piorités</Tab>
+        <Tab disabled={!priorities.length}>Priorités</Tab>
         <Tab disabled={!needs.length}>Besoins</Tab>
         <Tab disabled={!term.length}>Échéances</Tab>
       </Tabs>
