@@ -58,14 +58,14 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/autodevops-manifests@manifests-name
+      uses: SocialGouv/actions/autodevops-manifests@v1
       with:
         environment: "dev"
         kosko-args: hasura
         manifestsName: hasura-manifests
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
-        koskoChartsVersion: 19ea436cf7f4cfca6d94f950309e707115b408a9
+        # koskoChartsVersion: 19ea436cf7f4cfca6d94f950309e707115b408a9
 
   ##############################################################################
   ## GENERATE KUBERNETES MANIFESTS
@@ -77,14 +77,14 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/autodevops-manifests@manifests-name
+      uses: SocialGouv/actions/autodevops-manifests@v1
       with:
         environment: "dev"
         kosko-args: app
         manifestsName: app-manifests
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
-        koskoChartsVersion: 19ea436cf7f4cfca6d94f950309e707115b408a9
+        # koskoChartsVersion: 19ea436cf7f4cfca6d94f950309e707115b408a9
 
   ##############################################################################
   ## DEPLOY HASURA OVER KUBERNETES
@@ -98,7 +98,7 @@ jobs:
     steps:
 
     - name: Use autodevops deployment
-      uses: SocialGouv/actions/autodevops-deploy@manifests-name
+      uses: SocialGouv/actions/autodevops-deploy@v1
       id: deploy-hasura
       with:
         environment: "dev"
@@ -158,7 +158,7 @@ jobs:
     steps:
 
     - name: Use autodevops deployment
-      uses: SocialGouv/actions/autodevops-deploy@manifests-name
+      uses: SocialGouv/actions/autodevops-deploy@v1
       with:
         environment: "dev"
         manifestsName: app-manifests
