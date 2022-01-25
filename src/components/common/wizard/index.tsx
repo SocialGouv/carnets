@@ -18,6 +18,31 @@ const Wizard = ({
   const steps = children.filter((child: JSX.Element) => !child.props.type)
   const step = steps.find((child: JSX.Element, i: number) => i === activeStep)
 
+  const PreviousButton = () => (
+    <button
+      className="primary"
+      onClick={(e) => {
+        e.preventDefault()
+        setActiveStep(activeStep - 1)
+      }}
+    >
+      Précédent
+    </button>
+  )
+
+  const NextButton = () => (
+    <button
+      className="primary"
+      onClick={(e) => {
+        e.preventDefault()
+        setActiveStep(activeStep + 1)
+        if (activeStep === steps.length - 1) onComplete()
+      }}
+    >
+      Suivant
+    </button>
+  )
+
   return (
     <div className="wizard">
       <Paging activeStep={activeStep} totalSteps={steps.length} />
@@ -35,31 +60,18 @@ const Wizard = ({
               (child: JSX.Element) => child.props.type === "failure"
             )
           : step}
-        {status === "steps" && (
-          <div className={`actions justify-${activeStep ? "between" : "end"}`}>
-            {activeStep > 0 && (
-              <button
-                className="primary"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setActiveStep(activeStep - 1)
-                }}
-              >
-                Précédent
-              </button>
-            )}
-            <button
-              className="primary"
-              onClick={(e) => {
-                e.preventDefault()
-                setActiveStep(activeStep + 1)
-                if (activeStep === steps.length - 1) onComplete()
-              }}
-            >
-              Suivant
-            </button>
-          </div>
-        )}
+        {status === "steps" ? (
+          activeStep ? (
+            <div className={`actions justify-between`}>
+              <PreviousButton />
+              <NextButton />
+            </div>
+          ) : (
+            <div className={`actions justify-end`}>
+              <NextButton />
+            </div>
+          )
+        ) : undefined}
       </div>
     </div>
   )

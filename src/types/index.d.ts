@@ -32,7 +32,7 @@ interface Team {
 }
 
 interface KPI {
-  id: string
+  id?: string
   name: string
   value: string
 }

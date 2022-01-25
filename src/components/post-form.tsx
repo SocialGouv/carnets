@@ -2,18 +2,20 @@ import Link from "next/link"
 import React, { useState } from "react"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/client"
-import MarkdownEditor from "@/components/common/markdown-editor"
 
 import useSWR from "swr"
 import fetcher from "@/utils/fetcher"
 import useToken from "@/services/token"
-import Mood from "@/components/common/mood"
 import Loader from "@/components/common/loader"
 import { createPost, getPost } from "@/queries/index"
+import KPIsEditor from "@/components/common/kpis-editor"
+import MoodSelector from "@/components/common/mood-selector"
+import MarkdownEditor from "@/components/common/markdown-editor"
 import Wizard, { Step, Status } from "@/components/common/wizard"
 
 const defaultValues = {
   mood: "good",
+  kpis: [{ value: "42", name: "My First KPI" }],
   term: `### Nos prochaines échéances
 
 - Mise en production de la version \`1.42.0\`
@@ -39,35 +41,6 @@ Un exemple de liste:
 - sous élément 2`,
 }
 
-const MoodSelector = ({
-  value,
-  handleChange,
-}: {
-  value: Mood
-  handleChange: (name: string, value: string) => void
-}) => {
-  const moods = [
-    { value: "good", label: "bon" },
-    { value: "average", label: "moyen" },
-    { value: "bad", label: "mauvais" },
-  ] as { value: Mood; label: string }[]
-
-  return (
-    <div className="mood-selector">
-      {moods.map((mood, i) => (
-        <div
-          key={i}
-          onClick={() => handleChange("mood", mood.value)}
-          className={`mood${mood.value === value ? " selected" : ""}`}
-        >
-          <Mood mood={mood.value} />
-          <p className="pt-5">{mood.label}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-
 const PostForm = () => {
   const router = useRouter()
   const [token] = useToken()
@@ -86,6 +59,9 @@ const PostForm = () => {
 
   const submit = async () => {
     try {
+      post.kpis = {
+        data: post.kpis.filter((kpi: KPI) => kpi.name && kpi.name.length),
+      }
       await fetcher(createPost, token, {
         post: { ...post, team_slug: slug, author: session?.user.login },
       })
@@ -96,7 +72,7 @@ const PostForm = () => {
     }
   }
 
-  const handleChange = (name: string, value: string) =>
+  const handleChange = (name: string, value: string | KPI[]) =>
     setPost({ ...post, [name]: value })
 
   const handleComplete = () => {
@@ -112,6 +88,14 @@ const PostForm = () => {
           <MarkdownEditor
             name="priorities"
             value={post.priorities}
+            handleChange={handleChange}
+          />
+        </Step>
+        <Step>
+          <h2 className="text-center pb-10">Les KPIs de votre produit:</h2>
+          <KPIsEditor
+            name="kpis"
+            kpis={post.kpis}
             handleChange={handleChange}
           />
         </Step>

@@ -2,27 +2,26 @@
   @apply flex flex-1 flex-col;
 
   .paging {
-    @apply flex items-center px-80 pb-5;
+    @apply flex items-center pb-10 mx-60;
 
     .indicator {
       @apply
-        h-16
-        w-16
+        h-12
+        w-12
         flex
         border-4
         bg-white
-        text-2xl
+        text-xl
         font-bold
         items-center
-        rounded-full
         text-gray-400
         justify-center
         border-gray-400;
 
-      line-height: 1.4rem;
+      line-height: 1.2rem;
 
       &.active {
-        @apply border-blue-500 text-blue-500;
+        @apply border-blue-500 text-blue-500 shadow;
       }
 
       &.completed {

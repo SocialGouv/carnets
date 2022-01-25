@@ -9,7 +9,9 @@
 @use "./components/loader.scss";
 @use "./components/wizard.scss";
 @use "./components/tab-panel.scss";
+@use "./components/kpis-editor.scss";
 @use "./components/mood-selector.scss";
+@use "./components/markdown-editor.scss";
 
 #__next { /* stylelint-disable-line */
   & > .container {

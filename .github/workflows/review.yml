@@ -23,10 +23,8 @@ jobs:
 
     - uses: SocialGouv/actions/autodevops-create-db@v1
       with:
-        environment: dev
         kubeconfig: ${{ secrets.KUBECONFIG }}
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
-        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
   ##############################################################################
   ## BUILD AND REGISTER HASURA IMAGE
@@ -62,6 +60,7 @@ jobs:
       with:
         environment: "dev"
         kosko-args: hasura
+        pgUserSecretPrefix: pg-user
         manifestsName: hasura-manifests
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}

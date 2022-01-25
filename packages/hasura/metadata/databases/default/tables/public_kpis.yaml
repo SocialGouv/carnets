@@ -5,6 +5,15 @@ object_relationships:
 - name: post
   using:
     foreign_key_constraint_on: post_id
+insert_permissions:
+- permission:
+    backend_only: false
+    check: {}
+    columns:
+    - name
+    - post_id
+    - value
+  role: user
 select_permissions:
 - permission:
     columns:

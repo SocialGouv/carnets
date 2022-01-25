@@ -14,11 +14,13 @@ const colors = {
     300: "#9a9aff",
     200: "#ececff",
     100: "#f5f5ff",
+    ecume: "#e9edfe",
   },
   blue: {
     300: "#2929ff",
     400: "#0000dd",
     500: "#000091",
+    ecume: "#465f9d",
   },
   gray: {
     800: "#1e1e1e",
@@ -56,7 +58,7 @@ const columnCountPlugin = plugin(({ addUtilities }) => {
 })
 
 module.exports = {
-  purge: [
+  content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/types/**/*.{js,ts,jsx,tsx}",
     "./src/utils/**/*.{js,ts,jsx,tsx}",
@@ -64,7 +66,7 @@ module.exports = {
     "./src/services/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false, // or 'media' or 'class'
+  // darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
       spectral: ["Spectral", "serif"],
