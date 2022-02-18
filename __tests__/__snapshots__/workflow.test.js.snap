@@ -8,6 +8,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -32,6 +33,7 @@ spec:
       annotations:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -85,11 +87,13 @@ spec:
             initialDelaySeconds: 30
           envFrom:
             - secretRef:
-                name: app-sealed-secret
+                name: carnets-sealed-secret
             - configMapRef:
-                name: app-configmap
+                name: carnets-configmap
           env:
             - name: APP_BASE_URL
+              value: https://carnets-mybranch.dev2.fabrique.social.gouv.fr
+            - name: NEXTAUTH_URL
               value: https://carnets-mybranch.dev2.fabrique.social.gouv.fr
 ---
 apiVersion: bitnami.com/v1alpha1
@@ -99,12 +103,13 @@ metadata:
     sealedsecrets.bitnami.com/cluster-wide: 'true'
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
     app.github.com/run: '1234'
     app.github.com/sha: '0123456'
-  name: app-sealed-secret
+  name: carnets-sealed-secret
   namespace: carnets-mybranch
   labels:
     application: carnets
@@ -140,12 +145,13 @@ spec:
         sealedsecrets.bitnami.com/cluster-wide: 'true'
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
         app.github.com/run: '1234'
         app.github.com/sha: '0123456'
-      name: app-sealed-secret
+      name: carnets-sealed-secret
       labels:
         application: carnets
         component: carnets
@@ -157,10 +163,11 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: app-configmap
+  name: carnets-configmap
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -194,6 +201,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -216,6 +224,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -253,6 +262,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -277,6 +287,7 @@ spec:
       annotations:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -322,11 +333,14 @@ spec:
               cpu: 100m
               memory: 64Mi
           startupProbe:
-            failureThreshold: 12
+            failureThreshold: 20
             httpGet:
               path: /healthz
               port: http
-            periodSeconds: 5
+            periodSeconds: 10
+            initialDelaySeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 5
           envFrom:
             - secretRef:
                 name: azure-pg-user-mybranch
@@ -341,7 +355,7 @@ spec:
           envFrom:
             - secretRef:
                 name: azure-pg-user-mybranch
-          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.45.0
+          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.56.1
           imagePullPolicy: Always
           name: wait-for-postgres
           resources:
@@ -359,6 +373,7 @@ metadata:
     sealedsecrets.bitnami.com/cluster-wide: 'true'
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -386,6 +401,7 @@ spec:
         sealedsecrets.bitnami.com/cluster-wide: 'true'
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -407,6 +423,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -441,6 +458,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -463,6 +481,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -494,6 +513,27 @@ spec:
         - hasura-carnets-mybranch.dev2.fabrique.social.gouv.fr
       secretName: wildcard-crt
 ---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: netpol-carnets-mybranch
+  namespace: carnets-mybranch
+spec:
+  ingress:
+    - from:
+        - podSelector: {}
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: ingress-controller
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: monitoring
+  podSelector: {}
+  policyTypes:
+    - Ingress
+---
 apiVersion: batch/v1
 kind: Job
 spec:
@@ -511,11 +551,11 @@ spec:
             - name: NEW_PASSWORD
               value: password_mybranch
             - name: NEW_DB_EXTENSIONS
-              value: hstore pgcrypto citext uuid-ossp
+              value: hstore pgcrypto citext uuid-ossp postgis
           envFrom:
             - secretRef:
                 name: azure-pg-admin-user
-          image: ghcr.io/socialgouv/docker/azure-db:6.45.0
+          image: ghcr.io/socialgouv/docker/azure-db:6.56.1
           imagePullPolicy: IfNotPresent
           name: create-db-user
           resources:
@@ -587,6 +627,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -611,6 +652,7 @@ spec:
       annotations:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -626,7 +668,7 @@ spec:
     spec:
       containers:
         - image: >-
-            ghcr.io/socialgouv/fabrique/carnets:sha-0123456789abcdefghijklmnopqrstuvwxyz0123
+            ghcr.io/socialgouv/fabrique/carnets:preprod-0123456789abcdefghijklmnopqrstuvwxyz0123
           livenessProbe:
             failureThreshold: 6
             httpGet:
@@ -664,11 +706,13 @@ spec:
             initialDelaySeconds: 30
           envFrom:
             - secretRef:
-                name: app-sealed-secret
+                name: carnets-sealed-secret
             - configMapRef:
-                name: app-configmap
+                name: carnets-configmap
           env:
             - name: APP_BASE_URL
+              value: https://carnets-preprod.dev2.fabrique.social.gouv.fr
+            - name: NEXTAUTH_URL
               value: https://carnets-preprod.dev2.fabrique.social.gouv.fr
 ---
 apiVersion: bitnami.com/v1alpha1
@@ -678,12 +722,13 @@ metadata:
     sealedsecrets.bitnami.com/cluster-wide: 'true'
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
     app.github.com/run: '1234'
     app.github.com/sha: '0123456'
-  name: app-sealed-secret
+  name: carnets-sealed-secret
   namespace: carnets-preprod
   labels:
     application: carnets
@@ -719,12 +764,13 @@ spec:
         sealedsecrets.bitnami.com/cluster-wide: 'true'
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
         app.github.com/run: '1234'
         app.github.com/sha: '0123456'
-      name: app-sealed-secret
+      name: carnets-sealed-secret
       labels:
         application: carnets
         component: carnets
@@ -736,10 +782,11 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: app-configmap
+  name: carnets-configmap
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -773,6 +820,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -795,6 +843,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -832,6 +881,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -856,6 +906,7 @@ spec:
       annotations:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -871,7 +922,7 @@ spec:
     spec:
       containers:
         - image: >-
-            ghcr.io/socialgouv/fabrique/hasura:sha-0123456789abcdefghijklmnopqrstuvwxyz0123
+            ghcr.io/socialgouv/fabrique/hasura:preprod-0123456789abcdefghijklmnopqrstuvwxyz0123
           livenessProbe:
             failureThreshold: 6
             httpGet:
@@ -901,11 +952,14 @@ spec:
               cpu: 100m
               memory: 64Mi
           startupProbe:
-            failureThreshold: 12
+            failureThreshold: 20
             httpGet:
               path: /healthz
               port: http
-            periodSeconds: 5
+            periodSeconds: 10
+            initialDelaySeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 5
           envFrom:
             - secretRef:
                 name: azure-pg-user
@@ -920,7 +974,7 @@ spec:
           envFrom:
             - secretRef:
                 name: azure-pg-user
-          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.45.0
+          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.56.1
           imagePullPolicy: Always
           name: wait-for-postgres
           resources:
@@ -938,6 +992,7 @@ metadata:
     sealedsecrets.bitnami.com/cluster-wide: 'true'
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -967,6 +1022,7 @@ spec:
         sealedsecrets.bitnami.com/cluster-wide: 'true'
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -988,6 +1044,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1022,6 +1079,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1044,6 +1102,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1075,55 +1134,26 @@ spec:
         - hasura-carnets-preprod.dev2.fabrique.social.gouv.fr
       secretName: wildcard-crt
 ---
-apiVersion: bitnami.com/v1alpha1
-kind: SealedSecret
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
 metadata:
-  annotations:
-    sealedsecrets.bitnami.com/cluster-wide: 'true'
-    app.github.com/job: '5678'
-    app.github.com/ref: refs/heads/mybranch
-    app.github.com/repo: socialgouv/carnets
-    app.github.com/run: '1234'
-    app.github.com/sha: '0123456'
-  name: azure-pg-user
+  name: netpol-carnets-preprod
   namespace: carnets-preprod
-  labels:
-    application: carnets
-    component: carnets
-    owner: carnets
-    team: carnets
-    cert: wildcard
 spec:
-  encryptedData:
-    DATABASE_URL: >-
-      AgBs3QAI0TpawPTPzj4KlP9I+U1RN4nE9MF+RLrcPQiV+hN2fYhHUlSSQ0euellFI32JpDfQJzt2c/sfERbRtC+Q/meih2oCGZWLNMxfOSdDHoxiMKIChR//kUIyOTz7QGUEna6OvY/d1miVbgLRhJXJcp/GBDwbgupczg6INdfi6s8KA5pS5rlNPj8MCVhLtboUxD4tRL+jnBmNFTXGTD85N4rQxiHp5J2FfkOhRUFKxAGY3hORgmZ5QNSztZ9seTTu1tFRrogdzzDQKfjNsdvdoxe1w6Gu0CD5Uj3MdjzsAJU+w9V3NgHdOcu/yKJ49s6TIQiXd0Lbuh4rfZKJSlyhelu4Pcuz9q6rg1X3FM4kawZX7UYUYTgg7wW2FWBIHXlOKiZUBRpfO+YAw7kjkSeVBdn/On1a36a5Gig98eXm1cOkt78CK8Bdx4HWfdOYTfubCm8KaAtIzPgBgrRlh1b/gohY6hnG+VWFqE+5DcwMESvSo7lYKO/lX27NATAXK9FfF4LfcYwlLwKnwTgaDoUE+WXRUz8+jxcCTeo9AHIwM8ce4L5eGfwrvg3u0B3aPD2UoFEzZfDmb0P+FxPLO00warhHQhHFXJuLmYEdT0yQwqRmeLEX6D/g40AxvZIZYYgclO0F1oNbjTHw17vS/b/RdG1XMOkZTe/qDIAvmQEIKeQzk1EpysBWYGZuYYnOWUcMHxXhABCEFbBsj8xFuL2FtwJjqJ1+kZFKavoYubHKmBE4O6oeRXThOy2d+86ib050wCYLbY3IdWjzK5GnjeAsP2mUU9z2yjXKNSGuXvsclHgDz/7qPEkAM2Pj25BHRpbt5RY6Fg==
-    PGDATABASE: >-
-      AgAF1GdG+0E57J719UzgcoU+IMWTVqr6oUfBizY2UrTdNTVcgdmzhFjabU7/9sprmg4IBDsWF2z+DDoTSVBH7YwFRJA9Ul3kxHmjOqSUSFn0nh4cIaLP19UyEZno3F8sqymAyMl1TsvN3Co5qzUtTWSrsuDEGcWPHCU5EeZzEfdYGLmBYJdRm5ix9e/I8RuVl+m+T2R/gFxmSvMHCa3dbOzG6/td+XsQbY48qZSBDn59vBn3WawmvOf08zcnjzgQeSy3sd+VysAf6qsru5sHVDw41DXX0RCOqk8AEdmhYP1ha1M/80DLzbYPxphm3BAeoomGsjSSoaE+AqJEn/xmQM9samrWTEOpn4fVBHR0Yxi5SRP062HTvs9n7lgR5vjWwvZzQFLc9vg1PBUuYUjSwbHJaNtCtZxGwIL2OBVgrE4BDSEGnhYKQYs9WrsgIRvKB6OBHS7IE4Ru0vKqwgye4pIOXO9/PZ+NJNaXCuUr9t7F7A7kYtTMfUTLpgtF22OLpdYn8HOf8EQCvnYarm1nb3HmXgny9+Qs1p2r95pzMItUdUs4viea5lGP1elwjPbkRhtQE2azXWjqW5e+KqOs/sc21dD7ZkOkta+0hriB2bKplDrp1qppzbPoM8xHb1rADj/f8v3dpNwHecDcwKUA+iQU1FOvVNp+cxyrhIjy8KdCQfF56kuzf6DZ3DEa6LmTSy4BZGMaPlf2
-    PGHOST: >-
-      AgBeXgPT6kJEVAoXSiKdRjPXAT0Wou2Y/+PcOhRjlVxWP8SHFE4ex2s0sgfsxSb2cBxertlTK4FAJAX7f8okcqK5lcvFr8epGqyNaMSqhfWn+cBzNkKLdc49tClw7+TU+8tlKztBgikndSNhR3tkUexbb9YjX7ylN1SxBaC3wn+YNn5f5zoy4IxlxI+a0HajvIF17+ZykCjCRSvpky6A+Z/PjUnDs9NsTq7xgRVEF2J9yqqulhTuf+uX5qN1HCM5kRE+0RyMY7neT5ELMPYq8OpZLA9pnBJea9ctE3s/tU/rNr/Xuh/G++ECjO6x9rpwUnIP/oWXAA9adps24tbJU8Pzx889w6cf/w3QZPsayub17EwR0w8qf6QLgahoKSh2fkWO7nrQDU+QBCve3RKN6jQ9ZEqE7tr5Lcqr0rFiia1pJkJODvBU2g5LB1r7kCkTeKWfOqKSjOAvF078N87WV5dTBcbZa4kgsecT00MT14YdIz0WHRd6L4rNW3YD9VjS3rCcdRFA5euArgG+5XG8NqwQ5QrdkZG6HBtdTK5ZaTvaahw2Q14AQAcXBUjFhrF9t1e9zUs0QxGVc/3macOJbEbCW2makeGSPvrmoBjIj/Af5bVIN4QoUfw+RYqSS9rxwnSs/xJyf5HaHhY8Geu4YE/qW6MA5pyFkVOn9gtZw+4tHofyJ/vhSk2CmnbZTo3oxFKUWM5DuDgGJHD0W9u7R/wZvbqdTAlShD2AObHP2B8b0cIV8eDfJdoWkmNZog==
-    PGPASSWORD: >-
-      AgDJYZk6D7xbdDhFT76rJq84Rt0HSU7IUAvq32qRrYG2f+wmvcGQ8upnqPHWayL0kTp6AnYK1Z1Iblk14p15tXJ9TepkKXud4VUss7DRU7ybRtRjTJoXuNCLgF9meNh8fmYhaPLQV5rK26tc0RIjCHT7I+jSBaxRmcJQBrHDkVESkX417M0EGZBVvXt4654gMjFI/zDmYXsO9LjdqiVddGMUH8D3RMBXM9RqHFjticU0AYctCaIHFnf638EluBLwmLBWGf/WaUsykBgAFuXk+Xm+zQ6MjWm7AKRjb9hDvTLD7HxvHuPzh3d5URE38FYDwL0oIRBiLNrgmxEEzmLLaRrPhUEkxe4XRC/GdLjBXnZq16pyGiIMxgZGEQHEvUfta05z7XPZsfj4BwUQZRhKsm1GcqNBZlu2iTET+WUpO17RG8c1Qo3oUUjfqD9i9F4y0d8VHXSNMirDMAUloBczeYfo5u0L/eBaYVevVf4UsOWM6NnhBo8lUPsS8r9q1j+zlkOThS2tstK41rhr/7mqEq6hgs/72hvH32amTaVHZ8QnvyaNlFthFdW15d6p+2sqZr0/Veo4HncQ690CtCmSEkykkbIWzWBjQmUjXg3zN0rCQRE5VZJ4ttoWkFU8BAxzWt0Z/HxmalugzRpsykDjECKbytPqU8jjTJep7a8eN/1AnCfih5YBLLebw0prmbU3e0CdsEaxEtGJw38KJh9wU26z
-    PGSSLMODE: >-
-      AgANfPjS+tH6EpHMgMD2rhQP4Qo3XmgPaes3kD7kVBmMTg5Vgn5+CvUec4CGF/GbmhrY5NldsELSfZlUkj1N9Wyk0OBZOLWcPHALUy3Px/VDp2Js+F2o9IDyReRIXNS9bIZltb6HlHog0K00MUrZpPmA3b+1KeyvA4FXyoYmcjiIpWhE30TicFlo7lxNaJ7Nbv7yCjGQ5Lp3GABa6YlqxN6VnSm+rFmAlbppoI85Bm2n1nccqYhk6IhjJgj107KyVtksTLpbtv8wpablTjnUQwutKe52V9bVveU4l/79gBCgKVwiP0dNCSqp9491veijamKKrjpr/xwLCbfwLfgWM3aChBdKOR4ybypVL/115XsbxJacHw8V6WtNxoBZ00Rx2aTleaE5eKqFhfkZUAQtGH72q91VNFAnLPumYA9UcWRMV3kbZ8nsJgQbcVO9rSZ9hAow2wMCClzgyDpxTiWAxH0nOuVQYPDx81DaoW6Cg0GgMrSudaajjsgC590O4uXPjtkD8oBGpYuZ4o7hEOLro7CKFjT9eg+n7flSY61Jb6k+GyM2357R7k7qBesvHsOb/pVGwRwxJVDOjquL6Ll25WypZgqkyD6IEg4jq0fkzw+v1lMjORgWzW2Zs4q6RSSLpf0SE3ApjXvqpn+GSiVE/1L8bdT6/6khEhl5OaY1aCx0Mb+xTAe4KJ5quA17fd4yECg0S9KOVZ26
-    PGUSER: >-
-      AgDLC5ZW1sveRZ9z/SlKtGtiSTvGmvrCBHh9gsy7Z4a6CHzksmyPGlyxaiR5HMwcgG7bm7qWW1dNAFCWQOAXk0Wnyhe5+7SSVXYUn0PcNCzR3fTgOLwyZquVwKGfHjkDLaXvQ8zkp/B/+avUcyyjbOyp3XnjW4RNbj9Q6XGNb97IVV8/EHoyK5vcd4IwA2rpbw2kcBYSbmxJaW2CIZpceeaGbRQzezsYWfDXeOC8IEJAaYjJIcTWMw9a3gPSF2W12UxVewrkUp1xj7J0n1VebYzNWBG4JwLQWd0g+aBS5ENQEG/wOOG8sM1+45YWHHpBOXHA4gcJXOtV+z6tjEuTpnBS+hhfdSgi0Cdcz+fsasTGdXc/ZxG0wcPIcu0Jm06mocWembMTrBIFsi/QK4s+zW+lEvX5T5M9Vjusw9QFHrtwkyCEQGkz74K8bt8mh5Zs/I8idoU+mB5AhELn5zJ8/fXshu3jqq29vE+YpFxor9O+7b8/mKJRb1Vnq7Tr8bPwXRAxZQFcs6++V6oaAbhkaxXLpBe2wXCz3sk6GYLT9U8HQ3NN2jtUn768xUXpWLtw73UnMSSHx0D/0yWnsRakHbxE9kq9FQMd/MeYGgvQcjLqtQ9iKJp1NcTn4RToY76nAvkp/UY2TMjBR/UlsnvILr/hE3Ez+QLyIiehs9gpnemu+ezvT0fWtVJfeQGdOoAU4izQLB/DxJl/u+atQgBerXJWKNlOfQA6aKE=
-  template:
-    metadata:
-      annotations:
-        sealedsecrets.bitnami.com/cluster-wide: 'true'
-        app.github.com/job: '5678'
-        app.github.com/ref: refs/heads/mybranch
-        app.github.com/repo: socialgouv/carnets
-        app.github.com/run: '1234'
-        app.github.com/sha: '0123456'
-      name: azure-pg-user
-      labels:
-        application: carnets
-        component: carnets
-        owner: carnets
-        team: carnets
-        cert: wildcard
-    type: Opaque
+  ingress:
+    - from:
+        - podSelector: {}
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: ingress-controller
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: monitoring
+  podSelector: {}
+  policyTypes:
+    - Ingress
 "
 `;
 
@@ -1135,6 +1165,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1158,6 +1189,7 @@ spec:
       annotations:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -1216,6 +1248,8 @@ spec:
           env:
             - name: APP_BASE_URL
               value: https://carnets.dev2.fabrique.social.gouv.fr
+            - name: NEXTAUTH_URL
+              value: https://carnets.dev2.fabrique.social.gouv.fr
 ---
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
@@ -1223,6 +1257,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1262,6 +1297,7 @@ spec:
       annotations:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -1282,6 +1318,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1313,6 +1350,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1337,6 +1375,7 @@ metadata:
     kubernetes.io/tls-acme: 'true'
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1373,6 +1412,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1396,6 +1436,7 @@ spec:
       annotations:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -1440,11 +1481,14 @@ spec:
               cpu: 100m
               memory: 64Mi
           startupProbe:
-            failureThreshold: 12
+            failureThreshold: 20
             httpGet:
               path: /healthz
               port: http
-            periodSeconds: 5
+            periodSeconds: 10
+            initialDelaySeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 5
           envFrom:
             - secretRef:
                 name: azure-pg-user
@@ -1459,7 +1503,7 @@ spec:
           envFrom:
             - secretRef:
                 name: azure-pg-user
-          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.45.0
+          image: ghcr.io/socialgouv/docker/wait-for-postgres:6.56.1
           imagePullPolicy: Always
           name: wait-for-postgres
           resources:
@@ -1476,6 +1520,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1503,6 +1548,7 @@ spec:
       annotations:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
+        kapp.k14s.io/delete-strategy: orphan
         app.github.com/job: '5678'
         app.github.com/ref: refs/heads/mybranch
         app.github.com/repo: socialgouv/carnets
@@ -1523,6 +1569,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1555,6 +1602,7 @@ metadata:
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1579,6 +1627,7 @@ metadata:
     kubernetes.io/tls-acme: 'true'
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/delete-strategy: orphan
     app.github.com/job: '5678'
     app.github.com/ref: refs/heads/mybranch
     app.github.com/repo: socialgouv/carnets
@@ -1609,50 +1658,25 @@ spec:
         - hasura-carnets.dev2.fabrique.social.gouv.fr
       secretName: hasura-crt
 ---
-apiVersion: bitnami.com/v1alpha1
-kind: SealedSecret
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
 metadata:
-  annotations:
-    app.github.com/job: '5678'
-    app.github.com/ref: refs/heads/mybranch
-    app.github.com/repo: socialgouv/carnets
-    app.github.com/run: '1234'
-    app.github.com/sha: '0123456'
-  name: azure-pg-user
+  name: netpol-carnets
   namespace: carnets
-  labels:
-    application: carnets
-    component: carnets
-    owner: carnets
-    team: carnets
 spec:
-  encryptedData:
-    DATABASE_URL: >-
-      AgBoTcwlgeRFWgMX/lsnlSOxOvQItvydRh8yEybqluvDLqshveCVEg5oHisjcW7m+nlkrzXXromHIHuRes5tszHnMqG3G0qBy4jh1Nzpjm6Ag3b9YgLJqTtK0twuVI0oDJIvSb0QdGXDk0LXK+wMLVWHJjOB6QuMWOFtR8rqN32VBYuWNx+5d2opdQ9YWhEGln4tnfqTtNDqXr49lvo0DJ9JAmASBgUn/LkDkwHMVNtjPDJY1FooEoH/A70a+hknD/Wrf7XxGIoU7daqQZDQ3oxbXGiyazfrnxXf4Yg4b6mwnkDqzU1FcjrSceoLC3nmFTk7PPcx67IrM0GKgXMmAgM021ZpdFt8si/lXYlLQm8vQzdU5PI++E0gsHfjnzGhvJaCXvefJYInSN7fvcop/zEqUHzjT8VY54pgqqDbrZuzXmrrApYaJCdRAtlzy9FPVB4Y2k67Bn8v1VFQ00Nf0rWmSTDjK3v6gAVKfvWDonqGkqVsSEXlwJovuHNw7PgPIsc4hgar9NZKtK0Gtt0LJOiN++ZC1U4E1ca8d+onWuFt2YnWt9MK4kp1CEoppypkeG5IQ7XQh5BTj8pVhmnJIyJ+aBoS5q2vwBsE3P7rDdHag/sFy0bJu4OUBszSWoVQ+VZu/yY2XRd9cXciDcx5gCVtOGbyo8ZStt7lvTozjtwcVZZSg/bfwAtWmtgyGgi2TLwB4MLLpZelHdShXRkYGSNoYLTgM3M2MFbGwm0anraROaKdl0CAl7By8ir+JYte6JK7pFG6bJtMBA7e8K1Y1DeK9VHpzxrCl813m3zrM3dFZXBx9WNainvATjoI/YAsGwpvQXVuw4O6nk/lfPu2K/klcy0cVlj6Fd/FBQIUHWapBg==
-    PGDATABASE: >-
-      AgBT569/PxXzDYOvfI3GAwi06qH2gbGkwNGN2Dkb8PjrcuMcZXdTrE6tMybTQP5rOf9y/211VFbrHXrGxFaQoWtqzfiIHnnOw/oFewByVO7aAn7+G5SXzlXyj/uztKIAxRx//4pbennfzIk3I9afHo37v5rzi+HYvtIUXt64OqISOoDrtZxyGRv4oNnjr4JO+H51mIvtHZpMx3lYWjyHqunV3rzjbkMYkqNndRuvHPRxXblBaFURjsf0fC0nlDfPuH0GuIklEqSJTLpDeTxJzWgUp6trS4ZuVUMYpQZ/K4gOdCN0bC6PiDTx5H1buLwWvpX/AT4om798ItJrJWbGLnDS45yKAnlPYbiL+V9BrHE23aFipr2JLoIIiemfkfnp1UARTl5gPzavmML4m+cSQf/6FzIbIa0A8IONL6ZJyYvXZ/5XrtPR8muJrfjoZfuIw5k/v6o6XHAvPFWD9T3QMAIZBoKFDC7wsBnwoMeBTOsgIBgU5WS9IXWS7oRQYvwZimBWWTDEQ23lrwsLg0KkI3R8Pter5BF/WQNUReIwaFIwaPstWP982Vw4ZYoxoK4rkkX/3zRrCnk0kVIxvsy2l5nFXRmrOWN5ZAyE1tY1lo+iB2WkFFAuDr4lfyVn5Qkg6cwbIQ2u9fD7+oJs7K7jyapD7rcfr5YT6FZgnFtn6slf9KKsJGljUH8HBPwwbbQ6avo8VMiVlOqAMQ==
-    PGHOST: >-
-      AgClng5bNHA6nnZ8ugEcCXRUPDHXtHx4XDWhKf4XKpVq88GTsyqPgFudk368bbpTl1wUcSM1x90g0H0YWoAmwDrGJrFwnfwi/zTovJSXqrLFq3qA+8xezsgE7tGmF784CmipNkM9Dum9BM4vd6JB70XlxnKg739Grkiuhw04/rmu+mY6X/4+zjkwKvVL2R7NsZL8M9Qg3RZljMY5Q+DE9n8v9LTFHiQv3LknfOOA0W4Q27qM01EAvUY5TuaL1Hza7JB26cQx2ueqMFYBre/zrLsJVUDdYMgjdQ8ut72zNBJJEn8cAML/jb8Nhw1jyfhYvvyDeP1D6JyK1IOjkTscgXgb8uZVWRIAttld/b6G4EdiYOENCPqbkcfNWO/dOwDezdLdzxKmMgtlGSW3h44u3XIFU1Z+lXrsNm41xKaj0Pc45U8h/SYkoYyNHkERj0PlHO2yug3Y/LMhRUuLQ5fPBNvPHIsXWQRVbPnm+z3kJgJviemHcE6q2W34xreuTprdqdBQxxLJ+HyMy3mMxmYCEw0Cp7J18Z65qjtYe1Qyfc1Felh/KRNefq6Yf7hWmp3fGBCDq5fSSspABRMaxtqGgAlEALcS7qGJ5qeSdjIjNPKOpiwdxi77aj/DQtgYQfzQb+HRPu5+sjYseMX2ZTWDdHn8T93ih3f4cNAsmKQ7+6Gs2TPuMpfjRSoWiQqKSpvpWPdWTGaK0Na2+Gr18LmTTdOZS8yeePbJXBMfmXOGfcKhI4tvXy6WZiYymdWUMBc=
-    PGPASSWORD: >-
-      AgAMgHwRLrJ+2vBLEAM8bK4nApTQ+Vjjgegkt5hHFUCtS1+KTQyNvqr3ziLnDEjWdUokddUji2Gr/D6RogpP7QrhcdKBez2+diMG7K+UY/xWDsnLuRN48ZyO4RzbIkfKxoclzkz0Z3alBu4yiwofsFwcVCoclDLuNEZh3TY7QjW8SE8VT48CaWj48Gzifd9XClaeYLGyiCpYSEe2tSRHdpAgsyqyaXJ4uxkDA/3mcrBhEpiNIHogqzynMsX7xFl4sJ9zGC9y55d4BNH4kMz1B8dUnT01GbdOVHCkfoS3AtRagNBKSUzfWJFT9EN040w4L5HNDlBwGRskri157ENlKLggNphzbBlcftPd6FWlsu6tI48Gzc4+MSoiXeFx8OjsjjQSDYS8p9T64AlAb2PEDYVcOGBlxWYugdynA6QSZ/qqlsCJwBpsSN36ahXdIjhONNazkCZ3boEb/8MQ/bD9dCCaiaNwUC2UX0omCFbnwBBoMFgm+AtJd/30ZzDan6NQqLzkC0OXP3O9dXhuHLwgXWnYsK03xO0c+IwBpCFCYdwG6GtrGgim0R4HsCGL0a3MxofJlDtQnSPoLHsq2AfSzPKUIKk7IJCnLKlsUPFsQZiiK4aEnXoJo4dr9A2ZCe6S+xPxDPNCSB/Ongou03xEGv5quTib76jaYZ4msD6w72Jpk8sRR8MQIL8iEV83A73WMCIAXZMGH4BZ5oLOJQDxUk8=
-    PGSSLMODE: >-
-      AgBstf/BEzHSZ6Jk6TohB9nVG9EwYc2jAE4mzwguqxIoPGn7ithQJZrT72VqeWNnYwsw0gpYDDtuAZgOihVc/mq+AboIQgUVJavYO4Q7TV5t2a0kyF7OWmcez6Cw/RXPp40KFpUxLdTvyZ8T4Icbo16NtIZYdB2tzaLMh/Dgv8xYGRWtXHpmmiqDfgwetnEUox8/V4sHs3O3ZbDaudxQysJXzHZhkXMCOccICf33ICOBYGNOiNj7mwjcE/0otA7161uj0GwbSTFGVFFHV0xq57zzHp9nKT4paFiCJ+Af+Vpxn09XMJtg/SxiWuHdodydzizuMRtIYOz29KqGV1Xt0l2BZBXBy/kwtoTYyxIAmXn3kyu02kuzhBZpTdF9xc1CS/341WDmk77UAsFNxh4bN9K5Pw3KRQADwj11m3HTK/++whtCryu+/3Ng/pV/q5ZbJiwonPVElSmC6yNTAw6dta7vqGnDfe6JuTdIbNjW33YcMwx0v9YRp1W4EuzxCJ2cOhMh4Ss38Fx7iUcvk1MgHf7hKNQkpJ3CLrOgLENcx9FV7wPSdKwklNMgYxCqIgDk/ribSqG6ySWk7w5Kc8Z5lkZzyedQazeHsEhXghW1MGgsu+IX4R9DwQBvY7b/LxeUuKeYadcpPPXAVZRPsy8tJ/wZ6CF53dNRato0QrVQ7lpZTxkemyXnu2MvuzO8NxVyUDtp+/2uVx2L
-    PGUSER: >-
-      AgAu37mlLT2EpcOCYQ6KDUbOVrvzKKNyIAc2kJXGEeVCjNJHnX5+etHxy5q3t9+67dsq1MT9wF+yaoAEFDlTVx3sFySnsb+dc1zJXns787kvzk6gAGkacsMWFpmIh6cPHIwsNTHKBvLwBZ29A3fFTufobDOTruYcViPYudF/j7L0X3rYdfcx5wDN3jGkJVEVqqKD7qwV3/t7yK+PBYXbuMbba3Ev+lg0barmx84jrGoI7kTwS/kD12bLDaAreF9lNrWDbZ5AvYHFb+cc5RgUpEDqWwy9jVNCMKb1AnOkjDp/3RbjbAHVMDtJyZBHb0YANNuSr9MEluT8Fe5UzUfWjAzt4dZzSBc2dX38qMq0251T/nCoUH+fONXfvRyomNVxClIR4MxZvIXpP6l7pgr5uq9c/WRvzIgkNx9Wdeh1bpQiJokxOZB4WM9texrzW2K89HXxQbPRLOrj92vHRZCbC51KXaCe8Fdw8Nxsj3YM3Jwx9YdKo2aYlarO9H7QKZ/93k+bACjSKbyHLuUKpaAabTOixk/WUtJcMCLn4JFj6J7k7o47WPbTt6tD4ifJeB7pnR4NoRH4t7pPpHWqimjGwrUQ1XhEluUH0IZzVvZKnjp1eevsiN/vJ9jjRa6XsdmG0XnMSLN2NM8+QB/p6eoVe8P3V1w1VNd2s+PRgzu/XlbhZkLEuORvkSRwfD8ql/quayR27BpA1L0wbUKzNjjgiDg+Hqok8JEL+nUD6BDg/eY=
-  template:
-    metadata:
-      annotations:
-        app.github.com/job: '5678'
-        app.github.com/ref: refs/heads/mybranch
-        app.github.com/repo: socialgouv/carnets
-        app.github.com/run: '1234'
-        app.github.com/sha: '0123456'
-      name: azure-pg-user
-      labels:
-        application: carnets
-        component: carnets
-        owner: carnets
-        team: carnets
-    type: Opaque
+  ingress:
+    - from:
+        - podSelector: {}
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: ingress-controller
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: monitoring
+  podSelector: {}
+  policyTypes:
+    - Ingress
 "
 `;
