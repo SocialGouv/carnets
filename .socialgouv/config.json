@@ -3,7 +3,7 @@
   "type": "app",
   "subdomain": "carnets",
   "hasura": "exposed",
-  "azurepg": true,
+  "pg": true,
   "probesPath": "/api/healthz",
   "registry": "ghcr",
   "project": "fabrique",
