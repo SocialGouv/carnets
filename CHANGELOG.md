@@ -1,3 +1,10 @@
+## [1.6.19](https://github.com/SocialGouv/carnets/compare/v1.6.18...v1.6.19) (2022-02-18)
+
+
+### Bug Fixes
+
+* **autodevops:** use config.pg ([#348](https://github.com/SocialGouv/carnets/issues/348)) ([7e9f0b1](https://github.com/SocialGouv/carnets/commit/7e9f0b1ee2335b5ce519a4de099fef6f748c88d8))
+
 ## [1.6.18](https://github.com/SocialGouv/carnets/compare/v1.6.17...v1.6.18) (2022-02-18)
 
 
