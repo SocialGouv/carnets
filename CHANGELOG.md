@@ -1,3 +1,10 @@
+## [1.6.20](https://github.com/SocialGouv/carnets/compare/v1.6.19...v1.6.20) (2022-02-18)
+
+
+### Bug Fixes
+
+* **ci:** use autodevops-deactivate action ([#350](https://github.com/SocialGouv/carnets/issues/350)) ([c93eb09](https://github.com/SocialGouv/carnets/commit/c93eb09362637905717027cf05ef71581f999814))
+
 ## [1.6.19](https://github.com/SocialGouv/carnets/compare/v1.6.18...v1.6.19) (2022-02-18)
 
 
