@@ -1,3 +1,10 @@
+## [1.6.18](https://github.com/SocialGouv/carnets/compare/v1.6.17...v1.6.18) (2022-02-18)
+
+
+### Bug Fixes
+
+* **k8s:** use pg-user secret ([#345](https://github.com/SocialGouv/carnets/issues/345)) ([63e1b64](https://github.com/SocialGouv/carnets/commit/63e1b641f469880918e45844edc2dd14440c40b6))
+
 ## [1.6.17](https://github.com/SocialGouv/carnets/compare/v1.6.16...v1.6.17) (2022-01-10)
 
 
