@@ -7,7 +7,7 @@ COPY . .
 RUN yarn --production --frozen-lockfile --prefer-offline && yarn cache clean
 RUN yarn build
 
-USER node
+USER 1001
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
