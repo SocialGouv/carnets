@@ -25,7 +25,7 @@ jobs:
       with:
         imagePackage: app
         buildArgs:
-          NEXT_PUBLIC_HASURA_URL: "https://hasura-{{ .Values.global.host }}"
+          NEXT_PUBLIC_HASURA_URL: "https://hasura-{{ .Values.global.host }}/v1/graphql"
     build-hasura:
       use: SocialGouv/kontinuous/plugins/contrib/jobs/build
       with:
