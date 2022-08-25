@@ -16,7 +16,7 @@ hasura:
   - configMapRef:
       name: hasura-configmap
   - secretRef:
-      name: hasura-sealed-secret
+      name: hasura-sealed-secrets
   - secretRef:
       name: "{{ .Values.global.pgSecretName }}"
 
