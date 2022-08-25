@@ -18,12 +18,12 @@ jobs:
   ~chart: jobs
   runs:
     build-app:
-      use: ~build
+      use: SocialGouv/kontinuous/plugins/contrib/jobs/build
       needs: [hasura]
       with:
         imagePackage: app
     build-hasura:
-      use: ~build
+      use: SocialGouv/kontinuous/plugins/contrib/jobs/build
       with:
         imagePackage: hasura
         context: packages/hasura
