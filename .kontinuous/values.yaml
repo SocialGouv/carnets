@@ -3,7 +3,7 @@ app:
   ~needs: [build-app]
   imagePackage: app
   envFrom:
-  - secretRef:
+  - configMapRef:
       name: carnets-configmap
 
 hasura:
@@ -11,7 +11,7 @@ hasura:
   ~needs: [build-hasura]
   imagePackage: hasura
   envFrom:
-  - secretRef:
+  - configMapRef:
       name: hasura-configmap
 
 jobs:

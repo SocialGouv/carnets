@@ -13,14 +13,14 @@ jobs:
 hasura:
   ~needs: [create-db]
   envFrom:
-  - secretRef:
+  - configMapRef:
       name: hasura-configmap
   - secretRef:
       name: hasura-sealed-secret
 
 app:
   envFrom:
-  - secretRef:
+  - configMapRef:
       name: carnets-configmap
   - secretRef:
       name: app-sealed-secrets
