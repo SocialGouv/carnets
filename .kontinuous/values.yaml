@@ -22,6 +22,8 @@ jobs:
     build-app:
       use: SocialGouv/kontinuous/plugins/contrib/jobs/build
       needs: [hasura]
+      memoryLimit: 8Gi
+      memoryRequest: 4Gi
       with:
         imagePackage: app
         buildArgs:
