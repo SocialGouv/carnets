@@ -1,6 +1,7 @@
 app:
   ~chart: app
   ~needs: [build-app]
+  probesPath: /healthz
   imagePackage: app
   envFrom:
   - configMapRef:
