@@ -6,7 +6,7 @@ jobs:
         pgAdminSecretRefName: pg-scaleway
     seed-db:
       use: SocialGouv/kontinuous/plugins/contrib/jobs/seed-db
-      ~needs: [hasura]
+      needs: [hasura]
       with:
         seedPath: scripts/seeds-dev.sql
 
@@ -17,6 +17,8 @@ hasura:
       name: hasura-configmap
   - secretRef:
       name: hasura-sealed-secret
+  - secretRef:
+      name: "{{ .Values.global.pgSecretName }}"
 
 app:
   envFrom:

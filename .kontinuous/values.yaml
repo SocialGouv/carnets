@@ -13,6 +13,8 @@ hasura:
   envFrom:
   - configMapRef:
       name: hasura-configmap
+  - secretRef:
+      name: "{{ .Values.global.pgSecretName }}"
 
 jobs:
   ~chart: jobs
