@@ -1,0 +1,29 @@
+app:
+  ~chart: app
+  ~needs: [build-app]
+  imagePackage: app
+  envFrom:
+  - secretRef:
+      name: carnets-configmap
+
+hasura:
+  ~chart: hasura
+  ~needs: [build-hasura]
+  imagePackage: hasura
+  envFrom:
+  - secretRef:
+      name: hasura-configmap
+
+jobs:
+  ~chart: jobs
+  runs:
+    build-app:
+      use: ~build
+      needs: [hasura]
+      with:
+        imagePackage: app
+    build-hasura:
+      use: ~build
+      with:
+        imagePackage: hasura
+        context: packages/hasura

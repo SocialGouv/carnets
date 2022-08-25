@@ -1,0 +1,26 @@
+jobs:
+  runs:
+    create-db:
+      use: ~create-db
+      with:
+        pgAdminSecretRefName: pg-scaleway
+    seed-db:
+      use: ~seed-db
+      ~needs: [hasura]
+      with:
+        seedPath: scripts/seeds-dev.sql
+
+hasura:
+  ~needs: [create-db]
+  envFrom:
+  - secretRef:
+      name: hasura-configmap
+  - secretRef:
+      name: hasura-sealed-secret
+
+app:
+  envFrom:
+  - secretRef:
+      name: carnets-configmap
+  - secretRef:
+      name: app-sealed-secrets
