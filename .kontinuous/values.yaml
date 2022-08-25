@@ -24,6 +24,8 @@ jobs:
       needs: [hasura]
       with:
         imagePackage: app
+        buildArgs:
+          NEXT_PUBLIC_HASURA_URL: "hasura-{{ .Values.global.host }}"
     build-hasura:
       use: SocialGouv/kontinuous/plugins/contrib/jobs/build
       with:
