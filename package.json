@@ -13,7 +13,7 @@
     "seal-secrets": "sre-secrets"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^0.16.1",
+    "@auth0/nextjs-auth0": "^1.0.0",
     "@azure/storage-blob": "12.4.1",
     "@react-pdf/renderer": "^1.6.17",
     "@sentry/browser": "^5.30.0",
