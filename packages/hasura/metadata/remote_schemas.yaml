@@ -3,7 +3,7 @@
     url: https://api.github.com/graphql
     timeout_seconds: 60
     headers:
-    - name: Authorization
-      value_from_env: GITHUB_AUTHORIZATION_HEADER
+      - name: Authorization
+        value_from_env: GITHUB_AUTHORIZATION_HEADER
     forward_client_headers: true
   comment: ""

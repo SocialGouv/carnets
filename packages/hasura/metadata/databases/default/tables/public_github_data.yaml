@@ -2,8 +2,8 @@ table:
   name: github_data
   schema: public
 select_permissions:
-- permission:
-    columns:
-    - admins_and_teams
-    filter: {}
-  role: anonymous
+  - role: anonymous
+    permission:
+      columns:
+        - admins_and_teams
+      filter: {}

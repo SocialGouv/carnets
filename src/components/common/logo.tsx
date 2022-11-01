@@ -1,8 +1,8 @@
 const Logo = ({ big = false }: { big?: boolean }) => (
   <div className={`logo${big ? " big" : ""}`}>
-    République
+    Ministères
     <br />
-    Française
+    Sociaux
   </div>
 )
 

@@ -2,19 +2,19 @@ table:
   name: teams_status
   schema: public
 select_permissions:
-- permission:
-    columns:
-    - team_slug
-    - last_post
-    - kpis_count
-    - mood
-    filter: {}
-  role: anonymous
-- permission:
-    columns:
-    - kpis_count
-    - mood
-    - team_slug
-    - last_post
-    filter: {}
-  role: user
+  - role: anonymous
+    permission:
+      columns:
+        - team_slug
+        - last_post
+        - kpis_count
+        - mood
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - kpis_count
+        - mood
+        - team_slug
+        - last_post
+      filter: {}

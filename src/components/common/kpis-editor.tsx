@@ -32,11 +32,11 @@ const Fields = ({
 const KPIsEditor = ({
   name,
   kpis,
-  handleChange,
+  onChange,
 }: {
   name: string
   kpis: KPI[]
-  handleChange: (name: string, value: string | KPI[]) => void
+  onChange: (name: string, value: string | KPI[]) => void
 }) => {
   const handleKpiChange = (
     name: "name" | "value",
@@ -45,7 +45,7 @@ const KPIsEditor = ({
   ) => {
     if (!kpis[index]) kpis[index] = { name: "", value: "" }
     kpis[index][name] = value
-    handleChange("kpis", [...kpis])
+    onChange("kpis", [...kpis])
   }
   return (
     <div className="kpis-editor">
@@ -62,7 +62,7 @@ const KPIsEditor = ({
             onClick={(e) => {
               e.preventDefault()
               kpis.pop()
-              handleChange("kpis", [...kpis])
+              onChange("kpis", [...kpis])
             }}
           >
             -
@@ -74,7 +74,7 @@ const KPIsEditor = ({
             onClick={(e) => {
               e.preventDefault()
               kpis.push({ name: "", value: "" })
-              handleChange("kpis", [...kpis])
+              onChange("kpis", [...kpis])
             }}
           >
             +

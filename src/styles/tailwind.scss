@@ -61,7 +61,7 @@
 
     thead {
       tr {
-        @apply bg-beige;
+        @apply bg-grey-950-main;
 
         th {
           @apply p-2 border-b-2 border-gray-600 text-gray-700;
@@ -71,7 +71,7 @@
 
     tbody {
       tr {
-        @apply even:bg-beige;
+        @apply even:bg-grey-950-main;
       }
     }
 

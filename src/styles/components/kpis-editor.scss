@@ -2,7 +2,7 @@
   @apply flex-1 mb-10 mx-60;
 
   .kpi-editor {
-    @apply flex flex-1 pl-4 mb-6 gap-x-4 border-l-4 border-blue-ecume;
+    @apply flex flex-1 pl-4 mb-6 gap-x-4 border-l-4 border-blue-ecume-950-main;
 
     .fields {
       @apply flex flex-1 flex-col;
@@ -17,7 +17,7 @@
     }
 
     .kpi {
-      @apply flex flex-1 flex-col bg-beige justify-center items-center;
+      @apply flex flex-1 flex-col bg-grey-950-main justify-center items-center;
 
       .value {
         @apply text-xl font-bold;

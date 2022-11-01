@@ -2,10 +2,10 @@ import Mood from "@/components/common/mood"
 
 const MoodSelector = ({
   value,
-  handleChange,
+  onChange,
 }: {
   value: Mood
-  handleChange: (name: string, value: string) => void
+  onChange: (name: string, value: string) => void
 }) => {
   const moods = [
     { value: "good", label: "bon" },
@@ -18,7 +18,7 @@ const MoodSelector = ({
       {moods.map((mood, i) => (
         <div
           key={i}
-          onClick={() => handleChange("mood", mood.value)}
+          onClick={() => onChange("mood", mood.value)}
           className={`mood${mood.value === value ? " selected" : ""}`}
         >
           <Mood mood={mood.value} />

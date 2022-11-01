@@ -1,77 +1,132 @@
 import { useEffect, useState } from "react"
 
-import Paging from "./paging"
+import Stepper from "./stepper"
+import Priorities from "./steps/priorities"
+import Kpis from "./steps/kpis"
+import Needs from "./steps/needs"
+import Term from "./steps/term"
+import Mood from "./steps/mood"
 
-export { default as Step } from "./step"
 export type Status = "loading" | "success" | "failure" | "steps"
 
+export interface Step {
+  title: string
+  value: string & KPI[]
+  component:
+    | typeof Priorities
+    | typeof Term
+    | typeof Mood
+    | typeof Needs
+    | typeof Kpis
+}
+
 const Wizard = ({
-  status,
-  children,
+  data,
+  // status,
+  // onChange,
   onComplete,
 }: {
-  status: Status
-  onComplete: () => void
-  children: JSX.Element[]
+  data: Post2
+  // status: Status
+  onComplete: (post: Post2) => void
+  // children: JSX.Element[]
+  // onChange: (name: string, value: string | KPI[]) => void
 }) => {
-  const [activeStep, setActiveStep] = useState(0)
-  const steps = children.filter((child: JSX.Element) => !child.props.type)
-  const step = steps.find((child: JSX.Element, i: number) => i === activeStep)
+  const [activeStepIndex, setActiveStepIndex] = useState(0)
+  // console.log("DATA", data)
+  const [post, setPost] = useState<Post2>(data)
+
+  const steps = [
+    {
+      component: Needs,
+      value: post.needs,
+      title: "Vos besoins immédiats",
+    },
+    {
+      component: Priorities,
+      value: post.priorities,
+      title: "Vos priorités de la semaine",
+    },
+    {
+      component: Term,
+      value: post.term,
+      title: "Vos prochaines échéances",
+    },
+    {
+      component: Mood,
+      value: post.mood,
+      title: "L'état d'esprit de l'équipe",
+    },
+    {
+      component: Kpis,
+      value: post.kpis,
+      title: "Les KPIs de votre produit",
+    },
+  ] as Step[]
+
+  const { value, component: Step } = steps[activeStepIndex]
+
+  useEffect(() => setPost(data), [data])
+
+  const handleChange = (name: string, value: string | KPI[]) => {
+    setPost({ ...post, [name]: value })
+    console.log("handleChange", post)
+  }
+
+  console.log("POST", data, post)
 
   const PreviousButton = () => (
     <button
       className="primary"
       onClick={(e) => {
         e.preventDefault()
-        setActiveStep(activeStep - 1)
+        setActiveStepIndex(activeStepIndex - 1)
       }}
     >
       Précédent
     </button>
   )
 
-  const NextButton = () => (
+  const NextButton = ({
+    activeStepIndex,
+    isLastStep,
+  }: {
+    activeStepIndex: number
+    isLastStep: boolean
+  }) => (
     <button
       className="primary"
       onClick={(e) => {
         e.preventDefault()
-        setActiveStep(activeStep + 1)
-        if (activeStep === steps.length - 1) onComplete()
+        setActiveStepIndex(activeStepIndex + 1)
+        if (isLastStep) onComplete(post)
       }}
     >
-      Suivant
+      {isLastStep ? "Terminer" : "Suivant"}
     </button>
   )
 
   return (
     <div className="wizard">
-      <Paging activeStep={activeStep} totalSteps={steps.length} />
+      <Stepper activeStepIndex={activeStepIndex} steps={steps} />
       <div className="steps">
-        {status === "loading"
-          ? children.find(
-              (child: JSX.Element) => child.props.type === "loading"
-            )
-          : status === "success"
-          ? children.find(
-              (child: JSX.Element) => child.props.type === "success"
-            )
-          : status === "failure"
-          ? children.find(
-              (child: JSX.Element) => child.props.type === "failure"
-            )
-          : step}
-        {status === "steps" ? (
-          activeStep ? (
-            <div className={`actions justify-between`}>
-              <PreviousButton />
-              <NextButton />
-            </div>
-          ) : (
-            <div className={`actions justify-end`}>
-              <NextButton />
-            </div>
-          )
-        ) : undefined}
+        <Step onChange={handleChange} value={value} />
+        {activeStepIndex ? (
+          <div className={`actions justify-between`}>
+            <PreviousButton />
+            <NextButton
+              activeStepIndex={activeStepIndex}
+              isLastStep={activeStepIndex === steps.length - 1}
+            />
+          </div>
+        ) : (
+          <div className={`actions justify-end`}>
+            <NextButton
+              activeStepIndex={activeStepIndex}
+              isLastStep={activeStepIndex === steps.length - 1}
+            />
+          </div>
+        )}
       </div>
     </div>
   )

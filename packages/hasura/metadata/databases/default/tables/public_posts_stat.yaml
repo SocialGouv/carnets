@@ -2,17 +2,17 @@ table:
   name: posts_stat
   schema: public
 select_permissions:
-- permission:
-    columns:
-    - year
-    - week
-    - count
-    filter: {}
-  role: anonymous
-- permission:
-    columns:
-    - count
-    - week
-    - year
-    filter: {}
-  role: user
+  - role: anonymous
+    permission:
+      columns:
+        - year
+        - week
+        - count
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - count
+        - week
+        - year
+      filter: {}

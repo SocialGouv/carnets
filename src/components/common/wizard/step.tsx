@@ -1,9 +1,9 @@
 const Step = ({
-  type,
+  // type,
   children,
 }: {
   children: JSX.Element | JSX.Element[]
-  type?: "failure" | "success" | "loading" | "steps"
+  // type?: "failure" | "success" | "loading" | "steps"
 }) => {
   return <div className="step">{children}</div>
 }

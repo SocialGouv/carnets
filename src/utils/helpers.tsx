@@ -14,9 +14,11 @@ import {
 } from "@/queries/index"
 
 export const getTeams = async () => {
+  console.log("*********** getTeams *****************")
   // const token = getJwt()
   // const data = await fetcher(getTeamsQuery, token)
   const data = await fetcher(getTeamsQuery)
+  console.log("data", data)
   const {
     admins_and_teams: { teams },
   } = data.github_data[0]
