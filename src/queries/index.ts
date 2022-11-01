@@ -83,17 +83,6 @@ export const getPost = gql`
   }
 `
 
-// export const updatePost = gql`
-//   mutation update_posts($id: uuid, $post: posts_set_input) {
-//     update_posts(where: { id: { _eq: $id } }, _set: $post) {
-//       affected_rows
-//       returning {
-//         id
-//       }
-//     }
-//   }
-// `
-
 export const updatePost = gql`
   mutation update_posts(
     $id: uuid

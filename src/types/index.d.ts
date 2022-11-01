@@ -37,23 +37,6 @@ interface KPI {
   value: string
 }
 
-// interface Post {
-//   mood: Mood
-//   id?: string
-//   team?: Team
-//   kpis?: [KPI]
-//   term: string
-//   needs: string
-//   author?: string
-//   created_at?: Date
-//   team_slug?: string
-//   priorities: string
-//   editable: boolean
-//   handlePostDeletion: (
-//     id: string | undefined
-//   ) => MouseEventHandler<HTMLButtonElement> | undefined
-// }
-
 interface Post {
   mood: Mood
   id?: string
