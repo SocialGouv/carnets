@@ -22,18 +22,12 @@ export interface Step {
 
 const Wizard = ({
   data,
-  // status,
-  // onChange,
   onComplete,
 }: {
   data: Post2
-  // status: Status
   onComplete: (post: Post2) => void
-  // children: JSX.Element[]
-  // onChange: (name: string, value: string | KPI[]) => void
 }) => {
   const [activeStepIndex, setActiveStepIndex] = useState(0)
-  // console.log("DATA", data)
   const [post, setPost] = useState<Post2>(data)
 
   const steps = [
@@ -70,10 +64,7 @@ const Wizard = ({
 
   const handleChange = (name: string, value: string | KPI[]) => {
     setPost({ ...post, [name]: value })
-    console.log("handleChange", post)
   }
-
-  console.log("POST", data, post)
 
   const PreviousButton = () => (
     <button
