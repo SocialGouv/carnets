@@ -89,7 +89,6 @@ const PostForm = () => {
   )
 
   const create = async (post: Post2) => {
-    console.log("create", post, post.kpis)
     const kpis = {
       data: post.kpis?.filter((kpi: KPI) => kpi.name && kpi.name.length),
     }

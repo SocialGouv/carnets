@@ -1,16 +1,31 @@
 ul.teams {
-  @apply border-r border-gray-300 py-1 mb-10;
+  @apply border-r border-gray-300 py-1 mb-10 pr-6;
 
   li {
-    @apply flex whitespace-nowrap text-sm mb-1;
+    @apply
+      flex
+      mb-2
+      py-2
+      whitespace-nowrap
+      hover:bg-grey-975-main
+      ;
 
     a {
-      @apply flex-1 px-2 py-1 text-gray-700 hover:bg-gray-300;
+      @apply
+        px-2
+        flex-1
+        text-gray-700
+
+        ;
     }
 
     &.selected {
       a {
-        @apply bg-gray-300 font-bold;
+        @apply
+          border-l-2
+          text-blue-france-113-main
+          border-blue-france-113-main
+          ;
       }
     }
   }

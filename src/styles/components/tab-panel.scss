@@ -12,7 +12,7 @@
           relative
           border-b-2
           border-transparent
-          hover:text-blue-500;
+          hover:text-blue-france-113-main;
 
         &:disabled {
           @apply text-gray-400;
@@ -21,7 +21,7 @@
 
       &.selected {
         button {
-          @apply border-b-2 border-blue-500 text-blue-500;
+          @apply border-b-2 border-blue-france-113-main text-blue-france-113-main;
         }
       }
     }

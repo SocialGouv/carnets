@@ -23,7 +23,7 @@ const Post = ({
   <article className="post">
     <div className="flex mb-5">
       <div className="flex-1">
-        <h2>{team?.name}</h2>
+        <h3>{team?.name}</h3>
         <div className="flex text-sm text-gray-500 items-end">
           <p>
             Publié le {created_at && format(new Date(created_at), "dd/MM/yyyy")}{" "}
