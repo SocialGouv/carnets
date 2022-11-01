@@ -7,55 +7,53 @@ import Mood from "@/components/common/mood"
 import TabPanel, { Tab, Tabs, Panels } from "@/components/common/tab-panel"
 
 const Post = ({
-  id,
-  mood,
-  team,
-  term,
-  kpis,
-  needs,
-  author,
+  data,
   editable,
-  team_slug,
-  created_at,
-  priorities,
   handlePostDeletion,
-}: Post) => (
+}: {
+  data: Post
+  editable: boolean
+  handlePostDeletion: () => void
+}) => (
   <article className="post">
     <div className="flex mb-5">
       <div className="flex-1">
-        <h3>{team?.name}</h3>
+        <h3>{data.team?.name}</h3>
         <div className="flex text-sm text-gray-500 items-end">
           <p>
-            Publié le {created_at && format(new Date(created_at), "dd/MM/yyyy")}{" "}
+            Publié le{" "}
+            {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
             par&nbsp;
           </p>
           <a
             target="_blank"
             rel="noreferrer"
-            href={`https://github.com/${author}`}
+            href={`https://github.com/${data.author}`}
           >
-            {author}
+            {data.author}
           </a>
         </div>
       </div>
-      <Mood mood={mood} />
+      <Mood mood={data.mood} />
     </div>
-    <KPIs kpis={kpis || []}></KPIs>
+    <KPIs kpis={data.kpis || []}></KPIs>
     <TabPanel>
       <Tabs>
-        <Tab disabled={!priorities.length}>Priorités</Tab>
-        <Tab disabled={!needs.length}>Besoins</Tab>
-        <Tab disabled={!term.length}>Échéances</Tab>
+        <Tab disabled={!data.priorities.length}>Priorités</Tab>
+        <Tab disabled={!data.needs.length}>Besoins</Tab>
+        <Tab disabled={!data.term.length}>Échéances</Tab>
       </Tabs>
       <Panels>
-        <ReactMarkdown className="prose prose-sm">{priorities}</ReactMarkdown>
-        <ReactMarkdown className="prose prose-sm">{needs}</ReactMarkdown>
-        <ReactMarkdown className="prose prose-sm">{term}</ReactMarkdown>
+        <ReactMarkdown className="prose prose-sm">
+          {data.priorities}
+        </ReactMarkdown>
+        <ReactMarkdown className="prose prose-sm">{data.needs}</ReactMarkdown>
+        <ReactMarkdown className="prose prose-sm">{data.term}</ReactMarkdown>
       </Panels>
     </TabPanel>
     {editable && (
       <div className="flex justify-end">
-        <Link href={`/team/${team_slug}/post/${id}`}>
+        <Link href={`/team/${data.team_slug}/post/${data.id}`}>
           <a className="btn primary sm">
             <i className="ri-edit-fill ri-fw" />
             Editer
@@ -63,7 +61,7 @@ const Post = ({
         </Link>
         <button
           className="primary sm ml-2"
-          onClick={() => handlePostDeletion(id)}
+          onClick={() => handlePostDeletion()}
         >
           <i className="ri-delete-bin-7-fill ri-fw" />
           Supprimer

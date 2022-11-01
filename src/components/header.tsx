@@ -16,7 +16,7 @@ const Header = () => (
         </a>
       </Link>
       <nav>
-        <Link href="/stat">
+        <Link href="/stats">
           <a>
             <i className="ri-bar-chart-fill" />
             Statistiques

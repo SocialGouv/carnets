@@ -24,11 +24,11 @@ const Wizard = ({
   data,
   onComplete,
 }: {
-  data: Post2
-  onComplete: (post: Post2) => void
+  data: Post
+  onComplete: (post: Post) => void
 }) => {
   const [activeStepIndex, setActiveStepIndex] = useState(0)
-  const [post, setPost] = useState<Post2>(data)
+  const [post, setPost] = useState<Post>(data)
 
   const steps = [
     {

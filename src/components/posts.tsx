@@ -1,4 +1,3 @@
-import { useRouter } from "next/router"
 import { useSession } from "next-auth/client"
 
 import Post from "@/components/post"
@@ -7,10 +6,6 @@ import useToken from "@/hooks/use-token"
 import { deletePost as deletePostQuery } from "../queries"
 
 const Posts = ({ posts }: { posts: Post[] }) => {
-  const {
-    query: { slug },
-  } = useRouter()
-
   const [token] = useToken()
   const [session] = useSession()
 
@@ -32,7 +27,7 @@ const Posts = ({ posts }: { posts: Post[] }) => {
           posts.map((post, i) => (
             <li key={i}>
               <Post
-                {...post}
+                data={post}
                 editable={isAuthorized(String(post.team_slug))}
                 handlePostDeletion={() => deletePost(post.id)}
               />

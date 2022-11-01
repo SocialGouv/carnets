@@ -8,7 +8,7 @@ import fetcher from "@/utils/fetcher"
 import useToken from "@/hooks/use-token"
 import Loader from "@/components/common/loader"
 import { createPost, updatePost, getPost } from "@/queries/index"
-import Wizard, { Step, Status } from "@/components/common/wizard"
+import Wizard, { Status } from "@/components/common/wizard"
 
 const defaultValues = {
   mood: "good",
@@ -88,7 +88,7 @@ const PostForm = () => {
     () => fetcher(getPost, token, id && id[0] ? { id: id[0] } : undefined)
   )
 
-  const create = async (post: Post2) => {
+  const create = async (post: Post) => {
     const kpis = {
       data: post.kpis?.filter((kpi: KPI) => kpi.name && kpi.name.length),
     }
@@ -98,7 +98,7 @@ const PostForm = () => {
     setStatus("success")
   }
 
-  const update = async (post: Post2) => {
+  const update = async (post: Post) => {
     const {
       id,
       team,
@@ -117,7 +117,7 @@ const PostForm = () => {
     setStatus("success")
   }
 
-  const handleComplete = (post: Post2) => {
+  const handleComplete = (post: Post) => {
     setStatus("loading")
     try {
       return post.id ? update(post) : create(post)
