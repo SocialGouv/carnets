@@ -1,10 +1,10 @@
 import useSWR from "swr"
-import { useSession } from "next-auth/client"
+// import { useSession } from "next-auth/client"
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 const useToken = (): [string] => {
-  const [session] = useSession()
+  // const [session] = useSession()
 
   // const { data = {} } = useSWR(session ? "/api/auth/token" : null, fetcher, {
   //   revalidateOnFocus: false,

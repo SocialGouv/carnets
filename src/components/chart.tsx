@@ -1,17 +1,16 @@
 import "chart.js/auto"
-import { Chart as ReactChart } from "react-chartjs-2"
 import { Chart } from "chart.js"
-import type { ChartDataset } from "chart.js"
+import { Chart as ReactChart } from "react-chartjs-2"
 import ChartDataLabels from "chartjs-plugin-datalabels"
 
-import useStat from "@/services/stat"
+import type { ChartDataset } from "chart.js"
+
+import useStats from "@/hooks/use-stats"
 
 Chart.register(ChartDataLabels)
 
 const BarChart = () => {
-  const [{ posts_stat: data }] = useStat()
-
-  console.log("DATA:", data)
+  const [{ posts_stat: data }] = useStats()
 
   const labels =
     data &&

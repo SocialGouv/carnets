@@ -1,11 +1,10 @@
 import useSWR from "swr"
 
-import { getJwt } from "@/utils/jwt"
+import Team from "@/components/team"
 import fetcher from "@/utils/fetcher"
 import Posts from "@/components/posts"
-import Team from "@/components/team"
 import Teams from "@/components/teams"
-import useToken from "@/services/token"
+import useToken from "@/hooks/use-token"
 import Loader from "@/components/common/loader"
 import {
   getTeams as getTeamsQuery,
@@ -14,11 +13,8 @@ import {
 } from "@/queries/index"
 
 export const getTeams = async () => {
-  console.log("*********** getTeams *****************")
-  // const token = getJwt()
-  // const data = await fetcher(getTeamsQuery, token)
   const data = await fetcher(getTeamsQuery)
-  console.log("data", data)
+
   const {
     admins_and_teams: { teams },
   } = data.github_data[0]
@@ -27,13 +23,7 @@ export const getTeams = async () => {
 }
 
 export const getPosts = async (slug?: string) => {
-  // const token = getJwt()
   const query = slug ? getTeamPostsQuery : getLastPostsQuery
-  // const { posts: data } = await fetcher(
-  //   query,
-  //   token,
-  //   slug ? { slug } : undefined
-  // )
   const { posts: data } = await fetcher(query, "", slug ? { slug } : undefined)
 
   const posts =
@@ -47,16 +37,10 @@ export const getPosts = async (slug?: string) => {
 }
 
 const useTeams = () => {
-  // const [token] = useToken()
-  // const { data, error, isValidating } = useSWR("teams", () =>
-  //   token ? fetcher(getTeamsQuery, token) : Promise.resolve(undefined)
-  // )
   const { data, error, isValidating } = useSWR("teams", () =>
     fetcher(getTeamsQuery)
   )
 
-  // if (error) throw new Error(`${error} (${token})`)
-  // return Array.isArray(data) ? data : data?.organization.teams.nodes
   return Array.isArray(data)
     ? data
     : data?.github_data[0].admins_and_teams.teams

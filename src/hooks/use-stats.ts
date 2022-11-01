@@ -1,10 +1,10 @@
 import useSWRImmutable from "swr/immutable"
 
 import fetcher from "@/utils/fetcher"
-import useToken from "@/services/token"
+import useToken from "@/hooks/use-token"
 import { getStat } from "@/queries/index"
 
-const useStat = (): [Stat] => {
+const useStats = (): Stats[] => {
   const [token] = useToken()
 
   const { data = {} } = useSWRImmutable(
@@ -12,7 +12,7 @@ const useStat = (): [Stat] => {
     fetcher
   )
 
-  return [data] as [Stat]
+  return [data] as Stats[]
 }
 
-export default useStat
+export default useStats

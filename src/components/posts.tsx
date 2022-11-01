@@ -3,7 +3,7 @@ import { useSession } from "next-auth/client"
 
 import Post from "@/components/post"
 import fetcher from "@/utils/fetcher"
-import useToken from "@/services/token"
+import useToken from "@/hooks/use-token"
 import { deletePost as deletePostQuery } from "../queries"
 
 const Posts = ({ posts }: { posts: Post[] }) => {

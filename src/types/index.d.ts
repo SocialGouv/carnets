@@ -6,7 +6,7 @@ interface TeamStatus {
   last_post: string
   team_slug: string
 }
-interface Stat {
+interface Stats {
   posts_stat: [
     {
       count: number

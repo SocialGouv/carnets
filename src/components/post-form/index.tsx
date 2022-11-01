@@ -5,7 +5,7 @@ import { useSession } from "next-auth/client"
 
 import useSWR from "swr"
 import fetcher from "@/utils/fetcher"
-import useToken from "@/services/token"
+import useToken from "@/hooks/use-token"
 import Loader from "@/components/common/loader"
 import { createPost, updatePost, getPost } from "@/queries/index"
 import Wizard, { Step, Status } from "@/components/common/wizard"

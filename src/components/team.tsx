@@ -33,7 +33,7 @@ const Team = ({ team }: { team: Team }) => {
         <Link href={`/team/${query.slug}/post`}>
           <a className="btn primary">
             <i className="ri-add-fill ri-lg" />
-            Publier
+            Nouvelle publication
           </a>
         </Link>
       )}

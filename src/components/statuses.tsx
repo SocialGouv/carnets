@@ -1,4 +1,4 @@
-import useStat from "@/services/stat"
+import useStat from "@/hooks/use-stats"
 import { format } from "date-fns"
 
 const Statuses = () => {

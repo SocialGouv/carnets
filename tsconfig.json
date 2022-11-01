@@ -14,8 +14,8 @@
       "@/queries/*": [
         "queries/*"
       ],
-      "@/services/*": [
-        "services/*"
+      "@/hooks/*": [
+        "hooks/*"
       ],
       "@/components/*": [
         "components/*"
