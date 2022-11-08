@@ -2,6 +2,7 @@
 @use "./components/post.scss";
 @use "./components/kpis.scss";
 @use "./components/logo.scss";
+@use "./components/team.scss";
 @use "./components/teams.scss";
 @use "./components/posts.scss";
 @use "./components/legal.scss";
@@ -9,6 +10,7 @@
 @use "./components/footer.scss";
 @use "./components/loader.scss";
 @use "./components/wizard.scss";
+@use "./components/page-404.scss";
 @use "./components/tab-panel.scss";
 @use "./components/kpis-editor.scss";
 @use "./components/mood-selector.scss";
@@ -29,7 +31,7 @@ main {
 aside {
   @apply
     mr-8
-    w-48
+    w-64
     pt-10
     sticky
     min-h-full

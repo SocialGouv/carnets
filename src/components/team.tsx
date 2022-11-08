@@ -14,7 +14,7 @@ const Team = ({ team }: { team: Team }) => {
       session.user.teams.includes(String(query.slug)))
 
   return (
-    <section className="team flex items-center pb-10">
+    <section className="team">
       <div>
         {team?.avatarUrl && (
           <Image
@@ -25,9 +25,9 @@ const Team = ({ team }: { team: Team }) => {
           />
         )}
       </div>
-      <div className="flex-1 px-5">
+      <div className="name-description">
         <h2>{team?.name}</h2>
-        <div className="font-spectral">{team?.description}</div>
+        <div className="description">{team?.description}</div>
       </div>
       {isAuthorized && (
         <Link href={`/team/${query.slug}/post`}>

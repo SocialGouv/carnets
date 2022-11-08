@@ -1,17 +1,6 @@
 const plugin = require("tailwindcss/plugin")
 
 const colors = {
-  // gray: {
-  //   100: "#F8F8F8",
-  //   200: "#F0F0F0",
-  //   300: "#E7E7E7",
-  //   400: "#CECECE",
-  //   500: "#9C9C9C",
-  //   600: "#6A6A6A",
-  //   700: "#383838",
-  //   750: "#2A2A2A",
-  //   800: "#1E1E1E",
-  // },
   grey: {
     50: { main: "#161616", hover: "#343434", active: "#474747" },
     75: { main: "#1e1e1e", hover: "#3f3f3f", active: "#525252" },

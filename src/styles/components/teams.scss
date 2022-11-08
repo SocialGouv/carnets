@@ -1,31 +1,40 @@
 ul.teams {
-  @apply border-r border-gray-300 py-1 mb-10 pr-6;
+  @apply
+    pr-8
+    border-r
+    overflow-auto
+    border-grey-925-main
+    ;
+
+  height: calc(100vh - 11rem);
 
   li {
     @apply
-      flex
+      p-2
       mb-2
-      py-2
+      flex
+      border-l-2
+      border-white
       whitespace-nowrap
       hover:bg-grey-975-main
+      hover:border-grey-975-main
       ;
 
     a {
       @apply
+        flex
         px-2
         flex-1
+        items-center
         text-gray-700
-
         ;
     }
 
     &.selected {
+      @apply border-blue-france-113-main;
+
       a {
-        @apply
-          border-l-2
-          text-blue-france-113-main
-          border-blue-france-113-main
-          ;
+        @apply text-blue-france-113-main;
       }
     }
   }
