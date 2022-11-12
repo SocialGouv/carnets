@@ -16,7 +16,6 @@ const colors = {
     1000: { main: "#fff", hover: "#f6f6f6", active: "#ededed" },
     525: { main: "#7b7b7b", hover: "#a6a6a6", active: "#bababa" },
   },
-
   "blue-france": {
     75: { main: "#1b1b35", hover: "#3a3a68", active: "#4d4d83" },
     100: { main: "#21213f", hover: "#424275", active: "#56568c" },
@@ -30,7 +29,6 @@ const colors = {
     113: { main: "#000091", hover: "#1212ff", active: "#2323ff" },
     525: { main: "#6a6af4", hover: "#9898f8", active: "#aeaef9" },
   },
-
   "red-marianne": {
     75: { main: "#2b1919", hover: "#573737", active: "#704848" },
     100: { main: "#331f1f", hover: "#613f3f", active: "#7b5151" },
@@ -44,7 +42,6 @@ const colors = {
     975: { main: "#fef4f4", hover: "#fcd7d7", active: "#fac4c4" },
     472: { main: "#e1000f", hover: "#ff292f", active: "#ff4347" },
   },
-
   info: {
     75: { main: "#171d2e", hover: "#333e5c", active: "#445177" },
     100: { main: "#1d2437", hover: "#3b4767", active: "#4c5b83" },
@@ -58,7 +55,6 @@ const colors = {
     975: { main: "#f4f6ff", hover: "#d6deff", active: "#c2cfff" },
     525: { main: "#0078f3", hover: "#6196ff", active: "#85a9ff" },
   },
-
   success: {
     75: { main: "#142117", hover: "#2e4533", active: "#3d5943" },
     100: { main: "#19271d", hover: "#344c3b", active: "#44624d" },
@@ -72,7 +68,6 @@ const colors = {
     975: { main: "#dffee6", hover: "#8afcab", active: "#4efb8d" },
     525: { main: "#1f8d49", hover: "#2ec166", active: "#36db75" },
   },
-
   warning: {
     75: { main: "#2d1814", hover: "#5b352e", active: "#75473e" },
     100: { main: "#361e19", hover: "#663d35", active: "#824f44" },
@@ -86,7 +81,6 @@ const colors = {
     975: { main: "#fff4f3", hover: "#ffd7d3", active: "#ffc4bd" },
     525: { main: "#d64d00", hover: "#ff754e", active: "#ff8e76" },
   },
-
   error: {
     75: { main: "#301717", hover: "#603434", active: "#7c4444" },
     100: { main: "#391c1c", hover: "#6c3a3a", active: "#894b4b" },
@@ -100,7 +94,6 @@ const colors = {
     975: { main: "#fff4f4", hover: "#ffd7d7", active: "#ffc3c3" },
     525: { main: "#f60700", hover: "#ff3634", active: "#ff5150" },
   },
-
   "green-tilleul-verveine": {
     75: { main: "#201e14", hover: "#433f2e", active: "#57533d" },
     100: { main: "#272419", hover: "#4c4734", active: "#615b44" },
@@ -114,7 +107,6 @@ const colors = {
     817: { main: "#d8c634", hover: "#fee943", active: "#fef1ab" },
     707: { main: "#b7a73f", hover: "#e3cf50", active: "#f6e157" },
   },
-
   "green-bourgeon": {
     75: { main: "#182014", hover: "#35432e", active: "#46573d" },
     100: { main: "#1e2719", hover: "#3d4c34", active: "#4e6144" },
@@ -128,7 +120,6 @@ const colors = {
     759: { main: "#99c221", hover: "#baec2a", active: "#c9fd2e" },
     640: { main: "#68a532", hover: "#87d443", active: "#95e94a" },
   },
-
   "green-emeraude": {
     75: { main: "#142018", hover: "#2e4335", active: "#3d5846" },
     100: { main: "#19271e", hover: "#344c3d", active: "#44624f" },
@@ -142,7 +133,6 @@ const colors = {
     753: { main: "#34cb6a", hover: "#42fb84", active: "#80fda3" },
     632: { main: "#00a95f", hover: "#00e180", active: "#00fb90" },
   },
-
   "green-menthe": {
     75: { main: "#15201e", hover: "#30433f", active: "#3f5753" },
     100: { main: "#1a2624", hover: "#364b47", active: "#46605b" },
@@ -156,7 +146,6 @@ const colors = {
     652: { main: "#21ab8e", hover: "#2eddb8", active: "#34f4cc" },
     548: { main: "#009081", hover: "#00c7b3", active: "#00e2cb" },
   },
-
   "green-archipel": {
     75: { main: "#152021", hover: "#2f4345", active: "#3f5759" },
     100: { main: "#1a2628", hover: "#364a4e", active: "#465f63" },
@@ -170,7 +159,6 @@ const colors = {
     716: { main: "#34bab5", hover: "#43e9e2", active: "#4cfdf6" },
     557: { main: "#009099", hover: "#00c6d2", active: "#00e0ee" },
   },
-
   "blue-ecume": {
     75: { main: "#171d2f", hover: "#333e5e", active: "#445179" },
     100: { main: "#1d2437", hover: "#3b4767", active: "#4c5b83" },
@@ -184,7 +172,6 @@ const colors = {
     675: { main: "#869ece", hover: "#b8c5e2", active: "#ced6ea" },
     400: { main: "#465f9d", hover: "#6f89d1", active: "#8b9eda" },
   },
-
   "blue-cumulus": {
     75: { main: "#171e2b", hover: "#333f56", active: "#43536f" },
     100: { main: "#1c2433", hover: "#3a4761", active: "#4a5b7b" },
@@ -198,7 +185,6 @@ const colors = {
     732: { main: "#7ab1e8", hover: "#bad2f2", active: "#d2e2f6" },
     526: { main: "#417dc4", hover: "#74a5ec", active: "#96b8f0" },
   },
-
   "purple-glycine": {
     75: { main: "#251a24", hover: "#4c394a", active: "#634a60" },
     100: { main: "#2c202b", hover: "#554053", active: "#6c536a" },
@@ -212,7 +198,6 @@ const colors = {
     630: { main: "#ce70cc", hover: "#dfa4dd", active: "#e7bbe6" },
     494: { main: "#a558a0", hover: "#d282cd", active: "#db9cd6" },
   },
-
   "pink-macaron": {
     75: { main: "#261b19", hover: "#4e3a37", active: "#654c48" },
     100: { main: "#2e211f", hover: "#58423f", active: "#705551" },
@@ -226,7 +211,6 @@ const colors = {
     833: { main: "#ffb7ae", hover: "#ffe0dc", active: "#fff0ee" },
     689: { main: "#e18b76", hover: "#eabab1", active: "#f0cfc9" },
   },
-
   "pink-tuile": {
     75: { main: "#281b19", hover: "#513a37", active: "#694c48" },
     100: { main: "#2f211f", hover: "#5a423e", active: "#725550" },
@@ -240,7 +224,6 @@ const colors = {
     750: { main: "#ff9575", hover: "#ffc4b7", active: "#ffd8d0" },
     556: { main: "#ce614a", hover: "#e89082", active: "#eba89f" },
   },
-
   "yellow-tournesol": {
     75: { main: "#221d11", hover: "#473e29", active: "#5c5136" },
     100: { main: "#292416", hover: "#4f472f", active: "#655b3d" },
@@ -254,7 +237,6 @@ const colors = {
     922: { main: "#ffe552", hover: "#e1c700", active: "#cab300" },
     731: { main: "#c8aa39", hover: "#967f29", active: "#7d6a20" },
   },
-
   "yellow-moutarde": {
     75: { main: "#231d14", hover: "#483e2e", active: "#5e513d" },
     100: { main: "#2a2319", hover: "#514534", active: "#685944" },
@@ -268,7 +250,6 @@ const colors = {
     860: { main: "#ffca00", hover: "#cda200", active: "#b28c00" },
     679: { main: "#c3992a", hover: "#f5c137", active: "#fcd17b" },
   },
-
   "orange-terre-battue": {
     75: { main: "#281a16", hover: "#513932", active: "#6a4b42" },
     100: { main: "#31201c", hover: "#5d403a", active: "#77534a" },
@@ -282,7 +263,6 @@ const colors = {
     672: { main: "#ff732c", hover: "#ffa48b", active: "#ffbbab" },
     645: { main: "#e4794a", hover: "#f1a892", active: "#f4bfb1" },
   },
-
   "brown-cafe-creme": {
     75: { main: "#211d16", hover: "#453e31", active: "#5a5141" },
     100: { main: "#28241c", hover: "#4e4739", active: "#635b4a" },
@@ -296,7 +276,6 @@ const colors = {
     885: { main: "#ecd7a2", hover: "#c5b386", active: "#af9f77" },
     782: { main: "#d1b781", hover: "#a38e63", active: "#8b7954" },
   },
-
   "brown-caramel": {
     75: { main: "#251c16", hover: "#4c3c31", active: "#624e41" },
     100: { main: "#2c221c", hover: "#554439", active: "#6c574a" },
@@ -310,7 +289,6 @@ const colors = {
     901: { main: "#fbd8ab", hover: "#efb547", active: "#d6a23e" },
     648: { main: "#c08c65", hover: "#e6b594", active: "#eccab6" },
   },
-
   "brown-opera": {
     75: { main: "#241c17", hover: "#4a3c33", active: "#604f44" },
     100: { main: "#2b221c", hover: "#53443a", active: "#6a574a" },
@@ -324,7 +302,6 @@ const colors = {
     820: { main: "#e6be92", hover: "#f2e2d3", active: "#f8f0e9" },
     680: { main: "#bd987a", hover: "#e1c0a8", active: "#e9d4c5" },
   },
-
   "beige-gris-galet": {
     75: { main: "#211d19", hover: "#453e37", active: "#595148" },
     100: { main: "#28231f", hover: "#4e453f", active: "#635950" },
