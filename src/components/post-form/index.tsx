@@ -117,10 +117,10 @@ const PostForm = () => {
     setStatus("success")
   }
 
-  const handleComplete = (post: Post) => {
+  const handleComplete = async (post: Post) => {
     setStatus("loading")
     try {
-      return post.id ? update(post) : create(post)
+      return post.id ? await update(post) : await create(post)
     } catch (error) {
       setStatus("failure")
       throw error
