@@ -27,7 +27,7 @@ ARG NEXT_PUBLIC_HASURA_URL
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
-ENV NODE_OPTIONS --openssl-legacy-provider
+# ENV NODE_OPTIONS --openssl-legacy-provider
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
