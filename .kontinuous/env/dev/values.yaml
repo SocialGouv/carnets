@@ -1,4 +1,6 @@
-jobs:
+database:
+  ~chart: jobs
+  ~chart-group: deploy
   runs:
     create-db:
       use: SocialGouv/kontinuous/plugins/contrib/jobs/create-db
