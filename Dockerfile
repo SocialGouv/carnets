@@ -27,7 +27,7 @@ COPY . .
 # ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN yarn build \
-  && yarn --forzen-lockfile --production --ignore-scripts \
+  && yarn --frozen-lockfile --production --ignore-scripts \
   && yarn cache clean
 
 # If using npm comment out above and use below instead

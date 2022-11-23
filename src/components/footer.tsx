@@ -2,6 +2,9 @@ import Link from "next/link"
 
 import Logo from "@/components/common/logo"
 
+// const repositoryUrl = process.env.NEXT_PUBLIC_APP_REPOSITORY_URL
+const repositoryUrl = "https://github.com/gary-van-woerkens/carnets"
+
 const Footer = () => (
   <footer>
     <div className="container">
@@ -31,7 +34,7 @@ const Footer = () => (
           version {process.env.NEXT_PUBLIC_APP_VERSION} (
           <a
             target="_blank"
-            href={`${process.env.NEXT_PUBLIC_APP_REPOSITORY_URL}/tree/${process.env.NEXT_PUBLIC_APP_VERSION_COMMIT}`}
+            href={`${repositoryUrl}/tree/${process.env.NEXT_PUBLIC_APP_VERSION_COMMIT}`}
             rel="noreferrer"
           >
             {process.env.NEXT_PUBLIC_APP_VERSION_COMMIT}
