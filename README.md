@@ -1,6 +1,6 @@
 # Carnets
 
-Carnets est une application...
+Carnets est une application qui permets de créer et d'éditer les diapositives du standup hebdomadire de la Fabrique Numérique des ministères sociaux.
 
 ## Environment variables
 
