@@ -20,7 +20,7 @@ hasura:
 build-app:
   ~chart: jobs
   runs:
-    build:
+    build-app:
       use: build
       memoryLimit: 8Gi
       memoryRequest: 4Gi
@@ -32,7 +32,7 @@ build-app:
 build-hasura:
   ~chart: jobs
   runs:
-    build:
+    build-hasura:
       use: build
       with:
         imagePackage: hasura
