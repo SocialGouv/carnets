@@ -1,4 +1,4 @@
-name: Deploy
+name: Kontinuous
 on:
   push:
     branches:
@@ -11,6 +11,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.ref }}
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,6 +23,7 @@ jobs:
           ignoreProjectTemplates: true
           token: ${{ secrets.GITHUB_TOKEN }}
           webhookToken: ${{ secrets.KUBEWEBHOOK_TOKEN }}
+
   deploy:
     needs: [build]
     uses: SocialGouv/kontinuous/.github/workflows/workflow-webhook.yaml@v1
