@@ -7,3 +7,13 @@ yarn-debug.log*
 yarn-error.log*
 assets
 packages
+Dockerfile
+.kontinuous
+.github
+.git
+packages/hasura
+.dockerignore
+sonar-project.properties
+.gitignore
+README.md
+docker-compose.yml
