@@ -12,22 +12,29 @@ concurrency:
 
 jobs:
 
-  build:
+  build-app:
     runs-on: ubuntu-latest
     steps:
-      - name: build
+      - name: build application
         uses: SocialGouv/kontinuous/.github/actions/deploy-via-webhook@v1
         with:
-          chart: build
-          triggerWebhook: true
-          ignoreProjectTemplates: true
+          chart: build-app
+          token: ${{ secrets.GITHUB_TOKEN }}
+          webhookToken: ${{ secrets.KUBEWEBHOOK_TOKEN }}
+  
+  build-hasura:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build hasura
+        uses: SocialGouv/kontinuous/.github/actions/deploy-via-webhook@v1
+        with:
+          chart: build-hasura
           token: ${{ secrets.GITHUB_TOKEN }}
           webhookToken: ${{ secrets.KUBEWEBHOOK_TOKEN }}
 
   deploy:
-    needs: [build]
+    needs: [build-app, build-hasura]
     uses: SocialGouv/kontinuous/.github/workflows/workflow-webhook.yaml@v1
     secrets: inherit
     with:
       chart: deploy
-      triggerWebhook: true
