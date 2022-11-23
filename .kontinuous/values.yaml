@@ -1,6 +1,7 @@
 app:
   ~chart: app
   ~needs: [build-app]
+  ~chart-group: deploy
   probesPath: /healthz
   imagePackage: app
   envFrom:
@@ -10,6 +11,7 @@ app:
 hasura:
   ~chart: hasura
   ~needs: [build-hasura]
+  ~chart-group: deploy
   imagePackage: hasura
   envFrom:
   - configMapRef:
@@ -17,11 +19,11 @@ hasura:
   - secretRef:
       name: "{{ .Values.global.pgSecretName }}"
 
-jobs:
+build-app:
   ~chart: jobs
   runs:
     build-app:
-      use: SocialGouv/kontinuous/plugins/contrib/jobs/build
+      use: build
       needs: [hasura]
       memoryLimit: 8Gi
       memoryRequest: 4Gi
@@ -29,8 +31,12 @@ jobs:
         imagePackage: app
         buildArgs:
           NEXT_PUBLIC_HASURA_URL: "https://hasura-{{ .Values.global.host }}/v1/graphql"
+
+build-hasura:
+  ~chart: jobs
+  runs:
     build-hasura:
-      use: SocialGouv/kontinuous/plugins/contrib/jobs/build
+      use: build
       with:
         imagePackage: hasura
         context: packages/hasura
