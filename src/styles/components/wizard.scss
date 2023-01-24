@@ -1,6 +1,18 @@
 .wizard {
   @apply flex flex-1 flex-col;
 
+  .steps {
+    @apply flex flex-col flex-1;
+
+    .step {
+      @apply flex flex-col flex-1;
+    }
+
+    .actions {
+      @apply flex;
+    }
+  }
+
   .stepper {
     @apply flex flex-col pb-10 mx-60;
 
@@ -18,7 +30,8 @@
       .step {
         @apply bg-grey-950-main h-2;
 
-        &.active, &.completed {
+        &.active,
+        &.completed {
           @apply bg-blue-france-113-main;
         }
       }
@@ -30,55 +43,6 @@
       span {
         @apply font-bold;
       }
-    }
-  }
-
-  // .paging {
-  //   @apply flex items-center pb-10 mx-60;
-
-  //   .indicator {
-  //     @apply
-  //       h-12
-  //       w-12
-  //       flex
-  //       border-4
-  //       bg-white
-  //       text-xl
-  //       font-bold
-  //       items-center
-  //       text-gray-400
-  //       justify-center
-  //       border-gray-400;
-
-  //     line-height: 1.2rem;
-
-  //     &.active {
-  //       @apply border-blue-500 text-blue-500 shadow;
-  //     }
-
-  //     &.completed {
-  //       @apply bg-blue-500 border-blue-500 text-white;
-  //     }
-  //   }
-
-  //   .line {
-  //     @apply flex-1 border-2 border-gray-400;
-
-  //     &.completed {
-  //       @apply border-blue-500;
-  //     }
-  //   }
-  // }
-
-  .steps {
-    @apply flex flex-col flex-1;
-
-    .step {
-      @apply flex flex-col flex-1;
-    }
-
-    .actions {
-      @apply flex;
     }
   }
 }
