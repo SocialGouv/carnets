@@ -5,9 +5,9 @@ import type { GetStaticPaths, GetStaticProps } from "next"
 import {
   getTeams,
   getPosts,
-  TeamsLoader,
-  PostsLoader,
   TeamLoader,
+  TeamsLoader,
+  TeamPostsLoader,
 } from "@/utils/helpers"
 
 // export const getStaticPaths: GetStaticPaths = async () => {
@@ -43,13 +43,15 @@ const Page = ({ fallback }: { fallback: Record<string, Team[] | Post[]> }) => {
 
   return (
     <div className="container">
-      <SWRConfig value={{ fallback }}>
-        <aside>{/* <TeamsLoader /> */}</aside>
-        <main className="flex-col">
-          {/* <TeamLoader slug={slug} /> */}
-          {/* <PostsLoader slug={slug} /> */}
-        </main>
-      </SWRConfig>
+      {/* <SWRConfig value={{ fallback }}> */}
+      <aside>
+        <TeamsLoader />
+      </aside>
+      <main className="flex-col">
+        <TeamLoader slug={slug} />
+        <TeamPostsLoader slug={slug} />
+      </main>
+      {/* </SWRConfig> */}
     </div>
   )
 }

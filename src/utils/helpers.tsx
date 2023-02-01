@@ -46,17 +46,24 @@ const useTeams = () => {
     : data?.github_data[0].admins_and_teams.teams
 }
 
-const usePosts = (slug?: string) => {
+const useLastPosts = () => {
   const [token] = useToken()
+  const { data, error, isValidating } = useSWR(token ? "posts" : null, () =>
+    fetcher(getLastPostsQuery, token)
+  )
+
+  if (error) throw new Error(`${error} (${token})`)
+  return Array.isArray(data) ? data : data?.posts
+}
+
+const useTeamPosts = (slug?: string) => {
+  const [token] = useToken()
+  console.log("useTeamPosts", token, slug)
   const { data, error, isValidating } = useSWR(
-    slug ? `posts/${slug}` : "posts",
+    slug ? `posts/${slug}` : null,
     () =>
       token
-        ? fetcher(
-            slug ? getTeamPostsQuery : getLastPostsQuery,
-            token,
-            slug && { slug }
-          )
+        ? fetcher(getTeamPostsQuery, token, { slug })
         : Promise.resolve(undefined)
   )
 
@@ -73,8 +80,17 @@ export const TeamsLoader = () => {
   return <Teams teams={teams} />
 }
 
-export const PostsLoader = ({ slug }: { slug?: string }) => {
-  const posts = usePosts(slug)
+export const TeamPostsLoader = ({ slug }: { slug?: string }) => {
+  const posts = useTeamPosts(slug)
+
+  if (!posts) return <Loader size="lg" />
+  if (!posts.length) return <div>Aucune publication pour le moment...</div>
+
+  return <Posts posts={posts} />
+}
+
+export const LastPostsLoader = () => {
+  const posts = useLastPosts()
 
   if (!posts) return <Loader size="lg" />
   if (!posts.length) return <div>Aucune publication pour le moment...</div>
