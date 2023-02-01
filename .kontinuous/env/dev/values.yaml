@@ -1,14 +1,11 @@
 database:
   ~chart: jobs
-  ~chart-group: deploy
   runs:
     create-db:
-      use: SocialGouv/kontinuous/plugins/contrib/jobs/create-db
-      with:
-        pgAdminSecretRefName: pg-scaleway
+      use: create-db
     seed-db:
-      use: SocialGouv/kontinuous/plugins/contrib/jobs/seed-db
-      needs: [hasura]
+      use: seed-db
+      ~needs: [hasura]
       with:
         seedPath: scripts/seeds-dev.sql
 
