@@ -42,14 +42,15 @@ openssl rsa -in jwtRS512.key -pubout -outform PEM -out jwtRS512.key.pub
 
 Provide the generated public/private key pair to Hasura (`HASURA_GRAPHQL_JWT_SECRET`) and the application (`HASURA_JWT_KEY`).
 
-## Démarrage suivant du projet
+## Démarrage du projet
 
 ```bash
-# install dependencies
+# installation des dépendances
 yarn
-# run docker-compose
+# Lancement des containers
 docker-compose --env-file ./.env.hasura-compose up -d
+# Pour lancer la console hasura
 hasura console --endpoint http://localhost:8080 --admin-secret "hasurapassword" --project packages/hasura
+# Pour importer les données
 psql --host=localhost --username=postgres --dbname=postgres --file=./assets/carnets_20211110.sql
-# then restart hasura console
 ```
