@@ -26,13 +26,7 @@ const Posts = ({ posts }: { posts: Post[] }) => {
       <Masonry elementType={"ul"}>
         {posts &&
           posts.map((post, i) => (
-            <li
-              key={i}
-              className="post"
-              style={{
-                width: "49%",
-              }}
-            >
+            <li key={i} className="post">
               <Post
                 data={post}
                 editable={isAuthorized(String(post.team_slug))}
