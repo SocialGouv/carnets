@@ -4,6 +4,7 @@ import Post from "@/components/post"
 import fetcher from "@/utils/fetcher"
 import useToken from "@/hooks/use-token"
 import { deletePost as deletePostQuery } from "../queries"
+import Masonry from "react-masonry-component"
 
 const Posts = ({ posts }: { posts: Post[] }) => {
   const [token] = useToken()
@@ -21,11 +22,17 @@ const Posts = ({ posts }: { posts: Post[] }) => {
   }
 
   return (
-    <section className="posts">
-      <ul className="list">
+    <section>
+      <Masonry elementType={"ul"}>
         {posts &&
           posts.map((post, i) => (
-            <li key={i}>
+            <li
+              key={i}
+              className="post"
+              style={{
+                width: "49%",
+              }}
+            >
               <Post
                 data={post}
                 editable={isAuthorized(String(post.team_slug))}
@@ -33,7 +40,7 @@ const Posts = ({ posts }: { posts: Post[] }) => {
               />
             </li>
           ))}
-      </ul>
+      </Masonry>
     </section>
   )
 }
