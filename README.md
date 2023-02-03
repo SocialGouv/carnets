@@ -7,7 +7,7 @@ Carnets est une application qui permets de créer et d'éditer les diapositives 
 ### Application
 
 | variable                       | usage | visibility | description                                                              |
-| ------------------------------ | ----- | ---------- | ------------------------------------------------------------------------ |
+|--------------------------------|-------|------------|--------------------------------------------------------------------------|
 | NEXT_PUBLIC_HASURA_URL         | build | public     | Hasura API URL (eg: `http://localhost:8080/v1/graphql`)                  |
 | NEXT_PUBLIC_APP_VERSION        | build | public     | Version of the application (eg: `1.4.2`)                                 |
 | NEXT_PUBLIC_APP_VERSION_COMMIT | build | public     | Hash of the commit related to the application version                    |
@@ -20,7 +20,7 @@ Carnets est une application qui permets de créer et d'éditer les diapositives 
 ### Hasura
 
 | variable                         | usage | visibility | description                                                                         |
-| -------------------------------- | ----- | ---------- | ----------------------------------------------------------------------------------- |
+|----------------------------------|-------|------------|-------------------------------------------------------------------------------------|
 | HASURA_GRAPHQL_ADMIN_SECRET      | run   | private    | Hasura admin password                                                               |
 | HASURA_GRAPHQL_UNAUTHORIZED_ROLE | run   | private    | Unauthenticated role allowed to access Hasura API (eg: `anonymous`)                 |
 | HASURA_GRAPHQL_DATABASE_URL      | run   | private    | Postgres database URL (eg: `postgres://<user>:<password>@<host>:<port>/<database>`) |
@@ -35,22 +35,8 @@ Carnets est une application qui permets de créer et d'éditer les diapositives 
 ```bash
 sh-keygen -t rsa -b 4096 -E SHA512 -m PEM -f jwtRS512.key
 ```
-
 ```bash
 openssl rsa -in jwtRS512.key -pubout -outform PEM -out jwtRS512.key.pub
 ```
 
 Provide the generated public/private key pair to Hasura (`HASURA_GRAPHQL_JWT_SECRET`) and the application (`HASURA_JWT_KEY`).
-
-## Démarrage du projet
-
-```bash
-# installation des dépendances
-yarn
-# Lancement des containers
-docker-compose --env-file ./.env.hasura-compose up -d
-# Pour lancer la console hasura
-hasura console --endpoint http://localhost:8080 --admin-secret "hasurapassword" --project packages/hasura
-# Pour importer les données
-psql --host=localhost --username=postgres --dbname=postgres --file=./assets/carnets_20211110.sql
-```

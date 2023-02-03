@@ -15,7 +15,7 @@ const Post = ({
   editable: boolean
   handlePostDeletion: () => void
 }) => (
-  <article>
+  <article className="post">
     <div className="flex mb-5">
       <div className="flex-1">
         <h3>{data.team?.name}</h3>
