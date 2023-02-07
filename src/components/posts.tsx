@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/client"
+import Masonry from "react-masonry-component"
 
 import Post from "@/components/post"
 import fetcher from "@/utils/fetcher"
@@ -22,7 +23,7 @@ const Posts = ({ posts }: { posts: Post[] }) => {
 
   return (
     <section className="posts">
-      <ul className="list">
+      <Masonry elementType={"ul"} options={{ transitionDuration: 0 }}>
         {posts &&
           posts.map((post, i) => (
             <li key={i}>
@@ -33,7 +34,7 @@ const Posts = ({ posts }: { posts: Post[] }) => {
               />
             </li>
           ))}
-      </ul>
+      </Masonry>
     </section>
   )
 }

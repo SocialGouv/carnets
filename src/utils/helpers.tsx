@@ -37,9 +37,7 @@ export const getPosts = async (slug?: string) => {
 }
 
 const useTeams = () => {
-  const { data, error, isValidating } = useSWR("teams", () =>
-    fetcher(getTeamsQuery)
-  )
+  const { data } = useSWR("teams", () => fetcher(getTeamsQuery))
 
   return Array.isArray(data)
     ? data
@@ -47,9 +45,13 @@ const useTeams = () => {
 }
 
 const useLastPosts = () => {
+  const teams = useTeams()
   const [token] = useToken()
-  const { data, error, isValidating } = useSWR(token ? "posts" : null, () =>
-    fetcher(getLastPostsQuery, token)
+
+  const slugs = teams?.map(({ slug }: { slug: string }) => slug)
+
+  const { data, error } = useSWR(token ? "posts" : null, () =>
+    fetcher(getLastPostsQuery, token, { slugs })
   )
 
   if (error) throw new Error(`${error} (${token})`)
@@ -58,13 +60,10 @@ const useLastPosts = () => {
 
 const useTeamPosts = (slug?: string) => {
   const [token] = useToken()
-  console.log("useTeamPosts", token, slug)
-  const { data, error, isValidating } = useSWR(
-    slug ? `posts/${slug}` : null,
-    () =>
-      token
-        ? fetcher(getTeamPostsQuery, token, { slug })
-        : Promise.resolve(undefined)
+  const { data, error } = useSWR(slug ? `posts/${slug}` : null, () =>
+    token
+      ? fetcher(getTeamPostsQuery, token, { slug })
+      : Promise.resolve(undefined)
   )
 
   if (error) throw new Error(`${error} (${token})`)

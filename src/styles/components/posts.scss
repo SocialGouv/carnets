@@ -1,17 +1,13 @@
 .posts {
-  @apply flex-1 overflow-auto;
+  @apply flex-1 overflow-auto -mr-3;
 
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
+  & > ul > li {
+    @apply w-1/2 sm:w-full md:w-full lg:w-full xl:w-1/2 p-[2px];
 
-  .list {
-    @apply xl:col-count-2;
-
-    & > li {
-      @apply pb-8;
-
-      break-inside: avoid;
-      page-break-inside: avoid;
+    article {
+      @apply p-6;
+      @apply mb-6 mr-6;
+      @apply shadow-md bg-white border-gray-100 border;
     }
   }
 }

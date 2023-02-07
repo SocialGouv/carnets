@@ -35,9 +35,10 @@ export const getTeamPosts = gql`
 `
 
 export const getLastPosts = gql`
-  query getLastPosts {
+  query getLastPosts($slugs: [String!]) {
     posts(
       distinct_on: team_slug
+      where: { team_slug: { _in: $slugs } }
       order_by: { team_slug: asc, created_at: desc }
     ) {
       id

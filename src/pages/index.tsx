@@ -43,7 +43,7 @@ const Page = ({
         content="Carnets de bord des produits de la Fabrique Numérique des ministères sociaux."
       />
     </Head>
-    <div className="container">
+    <div className="container px-6">
       {/* <SWRConfig value={{ fallback }}> */}
       <aside>
         <TeamsLoader />
