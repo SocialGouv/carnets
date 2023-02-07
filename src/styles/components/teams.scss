@@ -2,11 +2,7 @@ ul.teams {
   @apply
     pr-8
     border-r
-    overflow-auto
-    border-grey-925-main
-    ;
-
-  height: calc(100vh - 11rem);
+    border-grey-925-main;
 
   li {
     @apply

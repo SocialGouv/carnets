@@ -1,30 +1,8 @@
 import Head from "next/head"
-import { SWRConfig } from "swr"
-// import type { GetStaticProps } from "next"
 
-import {
-  getTeams,
-  getPosts,
-  TeamsLoader,
-  LastPostsLoader,
-} from "@/utils/helpers"
+import { TeamsLoader, LastPostsLoader } from "@/utils/helpers"
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const teams = await getTeams()
-//   const posts = await getPosts()
-
-//   return {
-//     props: {
-//       fallback: { teams, posts },
-//     },
-//   }
-// }
-
-const Page = ({
-  fallback,
-}: {
-  fallback: Record<"teams" | "posts", Team[] | Post[]>
-}) => (
+const Page = () => (
   <>
     <Head>
       <title>Carnets</title>
@@ -43,15 +21,13 @@ const Page = ({
         content="Carnets de bord des produits de la Fabrique Numérique des ministères sociaux."
       />
     </Head>
-    <div className="container px-6">
-      {/* <SWRConfig value={{ fallback }}> */}
+    <div className="container">
       <aside>
         <TeamsLoader />
       </aside>
       <main>
         <LastPostsLoader />
       </main>
-      {/* </SWRConfig> */}
     </div>
   </>
 )
