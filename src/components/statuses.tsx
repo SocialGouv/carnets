@@ -1,8 +1,8 @@
-import useStat from "@/hooks/use-stats"
+import useStats from "@/hooks/use-stats"
 import { format } from "date-fns"
 
 const Statuses = () => {
-  const [{ teams_status: data }] = useStat()
+  const [{ teams_status: data }] = useStats()
 
   return (
     <table>
