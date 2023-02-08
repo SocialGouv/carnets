@@ -99,7 +99,7 @@ export default NextAuth({
         })
         token.login = user.login
         token.teams = teams.map((team: Team) => team.slug)
-        token.role = token.teams.includes("core-team") ? "user" : "admin"
+        token.role = teams.includes("core-team") ? "user" : "admin"
       }
       return token
     },

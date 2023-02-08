@@ -1,26 +1,32 @@
 .posts {
-  @apply flex-1 overflow-auto -mr-3;
+  @apply flex-1;
+  @apply xl:-mr-6;
 
-  & > ul > li {
-    @apply w-1/2 sm:w-full md:w-full lg:w-full xl:w-1/2 p-[2px];
+  & > ul {
+    @apply relative;
 
-    article {
-      @apply p-6;
-      @apply mb-6 mr-6;
-      @apply shadow-md bg-white border-gray-100 border;
+    & > li {
+      @apply pb-6 xl:pr-6;
+      @apply w-full xl:w-1/2 absolute;
 
-      .header {
-        @apply flex mb-5;
+      article {
+        @apply p-6;
+        @apply mr-0.5;
+        @apply shadow-md bg-white border-gray-100 border;
 
-        .title {
-          @apply flex-1;
+        .header {
+          @apply flex mb-5;
 
-          .team-avatar {
-            @apply flex items-center;
-          }
+          .title {
+            @apply flex-1;
 
-          .info {
-            @apply flex text-sm text-gray-500 items-end;
+            .team-avatar {
+              @apply flex items-center;
+            }
+
+            .info {
+              @apply flex text-sm text-gray-500 items-end;
+            }
           }
         }
       }

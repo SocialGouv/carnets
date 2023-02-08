@@ -1,6 +1,8 @@
 import { useRouter } from "next/router"
 
-import { TeamLoader, TeamsLoader, TeamPostsLoader } from "@/utils/helpers"
+import TeamsLoader from "@/components/loaders/teams-loader"
+import { TeamLoader } from "@/components/loaders/team-loader"
+import TeamPostsLoader from "@/components/loaders/team-posts-loader"
 
 const Page = () => {
   const { query } = useRouter()

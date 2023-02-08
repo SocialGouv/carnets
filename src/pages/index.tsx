@@ -1,6 +1,7 @@
 import Head from "next/head"
 
-import { TeamsLoader, LastPostsLoader } from "@/utils/helpers"
+import TeamsLoader from "@/components/loaders/teams-loader"
+import LastPostsLoader from "@/components/loaders/last-posts-loader"
 
 const Page = () => (
   <>
