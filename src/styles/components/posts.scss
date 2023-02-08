@@ -8,6 +8,22 @@
       @apply p-6;
       @apply mb-6 mr-6;
       @apply shadow-md bg-white border-gray-100 border;
+
+      .header {
+        @apply flex mb-5;
+
+        .title {
+          @apply flex-1;
+
+          .team-avatar {
+            @apply flex items-center;
+          }
+
+          .info {
+            @apply flex text-sm text-gray-500 items-end;
+          }
+        }
+      }
     }
   }
 }

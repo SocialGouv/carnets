@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown"
 import KPIs from "@/components/common/kpis"
 import Mood from "@/components/common/mood"
 import TabPanel, { Tab, Tabs, Panels } from "@/components/common/tab-panel"
+import Image from "next/image"
 
 const Post = ({
   data,
@@ -16,22 +17,33 @@ const Post = ({
   handlePostDeletion: () => void
 }) => (
   <article className="post">
-    <div className="flex mb-5">
-      <div className="flex-1">
-        <h3>{data.team?.name}</h3>
-        <div className="flex text-sm text-gray-500 items-end">
-          <p>
-            Publié le{" "}
-            {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
-            par&nbsp;
-          </p>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={`https://github.com/${data.author}`}
-          >
-            {data.author}
-          </a>
+    <div className="header">
+      <div className="title">
+        <div className="team-avatar">
+          <Image
+            width={48}
+            height={48}
+            alt="Picture of the team"
+            src={data.team?.avatarUrl || ""}
+          />
+          <div className="ml-3">
+            <h3>{data.team?.name}</h3>
+            <div className="info">
+              <p>
+                Publié le{" "}
+                {data.created_at &&
+                  format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
+                par&nbsp;
+              </p>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={`https://github.com/${data.author}`}
+              >
+                {data.author}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <Mood mood={data.mood} />

@@ -29,6 +29,7 @@ export const getTeamPosts = gql`
       }
       team {
         name
+        avatarUrl
       }
     }
   }
@@ -56,6 +57,7 @@ export const getLastPosts = gql`
       }
       team {
         name
+        avatarUrl
       }
     }
   }
@@ -79,6 +81,7 @@ export const getPost = gql`
       }
       team {
         name
+        avatarUrl
       }
     }
   }

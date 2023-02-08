@@ -50,7 +50,7 @@ const useLastPosts = () => {
 
   const slugs = teams?.map(({ slug }: { slug: string }) => slug)
 
-  const { data, error } = useSWR(token ? "posts" : null, () =>
+  const { data, error } = useSWR(token && slugs ? "posts" : null, () =>
     fetcher(getLastPostsQuery, token, { slugs })
   )
 
