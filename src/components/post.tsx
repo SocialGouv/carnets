@@ -1,11 +1,11 @@
 import Link from "next/link"
+import Image from "next/image"
 import { format } from "date-fns"
 import ReactMarkdown from "react-markdown"
 
 import KPIs from "@/components/common/kpis"
 import Mood from "@/components/common/mood"
 import TabPanel, { Tab, Tabs, Panels } from "@/components/common/tab-panel"
-import Image from "next/image"
 
 const Post = ({
   data,
@@ -65,11 +65,13 @@ const Post = ({
     </TabPanel>
     {editable && (
       <div className="flex justify-end">
-        <Link href={`/team/${data.team_slug}/post/${data.id}`}>
-          <a className="btn primary sm">
-            <i className="ri-edit-fill ri-fw" />
-            Editer
-          </a>
+        <Link
+          passHref
+          className="btn primary sm"
+          href={`/team/${data.team_slug}/post/${data.id}`}
+        >
+          <i className="ri-edit-fill ri-fw" />
+          Editer
         </Link>
         <button
           className="primary sm ml-2"

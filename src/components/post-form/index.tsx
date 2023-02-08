@@ -45,10 +45,7 @@ const Success = ({ slug }: { slug: string }) => (
       <p>Votre publication a été enregitrée avec succès.</p>
       <p>
         Retrouvez cette publication en vous rendant sur{" "}
-        <Link href={`/team/${slug}`}>
-          <a>la page dédiée à l&apos;équipe</a>
-        </Link>
-        .
+        <Link href={`/team/${slug}`}>la page dédiée à l&apos;équipe</Link>.
       </p>
     </div>
   </div>
@@ -64,10 +61,7 @@ const Failure = ({ slug }: { slug: string }) => (
       </p>
       <p>
         Veuillez essayer ultèrieurement en repartant de{" "}
-        <Link href={`/team/${slug}`}>
-          <a>la page dédiée à l&apos;équipe</a>
-        </Link>
-        .
+        <Link href={`/team/${slug}`}>la page dédiée à l&apos;équipe</Link>.
       </p>
     </div>
   </div>

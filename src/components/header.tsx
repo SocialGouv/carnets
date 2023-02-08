@@ -6,21 +6,17 @@ import Logo from "@/components/common/logo"
 const Header = () => (
   <header>
     <div className="container">
-      <Link href="/">
-        <a>
-          <Logo />
-          <div className="title">
-            <h1>Carnets</h1>
-            <p>Carnets de bord des produits de la Fabrique Numérique</p>
-          </div>
-        </a>
+      <Link href="/" passHref>
+        <Logo />
+        <div className="title">
+          <h1>Carnets</h1>
+          <p>Carnets de bord des produits de la Fabrique Numérique</p>
+        </div>
       </Link>
       <nav>
-        <Link href="/stats">
-          <a>
-            <i className="ri-bar-chart-fill" />
-            Statistiques
-          </a>
+        <Link href="/stats" passHref>
+          <i className="ri-bar-chart-fill" />
+          Statistiques
         </Link>
         <Auth />
       </nav>

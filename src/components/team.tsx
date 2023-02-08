@@ -30,11 +30,13 @@ const Team = ({ team }: { team: Team }) => {
         <div className="description">{team?.description}</div>
       </div>
       {isAuthorized && (
-        <Link href={`/team/${query.slug}/post`}>
-          <a className="btn primary">
-            <i className="ri-add-fill ri-lg" />
-            Nouvelle publication
-          </a>
+        <Link
+          passHref
+          className="btn primary"
+          href={`/team/${query.slug}/post`}
+        >
+          <i className="ri-add-fill ri-lg" />
+          Nouvelle publication
         </Link>
       )}
     </section>

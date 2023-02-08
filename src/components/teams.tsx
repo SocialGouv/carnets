@@ -19,7 +19,7 @@ const Teams = ({ teams = [] }: { teams: Team[] }) => {
             shallow={true}
             href={{ query: { slug }, pathname: "/team/[slug]" }}
           >
-            <a>{name}</a>
+            {name}
           </Link>
         </li>
       ))}

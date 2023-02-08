@@ -58,9 +58,7 @@ const Footer = () => (
       >
         Standup
       </a>
-      <Link href="/legal">
-        <a>Mentions légales</a>
-      </Link>
+      <Link href="/legal">Mentions légales</Link>
       <a href="#">Paramètres d&apos;affichage</a>
     </div>
   </footer>
