@@ -1,5 +1,4 @@
 import { useSession } from "next-auth/client"
-import Masonry from "react-masonry-component"
 
 import Post from "@/components/post"
 import fetcher from "@/utils/fetcher"
@@ -23,18 +22,15 @@ const Posts = ({ posts }: { posts: Post[] }) => {
 
   return (
     <section className="posts">
-      <Masonry elementType={"ul"} options={{ transitionDuration: 0 }}>
-        {posts &&
-          posts.map((post, i) => (
-            <li key={i}>
-              <Post
-                data={post}
-                editable={isAuthorized(String(post.team_slug))}
-                handlePostDeletion={() => deletePost(post.id)}
-              />
-            </li>
-          ))}
-      </Masonry>
+      {posts &&
+        posts.map((post, i) => (
+          <Post
+            key={i}
+            data={post}
+            editable={isAuthorized(String(post.team_slug))}
+            handlePostDeletion={() => deletePost(post.id)}
+          />
+        ))}
     </section>
   )
 }
