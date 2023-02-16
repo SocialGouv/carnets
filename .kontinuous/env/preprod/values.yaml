@@ -10,6 +10,6 @@ hasura:
 app:
   envFrom:
   - configMapRef:
-      name: carnets-configmap
+      name: app-configmap
   - secretRef:
       name: app-sealed-secrets
