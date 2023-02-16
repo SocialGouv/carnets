@@ -57,7 +57,7 @@ jobs:
             APP_URL=https://${{ steps.env.outputs.subdomain }}.dev.fabrique.social.gouv.fr
 
   kontinuous:
-    name: "Deploy on Kubernetes 🐳"
+    name: "Deploy over Kubernetes 🐳"
     needs: [build-app, build-hasura]
     uses: socialgouv/workflows/.github/workflows/use-ks-gh-review.yaml@v1
     secrets: inherit
