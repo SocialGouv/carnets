@@ -6,6 +6,9 @@ app:
   envFrom:
   - configMapRef:
       name: carnets-configmap
+  env:
+  - name: NEXTAUTH_URL
+    value: https://{{ .Values.global.host }}
 
 hasura:
   ~chart: hasura

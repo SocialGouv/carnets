@@ -3,8 +3,4 @@ apiVersion: v1
 metadata:
   name: app-configmap
 data:
-  GITHUB_ORGANIZATION: "SocialGouv"
-  AUTH0_AUDIENCE: "hasura"
-  AUTH0_DOMAIN: "socialgouv.eu.auth0.com"
-  HASURA_URL: "http://hasura/v1/graphql"
   NODE_ENV: "production"
