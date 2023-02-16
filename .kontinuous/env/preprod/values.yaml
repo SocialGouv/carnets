@@ -1,0 +1,13 @@
+hasura:
+  envFrom:
+  - configMapRef:
+      name: hasura-configmap
+  - secretRef:
+      name: hasura-sealed-secrets
+
+app:
+  envFrom:
+  - configMapRef:
+      name: carnets-configmap
+  - secretRef:
+      name: app-sealed-secrets
