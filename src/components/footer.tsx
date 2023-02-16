@@ -3,7 +3,7 @@ import Link from "next/link"
 import Logo from "@/components/common/logo"
 
 // const repositoryUrl = process.env.NEXT_PUBLIC_APP_REPOSITORY_URL
-const repositoryUrl = "https://github.com/gary-van-woerkens/carnets"
+const repositoryUrl = "https://github.com/SocialGouv/carnets"
 
 const Footer = () => (
   <footer>
