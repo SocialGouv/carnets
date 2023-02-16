@@ -349,7 +349,6 @@ module.exports = {
     "./src/services/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
-  // darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
       spectral: ["Spectral", "serif"],
