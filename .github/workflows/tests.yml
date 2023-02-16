@@ -1,13 +1,15 @@
 name: Tests
 
 on:
-  pull_request:
+  push:
     branches:
       - '**'
+    tags-ignore:
+      - v*
 
-# concurrency:
-#   cancel-in-progress: true
-#   group: ${{ github.head_ref }}
+concurrency:
+  cancel-in-progress: true
+  group: tests-${{ github.ref }}
 
 jobs:
 
@@ -20,12 +22,14 @@ jobs:
     steps:
 
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
     - name: Node setup
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '14'
+        node-version: '16'
 
     - name: Yarn cache setup
       uses: c-hive/gha-yarn-cache@v1
@@ -35,3 +39,9 @@ jobs:
 
     - name: Run tests
       run: yarn test --coverage
+
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
