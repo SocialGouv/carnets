@@ -4,6 +4,8 @@ hasura:
       name: hasura-configmap
   - secretRef:
       name: hasura-sealed-secrets
+  - secretRef:
+      name: "{{ .Values.global.pgSecretName }}"
 
 app:
   envFrom:
