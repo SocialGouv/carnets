@@ -1,5 +1,6 @@
-projectName: "fabrique"
-
+projectName: carnets
 dependencies:
   fabrique:
-    import: SocialGouv/kontinuous/plugins/fabrique
+    import: socialgouv/kontinuous/plugins/fabrique
+    options:
+      registry: ghcr.io
