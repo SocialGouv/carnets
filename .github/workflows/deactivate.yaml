@@ -10,8 +10,14 @@ on:
       - "!main"
       - "!dev"
       - "!develop"
+      - "!**/persist"
+      - "!persist/**"
+      - "!**/persist/**"
+      - "!persist-**"
+      - "!**-persist"
+      - "!**-persist-**"
 
 jobs:
-  kontinuous:
+  socialgouv:
     uses: socialgouv/workflows/.github/workflows/use-ks-gh-deactivate.yaml@v1
     secrets: inherit
