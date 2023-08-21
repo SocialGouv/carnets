@@ -1,8 +1,11 @@
-database:
-  ~chart: jobs
+global:
+  pgSecretName: pg-app
+
+pg:
+  ~chart: pg
+
+jobs:
   runs:
-    create-db:
-      use: create-db
     seed-db:
       use: seed-db
       ~needs: [hasura]
@@ -10,7 +13,7 @@ database:
         seedPath: scripts/seeds-dev.sql
 
 hasura:
-  ~needs: [create-db]
+  ~needs: [pg]
   envFrom:
   - configMapRef:
       name: hasura-configmap
