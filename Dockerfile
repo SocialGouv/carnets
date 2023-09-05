@@ -1,6 +1,10 @@
-FROM node:alpine AS node
-WORKDIR /app
+FROM node:20-alpine AS node
+RUN chown -R 1000:1000 /home/node && \
+  chmod -R 755 /home/node && \
+  chown 1000:1000 /tmp && \
+  chmod 1777 /tmp
 USER 1000
+WORKDIR /app
 
 FROM node AS builder
 
