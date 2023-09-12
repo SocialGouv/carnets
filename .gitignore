@@ -19,3 +19,11 @@ yarn-error.log*
 
 # local env files
 .env*
+
+# Yarn Berry
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

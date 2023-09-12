@@ -1,5 +1,1 @@
-projectName: "fabrique"
-
-dependencies:
-  fabrique:
-    import: SocialGouv/kontinuous/plugins/fabrique
+projectName: fabrique

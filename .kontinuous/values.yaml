@@ -9,6 +9,10 @@ app:
   env:
   - name: NEXTAUTH_URL
     value: https://{{ .Values.global.host }}
+  securityContext:
+    fsGroup: 1000
+    runAsUser: 1000
+    runAsGroup: 1000
 
 hasura:
   ~chart: hasura
@@ -19,6 +23,10 @@ hasura:
       name: hasura-configmap
   - secretRef:
       name: "{{ .Values.global.pgSecretName }}"
+  securityContext:
+    fsGroup: 1001
+    runAsUser: 1001
+    runAsGroup: 1001
 
 jobs:
   ~chart: jobs
