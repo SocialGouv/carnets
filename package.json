@@ -13,42 +13,42 @@
     "test": "echo \"No test specified yet!\" && exit 0"
   },
   "dependencies": {
-    "@tailwindcss/typography": "0.5.0",
+    "@tailwindcss/typography": "0.5.10",
     "chart.js": "3.5.1",
     "chartjs-plugin-datalabels": "2.0.0",
     "date-fns": "2.25.0",
-    "graphql": "15.6.0",
+    "graphql": "15.6.1",
     "graphql-request": "3.5.0",
     "next": "13.1.6",
     "next-auth": "3.29.0",
     "react": "18.2.0",
-    "react-chartjs-2": "4.0.0",
+    "react-chartjs-2": "4.0.1",
     "react-dom": "18.2.0",
-    "react-markdown": "7.1.0",
+    "react-markdown": "7.1.2",
     "remixicon": "2.5.0",
     "sharp": "0.29.2",
     "spinthatshit": "1.0.4",
-    "swr": "2.0.1"
+    "swr": "2.0.4"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.16.1",
-    "@testing-library/react": "12.1.2",
-    "@types/jsonwebtoken": "8.5.5",
-    "@types/react": "18.0.28",
-    "autoprefixer": "10.4.2",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "12.1.5",
+    "@types/jsonwebtoken": "8.5.9",
+    "@types/react": "18.0.38",
+    "autoprefixer": "10.4.16",
     "eslint": "7.32.0",
     "eslint-config-next": "13.1.6",
     "eslint-plugin-prettier": "4.0.0",
     "jest": "27.4.7",
-    "postcss": "8.4.5",
+    "postcss": "8.4.31",
     "prettier": "2.4.1",
-    "sass": "1.43.4",
+    "sass": "1.43.5",
     "stylelint": "14.0.1",
     "stylelint-config-standard": "23.0.0",
-    "stylelint-scss": "4.0.0",
-    "tailwindcss": "3.0.15",
+    "stylelint-scss": "4.0.1",
+    "tailwindcss": "3.0.24",
     "tempy": "1.0.1",
-    "typescript": "4.4.3"
+    "typescript": "4.4.4"
   },
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "yarn@3.6.4"
 }
