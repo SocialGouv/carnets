@@ -1,0 +1,15 @@
+hasura:
+  envFrom:
+  - configMapRef:
+      name: hasura-configmap
+  - secretRef:
+      name: hasura-sealed-secrets
+  - secretRef:
+      name: "{{ .Values.global.pgSecretName }}"
+
+app:
+  envFrom:
+  - configMapRef:
+      name: app-configmap
+  - secretRef:
+      name: app-sealed-secrets
