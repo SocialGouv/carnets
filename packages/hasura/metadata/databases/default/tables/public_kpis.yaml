@@ -1,0 +1,45 @@
+table:
+  name: kpis
+  schema: public
+object_relationships:
+  - name: post
+    using:
+      foreign_key_constraint_on: post_id
+insert_permissions:
+  - role: user
+    permission:
+      check:
+        post:
+          team_slug:
+            _in: x-hasura-allowed-teams
+      columns:
+        - name
+        - post_id
+        - value
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - created_at
+        - name
+        - value
+        - post_id
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - id
+        - created_at
+        - name
+        - value
+        - post_id
+      filter: {}
+delete_permissions:
+  - role: user
+    permission:
+      backend_only: false
+      filter:
+        post:
+          team_slug:
+            _in: x-hasura-allowed-teams

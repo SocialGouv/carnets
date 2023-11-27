@@ -1,0 +1,20 @@
+import Teams from "@/components/teams";
+
+export default function Layout({
+  children,
+  params,
+}: {
+  children: JSX.Element;
+  params: { slug: string };
+}) {
+  console.log("LAYOUT", { params });
+
+  return (
+    <div className="flex bg-blue-50">
+      <aside className="flex-initial w-80">
+        <Teams selectedTeamSlug={params.slug} />
+      </aside>
+      <main className="flex-1">{children}</main>
+    </div>
+  );
+}

@@ -1,0 +1,29 @@
+version: "3.6"
+services:
+  postgres:
+    image: postgres:11
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - "5432:5432"
+  hasura:
+    env_file: .env-hasura.local
+    build:
+      context: ./packages/hasura
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "postgres"
+    restart: always
+    # environment:
+    #   HASURA_GRAPHQL_JWT_SECRET: ${HASURA_GRAPHQL_JWT_SECRET}
+    #   HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
+    #   HASURA_GRAPHQL_DATABASE_URL: ${HASURA_GRAPHQL_DATABASE_URL}
+    #   GITHUB_AUTHORIZATION_HEADER: ${GITHUB_AUTHORIZATION_HEADER}
+    #   HASURA_GRAPHQL_UNAUTHORIZED_ROLE: ${HASURA_GRAPHQL_UNAUTHORIZED_ROLE}
+    #   HASURA_GRAPHQL_ENABLED_LOG_TYPES: ${HASURA_GRAPHQL_ENABLED_LOG_TYPES}
+volumes:
+  postgres_data:

@@ -1,0 +1,18 @@
+table:
+  name: posts_stat
+  schema: public
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - year
+        - week
+        - count
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - count
+        - week
+        - year
+      filter: {}
