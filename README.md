@@ -39,4 +39,4 @@ sh-keygen -t rsa -b 4096 -E SHA512 -m PEM -f jwtRS512.key
 openssl rsa -in jwtRS512.key -pubout -outform PEM -out jwtRS512.key.pub
 ```
 
-Provide the generated public/private key pair to Hasura (`HASURA_GRAPHQL_JWT_SECRET`) and the application (`HASURA_JWT_KEY`).
+Provide the generated public/private key pair to Hasura (`HASURA_GRAPHQL_JWT_SECRET`) and the application (`HASURA_JWT_KEY`)
