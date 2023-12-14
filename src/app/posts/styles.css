@@ -1,0 +1,87 @@
+.team-title {
+  @apply flex gap-x-3;
+}
+
+.team-title .name-description {
+  @apply flex-1 flex flex-col justify-center;
+}
+
+.team-title .name-description h2 {
+  @apply text-5xl;
+}
+
+.team-title .actions {
+  @apply flex flex-col justify-center;
+}
+
+.team-title .members {
+  @apply flex gap-x-1 mt-3;
+}
+
+.posts {
+  @apply grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6;
+}
+
+article.post {
+  @apply shadow p-3 flex flex-col gap-y-3;
+}
+
+article.post .header {
+  @apply flex items-center gap-3;
+}
+
+article.post .header .text {
+  @apply flex-1 font-medium text-xl;
+}
+
+article.post .kpis {
+  @apply flex divide-x;
+}
+
+article.post .kpis .kpi {
+  @apply flex-1 flex flex-col overflow-hidden;
+}
+
+article.post .kpis .kpi .value {
+  @apply px-1 text-center font-semibold text-xl;
+}
+
+article.post .kpis .kpi .name {
+  @apply px-1 flex-1 truncate text-center;
+}
+
+article.post .tab-panel {
+  @apply flex flex-col flex-1 border bg-white;
+}
+
+article.post .tab-panel .tabs {
+  @apply flex;
+}
+
+article.post .tab-panel .tabs .tab {
+  @apply border-b p-3 flex-1 text-center cursor-pointer hover:border-red-700;
+}
+
+article.post .tab-panel .tabs .tab.selected {
+  @apply border-b border-red-700;
+}
+
+article.post .tab-panel .panels {
+  @apply flex-1 p-3;
+}
+
+article.post .tab-panel .panels .panel {
+  @apply hidden max-h-64 h-64 overflow-auto;
+}
+
+article.post .tab-panel .panels .panel.selected {
+  @apply block;
+}
+
+article.post .info {
+  @apply text-sm;
+}
+
+article.post .actions {
+  @apply flex justify-center gap-x-3;
+}

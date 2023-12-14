@@ -1,0 +1,65 @@
+.publish-page {
+  min-height: calc(100vh - 470px);
+  @apply flex-1 flex flex-col justify-center;
+}
+
+/* .publish-page form {
+  @apply bg-pink-50;
+} */
+
+.publish-page .fr-stepper {
+  @apply h-28;
+}
+
+.publish-page form .step {
+  @apply h-80 flex;
+}
+
+.publish-page form .actions {
+  @apply flex justify-between pt-6;
+}
+
+.publish-page form .actions .paging {
+  @apply flex gap-x-3;
+}
+
+.publish-page form .markdown-editor {
+  @apply flex flex-1 gap-x-6;
+}
+
+.publish-page form .markdown-editor .fr-input-group {
+  @apply flex-1 flex mb-0;
+}
+
+.publish-page form .markdown-editor .fr-input-group textarea {
+  @apply flex-1 m-0;
+}
+
+.publish-page form .mood-selector {
+  @apply flex flex-1 justify-center items-center gap-x-12;
+}
+
+.publish-page form .mood-selector .mood {
+  @apply
+  flex
+  flex-col
+  w-40
+  h-40
+  shadow-lg
+  transition-shadow
+  justify-center
+  items-center
+  gap-y-3
+  bg-slate-50
+  text-slate-400
+  hover:text-blue-900
+  cursor-pointer;
+}
+
+.publish-page form .mood-selector .mood.selected {
+  @apply shadow text-blue-900 bg-transparent;
+}
+
+.publish-page form .kpis-editor {
+  @apply flex-1 bg-pink-50;
+}

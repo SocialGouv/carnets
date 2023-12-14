@@ -1,86 +1,36 @@
-# Carnets
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Carnet de bord des produits de la fabrique numériques des Ministères sociaux
+## Getting Started
 
-## Fonctionnement
-
-Toutes les informations relatives au fonctionement de l'application sont [sur le wiki](https://github.com/SocialGouv/www/wiki/Inscrire-son-%C3%A9quipe-au-standup)
-
-## Environment variables
-
-#### Application
-
-| Variable                      | Usage                            |
-| ----------------------------- | -------------------------------- |
-| `APP_BASE_URL`                | Base application URL             |
-| `HASURA_URL`                  | Hasura service URL               |
-| `AUTH0_AUDIENCE`              | Auth0 audience name              |
-| `AUTH0_CLIENT_ID`             | Auth0 client ID                  |
-| `AUTH0_CLIENT_SECRET`         | Auth0 client secret              |
-| `AUTH0_DOMAIN`                | Auth0 application domain         |
-| `AUTH0_SESSION_COOKIE_SECRET` | Auth0 session cookie secret      |
-| `GITHUB_ORGANIZATION`         | Github organisation name         |
-| `SENTRY_DSN`                  | Sentry application dedicated URL |
-| `AZURE_ACCOUNT_NAME`          | Azure blob storage account name  |
-| `AZURE_ACCOUNT_KEY`           | Azure blob storage account key   |
-
-#### Hasura service
-
-| Variable                      | Usage                 |
-| ----------------------------- | --------------------- |
-| `HASURA_GRAPHQL_ADMIN_SECRET` | Hasura admin secret   |
-| `HASURA_GRAPHQL_DATABASE_URL` | Postgres database URL |
-| `HASURA_GRAPHQL_JWT_SECRET`   | Hasura JWT secret     |
-
-## Development
-
-This project is based on [Next.js](https://nextjs.org/).
-
-Run Postgres and Hasura containers:
+First, run the development server:
 
 ```bash
-docker-compose up
-```
-
-Launch Hasura console:
-
-```bash
-cd ./packages/hasura
-hasura console
-```
-
-Run the development server:
-
-```bash
+npm run dev
+# or
 yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Test
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Run linter check:
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-```bash
-yarn lint
-```
+## Learn More
 
-Run tests:
+To learn more about Next.js, take a look at the following resources:
 
-```bash
-yarn test
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Build the application:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-```bash
-yarn build
-```
+## Deploy on Vercel
 
-Run the test server:
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-```bash
-yarn start
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

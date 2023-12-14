@@ -1,0 +1,39 @@
+import Post from "@/components/post";
+import fetcher from "@/utils/graphql-fetcher";
+import getLastPosts from "@/actions/get-last-posts";
+import { deletePost as deletePostQuery } from "@/queries";
+
+const deletePost = async (id?: string) => {
+  if (id) {
+    await fetcher({
+      parameters: { id },
+      includeCookie: true,
+      query: deletePostQuery,
+    });
+  }
+};
+
+export default async function Posts({
+  posts,
+  editable = false,
+}: {
+  posts: Post[];
+  editable?: boolean;
+}) {
+  return (
+    <section className="posts">
+      {posts &&
+        posts.map((post, i) => (
+          <Post
+            key={i}
+            data={post}
+            editable={editable}
+            handlePostDeletion={async () => {
+              "use server";
+              deletePost(post.id);
+            }}
+          />
+        ))}
+    </section>
+  );
+}

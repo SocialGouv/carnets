@@ -1,0 +1,94 @@
+"use client";
+
+import Image from "next/image";
+import { format } from "date-fns";
+import ReactMarkdown from "react-markdown";
+import Button from "@codegouvfr/react-dsfr/Button";
+import KPIs, { type KPI } from "@/components/common/kpis";
+import Mood, { type Mood as MoodType } from "@/components/common/mood";
+import TabPanel, { Tab, Tabs, Panels } from "@/components/common/tab-panel";
+
+export interface Post {
+  mood: MoodType;
+  id?: string;
+  team?: Team;
+  kpis?: KPI[];
+  term: string;
+  needs: string;
+  author?: string;
+  created_at?: Date;
+  team_slug?: string;
+  priorities: string;
+}
+
+const Post = ({
+  data,
+  editable,
+  handlePostDeletion,
+}: {
+  data: Post;
+  editable: boolean;
+  handlePostDeletion: () => void;
+}) => (
+  <article className="post">
+    <div className="header">
+      <div className="avatar">
+        <Image
+          width={48}
+          height={48}
+          alt="Picture of the team"
+          src={data.team?.avatarUrl || ""}
+        />
+      </div>
+      <div className="text">{data.team?.name}</div>
+      <Mood mood={data.mood} />
+    </div>
+    <KPIs kpis={data.kpis || []}></KPIs>
+    <TabPanel>
+      <Tabs>
+        <Tab disabled={!data.priorities.length}>Priorités</Tab>
+        <Tab disabled={!data.needs.length}>Besoins</Tab>
+        <Tab disabled={!data.term.length}>Échéances</Tab>
+      </Tabs>
+      <Panels>
+        <ReactMarkdown className="prose prose-sm">
+          {data.priorities}
+        </ReactMarkdown>
+        <ReactMarkdown className="prose prose-sm">{data.needs}</ReactMarkdown>
+        <ReactMarkdown className="prose prose-sm">{data.term}</ReactMarkdown>
+      </Panels>
+    </TabPanel>
+    {editable && (
+      <div className="actions divide-x">
+        <Button
+          priority="tertiary no outline"
+          iconId="ri-edit-fill"
+          linkProps={{ href: `/team/${data.team_slug}/post/${data.id}` }}
+        >
+          Editer
+        </Button>
+        <Button
+          priority="tertiary no outline"
+          iconId="ri-delete-bin-7-fill"
+          onClick={handlePostDeletion}
+        >
+          Supprimer
+        </Button>
+      </div>
+    )}
+    <div className="info">
+      Publié le{" "}
+      {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
+      par&nbsp;
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href={`https://github.com/${data.author}`}
+      >
+        {data.author}
+      </a>
+    </div>
+  </article>
+);
+
+export default Post;

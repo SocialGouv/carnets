@@ -1,0 +1,14 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: carnets-configmap
+data:
+  NODE_ENV: "production"
+  # Hasura requests endpoint
+  # NEXT_PUBLIC_HASURA_URL: http://192.168.0.17:8080/v1/graphql
+  # Application version
+  # NEXT_PUBLIC_APP_VERSION: dev
+  # Application version
+  # NEXT_PUBLIC_APP_VERSION_COMMIT: "123456"
+  # Application repository URL
+  # NEXT_PUBLIC_APP_REPOSITORY_URL: https://github.com/gary-van-woerkens/carnets
