@@ -23,7 +23,9 @@
 }
 
 article.post {
-  @apply shadow p-3 flex flex-col gap-y-3;
+  /* dark:shadow-black */
+  @apply shadow p-3 flex flex-col gap-y-3 rounded-sm;
+  border: 1px solid var(--border-default-grey);
 }
 
 article.post .header {
@@ -35,35 +37,42 @@ article.post .header .text {
 }
 
 article.post .kpis {
-  @apply flex divide-x;
+  @apply flex divide-x my-3;
 }
 
 article.post .kpis .kpi {
-  @apply flex-1 flex flex-col overflow-hidden;
+  @apply flex-1 flex flex-col overflow-hidden px-3;
 }
 
 article.post .kpis .kpi .value {
-  @apply px-1 text-center truncate font-semibold text-xl;
+  @apply text-center truncate font-semibold text-xl;
 }
 
 article.post .kpis .kpi .name {
-  @apply px-1 flex-1 truncate text-center;
+  @apply flex-1 truncate text-center;
 }
 
 article.post .tab-panel {
-  @apply flex flex-col flex-1 border bg-white;
+  @apply flex flex-col flex-1;
+  border: 1px solid var(--border-default-grey);
 }
 
 article.post .tab-panel .tabs {
   @apply flex;
+  background-color: var(--background-default-grey-active);
 }
 
 article.post .tab-panel .tabs .tab {
-  @apply border-b p-3 flex-1 text-center cursor-pointer hover:border-red-700;
+  @apply flex flex-1 text-center;
+  border-bottom: 1px solid var(--border-default-grey);
 }
 
 article.post .tab-panel .tabs .tab.selected {
-  @apply border-b border-red-700;
+  border-bottom: 1px solid var(--border-active-blue-france);
+}
+
+article.post .tab-panel .tabs .tab button {
+  @apply flex-1 text-center block;
 }
 
 article.post .tab-panel .panels {

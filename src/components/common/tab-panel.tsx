@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@codegouvfr/react-dsfr/Button";
 import { cloneElement, useState } from "react";
 
 export const Tab = ({
@@ -14,9 +15,13 @@ export const Tab = ({
   children: string | JSX.Element | JSX.Element[];
 }) => (
   <div className={`tab${selected ? " selected" : ""}`}>
-    <button onClick={handleClick} disabled={disabled}>
+    <Button
+      disabled={disabled}
+      onClick={handleClick}
+      priority="tertiary no outline"
+    >
       {children}
-    </button>
+    </Button>
   </div>
 );
 
