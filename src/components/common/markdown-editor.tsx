@@ -21,7 +21,7 @@ const MarkdownEditor = ({
         onChange: (e) => onChange(name, e.target.value),
       }}
     />
-    <div className="flex-1">
+    <div className="preview">
       <ReactMarkdown className="prose prose-sm">{value}</ReactMarkdown>
     </div>
   </div>

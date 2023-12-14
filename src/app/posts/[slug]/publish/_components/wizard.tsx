@@ -39,6 +39,17 @@ Un exemple de liste:
 - sous élément 2`,
 };
 
+interface Step {
+  title: string;
+  value: string & KPI[];
+  Step:
+    | typeof Priorities
+    | typeof Term
+    | typeof Mood
+    | typeof Needs
+    | typeof Kpis;
+}
+
 export default function Wizard({
   author,
   slug,
@@ -50,12 +61,20 @@ export default function Wizard({
   const [data, setData] = useState(defaultData);
 
   const steps = [
-    { title: "Step 1" },
-    { title: "Step 2" },
-    { title: "Step 3" },
-    { title: "Step 4" },
-    { title: "Step 5" },
-  ];
+    { title: "Vos besoins immédiats", Step: Needs, value: data.needs },
+    {
+      title: "Vos priorités de la semaine",
+      Step: Priorities,
+      value: data.priorities,
+    },
+    { title: "Vos prochaines échéances", Step: Term, value: data.term },
+    { title: "L'état d'esprit de l'équipe", Step: Mood, value: data.mood },
+    {
+      title: "Les indicateurs de votre produit (3 maximum)",
+      Step: Kpis,
+      value: data.kpis,
+    },
+  ] as Step[];
 
   function handleChange(name: string, value: string | KPI[]) {
     setData({ ...data, ...{ [name]: value } });
@@ -122,24 +141,18 @@ export default function Wizard({
     });
   };
 
-  console.log("STEP", step);
+  const { value, Step, title } = steps[step - 1];
 
   return (
     <>
       <Stepper
+        title={title}
         currentStep={step}
         stepCount={steps.length}
-        title={steps[step - 1].title}
         nextTitle={step < steps.length ? steps[step].title : ""}
       />
       <form>
-        {step === 1 && <Needs value={data.needs} onChange={handleChange} />}
-        {step === 2 && (
-          <Priorities value={data.priorities} onChange={handleChange} />
-        )}
-        {step === 3 && <Term onChange={handleChange} value={data.term} />}
-        {step === 4 && <Mood onChange={handleChange} value={data.mood} />}
-        {step === 5 && <Kpis onChange={handleChange} value={data.kpis} />}
+        <Step value={value} onChange={handleChange} />
         <div className="actions">
           <div className="paging">
             <PreviousButton />

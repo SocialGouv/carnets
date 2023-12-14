@@ -8,15 +8,12 @@ export interface KPI {
 
 export default function Kpis({
   value,
-  visible,
   onChange,
 }: {
   value: KPI[];
-  visible?: boolean;
   onChange: (name: string, value: string | KPI[]) => void;
 }) {
   return (
-    // <div className={`step ${visible ? "" : "hidden"}`}>
     <div className="step">
       <KPIsEditor name="kpis" kpis={value} onChange={onChange} />
     </div>

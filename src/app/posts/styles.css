@@ -43,7 +43,7 @@ article.post .kpis .kpi {
 }
 
 article.post .kpis .kpi .value {
-  @apply px-1 text-center font-semibold text-xl;
+  @apply px-1 text-center truncate font-semibold text-xl;
 }
 
 article.post .kpis .kpi .name {

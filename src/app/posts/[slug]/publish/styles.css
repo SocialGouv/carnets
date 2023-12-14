@@ -3,10 +3,6 @@
   @apply flex-1 flex flex-col justify-center;
 }
 
-/* .publish-page form {
-  @apply bg-pink-50;
-} */
-
 .publish-page .fr-stepper {
   @apply h-28;
 }
@@ -25,6 +21,10 @@
 
 .publish-page form .markdown-editor {
   @apply flex flex-1 gap-x-6;
+}
+
+.publish-page form .markdown-editor .preview {
+  @apply flex-1 shadow p-3;
 }
 
 .publish-page form .markdown-editor .fr-input-group {
@@ -61,5 +61,50 @@
 }
 
 .publish-page form .kpis-editor {
-  @apply flex-1 bg-pink-50;
+  @apply flex flex-1;
 }
+
+.publish-page form .kpis-editor .kpi-editor {
+  @apply flex flex-col gap-y-3 flex-1 px-6;
+}
+
+.publish-page form .kpis-editor .kpi-editor .controls {
+  @apply flex justify-center;
+}
+
+.publish-page form .kpis-editor .kpi-editor .editor {
+  @apply flex items-end gap-x-3 border-l-4 border-l-blue-900 pl-3 py-3;
+}
+
+.publish-page form .kpis-editor .kpi-editor .editor .fields {
+  @apply flex-1;
+}
+
+.publish-page form .kpis-editor .kpi-editor .editor .fields .inputs {
+  @apply grid grid-cols-2 gap-x-3;
+}
+
+.publish-page form .kpis-editor .kpi-editor .editor .fields .inputs .fr-input-group {
+  @apply mb-0;
+}
+
+.publish-page form .kpis-editor .kpi-editor .editor .fields .inputs .fr-input-group input {
+  @apply mt-0;
+}
+
+.publish-page form .kpis-editor .preview {
+  @apply flex flex-1 p-6 justify-center items-center overflow-hidden divide-x shadow;
+}
+
+.publish-page form .kpis-editor .preview .kpi {
+  @apply flex flex-col flex-1 overflow-hidden px-3;
+}
+
+.publish-page form .kpis-editor .preview .kpi > div {
+  @apply truncate flex-1 text-center;
+}
+
+.publish-page form .kpis-editor .preview .kpi .value {
+  @apply font-semibold text-xl;
+}
+

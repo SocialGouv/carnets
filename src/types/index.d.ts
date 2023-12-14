@@ -32,3 +32,9 @@ interface Post {
   team_slug?: string;
   priorities: string;
 }
+
+interface KPI {
+  id?: string;
+  name: string;
+  value: string;
+}

@@ -1,40 +1,6 @@
 import { Kpi } from "./kpis";
-
-// duplicated
-interface KPI {
-  id?: string;
-  name: string;
-  value: string;
-}
-
-const Fields = ({
-  kpi,
-  index,
-  handleChange,
-}: {
-  kpi: KPI;
-  index: number;
-  handleChange: (name: "name" | "value", value: string, index: number) => void;
-}) => (
-  <div className="fields">
-    <input
-      type="text"
-      name="value"
-      placeholder="42"
-      value={kpi?.value}
-      className={kpi ? "" : " disabled"}
-      onChange={(e) => handleChange("value", e.target.value, index)}
-    />
-    <input
-      name="name"
-      type="text"
-      value={kpi?.name}
-      placeholder="My product KPI"
-      className={kpi ? "" : " disabled"}
-      onChange={(e) => handleChange("name", e.target.value, index)}
-    />
-  </div>
-);
+import KpisFields from "./kpis-fields";
+import Button from "@codegouvfr/react-dsfr/Button";
 
 const KPIsEditor = ({
   name,
@@ -45,49 +11,58 @@ const KPIsEditor = ({
   kpis: KPI[];
   onChange: (name: string, value: string | KPI[]) => void;
 }) => {
-  const handleKpiChange = (
+  function handleKpiChange(
     name: "name" | "value",
     value: string,
     index: number,
-  ) => {
+  ) {
     if (!kpis[index]) kpis[index] = { name: "", value: "" };
     kpis[index][name] = value;
     onChange("kpis", [...kpis]);
-  };
+  }
+
+  function handleKpiAdd() {
+    kpis.push({ name: "", value: "" });
+    onChange("kpis", [...kpis]);
+  }
+
+  function handleKpiDeletion(index: number) {
+    kpis.splice(index, 1);
+    onChange("kpis", [...kpis]);
+  }
+
   return (
     <div className="kpis-editor">
-      {kpis &&
-        kpis.map((kpi, i) => (
-          <div key={i} className="kpi-editor">
-            <Fields kpi={kpi} handleChange={handleKpiChange} index={i} />
-            <Kpi kpi={kpi} />
-          </div>
-        ))}
-      <div className="controls">
-        {kpis && kpis.length > 1 && (
-          <button
-            className="remove"
-            onClick={(e) => {
-              e.preventDefault();
-              kpis.pop();
-              onChange("kpis", [...kpis]);
-            }}
-          >
-            -
-          </button>
-        )}
-        {kpis && kpis.length < 3 && (
-          <button
-            className="add"
-            onClick={(e) => {
-              e.preventDefault();
-              kpis.push({ name: "", value: "" });
-              onChange("kpis", [...kpis]);
-            }}
-          >
-            +
-          </button>
-        )}
+      <div className="kpi-editor">
+        {kpis &&
+          kpis.map((kpi, i) => (
+            <div className="editor" key={`fields-${i}`}>
+              <KpisFields kpi={kpi} index={i} handleChange={handleKpiChange} />
+              <Button
+                type="button"
+                iconId="ri-delete-bin-2-line"
+                title="Supprimer l'indicateur"
+                priority="tertiary no outline"
+                onClick={() => handleKpiDeletion(i)}
+                className={`${kpis.length > 1 ? "" : "invisible"}`}
+              />
+            </div>
+          ))}
+        <div className="controls">
+          {kpis && kpis.length < 3 && (
+            <Button
+              type="button"
+              onClick={handleKpiAdd}
+              iconId="fr-icon-add-line"
+              priority="tertiary no outline"
+            >
+              Ajouter un indicateur
+            </Button>
+          )}
+        </div>
+      </div>
+      <div className="preview">
+        {kpis && kpis.map((kpi, i) => <Kpi key={`preview-${i}`} kpi={kpi} />)}
       </div>
     </div>
   );
