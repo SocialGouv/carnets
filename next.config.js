@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: config => {
+  output: "standalone",
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.woff2$/,
-      type: "asset/resource"
+      type: "asset/resource",
     });
     return config;
   },
@@ -15,6 +16,6 @@ const nextConfig = {
       },
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

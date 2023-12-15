@@ -1,48 +1,44 @@
-FROM node:20-alpine AS node
-RUN chown -R 1000:1000 /home/node && \
-  chmod -R 755 /home/node && \
-  chown 1000:1000 /tmp && \
-  chmod 1777 /tmp
-
-FROM node AS builder
-
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+FROM node:18-alpine as base
 RUN apk add --no-cache libc6-compat
-
-USER 1000
 WORKDIR /app
 
-COPY yarn.lock .yarnrc.yml ./
-COPY --chown=1000:1000 .yarn .yarn
-RUN yarn fetch --immutable
-
-COPY --chown=1000:1000 . .
-
-ARG NEXT_PUBLIC_HASURA_URL
+# Rebuild the source code only when needed
+FROM base AS builder
+ARG NEXT_PUBLIC_MATOMO_URL
+ENV NEXT_PUBLIC_MATOMO_URL $NEXT_PUBLIC_MATOMO_URL
+ARG NEXT_PUBLIC_MATOMO_SITE_ID
+ENV NEXT_PUBLIC_MATOMO_SITE_ID $NEXT_PUBLIC_MATOMO_SITE_ID
 ENV NEXT_TELEMETRY_DISABLED 1
-ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
-ENV NODE_OPTIONS --openssl-legacy-provider
 
-RUN yarn build \
-  && yarn workspaces focus --production \
-  && yarn cache clean
+# install deps
+# COPY yarn.lock .yarnrc.yml ./
+# COPY .yarn ./.yarn
+# RUN yarn fetch
+
+# build
+COPY . .
+RUN yarn install --frozen-lockfile
+RUN yarn build
 
 # Production image, copy all the files and run next
-FROM node AS runner
-USER 1000
-WORKDIR /app
+FROM base AS runner
 
-EXPOSE 3000
-ENV PORT 3000
 ENV NODE_ENV production
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry.
 ENV NEXT_TELEMETRY_DISABLED 1
-CMD ["node_modules/.bin/next", "start"]
 
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/node_modules ./node_modules
+RUN addgroup --system --gid 1001 nodejs && \
+  adduser --system --uid 1001 nextjs
+
+# You only need to copy next.config.js if you are NOT using the default configuration
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
+
+# Automatically leverage output traces to reduce image size
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER 1001
+EXPOSE 3000
+ENV PORT 3000
+
+CMD ["node", "server.js"]
