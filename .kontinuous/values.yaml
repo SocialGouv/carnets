@@ -5,7 +5,7 @@ app:
   imagePackage: app
   envFrom:
   - configMapRef:
-      name: carnets-configmap
+      name: app
   env:
   - name: NEXTAUTH_URL
     value: https://{{ .Values.global.host }}

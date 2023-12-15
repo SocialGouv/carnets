@@ -24,6 +24,6 @@ app:
     ENV: review
   envFrom:
   - configMapRef:
-      name: carnets-configmap
+      name: app
   - secretRef:
       name: app
