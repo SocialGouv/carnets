@@ -1,5 +1,5 @@
 import { GraphQLClient } from "graphql-request";
-import { NEXT_PUBLIC_HASURA_URL } from "./env";
+import { NEXT_PUBLIC_HASURA_URL } from "@/utils/env";
 
 interface GraphQLFetcherParams {
   query: string;

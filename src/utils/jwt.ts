@@ -1,8 +1,9 @@
 import jwt from "jsonwebtoken";
 import { JWT, JWTDecodeParams, JWTEncodeParams } from "next-auth/jwt";
 
-import { NEXTAUTH_SECRET } from "./env";
+import { NEXTAUTH_SECRET } from "@/utils/env";
 import type { GithubUser } from "@/app/api/auth/[...nextauth]/options";
+console.log("NEXTAUTH_SECRET", NEXTAUTH_SECRET);
 
 export const COOKIE_NAME = "next-auth.session-token";
 

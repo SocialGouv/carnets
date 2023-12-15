@@ -20,6 +20,8 @@ hasura:
       name: "{{ .Values.global.pgSecretName }}"
 
 app:
+  vars:
+    ENV: review
   envFrom:
   - configMapRef:
       name: carnets-configmap

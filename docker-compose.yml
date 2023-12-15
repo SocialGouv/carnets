@@ -1,5 +1,11 @@
 version: "3.6"
 services:
+  app:
+    build:
+      context: .
+    ports:
+      - "3042:3000"
+    env_file: ./.env.docker
   postgres:
     image: postgres:11
     restart: always

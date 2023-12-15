@@ -8,6 +8,8 @@ hasura:
       name: "{{ .Values.global.pgSecretName }}"
 
 app:
+  vars:
+    ENV: preprod
   envFrom:
   - configMapRef:
       name: app-configmap
