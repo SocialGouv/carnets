@@ -5,9 +5,9 @@ on:
     branches:
       - '**'
 
-# concurrency:
-#   cancel-in-progress: true
-#   group: ${{ github.head_ref }}
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.head_ref }}
 
 jobs:
 
