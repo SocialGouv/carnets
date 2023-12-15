@@ -13,11 +13,7 @@ import authOptions from "@/app/api/auth/[...nextauth]/options";
 import "github-markdown-css";
 import "./globals.css";
 
-export default async function RootLayout({
-  children,
-}: {
-  children: JSX.Element;
-}) {
+export default async function Layout({ children }: { children: JSX.Element }) {
   const lang = "fr";
   const session = await getServerSession(authOptions);
 

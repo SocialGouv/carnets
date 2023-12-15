@@ -1,6 +1,6 @@
 import Button from "@codegouvfr/react-dsfr/Button";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       HOME
