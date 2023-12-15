@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { format } from "date-fns";
-import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import Markdown from "react-markdown";
 import Button from "@codegouvfr/react-dsfr/Button";
 import KPIs, { type KPI } from "@/components/common/kpis";
 import Mood, { type Mood as MoodType } from "@/components/common/mood";
@@ -51,11 +52,15 @@ const Post = ({
         <Tab disabled={!data.term.length}>Échéances</Tab>
       </Tabs>
       <Panels>
-        <ReactMarkdown className="prose prose-sm">
-          {data.priorities}
-        </ReactMarkdown>
-        <ReactMarkdown className="prose prose-sm">{data.needs}</ReactMarkdown>
-        <ReactMarkdown className="prose prose-sm">{data.term}</ReactMarkdown>
+        <div className="markdown-body">
+          <Markdown remarkPlugins={[remarkGfm]}>{data.priorities}</Markdown>
+        </div>
+        <div className="markdown-body">
+          <Markdown remarkPlugins={[remarkGfm]}>{data.needs}</Markdown>
+        </div>
+        <div className="markdown-body">
+          <Markdown remarkPlugins={[remarkGfm]}>{data.term}</Markdown>
+        </div>
       </Panels>
     </TabPanel>
     {editable && (

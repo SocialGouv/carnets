@@ -1,4 +1,5 @@
-import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import Markdown from "react-markdown";
 import { Input } from "@codegouvfr/react-dsfr/Input";
 
 const MarkdownEditor = ({
@@ -21,8 +22,8 @@ const MarkdownEditor = ({
         onChange: (e) => onChange(name, e.target.value),
       }}
     />
-    <div className="preview">
-      <ReactMarkdown className="prose prose-sm">{value}</ReactMarkdown>
+    <div className="preview markdown-body">
+      <Markdown remarkPlugins={[remarkGfm]}>{value}</Markdown>
     </div>
   </div>
 );

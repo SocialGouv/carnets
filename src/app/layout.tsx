@@ -6,11 +6,12 @@ import { getHtmlAttributes } from "@codegouvfr/react-dsfr/next-appdir/getHtmlAtt
 
 import { StartDsfr } from "./start-dsfr";
 import Header from "@/components/header";
-import { defaultColorScheme } from "./default-color-scheme";
-import authOptions from "../app/api/auth/[...nextauth]/options";
-
-import "./globals.css";
 import Footer from "@/components/footer";
+import { defaultColorScheme } from "./default-color-scheme";
+import authOptions from "@/app/api/auth/[...nextauth]/options";
+
+import "github-markdown-css";
+import "./globals.css";
 
 export default async function RootLayout({
   children,
