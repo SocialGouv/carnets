@@ -116,7 +116,7 @@ export const createPost = gql`
   }
 `;
 
-export const getStat = gql`
+export const getStats = gql`
   query getStat {
     posts_stat(order_by: [{ year: asc }, { week: asc }]) {
       count

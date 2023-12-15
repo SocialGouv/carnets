@@ -37,7 +37,7 @@ Un exemple de liste:
 - élément 2
 - sous élément 1
 - sous élément 2`,
-};
+} as Post;
 
 interface Step {
   title: string;
@@ -58,7 +58,7 @@ export default function Wizard({
   slug: string;
 }) {
   const [step, setStep] = useState(1);
-  const [data, setData] = useState(defaultData);
+  const [data, setData] = useState<Post>(defaultData);
 
   const steps = [
     { title: "Vos besoins immédiats", Step: Needs, value: data.needs },
@@ -128,7 +128,6 @@ export default function Wizard({
   }
 
   const createPost = async (post: Post) => {
-    console.log("POST", post);
     const kpis = {
       data: post.kpis?.filter((kpi: KPI) => kpi.name && kpi.name.length),
     };
