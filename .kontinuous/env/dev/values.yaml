@@ -15,7 +15,7 @@ hasura:
   - configMapRef:
       name: hasura-configmap
   - secretRef:
-      name: hasura-sealed-secrets
+      name: hasura
   - secretRef:
       name: "{{ .Values.global.pgSecretName }}"
 
@@ -24,4 +24,4 @@ app:
   - configMapRef:
       name: carnets-configmap
   - secretRef:
-      name: app-sealed-secrets
+      name: app
