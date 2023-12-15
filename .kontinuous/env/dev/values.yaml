@@ -3,11 +3,11 @@ database:
   runs:
     create-db:
       use: create-db
-    # seed-db:
-    #   use: seed-db
-    #   ~needs: [hasura]
-    #   with:
-    #     seedPath: scripts/seeds-dev.sql
+    seed-db:
+      use: seed-db
+      ~needs: [hasura]
+      with:
+        seedPath: scripts/seeds-dev.sql
 
 hasura:
   ~needs: [create-db]
