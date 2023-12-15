@@ -20,7 +20,7 @@ hasura:
   imagePackage: hasura
   envFrom:
   - configMapRef:
-      name: hasura-configmap
+      name: hasura
   - secretRef:
       name: "{{ .Values.global.pgSecretName }}"
   securityContext:

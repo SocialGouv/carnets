@@ -1,7 +1,7 @@
 hasura:
   envFrom:
   - configMapRef:
-      name: hasura-configmap
+      name: hasura
   - secretRef:
       name: hasura-sealed-secrets
   - secretRef:
@@ -12,6 +12,6 @@ app:
     ENV: preprod
   envFrom:
   - configMapRef:
-      name: app-configmap
+      name: app
   - secretRef:
       name: app-sealed-secrets
