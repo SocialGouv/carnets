@@ -22,7 +22,7 @@
     "crypto": "^1.0.1",
     "deepmerge": "^4.2.2",
     "file-saver": "^2.0.5",
-    "formidable": "^1.2.2",
+    "formidable": "^3.0.0",
     "formik": "^2.2.9",
     "github-markdown-css": "^4.0.0",
     "graphql": "^15.5.3",
