@@ -6,9 +6,8 @@ app:
   envFrom:
   - configMapRef:
       name: app
-  env:
-  - name: NEXTAUTH_URL
-    value: https://{{ .Values.global.host }}
+  vars:
+    NEXTAUTH_URL: https://{{ .Values.global.host }}
   securityContext:
     fsGroup: 1000
     runAsUser: 1000
