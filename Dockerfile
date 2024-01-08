@@ -4,11 +4,14 @@ WORKDIR /app
 
 # Rebuild the source code only when needed
 FROM base AS builder
+
 ARG NEXT_PUBLIC_MATOMO_URL
 ENV NEXT_PUBLIC_MATOMO_URL $NEXT_PUBLIC_MATOMO_URL
 ARG NEXT_PUBLIC_MATOMO_SITE_ID
 ENV NEXT_PUBLIC_MATOMO_SITE_ID $NEXT_PUBLIC_MATOMO_SITE_ID
 ENV NEXT_TELEMETRY_DISABLED 1
+ARG NEXT_PUBLIC_HASURA_URL
+ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
 
 # install deps
 # COPY yarn.lock .yarnrc.yml ./
@@ -23,6 +26,7 @@ RUN yarn build
 # Production image, copy all the files and run next
 FROM base AS runner
 
+# ENV ENV development
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
@@ -36,6 +40,9 @@ COPY --from=builder /app/public ./public
 # Automatically leverage output traces to reduce image size
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Add sharp
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/sharp ./node_modules/sharp
 
 USER 1001
 EXPOSE 3000

@@ -1,6 +1,6 @@
 import fetcher from "@/utils/graphql-fetcher";
 import type { NextAuthOptions, User } from "next-auth";
-import GithubProvider from "next-auth/providers/github";
+import GithubProvider, { GithubProfile } from "next-auth/providers/github";
 import { encode, decode, getJwt, COOKIE_NAME } from "@/utils/jwt";
 import { getUserTeams as getUserTeamsQuery } from "@/queries/index";
 import {
@@ -10,6 +10,7 @@ import {
   GITHUB_SECRET,
   NEXTAUTH_SECRET,
 } from "@/utils/env";
+import { OAuthUserConfig } from "next-auth/providers/oauth";
 
 export interface GithubUser extends User {
   teams: string[];
@@ -33,29 +34,33 @@ const getUserTeams = async (login: string) => {
   return teams.map((team: GithubTeam) => team.slug);
 };
 
+const githubProviderConfig = {
+  clientId: GITHUB_ID,
+  clientSecret: GITHUB_SECRET,
+  ...(ENV !== "prod" && {
+    authorization: {
+      url: "https://charon-carnets.ovh.fabrique.social.gouv.fr/github/login/oauth/authorize",
+    },
+    token:
+      "https://charon-carnets.ovh.fabrique.social.gouv.fr/github/login/oauth/access_token",
+  }),
+  profile: (profile: Record<string, unknown>) => {
+    const config = {
+      login: profile.login,
+      id: String(profile.id),
+      image: profile.avatar_url,
+      name: profile.name ?? profile.login,
+    };
+    console.log("config", config);
+    return config;
+  },
+} as OAuthUserConfig<GithubProfile>;
+
+console.log("githubProviderConfig", githubProviderConfig);
+
 const authOptions: NextAuthOptions = {
   secret: NEXTAUTH_SECRET,
-  providers: [
-    GithubProvider({
-      clientId: GITHUB_ID,
-      clientSecret: GITHUB_SECRET,
-      ...(ENV !== "prod" && {
-        authorization: {
-          url: "https://charon-carnets.ovh.fabrique.social.gouv.fr/github/login/oauth/authorize",
-        },
-        token:
-          "https://charon-carnets.ovh.fabrique.social.gouv.fr/github/login/oauth/access_token",
-      }),
-      profile: (profile) => {
-        return {
-          login: profile.login,
-          id: String(profile.id),
-          image: profile.avatar_url,
-          name: profile.name ?? profile.login,
-        };
-      },
-    }),
-  ],
+  providers: [GithubProvider(githubProviderConfig)],
   callbacks: {
     async signIn({ user }) {
       return !!user.id?.length;
