@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
     "lint": "next lint",
     "predev": "only-include-used-icons",
-    "prebuild": "only-include-used-icons"
+    "prebuild": "only-include-used-icons",
+    "start": "node --stack-size=2000 ./node_modules/.bin/next start",
+    "dev": "node --stack-size=2000 ./node_modules/.bin/next dev",
+    "build": "node --stack-size=2000 ./node_modules/.bin/next build"
   },
   "dependencies": {
     "@codegouvfr/react-dsfr": "0.78.6",
@@ -42,5 +42,6 @@
     "sass": "1.69.5",
     "tailwindcss": "3.3.6",
     "typescript": "5.3.3"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }

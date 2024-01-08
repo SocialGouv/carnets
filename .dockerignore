@@ -1,5 +1,6 @@
 .nvmrc
 .env.local
+.env.docker
 .env-hasura.local
 node_modules
 coverage

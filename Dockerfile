@@ -5,6 +5,16 @@ WORKDIR /app
 # Rebuild the source code only when needed
 FROM base AS builder
 
+# install deps
+COPY yarn.lock .yarnrc.yml ./
+COPY .yarn ./.yarn
+RUN yarn fetch
+
+# build
+COPY . .
+
+ENV NEXTAUTH_URL http://localhost:3000
+
 ARG NEXT_PUBLIC_MATOMO_URL
 ENV NEXT_PUBLIC_MATOMO_URL $NEXT_PUBLIC_MATOMO_URL
 ARG NEXT_PUBLIC_MATOMO_SITE_ID
@@ -13,15 +23,10 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_HASURA_URL
 ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
 
-# install deps
-# COPY yarn.lock .yarnrc.yml ./
-# COPY .yarn ./.yarn
-# RUN yarn fetch
-
-# build
-COPY . .
-RUN yarn install --frozen-lockfile
+# RUN yarn install --frozen-lockfile
 RUN yarn build
+
+RUN yarn workspaces focus --production
 
 # Production image, copy all the files and run next
 FROM base AS runner

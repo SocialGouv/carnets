@@ -9,8 +9,11 @@ import {
   GITHUB_ID,
   GITHUB_SECRET,
   NEXTAUTH_SECRET,
+  NEXTAUTH_URL,
 } from "@/utils/env";
 import { OAuthUserConfig } from "next-auth/providers/oauth";
+
+console.log("NEXTAUTH_URL", NEXTAUTH_URL);
 
 export interface GithubUser extends User {
   teams: string[];
