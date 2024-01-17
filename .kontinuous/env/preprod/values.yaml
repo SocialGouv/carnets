@@ -1,9 +1,23 @@
+seeds:
+  ~chart: jobs
+  runs:
+    seed-db:
+      use: seed-db
+      ~needs: [hasura]
+      with:
+        seedPath: scripts/seeds.sql
+      envFrom:
+        - secretRef:
+            name: pg-app
+
 hasura:
   envFrom:
+  - secretRef:
+      name: pg-app
   - configMapRef:
       name: hasura
   - secretRef:
-      name: hasura-sealed-secrets
+      name: hasura
   - secretRef:
       name: "{{ .Values.global.pgSecretName }}"
 
@@ -14,4 +28,4 @@ app:
   - configMapRef:
       name: app
   - secretRef:
-      name: app-sealed-secrets
+      name: app

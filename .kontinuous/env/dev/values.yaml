@@ -1,17 +1,19 @@
-database:
+seeds:
   ~chart: jobs
   runs:
-    create-db:
-      use: create-db
     seed-db:
       use: seed-db
       ~needs: [hasura]
       with:
         seedPath: scripts/seeds.sql
+      envFrom:
+        - secretRef:
+            name: pg-app
 
 hasura:
-  ~needs: [create-db]
   envFrom:
+  - secretRef:
+      name: pg-app
   - configMapRef:
       name: hasura
   - secretRef:
