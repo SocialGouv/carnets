@@ -27,8 +27,6 @@ hasura:
       name: hasura
   - secretRef:
       name: hasura
-  - secretRef:
-      name: "{{ .Values.global.pgSecretName }}"
   securityContext:
     fsGroup: 1001
     runAsUser: 1001
