@@ -9,8 +9,8 @@ projectName: fabrique
 #           importSecrets:
 #             options:
 #               secrets:
-#                 secretariat-dev-backups-access-key:
-#                 secretariat-prod-backups-access-key:
+#                 carnets-dev-backups-access-key:
+#                 carnets-prod-backups-access-key:
 #     extends:
 #       - name: ovh
 #         ifEnv: [dev, preprod]

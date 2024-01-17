@@ -1,3 +1,5 @@
+SET session_replication_role = 'replica';
+
 --
 -- Data for Name: hdb_custom_types; Type: TABLE DATA; Schema: hdb_catalog; Owner: -
 --
@@ -13465,3 +13467,5 @@ INSERT INTO public.posts VALUES ('sre', '2023-12-14 10:50:24.261968+00', '1be7bf
 
  - BitWarden (gestion mots de passe équipes)
  - Service d''antivirus pour les produits', '', '', 'revolunet');
+
+SET session_replication_role = 'origin';

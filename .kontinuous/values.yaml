@@ -13,9 +13,12 @@ app:
     runAsUser: 1000
     runAsGroup: 1000
 
+pg:
+  ~chart: pg
+
 hasura:
   ~chart: hasura
-  ~needs: [build-hasura]
+  ~needs: [build-hasura, pg]
   imagePackage: hasura
   envFrom:
   - configMapRef:
@@ -37,7 +40,6 @@ jobs:
         imagePackage: app
         buildArgs:
           NEXT_PUBLIC_HASURA_URL: "https://hasura-{{ .Values.global.host }}/v1/graphql"
-
     build-hasura:
       use: build
       with:
