@@ -10,17 +10,6 @@ seeds:
         - secretRef:
             name: pg-app
 
-hasura:
-  envFrom:
-  - secretRef:
-      name: pg-app
-  - configMapRef:
-      name: hasura
-  - secretRef:
-      name: hasura
-  - secretRef:
-      name: "{{ .Values.global.pgSecretName }}"
-
 app:
   vars:
     ENV: review
