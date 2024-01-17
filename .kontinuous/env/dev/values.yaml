@@ -7,7 +7,7 @@ database:
       use: seed-db
       ~needs: [hasura]
       with:
-        seedPath: scripts/seeds-dev.sql
+        seedPath: scripts/seeds.sql
 
 hasura:
   ~needs: [create-db]
