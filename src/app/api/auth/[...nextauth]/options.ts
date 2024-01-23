@@ -20,6 +20,7 @@ export interface GithubUser extends User {
 }
 
 const getUserTeams = async (login: string) => {
+  console.log("===> getUserTeams:", login);
   const {
     organization: {
       teams: { nodes: teams },
@@ -59,7 +60,7 @@ const githubProviderConfig = {
   },
 } as OAuthUserConfig<GithubProfile>;
 
-console.log("githubProviderConfig", githubProviderConfig);
+// console.log("githubProviderConfig", githubProviderConfig);
 
 const authOptions: NextAuthOptions = {
   secret: NEXTAUTH_SECRET,
