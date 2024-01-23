@@ -1,6 +1,7 @@
 FROM hasura/graphql-engine:v2.17.0.cli-migrations-v3
 ENV HASURA_GRAPHQL_ENABLE_CONSOLE=false
 ENV HASURA_GRAPHQL_ENABLE_TELEMETRY=false
+ENV HASURA_GRAPHQL_ENABLE_REMOTE_SCHEMA_PERMISSIONS=true
 COPY ./migrations /hasura-migrations
 COPY ./metadata /hasura-metadata
 
