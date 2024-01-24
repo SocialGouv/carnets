@@ -20,7 +20,7 @@ const getTeams = cache(async () => {
       },
     ],
   } = (await fetcher({ query: getTeamsQuery })) as Teams;
-  console.log("===> getTeamPosts:", teams && teams.length);
+
   return teams;
 });
 

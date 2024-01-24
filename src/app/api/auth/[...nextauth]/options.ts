@@ -13,14 +13,11 @@ import {
 } from "@/utils/env";
 import { OAuthUserConfig } from "next-auth/providers/oauth";
 
-console.log("NEXTAUTH_URL", NEXTAUTH_URL);
-
 export interface GithubUser extends User {
   teams: string[];
 }
 
 const getUserTeams = async (login: string) => {
-  console.log("===> getUserTeams:", login);
   const {
     organization: {
       teams: { nodes: teams },
@@ -60,7 +57,7 @@ const githubProviderConfig = {
   },
 } as OAuthUserConfig<GithubProfile>;
 
-// console.log("githubProviderConfig", githubProviderConfig);
+console.log("githubProviderConfig", githubProviderConfig);
 
 const authOptions: NextAuthOptions = {
   secret: NEXTAUTH_SECRET,

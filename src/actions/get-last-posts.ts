@@ -9,8 +9,6 @@ const getLastPosts = cache(async () => {
   const teams = await getTeams();
   const slugs = teams?.map(({ slug }: { slug: string }) => slug);
 
-  console.log("===> getLastPost:", slugs);
-
   const { posts } = (await fetcher({
     query: getLastPostsQuery,
     parameters: { slugs },

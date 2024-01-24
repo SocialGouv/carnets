@@ -23,13 +23,15 @@
 }
 
 article.post {
-  /* dark:shadow-black */
   @apply shadow p-3 flex flex-col gap-y-3 rounded-sm;
-  border: 1px solid var(--border-default-grey);
+  @apply border border-gray-200;
+  @apply bg-gray-50;
 }
 
 article.post .header {
-  @apply flex items-center gap-3;
+  @apply flex items-center gap-3 min-h-[68px];
+  @apply border-b border-b-gray-200;
+  @apply pb-3;
 }
 
 article.post .header .text {
@@ -37,11 +39,13 @@ article.post .header .text {
 }
 
 article.post .kpis {
-  @apply flex divide-x my-3;
+  @apply flex divide-x mb-4 mt-2 py-2;
+  @apply bg-white;
+  @apply border border-gray-200;
 }
 
 article.post .kpis .kpi {
-  @apply flex-1 flex flex-col overflow-hidden px-3;
+  @apply flex-1 flex flex-col overflow-hidden pl-3 pr-3;
 }
 
 article.post .kpis .kpi .value {
@@ -54,43 +58,56 @@ article.post .kpis .kpi .name {
 
 article.post .tab-panel {
   @apply flex flex-col flex-1;
-  border: 1px solid var(--border-default-grey);
 }
 
 article.post .tab-panel .tabs {
   @apply flex;
-  background-color: var(--background-default-grey-active);
 }
 
 article.post .tab-panel .tabs .tab {
   @apply flex flex-1 text-center;
-  border-bottom: 1px solid var(--border-default-grey);
+  @apply relative top-px;
+  @apply border;
+  @apply rounded-t-sm;
+  @apply border-gray-50 border-b-gray-200;
+  @apply hover:border-gray-100 hover:border-b-gray-200;
 }
 
 article.post .tab-panel .tabs .tab.selected {
-  border-bottom: 1px solid var(--border-active-blue-france);
+  @apply bg-white;
+  @apply border-gray-200 border-b-white;
 }
 
 article.post .tab-panel .tabs .tab button {
-  @apply flex-1 text-center block;
+  @apply flex-1 text-center block hover:bg-gray-100;
+}
+
+article.post .tab-panel .tabs .tab.selected button {
+  @apply hover:bg-white;
 }
 
 article.post .tab-panel .panels {
-  @apply flex-1 p-3;
+  @apply flex-1 flex flex-col;
+  @apply border border-gray-200;
 }
 
 article.post .tab-panel .panels .panel {
-  @apply hidden max-h-64 h-64 overflow-auto;
+  @apply flex-1 hidden min-h-[180px] overflow-auto;
 }
 
 article.post .tab-panel .panels .panel.selected {
-  @apply block;
+  @apply block max-h-40;
 }
 
 article.post .info {
-  @apply text-sm;
+  @apply text-sm text-right;
 }
 
 article.post .actions {
   @apply flex justify-center gap-x-3;
+}
+
+.markdown-body {
+  @apply bg-white p-3;
+  color: var(--text-default-grey);
 }

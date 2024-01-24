@@ -6,6 +6,10 @@ ul {
   list-style: disc;
 }
 
+.fr-sidemenu--sticky .fr-sidemenu__inner {
+  @apply pt-12 pb-6;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

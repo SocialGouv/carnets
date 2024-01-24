@@ -44,7 +44,7 @@ const Post = ({
       <div className="text">{data.team?.name}</div>
       <Mood mood={data.mood} />
     </div>
-    <KPIs kpis={data.kpis || []}></KPIs>
+    <KPIs kpis={data.kpis?.slice(0, 3) || []}></KPIs>
     <TabPanel>
       <Tabs>
         <Tab disabled={!data.priorities.length}>Priorités</Tab>

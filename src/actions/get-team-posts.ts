@@ -5,7 +5,6 @@ import { getTeamPosts as getTeamPostsQuery } from "@/queries/index";
 type Data = Record<"posts", []>;
 
 const getTeamPosts = cache(async (slug: string) => {
-  console.log("===> getTeamPosts:", slug);
   const { posts } = (await fetcher({
     query: getTeamPostsQuery,
     parameters: { slug },
