@@ -3,11 +3,9 @@ import { format } from "date-fns";
 import { Table } from "@codegouvfr/react-dsfr/Table";
 import type { TeamsStatus } from "@/actions/get-stats";
 
-export default async function Statuses({
-  statuses,
-}: {
-  statuses: TeamsStatus[];
-}) {
+export default function Statuses({ statuses }: { statuses?: TeamsStatus[] }) {
+  console.log("statuses", statuses?.length);
+
   const headers = [
     "Produit",
     "État d'esprit",
@@ -15,7 +13,7 @@ export default async function Statuses({
     "Nombre de KPIs",
   ];
 
-  const data = statuses.map(({ kpis_count, last_post, mood, team_slug }) => [
+  const data = statuses?.map(({ kpis_count, last_post, mood, team_slug }) => [
     team_slug,
     mood,
     format(new Date(last_post), "dd-MM-yyyy"),

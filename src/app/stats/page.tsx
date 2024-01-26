@@ -4,6 +4,7 @@ import Statuses from "@/components/statuses";
 
 export default async function Page() {
   const { posts_stat, teams_status } = await getStats();
+  console.log("posts_stat, teams_status", posts_stat);
 
   return (
     <main>
