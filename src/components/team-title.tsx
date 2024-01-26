@@ -13,8 +13,8 @@ export default function TeamTitle({
   return (
     <div className="team-title">
       <Image
-        width={128}
-        height={128}
+        width={200}
+        height={200}
         alt="Picture of the team"
         src={team?.avatarUrl || ""}
       />

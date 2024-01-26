@@ -1,9 +1,10 @@
 .team-title {
-  @apply flex gap-x-3;
+  @apply flex gap-x-3 mt-10;
+  /* @apply bg-pink-200; */
 }
 
 .team-title .name-description {
-  @apply flex-1 flex flex-col justify-center;
+  @apply flex-1 flex flex-col justify-center py-6;
 }
 
 .team-title .name-description h2 {
