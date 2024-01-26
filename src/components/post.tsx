@@ -22,7 +22,7 @@ export interface Post {
   priorities: string;
 }
 
-const Post = ({
+export default function Post({
   data,
   editable,
   handlePostDeletion,
@@ -30,70 +30,70 @@ const Post = ({
   data: Post;
   editable: boolean;
   handlePostDeletion: () => void;
-}) => (
-  <article className="post">
-    <div className="header">
-      <div className="avatar">
-        <Image
-          width={48}
-          height={48}
-          alt="Picture of the team"
-          src={data.team?.avatarUrl || ""}
-        />
+}) {
+  return (
+    <article className="post">
+      <div className="header">
+        <div className="avatar">
+          <Image
+            width={48}
+            height={48}
+            alt="Picture of the team"
+            src={data.team?.avatarUrl || ""}
+          />
+        </div>
+        <div className="text">{data.team?.name}</div>
+        <Mood mood={data.mood} />
       </div>
-      <div className="text">{data.team?.name}</div>
-      <Mood mood={data.mood} />
-    </div>
-    <KPIs kpis={data.kpis?.slice(0, 3) || []}></KPIs>
-    <TabPanel>
-      <Tabs>
-        <Tab disabled={!data.priorities.length}>Priorités</Tab>
-        <Tab disabled={!data.needs.length}>Besoins</Tab>
-        <Tab disabled={!data.term.length}>Échéances</Tab>
-      </Tabs>
-      <Panels>
-        <div className="markdown-body">
-          <Markdown remarkPlugins={[remarkGfm]}>{data.priorities}</Markdown>
+      <KPIs kpis={data.kpis?.slice(0, 3) || []}></KPIs>
+      <TabPanel>
+        <Tabs>
+          <Tab disabled={!data.priorities.length}>Priorités</Tab>
+          <Tab disabled={!data.needs.length}>Besoins</Tab>
+          <Tab disabled={!data.term.length}>Échéances</Tab>
+        </Tabs>
+        <Panels>
+          <div className="markdown-body">
+            <Markdown remarkPlugins={[remarkGfm]}>{data.priorities}</Markdown>
+          </div>
+          <div className="markdown-body">
+            <Markdown remarkPlugins={[remarkGfm]}>{data.needs}</Markdown>
+          </div>
+          <div className="markdown-body">
+            <Markdown remarkPlugins={[remarkGfm]}>{data.term}</Markdown>
+          </div>
+        </Panels>
+      </TabPanel>
+      {editable && (
+        <div className="actions divide-x">
+          <Button
+            priority="tertiary no outline"
+            iconId="ri-edit-fill"
+            linkProps={{ href: `/team/${data.team_slug}/post/${data.id}` }}
+          >
+            Editer
+          </Button>
+          <Button
+            priority="tertiary no outline"
+            iconId="ri-delete-bin-7-fill"
+            onClick={handlePostDeletion}
+          >
+            Supprimer
+          </Button>
         </div>
-        <div className="markdown-body">
-          <Markdown remarkPlugins={[remarkGfm]}>{data.needs}</Markdown>
-        </div>
-        <div className="markdown-body">
-          <Markdown remarkPlugins={[remarkGfm]}>{data.term}</Markdown>
-        </div>
-      </Panels>
-    </TabPanel>
-    {editable && (
-      <div className="actions divide-x">
-        <Button
-          priority="tertiary no outline"
-          iconId="ri-edit-fill"
-          linkProps={{ href: `/team/${data.team_slug}/post/${data.id}` }}
+      )}
+      <div className="info">
+        Publié le{" "}
+        {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
+        par&nbsp;
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={`https://github.com/${data.author}`}
         >
-          Editer
-        </Button>
-        <Button
-          priority="tertiary no outline"
-          iconId="ri-delete-bin-7-fill"
-          onClick={handlePostDeletion}
-        >
-          Supprimer
-        </Button>
+          {data.author}
+        </a>
       </div>
-    )}
-    <div className="info">
-      Publié le{" "}
-      {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
-      par&nbsp;
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href={`https://github.com/${data.author}`}
-      >
-        {data.author}
-      </a>
-    </div>
-  </article>
-);
-
-export default Post;
+    </article>
+  );
+}

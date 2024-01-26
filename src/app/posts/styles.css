@@ -1,6 +1,5 @@
 .team-title {
-  @apply flex gap-x-3 mt-10;
-  /* @apply bg-pink-200; */
+  @apply flex gap-x-6 mt-10;
 }
 
 .team-title .name-description {
@@ -97,7 +96,7 @@ article.post .tab-panel .panels .panel {
 }
 
 article.post .tab-panel .panels .panel.selected {
-  @apply block max-h-40;
+  @apply flex flex-col max-h-40;
 }
 
 article.post .info {
@@ -109,6 +108,6 @@ article.post .actions {
 }
 
 .markdown-body {
-  @apply bg-white p-3;
+  @apply flex-1 bg-white p-3;
   color: var(--text-default-grey);
 }
