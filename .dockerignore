@@ -21,3 +21,5 @@ sonar-project.properties
 .gitignore
 README.md
 docker-compose.yml
+vitest.config.ts
+vitest.steup.ts

@@ -9,7 +9,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "lint": "next lint",
-    "test": "vitest",
+    "test": "vitest run --coverage",
     "predev": "only-include-used-icons",
     "prebuild": "only-include-used-icons",
     "start": "node --stack-size=2000 ./node_modules/.bin/next start",
