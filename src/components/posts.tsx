@@ -1,6 +1,5 @@
 import Post from "@/components/post";
 import fetcher from "@/utils/graphql-fetcher";
-// import getLastPosts from "@/actions/get-last-posts";
 import { deletePost as deletePostQuery } from "@/queries";
 
 const deletePost = async (id?: string) => {
