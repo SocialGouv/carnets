@@ -1,0 +1,225 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Page 1`] = `
+<div>
+  <aside
+    class="flex-initial w-80"
+  >
+    <div />
+  </aside>
+  <main
+    class="flex-1 flex flex-col gap-y-6"
+  >
+    <div
+      class="team-title"
+    >
+      <img
+        alt="Picture of the team"
+        data-nimg="1"
+        decoding="async"
+        height="200"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Favatar.domifa.com&w=640&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Favatar.domifa.com&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Favatar.domifa.com&w=640&q=75 2x"
+        style="color: transparent;"
+        width="200"
+      />
+      <div
+        class="name-description"
+      >
+        <h2>
+          domifa
+        </h2>
+        <div />
+        <div
+          class="members"
+        >
+          <img
+            alt="avatar de Bob"
+            class="rounded-full"
+            data-nimg="1"
+            decoding="async"
+            height="42"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2F%2Favatar.bob.com&w=96&q=75"
+            srcset="/_next/image?url=https%3A%2F%2F%2Favatar.bob.com&w=48&q=75 1x, /_next/image?url=https%3A%2F%2F%2Favatar.bob.com&w=96&q=75 2x"
+            style="color: transparent;"
+            title="Bob"
+            width="42"
+          />
+        </div>
+      </div>
+    </div>
+    <section
+      class="posts"
+    >
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3729659%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3729659%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3729659%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            SRE
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              46%
+            </div>
+            <div
+              class="name"
+            >
+              Migration OVH
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r0:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r2:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <h2>
+                  WIP
+                </h2>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Migrations OVH en cours (46%) et progressivement dans les semaines à venir
+                  </li>
+                  
+
+                </ul>
+                
+
+                <h2>
+                  Nouveaux services
+                </h2>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    BitWarden (gestion mots de passe équipes)
+                  </li>
+                  
+
+                  <li>
+                    Service d'antivirus pour les produits
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/revolunet"
+            rel="noreferrer"
+            target="_blank"
+          >
+            revolunet
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+`;

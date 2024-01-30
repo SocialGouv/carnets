@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Page 1`] = `
+<div>
+  HOME
+  <a
+    class="fr-btn fr-btn--secondary"
+    href="/posts"
+    id="fr-button-:r0:"
+  >
+    Go to POSTS !
+  </a>
+</div>
+`;
