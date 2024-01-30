@@ -1,11 +1,10 @@
-import { vi } from "vitest";
-import { expect, test } from "vitest";
+import { vi, expect, test } from "vitest";
 import { render } from "@testing-library/react";
 import Page from "../src/app/stats/page";
 
 vi.mock("@/actions/get-stats", async (importOriginal) => {
   const actual = await importOriginal();
-  console.log("actual", actual);
+
   return {
     ...actual,
     default: () => ({

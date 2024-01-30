@@ -1,0 +1,4927 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Page 1`] = `
+<div>
+  <aside
+    class="flex-initial w-80"
+  >
+    <div />
+  </aside>
+  <main
+    class="flex-1 py-12 "
+  >
+    <section
+      class="posts"
+    >
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F6836895%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F6836895%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F6836895%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Appel à idées Fabrique Numérique
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              10 semaines
+            </div>
+            <div
+              class="name"
+            >
+              d'investigation
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              27
+            </div>
+            <div
+              class="name"
+            >
+              interviews
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r0:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r2:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Investigation aura permis de :
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    cerner les problèmes
+                  </li>
+                  
+
+                  <li>
+                    invalider les principales hypothèses de départ et donc de pivoter en ce sens
+                  </li>
+                  
+
+                  <li>
+                    mettre en évidence qu’un dispositif numérique en l'état n'est pas soutenable au problème
+                  </li>
+                  
+
+                  <li>
+                    orienter sur des recommandations organisationnelles
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Présentation de la synthèse le 15/12
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/Liliginot"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Liliginot
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3215170%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3215170%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3215170%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Archifiltre
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              2 536 ouvertures (18 pays)
+            </div>
+            <div
+              class="name"
+            >
+              Docs - ouverture app 
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              108 To
+            </div>
+            <div
+              class="name"
+            >
+              Docs - Volume analysé 
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              105 ouvertures
+            </div>
+            <div
+              class="name"
+            >
+              Mails - Ouverture app 
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r3:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r4:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r5:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  *
+                  <em>
+                    KPIs sont sur le mois de novembre
+                  </em>
+                </p>
+                
+
+                <hr />
+                
+
+                <ul>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Etat des lieux besoins sur les profils Archivisites (questionnaire auprès de tous les archivistes de l'administration publique)
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Etat des lieux tech pour débloquer les sujets de déploiement et évaluer les besoins de refacto
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Discovery besoins profils SysAdmin (gestion des espaces de stockage, réduction coût et stockage, potentiel réduction CO2)
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Mise en place nouvelle orga d'équipe
+                    </p>
+                    
+
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Arrivée de Timothée (dév) dans l'équipe début décembre 🎉
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      COPIL sponsors 15 janvier -&gt; Vision, roadmap et budget 2024
+                    </p>
+                    
+
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/sam-pires"
+            rel="noreferrer"
+            target="_blank"
+          >
+            sam-pires
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7335064%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7335064%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7335064%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            BPCO Mieux
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              +40% des patients 
+            </div>
+            <div
+              class="name"
+            >
+              suivent les préco
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              + 45% des patients 
+            </div>
+            <div
+              class="name"
+            >
+              ne sont pas suivis pas un pneumologue
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r6:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r7:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r8:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Poursuite de l'expérimentation du dispositif numérique dans un parcours de soins et de suivi avec le CH de Melun.
+                </p>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      15/12 Démonstration de l'app à équipe projet Télémédical au CH de Bligny (91) qui travaille sur un dispositif d’une consultation semi-urgente BPCO
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      18/12 Présentation de l'app. aux adhérents de l'Association Respir'AIr au sein de l'UTEP de Melun
+                    </p>
+                    
+
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/Liliginot"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Liliginot
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4845895%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4845895%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4845895%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Carnet de bord
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              63
+            </div>
+            <div
+              class="name"
+            >
+              Bénéficiaires
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              2
+            </div>
+            <div
+              class="name"
+            >
+              Départements
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              80
+            </div>
+            <div
+              class="name"
+            >
+              Accompagnateurs
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r9:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:ra:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:rb:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Entrée du 93
+                  </li>
+                  
+
+                  <li>
+                    Amélioration UX des Formulaires
+                  </li>
+                  
+
+                  <li>
+                    Entretien Usager
+                  </li>
+                  
+
+                  <li>
+                    Rencontre des CD
+                  </li>
+                  
+
+                  <li>
+                    Maj AIDP
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Exemple convention échange de donnée PE
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Recrutement DEV
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          07/12/2021
+           
+          par 
+          <a
+            href="https://github.com/lkouad"
+            rel="noreferrer"
+            target="_blank"
+          >
+            lkouad
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7496604%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7496604%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7496604%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Causes médicales de décès
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              10
+            </div>
+            <div
+              class="name"
+            >
+              Nombre d'utilisateurs
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:rc:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rd:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:re:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Finaliser le MVP d'ici fin juin : qques retours utilisateurs et nouvelles fonctionnalités
+                  </li>
+                  
+
+                  <li>
+                    Initier passation tech (dev et data)
+                  </li>
+                  
+
+                  <li>
+                    Finaliser contenus : juridique et onboarding
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    COPIL 20 juin
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          06/06/2023
+           
+          par 
+          <a
+            href="https://github.com/MathildeBras"
+            rel="noreferrer"
+            target="_blank"
+          >
+            MathildeBras
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F2741090%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F2741090%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F2741090%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Code du travail
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              1,8 M
+            </div>
+            <div
+              class="name"
+            >
+              visites octobre
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              64,5 %
+            </div>
+            <div
+              class="name"
+            >
+              taux de personnalisation
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              42%
+            </div>
+            <div
+              class="name"
+            >
+              taux de rebond
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:rf:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rg:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rh:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <h3>
+                  Objectifs fin d'année
+                </h3>
+                
+
+                <p>
+                  <strong>
+                    1) Fournir une réponse unique à l'usager dans les pages personnalisables
+                  </strong>
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Produit : tests utilisateurs sur le nouveau parcours imaginé + mise en prod du new parcours sur 2 pages
+                    </p>
+                    
+
+                    <ul>
+                      
+
+                      <li>
+                        (+) 20% de sélection de CC
+                      </li>
+                      
+
+                      <li>
+                        (+) 2% d'affichage de réponse
+                      </li>
+                      
+
+                      <li>
+                        un changement SEO à suivre avant dla bascule totale
+                      </li>
+                      
+
+                    </ul>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Technique : gestion de l'affichage d'anciennes données dans le nouveau format (77 CC méta) et de nouvelles données dans l'ancien format (nouvelle CC méta)
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Métier : poursuite de la réécriture et validation  de toutes les réponses conventionnelles afin d'intégrer ce que prévoit le code du traavil
+                    </p>
+                    
+
+                  </li>
+                  
+
+                </ul>
+                
+
+                <p>
+                  <strong>
+                    2) Traiter la nouvelle CC de la métallurgie issue de la fusion de 75 CC
+                  </strong>
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    écriture des réponses de cette CC pour les 42 Q°
+                  </li>
+                  
+
+                  <li>
+                    préparation de rédirections, messages pour les usagers etc.
+                  </li>
+                  
+
+                  <li>
+                    MEP la semaine prochaine
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/romain-b13"
+            rel="noreferrer"
+            target="_blank"
+          >
+            romain-b13
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3169896%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3169896%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3169896%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            DomiFa
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              398 308
+            </div>
+            <div
+              class="name"
+            >
+              Demandes de domiciliations
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              236 927
+            </div>
+            <div
+              class="name"
+            >
+              Dossiers actifs
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              1 184
+            </div>
+            <div
+              class="name"
+            >
+              Structure
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:ri:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rj:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rk:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Produit :
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    CoPil 24/10/23 : Validation du budget 2024 et discussion d'un éventuel complément FAST/FTAP
+                  </li>
+                  
+
+                  <li>
+                    Roadmap 2024
+                  </li>
+                  
+
+                  <li>
+                    Ambition DGCS de généraliser l'outil dès 2025
+                  </li>
+                  
+
+                  <li>
+                    Atelier DGCS pour création d'un tableau de bord sur mesure
+                  </li>
+                  
+
+                  <li>
+                    Lancement de notre première enquête de satisfaction domiciliés
+                  </li>
+                  
+
+                </ul>
+                
+
+                <p>
+                  Dev :
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Basculement sur Teleport
+                  </li>
+                  
+
+                  <li>
+                    Refonte des historiques domiciliés et ajout de paginations
+                  </li>
+                  
+
+                </ul>
+                
+
+                <p>
+                  Déploiement :
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Travaux d'accompagnement pour l'intégration de la Croix Rouge Toulouse (6000 actifs soit 3ème plus grande structure)
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/11/2023
+           
+          par 
+          <a
+            href="https://github.com/Chirazh"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Chirazh
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4921749%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4921749%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4921749%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Dora
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              22
+            </div>
+            <div
+              class="name"
+            >
+              Structures inscrites /7jours
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              30
+            </div>
+            <div
+              class="name"
+            >
+              Services publiés /7jours
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              10
+            </div>
+            <div
+              class="name"
+            >
+              Suggestions de services /7jours
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:rl:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rm:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:rn:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Duplication de services
+                  </li>
+                  
+
+                  <li>
+                    Début des travaux sur la refonte du formulaire de contribution et de la saisie des services
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Point avec Mob'in pour point sur le déploiement et identifier les freins
+                  </li>
+                  
+
+                  <li>
+                    Mise en place chat et documentation
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          26/04/2022
+           
+          par 
+          <a
+            href="https://github.com/Agathe-SW"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Agathe-SW
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3198250%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3198250%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3198250%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            EgaPro
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              29 713
+            </div>
+            <div
+              class="name"
+            >
+              déclarations index 2023
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              88/100
+            </div>
+            <div
+              class="name"
+            >
+              index moyen 2023
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:ro:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rp:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rq:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  En cours/Fait :
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Derniers travaux de la migration/refonte/passage en DSFR d'Egapro
+                  </li>
+                  
+
+                  <li>
+                    Nouvelles fonctionnalités : Espace entreprise / backoffice staff
+                  </li>
+                  
+
+                  <li>
+                    Mise en place d'une solution d'authentification : MonComptePro
+                  </li>
+                  
+
+                </ul>
+                
+
+                <p>
+                  A venir :
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Tests et mise en production
+                  </li>
+                  
+
+                  <li>
+                    Mise en place d'une API permettant aux entreprises d'envoyer leur déclaration de façon automatique
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          04/10/2023
+           
+          par 
+          <a
+            href="https://github.com/vicmartinezp"
+            rel="noreferrer"
+            target="_blank"
+          >
+            vicmartinezp
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F2670245%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F2670245%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F2670245%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            eMJPM
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              7
+            </div>
+            <div
+              class="name"
+            >
+              Inscriptions/semaine
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              3120
+            </div>
+            <div
+              class="name"
+            >
+              Utilisateurs
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              400
+            </div>
+            <div
+              class="name"
+            >
+              Mesures réservées au cours des 30 derniers jours
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:rr:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rs:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rt:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Passation Support par Victoria
+Passation Projet par Céline
+                </p>
+                
+
+                <p>
+                  Premier appel à innovateur de la justice 17/05 -&gt; Victoria y fera une présentation à 16h
+                </p>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          17/05/2022
+           
+          par 
+          <a
+            href="https://github.com/celinelr"
+            rel="noreferrer"
+            target="_blank"
+          >
+            celinelr
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5083746%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5083746%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5083746%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Enfants du spectacle
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              &gt;99%
+            </div>
+            <div
+              class="name"
+            >
+              Part de dossier traité via la plateforme
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:ru:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:rv:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r10:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Correctifs pour corriger certains bugs détectés sur l'été
+                  </li>
+                  
+
+                  <li>
+                    Réception des livrables pentest et organisation des ateliers EBIOS
+                  </li>
+                  
+
+                  <li>
+                    Passation support niveau 1 avec la DRIEETS
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Copil 27/09
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          05/09/2023
+           
+          par 
+          <a
+            href="https://github.com/romainbenjamin"
+            rel="noreferrer"
+            target="_blank"
+          >
+            romainbenjamin
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3697927%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3697927%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3697927%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Fabrique
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              80%
+            </div>
+            <div
+              class="name"
+            >
+              Conso moyenne crédit Azure cette semaine
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r11:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r12:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r13:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Optimisation des performances sur la plateforme de monitoring sur la nouvelle plateforme
+                </p>
+                
+
+                <p>
+                  Lancement d'un POC sur Vault. Pour une facilitation de la gestion des secrets
+                </p>
+                
+
+                <p>
+                  Homologation de la plateforme
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Traitement des vulnérabilités remontées par le test d'intrusion
+                  </li>
+                  
+
+                </ul>
+                
+
+                <p>
+                  Les traditionnelles mises à jours des composants techniques qui constituent la plateforme
+                </p>
+                
+
+                <p>
+                  sujets OPS / SRE
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Tests d'une solution d'antivirus pour scanner les documents lors de l'upload
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Retours positif suite à la présentation de la plateforme à l'équipe du HFDS des Ministères sociaux
+                </p>
+                
+
+                <p>
+                  Commission d'homologation de la Plateforme le 24 novembre
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/11/2023
+           
+          par 
+          <a
+            href="https://github.com/igorrenquin"
+            rel="noreferrer"
+            target="_blank"
+          >
+            igorrenquin
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3173395%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3173395%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3173395%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            FCE
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              +750
+            </div>
+            <div
+              class="name"
+            >
+              Nombre d'utilisateurs unique actif /mois
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r14:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r15:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r16:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Passation à PSN. C'est donc le dernier Stand-up pour FCE qui sort de la fabrique mais qui va continuer son aventure plus proche du Data Hub de la DNUM.
+Merci à tous.
+Le mot de la fin ? "Beau produit. Belle aventure. Bonne journée."
+                </p>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          05/05/2022
+           
+          par 
+          <a
+            href="https://github.com/oscarlefebvre"
+            rel="noreferrer"
+            target="_blank"
+          >
+            oscarlefebvre
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4094168%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4094168%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4094168%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            JardinMental
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              8025
+            </div>
+            <div
+              class="name"
+            >
+              Engagés
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r17:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r18:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r19:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  _ Recherche de financements : rencontre avec l'Oeuvre Falret
+                </p>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          07/03/2023
+           
+          par 
+          <a
+            href="https://github.com/Antoine2Zel"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Antoine2Zel
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F6648581%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F6648581%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F6648581%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Maison de l'Autisme
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              2110
+            </div>
+            <div
+              class="name"
+            >
+              Visiteurs engagés
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1a:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1b:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1c:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Actualités :
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Mise en place d’un point hebdomadaire de partage DIA et Fabrique, un point d’avancement pour travailler ensemble sur les points en cours et à venir.
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Revue de la comitologie du projet : un comité de projet une fois tous les mois au lieu de deux fois par mois, suspension des prochains Copil restreint en attente de la nomination d’un nouveau délégué interministériel et suspension des prochains Copil élargis,  vue l’actualité des sujets en cours.
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Publication sur le site MA des événements organisés par la maison physique de l’autisme : projection d’un film dédié au sujet, dédicace de livre, série de conférences
+                    </p>
+                    
+
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Traiter les demandes DIA en cours
+                  </li>
+                  
+
+                  <li>
+                    Travailler sur le bizdev (liste des organismes privilégiés par la DIA pour faire connaître le site)
+                  </li>
+                  
+
+                  <li>
+                    Améliorer le SEO
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  14/06 : Suite Audit éditorial avec Santé.fr
+19/06 : Démo MDPH Creuse
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          30/05/2023
+           
+          par 
+          <a
+            href="https://github.com/MonsifFakhir"
+            rel="noreferrer"
+            target="_blank"
+          >
+            MonsifFakhir
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4076594%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4076594%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4076594%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            MANO
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              269
+            </div>
+            <div
+              class="name"
+            >
+              Nbr d'organisations
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              158 000
+            </div>
+            <div
+              class="name"
+            >
+              Nbr de personnes suivies
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              2400
+            </div>
+            <div
+              class="name"
+            >
+              Nbr de professionnels utilisateurs
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1d:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1e:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1f:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      FAST !
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Revue de notre process de déploiement
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Travaux d'autonomisation avec Sesan
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Recherche de sponsor dans le champ social
+                    </p>
+                    
+
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Le nouveau stand up ;)
+                </p>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          04/10/2023
+           
+          par 
+          <a
+            href="https://github.com/Guillaumedemirhan"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Guillaumedemirhan
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5433683%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5433683%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5433683%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            MonPsy
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              2615
+            </div>
+            <div
+              class="name"
+            >
+              Candidatures Psy
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              2052 / 4000
+            </div>
+            <div
+              class="name"
+            >
+              Psy partenaires
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              52 186 / 60 000
+            </div>
+            <div
+              class="name"
+            >
+              Patients suivis au 31/10
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1g:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1h:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1i:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      MonPsy devient MonParcoursPsy
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Organisation du changement de nom : répercussion sur le site, la démarche DS, les supports de communication, de conventionnement, etc
+                    </p>
+                    
+
+                  </li>
+                  
+
+                  <li>
+                    
+
+                    <p>
+                      Intégration d'un encart réciproque MonPsy / Santé PsyEtudiants sur nos sites respectifs
+                    </p>
+                    
+
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Départ d'Audrey et laëtitia à fin novembre
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          28/11/2022
+           
+          par 
+          <a
+            href="https://github.com/laetitiaGabreau"
+            rel="noreferrer"
+            target="_blank"
+          >
+            laetitiaGabreau
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7373608%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7373608%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7373608%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            NATA
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              + 50 
+            </div>
+            <div
+              class="name"
+            >
+              interviews réalisés
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              8
+            </div>
+            <div
+              class="name"
+            >
+              structures rencontrées
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1j:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1k:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1l:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Poursuite de l'expérimentation sur l'élargissement de la cible
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    1ère étape de l'expérimenation en cours de finalisation
+                  </li>
+                  
+
+                  <li>
+                    2ème étape sur les appels sortants est lancée
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Fin de semaine prochaine : envoi d'une 1ère analyse à mi-parcours
+                  </li>
+                  
+
+                  <li>
+                    Fin janvier : synthèse finale pour statuer sur les # formes de suite du projet
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/Liliginot"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Liliginot
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4506193%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4506193%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4506193%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            nos1000jours
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              jusqu'à la fin de l'année
+            </div>
+            <div
+              class="name"
+            >
+              MCO
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1m:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1n:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1o:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  👋
+                </p>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          30/05/2023
+           
+          par 
+          <a
+            href="https://github.com/Eric-Hei"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Eric-Hei
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3642248%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3642248%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3642248%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            OPS
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              2/4
+            </div>
+            <div
+              class="name"
+            >
+              migration d'outils infra restant
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1p:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1q:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1r:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Mise en place de service de stockage spécifique et résilient pour les startups sur OVH
+(service clé en main sur Azure mais absent sur OVH)
+                  </li>
+                  
+
+                  <li>
+                    Migration du socle Rancher vers OVH
+                  </li>
+                  
+
+                  <li>
+                    Migration du socle ArgoCD vers OVH
+                  </li>
+                  
+
+                  <li>
+                    Support dans la migration des SE vers OVH
+                  </li>
+                  
+
+                  <li>
+                    Vault gestionnaire et provisionnement de secret dynamique avec rotation, et gestion des droits
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <h3>
+                  Homologation Le référentiel général de sécurité (RGS)
+                </h3>
+                
+
+                <p>
+                  Migration Rancher & ArgoCD prévu la semaine du 25 décembre
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/octomir"
+            rel="noreferrer"
+            target="_blank"
+          >
+            octomir
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3734677%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3734677%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3734677%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Oz ensemble
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              820 engagés 
+            </div>
+            <div
+              class="name"
+            >
+              Nov23
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              1400 DAU 
+            </div>
+            <div
+              class="name"
+            >
+               daily user actif 
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1s:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1t:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r1u:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  🔹 datas → sur les 3 derniers mois : belle progression de l’acquisition et de l’engagement (+20% engagés Nov vs Sep)
+                </p>
+                
+
+                <p>
+                  → on vise 1400 engagés objectif Mars24
+                </p>
+                
+
+                <p>
+                  → taux de rétention entre 15 et 25% : on essaie de se maintenir autour des 20%
+                </p>
+                
+
+                <p>
+                  📱Produit → nouvelle release hier avec la possibilité de noter et d’ajouter un contexte à ses consos ! Feature demandée depuis un moment. On prépare l’arrivée de nouveaux badges + compteur d’abstinence
+                </p>
+                
+
+                <p>
+                  📣 Acquisition → doubler communauté insta + affiches bar + interview utilisateurs + forum santé et prévention à Orléans + organismes de la médecine du travail + préparer Dry January : suivez-nous !
+                </p>
+                
+
+                <p>
+                  → Venez participer à l’atelier acquisition Oz cet après-midi pr nous donner vos meilleures idées 🎉
+                </p>
+                
+
+                <p>
+                  🔸 Article 51 → on continue !! préparation déploiement national + recherche de financements pour continuer l'aventure
+                </p>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/aurelien-brt"
+            rel="noreferrer"
+            target="_blank"
+          >
+            aurelien-brt
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4991039%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4991039%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4991039%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Pass-Emploi
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              55 000
+            </div>
+            <div
+              class="name"
+            >
+              utilisateurs uniques
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r1v:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r20:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r21:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    1,5 an qu’on est en prod
+                  </li>
+                  
+
+                  <li>
+                    Produit App CEJest généralisé sur l’ensemble du territoire
+                  </li>
+                  
+
+                  <li>
+                    Produit Pass Emploi pour BRSA en expérimentation sur 7 territoires
+                  </li>
+                  
+
+                  <li>
+                    Nous avons un nouveau PM : notre intrapreneuse
+                  </li>
+                  
+
+                  <li>
+                    Dernière campagne de satisfaction auprès des jeunes : 90% de taux de satsfication
+Celle des conseillers est en cours
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  On a fait un déploiement à destination des early adopters sur l’app CEJ pour accroitre notre parteneriat avec les MLs et la semaine prochaine on généralise le déploiement (formations etc.)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          04/10/2023
+           
+          par 
+          <a
+            href="https://github.com/revolunet"
+            rel="noreferrer"
+            target="_blank"
+          >
+            revolunet
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7413955%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7413955%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F7413955%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            recosante
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              -4,8%
+            </div>
+            <div
+              class="name"
+            >
+              Visite sur une semaine
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r22:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r23:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r24:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Rédaction DA (on a pu le finaliser / envoyer ?) &gt; prépa reprise par SPF
+                  </li>
+                  
+
+                  <li>
+                    Dev des modifications UX (mobile)
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Point de suivi le 25.07 avec DGS et DGPR
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          25/07/2023
+           
+          par 
+          <a
+            href="https://github.com/Elnmz"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Elnmz
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4891393%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4891393%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F4891393%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            Reva
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              270 000 
+            </div>
+            <div
+              class="name"
+            >
+              Nombre de visiteurs sur la plateforme 
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              19 600
+            </div>
+            <div
+              class="name"
+            >
+              Nombre de parcours engagés 
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              49 heures
+            </div>
+            <div
+              class="name"
+            >
+              delais moyens de prise en charges des candidats
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r25:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r26:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r27:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    MEP  des derniers evolutions du portail volet certificateurs/ Architectes Accompaganteurs de Parcours/ candidats d'ici la fin de l'année
+                  </li>
+                  
+
+                  <li>
+                    MEP du centre ressources etr documenataire sur la VAE
+                  </li>
+                  
+
+                  <li>
+                    MEP du design du portail
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Depot du decret  de mise en oeuvre de la reforme et de la création
+du GIP / Service public au Conseil d'Etat. Resultat le 19 décembre
+                  </li>
+                  
+
+                  <li>
+                    Depot de l'AIPD du GIP à la CNIL ....
+                  </li>
+                  
+
+                  <li>
+                    Fin du tour de table pour les statuts du GIP et sur sa gouvernance ... Un Arreté de constitutrion du GIP devrait etre pris en Janvier....
+                  </li>
+                  
+
+                  <li>
+                    Bataille avec Bercy pour le budget sur 3 ans du GIP..
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/OliverGERARD"
+            rel="noreferrer"
+            target="_blank"
+          >
+            OliverGERARD
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3729659%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3729659%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3729659%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            SRE
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              46%
+            </div>
+            <div
+              class="name"
+            >
+              Migration OVH
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r28:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r29:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r2a:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <h2>
+                  WIP
+                </h2>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Migrations OVH en cours (46%) et progressivement dans les semaines à venir
+                  </li>
+                  
+
+                </ul>
+                
+
+                <h2>
+                  Nouveaux services
+                </h2>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    BitWarden (gestion mots de passe équipes)
+                  </li>
+                  
+
+                  <li>
+                    Service d'antivirus pour les produits
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/revolunet"
+            rel="noreferrer"
+            target="_blank"
+          >
+            revolunet
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5414604%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5414604%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F5414604%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            transition-collective
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-sun-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              0
+            </div>
+            <div
+              class="name"
+            >
+              Entretiens réalisés
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r2b:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r2c:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r2d:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    onboarding de l'équipe
+                  </li>
+                  
+
+                  <li>
+                    définir les hypothèses de l'investigation
+                  </li>
+                  
+
+                  <li>
+                    identifier les personnes à rencontrer pour l'investigation
+                  </li>
+                  
+
+                  <li>
+                    prendre des rendez-vous :-)
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  Constitution de l'équipe:
+                </p>
+                
+
+                <ul>
+                  
+
+                  <li>
+                    Stéphanie Montagnon-Lion - (DREETS Hauts de France)
+                  </li>
+                  
+
+                  <li>
+                    François Collobert (DRIEETS)
+                  </li>
+                  
+
+                  <li>
+                    Andres Bedoya (DGEFP)
+                  </li>
+                  
+
+                  <li>
+                    Liliane Martinez (DREETS Bourgogne)
+                  </li>
+                  
+
+                  <li>
+                    Louise Gouzee de Harven (DREETS PACA)
+                  </li>
+                  
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          07/12/2021
+           
+          par 
+          <a
+            href="https://github.com/tglatt"
+            rel="noreferrer"
+            target="_blank"
+          >
+            tglatt
+          </a>
+        </div>
+      </article>
+      <article
+        class="post"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="avatar"
+          >
+            <img
+              alt="Picture of the team"
+              data-nimg="1"
+              decoding="async"
+              height="48"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3443898%3Fs%3D400%26v%3D4&w=96&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3443898%3Fs%3D400%26v%3D4&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Ft%2F3443898%3Fs%3D400%26v%3D4&w=96&q=75 2x"
+              style="color: transparent;"
+              width="48"
+            />
+          </div>
+          <div
+            class="text"
+          >
+            TuMePlay
+          </div>
+          <i
+            class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
+          />
+        </div>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi"
+          >
+            <div
+              class="value"
+            >
+              KPI
+            </div>
+            <div
+              class="name"
+            >
+              En cours
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-panel"
+        >
+          <div
+            class="tabs"
+          >
+            <div
+              class="tab selected"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r2e:"
+              >
+                Priorités
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                disabled=""
+                id="fr-button-:r2f:"
+              >
+                Besoins
+              </button>
+            </div>
+            <div
+              class="tab"
+            >
+              <button
+                class="fr-btn fr-btn--tertiary-no-outline"
+                id="fr-button-:r2g:"
+              >
+                Échéances
+              </button>
+            </div>
+          </div>
+          <div
+            class="panels"
+          >
+            <div
+              class="panel selected"
+            >
+              <div
+                class="markdown-body"
+              >
+                <p>
+                  -&gt; Sorties (livrables, dépôts...) à organiser
+                </p>
+                
+
+                <p>
+                  -&gt; Expérimentation LLM souverain (Cf. Atelier)
+                </p>
+              </div>
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              />
+            </div>
+            <div
+              class="panel"
+            >
+              <div
+                class="markdown-body"
+              >
+                <ul>
+                  
+
+                  <li>
+                    Pas de réponse de la CNAM pour une reprise
+                  </li>
+                  
+
+                  <li>
+                    Programmation de la fin de l'expérimentation Tumeplay
+                  </li>
+                  
+
+                </ul>
+                
+
+                <p>
+                  -&gt; Début janvier annonce de la fin aux communautés
+                </p>
+                
+
+                <p>
+                  -&gt; Fin janvier débranchement du service
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="info"
+        >
+          Publié le
+           
+          14/12/2023
+           
+          par 
+          <a
+            href="https://github.com/lgirard"
+            rel="noreferrer"
+            target="_blank"
+          >
+            lgirard
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+`;
