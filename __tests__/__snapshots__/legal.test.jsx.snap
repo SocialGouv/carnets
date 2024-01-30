@@ -1,0 +1,102 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Page 1`] = `
+<div>
+  <main
+    class="legal"
+  >
+    <h2
+      class="fr-h2"
+    >
+      Mentions légales
+    </h2>
+    <h3
+      class="fr-h3"
+    >
+      Editeur de la plateforme
+    </h3>
+    <p
+      class="fr-text--md"
+    >
+      La Plateforme est éditée par la 
+      <a
+        href=""
+      >
+        Fabrique des Ministères
+      </a>
+       
+      sociaux située:
+    </p>
+    <address
+      class="my-6"
+    >
+      Tour Mirabeau
+      <br />
+      39-43 Quai André Citroën
+      <br />
+      75015 PARIS
+      <br />
+      Tél : 01 40 56 60 00
+    </address>
+    <h3
+      class="fr-h3"
+    >
+      Directeur de la publication
+    </h3>
+    <p
+      class="fr-text--md"
+    >
+      Anne Jeanjean - Directrice du Numérique
+    </p>
+    <h3
+      class="fr-h3"
+    >
+      Hébergement de la plateforme
+    </h3>
+    <p
+      class="fr-text--md"
+    >
+      Ce site est hébergé par 
+      <strong>
+        OVH
+      </strong>
+       (région France centre) :
+    </p>
+    <p
+      class="fr-text--md"
+    >
+      <i>
+        OVH SAS Siège social : 2 rue Kellermann - 59100 Roubaix - France.
+      </i>
+    </p>
+    <h3
+      class="fr-h3"
+    >
+      À savoir
+    </h3>
+    <p
+      class="fr-text text-justify"
+    >
+      Le site ne récolte ni ne traite aucune donnée à caractère personnel. La mesure d'audience (nombre de visites, pages consultées) est réalisée par un outil libre intitulé
+       
+      <a
+        href="https://fr.matomo.org/"
+        target="_blank"
+      >
+        Matomo
+      </a>
+       
+      spécifiquement paramétré, respectant les conditions d'exemption du consentement de l'internaute définies par la
+       
+      <a
+        href="https://www.cnil.fr/sites/cnil/files/atoms/files/recommandation-cookies-et-autres-traceurs.pdf"
+        target="_blank"
+      >
+        recommandation « Cookies »
+      </a>
+       
+      de la Commission nationale informatique et libertés (CNIL). Cela signifie, notamment, que ces cookies ne servent qu'à la production de statistiques anonymes et ne permettent pas de suivre la navigation de l'internaute sur d'autres sites.
+    </p>
+  </main>
+</div>
+`;

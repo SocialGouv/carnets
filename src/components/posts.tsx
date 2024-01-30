@@ -1,6 +1,5 @@
 import Post from "@/components/post";
 import fetcher from "@/utils/graphql-fetcher";
-import getLastPosts from "@/actions/get-last-posts";
 import { deletePost as deletePostQuery } from "@/queries";
 
 const deletePost = async (id?: string) => {
@@ -13,7 +12,7 @@ const deletePost = async (id?: string) => {
   }
 };
 
-export default async function Posts({
+export default function Posts({
   posts,
   editable = false,
 }: {
@@ -30,7 +29,7 @@ export default async function Posts({
             editable={editable}
             handlePostDeletion={async () => {
               "use server";
-              deletePost(post.id);
+              await deletePost(post.id);
             }}
           />
         ))}

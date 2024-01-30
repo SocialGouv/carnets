@@ -1,0 +1,80 @@
+name: ✅ Integration
+
+on:
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - "v*"
+
+jobs:
+  # lighthouse:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version-file: ".nvmrc"
+  #         cache: yarn
+  #     - uses: actions/cache@v3
+  #       with:
+  #         path: ${{ github.workspace }}/.next/cache
+  #         key:
+  #           ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{
+  #           hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+  #         restore-keys:
+  #           ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+  #     - name: Run Lighthouse CI
+  #       run: |
+  #         yarn
+  #         npm install -g @lhci/cli@0.12.x
+  #         yarn build
+  #         lhci autorun
+  #       env:
+  #         LHCI_GITHUB_APP_TOKEN:
+  #           ${{ secrets.SOCIALGROOVYBOT_LHCI_GITHUB_APP_TOKEN }}
+
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version-file: ".nvmrc"
+  #         cache: yarn
+  #     - name: Run lint
+  #       run: |
+  #         yarn
+  #         yarn lint
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: yarn
+      - name: Run tests
+        run: |
+          yarn
+          yarn test
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  # codeql:
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     actions: read
+  #     contents: read
+  #     security-events: write
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: github/codeql-action/init@v2
+  #       with:
+  #         languages: javascript
+  #     - uses: github/codeql-action/autobuild@v2
+  #     - uses: github/codeql-action/analyze@v2

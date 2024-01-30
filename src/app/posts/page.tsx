@@ -6,6 +6,7 @@ import getLastPosts from "@/actions/get-last-posts";
 
 export default async function Page() {
   const posts = await getLastPosts();
+
   return (
     <>
       <aside className="flex-initial w-80">
