@@ -1,5 +1,5 @@
 .team-title {
-  @apply flex gap-x-6 mt-10;
+  @apply flex flex-1 gap-x-6 mt-10;
 }
 
 .team-title .name-description {
@@ -23,15 +23,16 @@
 }
 
 article.post {
-  @apply shadow p-3 flex flex-col gap-y-3 rounded-sm;
-  @apply border border-gray-200;
   @apply bg-gray-50;
+  @apply p-3 flex flex-col gap-y-6 rounded-sm;
+  @apply dark:bg-[color:var(--background-raised-grey)];
+
+  filter: drop-shadow(var(--raised-shadow));
 }
 
 article.post .header {
-  @apply flex items-center gap-3 min-h-[68px];
-  @apply border-b border-b-gray-200;
-  @apply pb-3;
+  @apply h-14;
+  @apply flex items-center gap-3;
 }
 
 article.post .header .text {
@@ -39,9 +40,10 @@ article.post .header .text {
 }
 
 article.post .kpis {
-  @apply flex divide-x mb-4 mt-2 py-2;
-  @apply bg-white;
-  @apply border border-gray-200;
+  @apply flex divide-x py-2;
+
+  border: 1px solid var(--border-default-grey);
+  background-color: var(--background-default-grey);
 }
 
 article.post .kpis .kpi {
@@ -70,25 +72,28 @@ article.post .tab-panel .tabs .tab {
   @apply border;
   @apply rounded-t-sm;
   @apply border-gray-50 border-b-gray-200;
-  @apply hover:border-gray-100 hover:border-b-gray-200;
+  @apply dark:border-[color:var(--background-raised-grey)];
+  @apply dark:border-b-transparent;
 }
 
 article.post .tab-panel .tabs .tab.selected {
   @apply bg-white;
   @apply border-gray-200 border-b-white;
+  @apply dark:bg-[color:var(--background-default-grey)];
+  @apply dark:border-[color:var(--border-default-grey)];
+  @apply dark:border-b-[color:var(--background-default-grey)];
 }
 
 article.post .tab-panel .tabs .tab button {
-  @apply flex-1 text-center block hover:bg-gray-100;
-}
-
-article.post .tab-panel .tabs .tab.selected button {
-  @apply hover:bg-white;
+  @apply hover:bg-transparent;
+  @apply flex-1 text-center block;
 }
 
 article.post .tab-panel .panels {
   @apply flex-1 flex flex-col;
   @apply border border-gray-200;
+
+  border: 1px solid var(--border-default-grey);
 }
 
 article.post .tab-panel .panels .panel {
@@ -112,6 +117,9 @@ article.post .actions {
 }
 
 .markdown-body {
-  @apply flex-1 bg-white p-3;
+  @apply flex-1 p-3;
+  @apply bg-white;
   color: var(--text-default-grey);
+
+  background-color: var(--background-default-grey);
 }

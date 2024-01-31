@@ -40,7 +40,7 @@ const KPIsEditor = ({
               <KpisFields kpi={kpi} index={i} handleChange={handleKpiChange} />
               <Button
                 type="button"
-                iconId="ri-delete-bin-2-line"
+                iconId="fr-icon-delete-line"
                 title="Supprimer l'indicateur"
                 priority="tertiary no outline"
                 onClick={() => handleKpiDeletion(i)}

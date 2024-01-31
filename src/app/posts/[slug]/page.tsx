@@ -6,9 +6,10 @@ import { getTeamBySlug } from "@/actions/get-teams";
 import authOptions, {
   type GithubUser,
 } from "../../../app/api/auth/[...nextauth]/options";
+import { Button } from "@codegouvfr/react-dsfr/Button";
+import getTeamPosts from "@/actions/get-team-posts";
 
 import "../styles.css";
-import getTeamPosts from "@/actions/get-team-posts";
 
 export default async function Page({
   params: { slug },
@@ -27,7 +28,20 @@ export default async function Page({
         <Teams selectedTeamSlug={slug} />
       </aside>
       <main className="flex-1 flex flex-col gap-y-6">
-        <TeamTitle team={team} slug={slug} isAuthorized={isAuthorized} />
+        <div className="flex flex-col xl:flex-row gap-x-6">
+          <TeamTitle team={team} />
+          {isAuthorized && (
+            <div className="actions flex flex-col items-center justify-center">
+              <Button
+                iconId="fr-icon-add-line"
+                priority="tertiary"
+                linkProps={{ href: `/posts/${slug}/publish` }}
+              >
+                Nouvelle publication
+              </Button>
+            </div>
+          )}
+        </div>
         <Posts posts={posts} editable={isAuthorized} hideLogos={true} />
       </main>
     </>

@@ -1,15 +1,6 @@
 import Image from "next/image";
-import { Button } from "@codegouvfr/react-dsfr/Button";
 
-export default function TeamTitle({
-  team,
-  slug,
-  isAuthorized,
-}: {
-  team?: Team;
-  slug: string;
-  isAuthorized: boolean;
-}) {
+export default function TeamTitle({ team }: { team?: Team }) {
   return (
     <div className="team-title">
       <Image
@@ -35,17 +26,6 @@ export default function TeamTitle({
           ))}
         </div>
       </div>
-      {isAuthorized && (
-        <div className="actions">
-          <Button
-            iconId="ri-add-fill"
-            priority="tertiary no outline"
-            linkProps={{ href: `/posts/${slug}/publish` }}
-          >
-            Nouvelle publication
-          </Button>
-        </div>
-      )}
     </div>
   );
 }

@@ -11,8 +11,8 @@ export default async function Page({
 }) {
   const session = await getServerSession(authOptions);
   return (
-    <div className="publish-page">
+    <main className="publish-page">
       <Wizard author={session?.user.login} slug={slug} />
-    </div>
+    </main>
   );
 }
