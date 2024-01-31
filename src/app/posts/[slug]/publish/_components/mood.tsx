@@ -1,6 +1,5 @@
+import { type Mood } from "@/components/common/mood";
 import MoodSelector from "@/components/common/mood-selector";
-
-export type Mood = "good" | "average" | "bad";
 
 export default function Mood({
   value,

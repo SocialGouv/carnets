@@ -15,9 +15,11 @@ const deletePost = async (id?: string) => {
 export default function Posts({
   posts,
   editable = false,
+  hideLogos = false,
 }: {
   posts: Post[];
   editable?: boolean;
+  hideLogos?: boolean;
 }) {
   return (
     <section className="posts">
@@ -27,6 +29,7 @@ export default function Posts({
             key={i}
             data={post}
             editable={editable}
+            hideLogo={hideLogos}
             handlePostDeletion={async () => {
               "use server";
               await deletePost(post.id);

@@ -9,7 +9,6 @@ import {
   GITHUB_ID,
   GITHUB_SECRET,
   NEXTAUTH_SECRET,
-  NEXTAUTH_URL,
 } from "@/utils/env";
 import { OAuthUserConfig } from "next-auth/providers/oauth";
 

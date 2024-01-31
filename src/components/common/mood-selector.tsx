@@ -1,20 +1,17 @@
-import Mood from "@/components/common/mood";
-
-// duplicated
-type Mood = "good" | "average" | "bad";
+import Mood, { type Mood as MoodType } from "@/components/common/mood";
 
 const MoodSelector = ({
   value,
   onChange,
 }: {
-  value: Mood;
+  value: MoodType;
   onChange: (name: string, value: string) => void;
 }) => {
   const moods = [
     { value: "good", label: "bon" },
     { value: "average", label: "moyen" },
     { value: "bad", label: "mauvais" },
-  ] as { value: Mood; label: string }[];
+  ] as { value: MoodType; label: string }[];
 
   return (
     <div className="mood-selector">

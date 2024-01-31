@@ -1,5 +1,3 @@
-type Mood = "good" | "average" | "bad";
-
 interface GithubTeam {
   id: string;
   name: string;

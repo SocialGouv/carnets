@@ -1,5 +1,6 @@
 import { cache } from "react";
 import fetcher from "@/utils/graphql-fetcher";
+import { type Mood } from "@/components/common/mood";
 import { getStats as getStatsQuery } from "@/queries/index";
 
 export interface PostsStat {
