@@ -9,7 +9,10 @@ import Kpis, { type KPI } from "./kpis";
 import fetcher from "@/utils/graphql-fetcher";
 import Button from "@codegouvfr/react-dsfr/Button";
 import { Stepper } from "@codegouvfr/react-dsfr/Stepper";
-import { createPost as createPostQuery } from "@/queries";
+import {
+  createPost as createPostQuery,
+  updatePost as updatePostQuery,
+} from "@/queries";
 
 export const defaultData = {
   mood: "good",
@@ -53,20 +56,22 @@ interface Step {
 export default function Wizard({
   author,
   slug,
+  post,
 }: {
   author?: string;
   slug: string;
+  post?: Post;
 }) {
   const [step, setStep] = useState(1);
-  const [data, setData] = useState<Post>(defaultData);
+  const [data, setData] = useState<Post>(post || defaultData);
 
   const steps = [
-    { title: "Vos besoins immédiats", Step: Needs, value: data.needs },
     {
       title: "Vos priorités de la semaine",
       Step: Priorities,
       value: data.priorities,
     },
+    { title: "Vos besoins immédiats", Step: Needs, value: data.needs },
     { title: "Vos prochaines échéances", Step: Term, value: data.term },
     { title: "L'état d'esprit de l'équipe", Step: Mood, value: data.mood },
     {
@@ -117,15 +122,29 @@ export default function Wizard({
         disabled={step < steps.length}
         iconId="fr-icon-send-plane-fill"
       >
-        Publier
+        {post ? "Mettre à jour" : "Publier"}
       </Button>
     );
   }
 
   async function handleSubmit(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
-    await createPost(data);
+    post && post.id ? await updatePost(data, post.id) : await createPost(data);
   }
+
+  const updatePost = async (post: Post, id: string) => {
+    const kpis = post.kpis?.filter((kpi: KPI) => kpi.name && kpi.name.length);
+
+    await fetcher({
+      query: updatePostQuery,
+      includeCookie: true,
+      parameters: {
+        id,
+        kpis,
+        post: { ...post, team_slug: slug, author },
+      },
+    });
+  };
 
   const createPost = async (post: Post) => {
     const kpis = {

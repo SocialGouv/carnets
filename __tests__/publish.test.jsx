@@ -1,7 +1,7 @@
 import { vi, expect, test } from "vitest";
 import { render } from "@testing-library/react";
 import Layout from "../src/app/layout";
-import Page from "../src/app/posts/[slug]/publish/page";
+import Page from "../src/app/posts/[slug]/publish/[[...id]]/page";
 
 vi.mock("next-auth/next", async (importOriginal) => {
   const actual = await importOriginal();

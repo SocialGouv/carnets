@@ -99,7 +99,9 @@ export default function Post({
                 title="editer"
                 iconId="fr-icon-draft-line"
                 priority="tertiary no outline"
-                linkProps={{ href: `/team/${data.team_slug}/post/${data.id}` }}
+                linkProps={{
+                  href: `/posts/${data.team_slug}/publish/${data.id}`,
+                }}
               />
               <Button
                 title="supprimer"
