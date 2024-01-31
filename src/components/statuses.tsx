@@ -4,8 +4,6 @@ import { Table } from "@codegouvfr/react-dsfr/Table";
 import type { TeamsStatus } from "@/actions/get-stats";
 
 export default function Statuses({ statuses }: { statuses?: TeamsStatus[] }) {
-  console.log("statuses", statuses?.length);
-
   const headers = [
     "Produit",
     "État d'esprit",

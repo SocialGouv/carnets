@@ -9,3 +9,12 @@ ul {
 .fr-sidemenu--sticky .fr-sidemenu__inner {
   @apply pt-12 pb-6;
 }
+
+.not-found {
+  min-height: calc(100vh - 372px);
+  @apply flex-1 flex items-center justify-center;
+}
+
+.not-found h2 {
+  @apply text-6xl mr-8;
+}

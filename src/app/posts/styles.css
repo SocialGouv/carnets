@@ -3,7 +3,7 @@
 }
 
 .team-title .name-description {
-  @apply flex-1 flex flex-col justify-center py-6;
+  @apply flex-1 flex flex-col justify-center;
 }
 
 .team-title .name-description h2 {
@@ -19,6 +19,7 @@
 }
 
 .posts {
+  @apply mb-8;
   @apply grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6;
 }
 

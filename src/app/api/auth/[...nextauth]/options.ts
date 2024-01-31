@@ -51,12 +51,10 @@ const githubProviderConfig = {
       image: profile.avatar_url,
       name: profile.name ?? profile.login,
     };
-    console.log("config", config);
+
     return config;
   },
 } as OAuthUserConfig<GithubProfile>;
-
-console.log("githubProviderConfig", githubProviderConfig);
 
 const authOptions: NextAuthOptions = {
   secret: NEXTAUTH_SECRET,
