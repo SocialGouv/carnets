@@ -10,7 +10,7 @@ export default async function Page({
 }: {
   params: { slug: string; id: string[] };
 }) {
-  const post = await getPost(id.pop());
+  const post = await getPost(id?.pop());
   const session = await getServerSession(authOptions);
 
   return (
