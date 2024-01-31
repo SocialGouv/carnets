@@ -28,7 +28,7 @@ export default async function Page({
       </aside>
       <main className="flex-1 flex flex-col gap-y-6">
         <TeamTitle team={team} slug={slug} isAuthorized={isAuthorized} />
-        <Posts posts={posts} editable={isAuthorized} />
+        <Posts posts={posts} editable={isAuthorized} hideLogos={true} />
       </main>
     </>
   );

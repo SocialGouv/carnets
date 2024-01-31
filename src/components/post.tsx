@@ -25,25 +25,31 @@ export interface Post {
 export default function Post({
   data,
   editable,
+  hideLogo,
   handlePostDeletion,
 }: {
   data: Post;
   editable: boolean;
+  hideLogo: boolean;
   handlePostDeletion: () => void;
 }) {
   return (
     <article className="post">
       <div className="header">
         <div className="avatar">
-          <Image
-            width={48}
-            height={48}
-            alt="Picture of the team"
-            src={data.team?.avatarUrl || ""}
-          />
+          {hideLogo ? (
+            <Mood mood={data.mood} />
+          ) : (
+            <Image
+              width={48}
+              height={48}
+              alt="Picture of the team"
+              src={data.team?.avatarUrl || ""}
+            />
+          )}
         </div>
         <div className="text">{data.team?.name}</div>
-        <Mood mood={data.mood} />
+        {!hideLogo && <Mood mood={data.mood} />}
       </div>
       <KPIs kpis={data.kpis?.slice(0, 3) || []}></KPIs>
       <TabPanel>
@@ -64,35 +70,35 @@ export default function Post({
           </div>
         </Panels>
       </TabPanel>
-      {editable && (
-        <div className="actions divide-x">
-          <Button
-            priority="tertiary no outline"
-            iconId="ri-edit-fill"
-            linkProps={{ href: `/team/${data.team_slug}/post/${data.id}` }}
+      <div className="footer">
+        {editable && (
+          <div className="actions divide-x">
+            <Button
+              title="editer"
+              iconId="fr-icon-draft-line"
+              priority="tertiary no outline"
+              linkProps={{ href: `/team/${data.team_slug}/post/${data.id}` }}
+            />
+            <Button
+              title="supprimer"
+              iconId="fr-icon-delete-line"
+              priority="tertiary no outline"
+              onClick={handlePostDeletion}
+            />
+          </div>
+        )}
+        <div className="info">
+          Publié le{" "}
+          {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
+          par&nbsp;
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://github.com/${data.author}`}
           >
-            Editer
-          </Button>
-          <Button
-            priority="tertiary no outline"
-            iconId="ri-delete-bin-7-fill"
-            onClick={handlePostDeletion}
-          >
-            Supprimer
-          </Button>
+            {data.author}
+          </a>
         </div>
-      )}
-      <div className="info">
-        Publié le{" "}
-        {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
-        par&nbsp;
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href={`https://github.com/${data.author}`}
-        >
-          {data.author}
-        </a>
       </div>
     </article>
   );

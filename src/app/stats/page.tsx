@@ -7,7 +7,7 @@ export default async function Page() {
 
   return (
     <main>
-      <section>
+      <section className="mt-12">
         <h2 className="fr-h2">Nombre de publications par semaine</h2>
         <div className="h-96 relative mb-12">
           <Chart stats={posts_stat} />

@@ -99,6 +99,10 @@ article.post .tab-panel .panels .panel.selected {
   @apply flex flex-col max-h-40;
 }
 
+article.post .footer {
+  @apply flex justify-between items-center;
+}
+
 article.post .info {
   @apply text-sm text-right;
 }
