@@ -13,6 +13,75 @@ exports[`Page 1`] = `
     <section
       class="posts"
     >
+      <button
+        aria-controls="foo-modal"
+        aria-hidden="true"
+        class="fr-btn fr-hidden"
+        data-fr-opened="false"
+        id="foo-modal-hidden-control-button"
+        tabindex="-1"
+        type="button"
+      >
+         
+      </button>
+      <dialog
+        aria-labelledby="fr-modal-title-foo-modal"
+        class="fr-modal"
+        data-fr-concealing-backdrop="true"
+        id="foo-modal"
+        role="dialog"
+      >
+        <div
+          class="fr-container fr-container--fluid fr-container-md"
+        >
+          <div
+            class="fr-grid-row fr-grid-row--center"
+          >
+            <div
+              class="fr-col-12 fr-col-md-8 fr-col-lg-6"
+            >
+              <div
+                class="fr-modal__body"
+              >
+                <div
+                  class="fr-modal__header"
+                >
+                  <button
+                    aria-controls="foo-modal"
+                    class="fr-btn--close fr-btn"
+                    title="Fermer"
+                    type="button"
+                  >
+                    Fermer
+                  </button>
+                </div>
+                <div
+                  class="fr-modal__content"
+                >
+                  <h1
+                    class="fr-modal__title"
+                    id="fr-modal-title-foo-modal"
+                  >
+                    Suppression
+                  </h1>
+                  <p
+                    class="my-8"
+                  >
+                    Êtes-vous sur de vouloir supprimer cette publication ?
+                  </p>
+                  <button
+                    class="fr-btn fr-icon-delete-line fr-btn--icon-left"
+                    id="fr-button-:r1:"
+                    title="supprimer"
+                  >
+                    Supprimer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </dialog>
       <article
         class="post"
       >
@@ -72,7 +141,7 @@ exports[`Page 1`] = `
             >
               <button
                 class="fr-btn fr-btn--tertiary-no-outline"
-                id="fr-button-:r0:"
+                id="fr-button-:r2:"
               >
                 Priorités
               </button>
@@ -83,7 +152,7 @@ exports[`Page 1`] = `
               <button
                 class="fr-btn fr-btn--tertiary-no-outline"
                 disabled=""
-                id="fr-button-:r1:"
+                id="fr-button-:r3:"
               >
                 Besoins
               </button>
@@ -94,7 +163,7 @@ exports[`Page 1`] = `
               <button
                 class="fr-btn fr-btn--tertiary-no-outline"
                 disabled=""
-                id="fr-button-:r2:"
+                id="fr-button-:r4:"
               >
                 Échéances
               </button>
@@ -163,20 +232,24 @@ exports[`Page 1`] = `
           </div>
         </div>
         <div
-          class="info"
+          class="footer"
         >
-          Publié le
-           
-          14/12/2023
-           
-          par 
-          <a
-            href="https://github.com/revolunet"
-            rel="noreferrer"
-            target="_blank"
+          <div
+            class="info"
           >
-            revolunet
-          </a>
+            Publié le
+             
+            14/12/2023
+             
+            par 
+            <a
+              href="https://github.com/revolunet"
+              rel="noreferrer"
+              target="_blank"
+            >
+              revolunet
+            </a>
+          </div>
         </div>
       </article>
     </section>

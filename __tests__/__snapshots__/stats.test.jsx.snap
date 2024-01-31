@@ -3,7 +3,9 @@
 exports[`Page 1`] = `
 <div>
   <main>
-    <section>
+    <section
+      class="mt-12"
+    >
       <h2
         class="fr-h2"
       >
