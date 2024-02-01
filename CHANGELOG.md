@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/SocialGouv/carnets/compare/v2.0.1...v2.0.2) (2024-02-01)
+
+
+### Bug Fixes
+
+* post deletion ([f3b7b36](https://github.com/SocialGouv/carnets/commit/f3b7b363b84f0253e5361029d6f8a9e2c58bb2dd))
+
 ## [2.0.1](https://github.com/SocialGouv/carnets/compare/v2.0.0...v2.0.1) (2024-02-01)
 
 
