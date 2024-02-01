@@ -13,7 +13,7 @@ data:
 
   # Authentication
   HASURA_GRAPHQL_UNAUTHORIZED_ROLE: "anonymous"
-  HASURA_GRAPHQL_ENABLE_REMOTE_SCHEMA_PERMISSIONS: "true"
+  # HASURA_GRAPHQL_ENABLE_REMOTE_SCHEMA_PERMISSIONS: "true"
 
   # Github remote schema
   GITHUB_GRAPHQL_ENDPOINT: "https://api.github.com/graphql"
