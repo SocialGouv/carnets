@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/SocialGouv/carnets/compare/v2.0.0...v2.0.1) (2024-02-01)
+
+
+### Bug Fixes
+
+* post date and author position ([aeccc03](https://github.com/SocialGouv/carnets/commit/aeccc03a88a9381fb2c3531cd2231177d1e059a4))
+
 # [2.0.0](https://github.com/SocialGouv/carnets/compare/v1.7.0...v2.0.0) (2024-02-01)
 
 
