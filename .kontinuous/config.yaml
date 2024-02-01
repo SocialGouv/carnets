@@ -1,18 +1,18 @@
 projectName: fabrique
-# ciNamespace: ci-fabrique
+ciNamespace: ci-fabrique
 
-# dependencies:
-#   fabrique:
-#     dependencies:
-#       contrib:
-#         preDeploy:
-#           importSecrets:
-#             options:
-#               secrets:
-#                 carnets-dev-backups-access-key:
-#                 carnets-prod-backups-access-key:
-#     extends:
-#       - name: ovh
-#         ifEnv: [dev, preprod]
-#       - name: buildkit-service
-#         ifEnv: [dev, preprod]
+dependencies:
+  fabrique:
+    dependencies:
+      contrib:
+        preDeploy:
+          importSecrets:
+            options:
+              secrets:
+                carnets-dev-backups-access-key:
+                carnets-prod-backups-access-key:
+    extends:
+      - name: ovh
+        ifEnv: [dev, preprod]
+      - name: buildkit-service
+        ifEnv: [dev, preprod]
