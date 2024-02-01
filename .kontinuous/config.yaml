@@ -13,6 +13,4 @@ dependencies:
                 carnets-prod-backups-access-key:
     extends:
       - name: ovh
-        ifEnv: [dev, preprod]
       - name: buildkit-service
-        ifEnv: [dev, preprod]
