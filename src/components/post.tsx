@@ -94,6 +94,18 @@ export default function Post({
           </Panels>
         </TabPanel>
         <div className="footer">
+          <div className="info">
+            {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}
+            {" - "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              className="mr-2"
+              href={`https://github.com/${data.author}`}
+            >
+              {data.author}
+            </a>
+          </div>
           {editable && (
             <div className="actions divide-x">
               <Button
@@ -112,17 +124,6 @@ export default function Post({
               />
             </div>
           )}
-          <div className="info">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              className="mr-2"
-              href={`https://github.com/${data.author}`}
-            >
-              {data.author}
-            </a>
-            {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}
-          </div>
         </div>
       </article>
     </>
