@@ -1,13 +1,13 @@
-import { getServerSession } from "next-auth/next";
 import Teams from "@/components/teams";
 import Posts from "@/components/posts";
-import TeamTitle from "@/components/team-title";
-import { getTeamBySlug } from "@/actions/get-teams";
 import authOptions, {
   type GithubUser,
-} from "../../../app/api/auth/[...nextauth]/options";
-import { Button } from "@codegouvfr/react-dsfr/Button";
+} from "../api/auth/[...nextauth]/options";
+import TeamTitle from "@/components/team-title";
+import { getServerSession } from "next-auth/next";
+import { getTeamBySlug } from "@/actions/get-teams";
 import getTeamPosts from "@/actions/get-team-posts";
+import { Button } from "@codegouvfr/react-dsfr/Button";
 
 import "../styles.css";
 
@@ -35,7 +35,7 @@ export default async function Page({
               <Button
                 iconId="fr-icon-add-line"
                 priority="tertiary"
-                linkProps={{ href: `/posts/${slug}/publish` }}
+                linkProps={{ href: `/${slug}/publish` }}
               >
                 Nouvelle publication
               </Button>

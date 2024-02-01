@@ -1,6 +1,6 @@
 import { vi, expect, test } from "vitest";
 import { render } from "@testing-library/react";
-import Page from "../src/app/posts/[slug]/page";
+import Page from "../src/app/[slug]/page";
 
 vi.mock("@/components/teams", () => {
   return {

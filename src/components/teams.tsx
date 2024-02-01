@@ -12,7 +12,7 @@ export default async function Teams({
   const items = teams.map(({ name, slug }) => ({
     text: name,
     isActive: slug === selectedTeamSlug,
-    linkProps: { href: `/posts/${slug}` },
+    linkProps: { href: `/${slug}` },
   }));
 
   return (

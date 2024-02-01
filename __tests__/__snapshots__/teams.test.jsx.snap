@@ -37,7 +37,7 @@ exports[`Component 1`] = `
             <a
               aria-current="page"
               class="fr-sidemenu__link"
-              href="/posts/domifa"
+              href="/domifa"
               target="_self"
             >
               domifa

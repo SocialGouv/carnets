@@ -100,7 +100,7 @@ export default function Post({
                 iconId="fr-icon-draft-line"
                 priority="tertiary no outline"
                 linkProps={{
-                  href: `/posts/${data.team_slug}/publish/${data.id}`,
+                  href: `/${data.team_slug}/publish/${data.id}`,
                 }}
               />
               <Button
