@@ -1,6 +1,6 @@
 .publish-page {
   min-height: calc(100vh - 372px);
-  @apply flex-1 flex flex-col justify-center;
+  @apply flex-1 flex flex-col justify-center relative;
 }
 
 .publish-page .fr-stepper {

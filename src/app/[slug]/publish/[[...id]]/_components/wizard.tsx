@@ -6,7 +6,9 @@ import Needs from "./needs";
 import { useState } from "react";
 import Priorities from "./priorities";
 import Kpis, { type KPI } from "./kpis";
+import { useRouter } from "next/navigation";
 import fetcher from "@/utils/graphql-fetcher";
+import SpinnerIcon from "../_icons/spinner-icon";
 import Button from "@codegouvfr/react-dsfr/Button";
 import { Stepper } from "@codegouvfr/react-dsfr/Stepper";
 import {
@@ -62,7 +64,9 @@ export default function Wizard({
   slug: string;
   post?: Post;
 }) {
+  const router = useRouter();
   const [step, setStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<Post>(post || defaultData);
 
   const steps = [
@@ -129,7 +133,10 @@ export default function Wizard({
 
   async function handleSubmit(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
+    setIsLoading(true);
     post && post.id ? await updatePost(data, post.id) : await createPost(data);
+    setIsLoading(false);
+    router.push(`/${slug}`);
   }
 
   const updatePost = async (post: Post, id: string) => {
@@ -163,22 +170,32 @@ export default function Wizard({
 
   return (
     <>
-      <Stepper
-        title={title}
-        currentStep={step}
-        stepCount={steps.length}
-        nextTitle={step < steps.length ? steps[step].title : ""}
-      />
-      <form>
-        <Step value={value} onChange={handleChange} />
-        <div className="actions">
-          <div className="paging">
-            <PreviousButton />
-            <NextButton />
+      {isLoading ? (
+        <div className="absolute left-0 right-0 bottom-0 top-0 flex justify-center items-center">
+          <div className="animate-spin w-52 h-52">
+            <SpinnerIcon />
           </div>
-          <SubmitButton />
         </div>
-      </form>
+      ) : (
+        <>
+          <Stepper
+            title={title}
+            currentStep={step}
+            stepCount={steps.length}
+            nextTitle={step < steps.length ? steps[step].title : ""}
+          />
+          <form>
+            <Step value={value} onChange={handleChange} />
+            <div className="actions">
+              <div className="paging">
+                <PreviousButton />
+                <NextButton />
+              </div>
+              <SubmitButton />
+            </div>
+          </form>
+        </>
+      )}
     </>
   );
 }
