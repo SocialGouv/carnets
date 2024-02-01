@@ -11,12 +11,12 @@ import Mood, { type Mood as MoodType } from "@/components/common/mood";
 import TabPanel, { Tab, Tabs, Panels } from "@/components/common/tab-panel";
 
 export interface Post {
-  mood: MoodType;
   id?: string;
   team?: Team;
   kpis?: KPI[];
   term: string;
   needs: string;
+  mood: MoodType;
   author?: string;
   created_at?: Date;
   team_slug?: string;
@@ -49,6 +49,7 @@ export default function Post({
           title="supprimer"
           priority="primary"
           iconId="fr-icon-delete-line"
+          // TODO: make this button redish
           // className="bg-[#c9191e] dark:bg-[#f95c5e] dark:text-[#2b1919] text-[#fef4f4] hover:dark:text-[#f95c5e] hover:dark:bg-[#f95c5e] hover:text-[#c9191e] hover:bg-[#c9191e]"
           onClick={handlePostDeletion}
         >
@@ -112,16 +113,15 @@ export default function Post({
             </div>
           )}
           <div className="info">
-            Publié le{" "}
-            {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}{" "}
-            par&nbsp;
             <a
               target="_blank"
               rel="noreferrer"
+              className="mr-2"
               href={`https://github.com/${data.author}`}
             >
               {data.author}
             </a>
+            {data.created_at && format(new Date(data.created_at), "dd/MM/yyyy")}
           </div>
         </div>
       </article>
