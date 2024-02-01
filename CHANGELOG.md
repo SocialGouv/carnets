@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/SocialGouv/carnets/compare/v1.7.0...v2.0.0) (2024-02-01)
+
+
+### Features
+
+* direct login to github ([762f059](https://github.com/SocialGouv/carnets/commit/762f0596421fc0891ce81f3bd29dcca2ac93ff1c))
+
+
+### BREAKING CHANGES
+
+* moving to DSFR and Hasura last version
+
 # [1.7.0](https://github.com/SocialGouv/carnets/compare/v1.6.20...v1.7.0) (2024-02-01)
 
 
