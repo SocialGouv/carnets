@@ -7,14 +7,11 @@ import { useState } from "react";
 import Priorities from "./priorities";
 import Kpis, { type KPI } from "./kpis";
 import { useRouter } from "next/navigation";
-import fetcher from "@/utils/graphql-fetcher";
-import SpinnerIcon from "../_icons/spinner-icon";
+import createPost from "@/actions/create-post";
+import updatePost from "@/actions/update-post";
 import Button from "@codegouvfr/react-dsfr/Button";
 import { Stepper } from "@codegouvfr/react-dsfr/Stepper";
-import {
-  createPost as createPostQuery,
-  updatePost as updatePostQuery,
-} from "@/queries";
+import SpinnerIcon from "@/components/icons/spinner-icon";
 
 export const defaultData = {
   mood: "good",
@@ -60,7 +57,7 @@ export default function Wizard({
   slug,
   post,
 }: {
-  author?: string;
+  author: string;
   slug: string;
   post?: Post;
 }) {
@@ -71,9 +68,9 @@ export default function Wizard({
 
   const steps = [
     {
-      title: "Vos priorités de la semaine",
       Step: Priorities,
       value: data.priorities,
+      title: "Vos priorités de la semaine",
     },
     { title: "Vos besoins immédiats", Step: Needs, value: data.needs },
     { title: "Vos prochaines échéances", Step: Term, value: data.term },
@@ -134,41 +131,11 @@ export default function Wizard({
   async function handleSubmit(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
     setIsLoading(true);
-    post && post.id ? await updatePost(data, post.id) : await createPost(data);
+    post && post.id
+      ? await updatePost(data, post.id)
+      : await createPost(data, slug, author);
     router.push(`/${slug}`);
   }
-
-  const updatePost = async (post: Post, id: string) => {
-    const { mood, needs, priorities, term } = post;
-
-    const kpis = post.kpis
-      ?.filter((kpi: KPI) => kpi.name && kpi.name.length)
-      .map(({ name, value }: KPI) => ({ name, value, post_id: id }));
-
-    await fetcher({
-      query: updatePostQuery,
-      includeCookie: true,
-      parameters: {
-        id,
-        kpis,
-        post: { mood, needs, priorities, term },
-      },
-    });
-  };
-
-  const createPost = async (post: Post) => {
-    const kpis = {
-      data: post.kpis?.filter((kpi: KPI) => kpi.name && kpi.name.length),
-    };
-
-    await fetcher({
-      query: createPostQuery,
-      includeCookie: true,
-      parameters: {
-        post: { ...post, kpis, team_slug: slug, author },
-      },
-    });
-  };
 
   const { value, Step, title } = steps[step - 1];
 

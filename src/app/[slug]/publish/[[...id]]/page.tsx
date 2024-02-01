@@ -15,7 +15,9 @@ export default async function Page({
 
   return (
     <main className="publish-page">
-      <Wizard author={session?.user.login} slug={slug} post={post} />
+      {session && (
+        <Wizard author={session.user.login} slug={slug} post={post} />
+      )}
     </main>
   );
 }
