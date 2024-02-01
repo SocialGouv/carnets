@@ -45,7 +45,7 @@ const Header = ({ session }: { session: Session | null }) => (
             iconId: "fr-icon-add-circle-line",
             text: "Connexion",
             buttonProps: {
-              onClick: () => signIn(),
+              onClick: () => signIn("github"),
             },
           },
     ]}
