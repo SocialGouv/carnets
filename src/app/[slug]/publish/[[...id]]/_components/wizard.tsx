@@ -135,7 +135,6 @@ export default function Wizard({
     e.preventDefault();
     setIsLoading(true);
     post && post.id ? await updatePost(data, post.id) : await createPost(data);
-    setIsLoading(false);
     router.push(`/${slug}`);
   }
 
