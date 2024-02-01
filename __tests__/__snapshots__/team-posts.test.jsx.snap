@@ -270,18 +270,15 @@ exports[`Page 1`] = `
           <div
             class="info"
           >
-            Publié le
-             
-            14/12/2023
-             
-            par 
             <a
+              class="mr-2"
               href="https://github.com/revolunet"
               rel="noreferrer"
               target="_blank"
             >
               revolunet
             </a>
+            14/12/2023
           </div>
         </div>
       </article>
