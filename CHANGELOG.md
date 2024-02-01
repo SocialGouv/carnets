@@ -1,0 +1,34 @@
+# [1.7.0](https://github.com/SocialGouv/carnets/compare/v1.6.20...v1.7.0) (2024-02-01)
+
+
+### Bug Fixes
+
+* add markdown styles ([5a7eb54](https://github.com/SocialGouv/carnets/commit/5a7eb54da1b06319da3911332678ab07da52d6b5))
+* add stats and legal pages ([bbad312](https://github.com/SocialGouv/carnets/commit/bbad3126e6804854fc22f9848915bfa6d1c00dac))
+* add yarn berry ([18a07e1](https://github.com/SocialGouv/carnets/commit/18a07e1003b9eea41d918765d53242f63b0c67a7))
+* dark theme and edition ([#408](https://github.com/SocialGouv/carnets/issues/408)) ([3098747](https://github.com/SocialGouv/carnets/commit/309874728dfe9f306da2e27ff041ccf038a515ad))
+* disable db seeding ([199e3c4](https://github.com/SocialGouv/carnets/commit/199e3c498bfb761a1356efb59a4c09bea158108d))
+* form loading ([1a84561](https://github.com/SocialGouv/carnets/commit/1a845618eeff1bfa69a7c221fce0a7ad9b5f4d9d))
+* hasura pg secrets ([5c212ff](https://github.com/SocialGouv/carnets/commit/5c212ff5d681917705e856d24ce98c1374452c85))
+* hasura pg secrets, again ([22fa5ba](https://github.com/SocialGouv/carnets/commit/22fa5baa281740272c566fc34f8bde2bb92fd200))
+* healthz probe ([efad74e](https://github.com/SocialGouv/carnets/commit/efad74eefc37b6c175111bff98a789d3ae77962d))
+* NEXTAUTH_SECRET ([f746246](https://github.com/SocialGouv/carnets/commit/f746246a1608f7146245b5ae157df2d322464e41))
+* padding ([bc1b683](https://github.com/SocialGouv/carnets/commit/bc1b683124b37e1465fe4b083ed5f494700bf71f))
+* post author and date ([acfe133](https://github.com/SocialGouv/carnets/commit/acfe133c30ed131b347344ebee9557047882c2da))
+* post styles ([5893043](https://github.com/SocialGouv/carnets/commit/5893043a97ac94856d6e077086c40ecc62feb32b))
+* post update ([401a048](https://github.com/SocialGouv/carnets/commit/401a048b4de76c1dd3aa88d2e41fcaee18ee1d43))
+* publish form styles ([6387019](https://github.com/SocialGouv/carnets/commit/63870196aa300fc0e3591ba845e9e64e8a4e1d1d))
+* publish page ([0d279ba](https://github.com/SocialGouv/carnets/commit/0d279ba0a63ff71d656db330ff1fe8089b8080e4))
+* remove yarn berry ([407b6c5](https://github.com/SocialGouv/carnets/commit/407b6c54f09a6558d6334b140088577d080aaa0c))
+* seed review db ([f4815a5](https://github.com/SocialGouv/carnets/commit/f4815a5dcf1734e1dd5746714267b98dcf4cce56))
+* update db seeds ([#405](https://github.com/SocialGouv/carnets/issues/405)) ([f9c1455](https://github.com/SocialGouv/carnets/commit/f9c145545e95a37371135173b3802b5bde2f4f3d))
+
+
+### Features
+
+* add edition page ([e5f5542](https://github.com/SocialGouv/carnets/commit/e5f5542a04e63a9738f29694f02ac7e370bb91a1))
+* add form loading spinner ([4d99d6c](https://github.com/SocialGouv/carnets/commit/4d99d6cc70c3909106ff9814c5174ce6346dff39))
+* add not-found page ([9379e3a](https://github.com/SocialGouv/carnets/commit/9379e3a2ddb522dc8c89445548f4ee8bc35b20c1))
+* add tests ([#407](https://github.com/SocialGouv/carnets/issues/407)) ([eaa1310](https://github.com/SocialGouv/carnets/commit/eaa1310f9323e89cb2873b14f0856d5c8ba547eb))
+* move posts to home page ([46fb703](https://github.com/SocialGouv/carnets/commit/46fb703a5edd03f9d2dcb97b3a477d7ef4067c67))
+* use react-dsfr ([d39f942](https://github.com/SocialGouv/carnets/commit/d39f942ed3b248d2f40f0a13d6deea2808933371))
