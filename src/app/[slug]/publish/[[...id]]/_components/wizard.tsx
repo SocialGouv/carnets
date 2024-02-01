@@ -139,7 +139,11 @@ export default function Wizard({
   }
 
   const updatePost = async (post: Post, id: string) => {
-    const kpis = post.kpis?.filter((kpi: KPI) => kpi.name && kpi.name.length);
+    const { mood, needs, priorities, term } = post;
+
+    const kpis = post.kpis
+      ?.filter((kpi: KPI) => kpi.name && kpi.name.length)
+      .map(({ name, value }: KPI) => ({ name, value, post_id: id }));
 
     await fetcher({
       query: updatePostQuery,
@@ -147,7 +151,7 @@ export default function Wizard({
       parameters: {
         id,
         kpis,
-        post: { ...post, team_slug: slug, author },
+        post: { mood, needs, priorities, term },
       },
     });
   };
@@ -156,6 +160,7 @@ export default function Wizard({
     const kpis = {
       data: post.kpis?.filter((kpi: KPI) => kpi.name && kpi.name.length),
     };
+
     await fetcher({
       query: createPostQuery,
       includeCookie: true,
