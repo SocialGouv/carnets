@@ -14,21 +14,21 @@ exports[`Page 1`] = `
       class="posts"
     >
       <button
-        aria-controls="foo-modal"
+        aria-controls="delete-post"
         aria-hidden="true"
         class="fr-btn fr-hidden"
         data-fr-opened="false"
-        id="foo-modal-hidden-control-button"
+        id="delete-post-hidden-control-button"
         tabindex="-1"
         type="button"
       >
          
       </button>
       <dialog
-        aria-labelledby="fr-modal-title-foo-modal"
+        aria-labelledby="fr-modal-title-delete-post"
         class="fr-modal"
         data-fr-concealing-backdrop="true"
-        id="foo-modal"
+        id="delete-post"
         role="dialog"
       >
         <div
@@ -47,7 +47,7 @@ exports[`Page 1`] = `
                   class="fr-modal__header"
                 >
                   <button
-                    aria-controls="foo-modal"
+                    aria-controls="delete-post"
                     class="fr-btn--close fr-btn"
                     title="Fermer"
                     type="button"
@@ -60,22 +60,30 @@ exports[`Page 1`] = `
                 >
                   <h1
                     class="fr-modal__title"
-                    id="fr-modal-title-foo-modal"
+                    id="fr-modal-title-delete-post"
                   >
                     Suppression
                   </h1>
-                  <p
-                    class="my-8"
+                  <div
+                    class="relative"
                   >
-                    Êtes-vous sur de vouloir supprimer cette publication ?
-                  </p>
-                  <button
-                    class="fr-btn fr-icon-delete-line fr-btn--icon-left"
-                    id="fr-button-:r1:"
-                    title="supprimer"
-                  >
-                    Supprimer
-                  </button>
+                    <div
+                      class=""
+                    >
+                      <p
+                        class="my-8"
+                      >
+                        Êtes-vous sur de vouloir supprimer cette publication ?
+                      </p>
+                      <button
+                        class="fr-btn fr-icon-delete-line fr-btn--icon-left"
+                        id="fr-button-:r1:"
+                        title="supprimer"
+                      >
+                        Supprimer
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -237,6 +245,8 @@ exports[`Page 1`] = `
           <div
             class="info"
           >
+            14/12/2023
+             - 
             <a
               class="mr-2"
               href="https://github.com/revolunet"
@@ -245,7 +255,6 @@ exports[`Page 1`] = `
             >
               revolunet
             </a>
-            14/12/2023
           </div>
         </div>
       </article>
