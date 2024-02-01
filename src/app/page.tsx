@@ -12,7 +12,7 @@ export default async function Page() {
       <aside className="flex-initial w-80">
         <Teams />
       </aside>
-      <main className="flex-1 py-12 ">
+      <main className="flex-1 pt-12 ">
         <Posts posts={posts} />
       </main>
     </>
