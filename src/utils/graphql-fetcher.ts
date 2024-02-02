@@ -1,5 +1,5 @@
 import { GraphQLClient } from "graphql-request";
-import { NEXT_PUBLIC_HASURA_URL } from "@/utils/env";
+import { HASURA_URL, NEXT_PUBLIC_HASURA_URL } from "@/utils/env";
 
 interface GraphQLFetcherParams {
   query: string;
@@ -29,7 +29,10 @@ const graphQLFetcher = ({
     };
   }
 
-  const client = new GraphQLClient(NEXT_PUBLIC_HASURA_URL, options);
+  const client = new GraphQLClient(
+    HASURA_URL || NEXT_PUBLIC_HASURA_URL,
+    options,
+  );
 
   return client.request(query, parameters);
 };

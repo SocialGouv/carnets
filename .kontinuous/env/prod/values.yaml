@@ -9,4 +9,5 @@ jobs:
     build-app:
       with:
         buildArgs:
+          HASURA_URL: "http://hasura:8080/v1/graphql"
           NEXT_PUBLIC_HASURA_URL: "https://new-hasura-{{ .Values.global.host }}/v1/graphql"

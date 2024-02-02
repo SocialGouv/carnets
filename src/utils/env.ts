@@ -9,6 +9,7 @@ export const NEXTAUTH_SECRET = process.env.NEXTAUTH_SECRET as string;
 // Hasura
 export const NEXT_PUBLIC_HASURA_URL = process.env
   .NEXT_PUBLIC_HASURA_URL as string;
+export const HASURA_URL = process.env.HASURA_URL as string;
 
 // Github auth provider
 export const GITHUB_ID = process.env.GITHUB_ID as string;
