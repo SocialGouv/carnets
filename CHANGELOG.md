@@ -1,3 +1,10 @@
+## [2.0.12](https://github.com/SocialGouv/carnets/compare/v2.0.11...v2.0.12) (2024-02-02)
+
+
+### Bug Fixes
+
+* use specific backend hasura url ([95d02ca](https://github.com/SocialGouv/carnets/commit/95d02ca52f38708bdd656800ed5b733381191ae7))
+
 ## [2.0.11](https://github.com/SocialGouv/carnets/compare/v2.0.10...v2.0.11) (2024-02-02)
 
 
