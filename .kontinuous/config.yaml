@@ -1,5 +1,4 @@
 projectName: fabrique
-ciNamespace: ci-fabrique
 
 dependencies:
   fabrique:
