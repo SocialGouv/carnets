@@ -1,3 +1,10 @@
+## [2.0.11](https://github.com/SocialGouv/carnets/compare/v2.0.10...v2.0.11) (2024-02-02)
+
+
+### Bug Fixes
+
+* add secretRef ([75fbb20](https://github.com/SocialGouv/carnets/commit/75fbb203021fc42e0076d3b7046340650f1e59ef))
+
 ## [2.0.10](https://github.com/SocialGouv/carnets/compare/v2.0.9...v2.0.10) (2024-02-02)
 
 
