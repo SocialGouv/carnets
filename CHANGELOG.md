@@ -1,3 +1,10 @@
+## [2.0.13](https://github.com/SocialGouv/carnets/compare/v2.0.12...v2.0.13) (2024-02-02)
+
+
+### Bug Fixes
+
+* set hasura url env var ([cc24d49](https://github.com/SocialGouv/carnets/commit/cc24d4903a2239ae6b9518b175c756cc7eeefe1c))
+
 ## [2.0.12](https://github.com/SocialGouv/carnets/compare/v2.0.11...v2.0.12) (2024-02-02)
 
 
