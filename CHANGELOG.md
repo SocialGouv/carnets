@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/SocialGouv/carnets/compare/v2.0.3...v2.0.4) (2024-02-02)
+
+
+### Bug Fixes
+
+* footer text ([b2a571d](https://github.com/SocialGouv/carnets/commit/b2a571de08fd54604aa53574c89a792173e483da))
+
 ## [2.0.3](https://github.com/SocialGouv/carnets/compare/v2.0.2...v2.0.3) (2024-02-01)
 
 
