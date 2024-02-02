@@ -7,6 +7,7 @@ import { getHtmlAttributes } from "@codegouvfr/react-dsfr/next-appdir/getHtmlAtt
 import { StartDsfr } from "./start-dsfr";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Matomo from "@/components/matomo";
 import { defaultColorScheme } from "./default-color-scheme";
 import authOptions from "@/app/api/auth/[...nextauth]/options";
 
@@ -24,18 +25,12 @@ export default async function Layout({ children }: { children: JSX.Element }) {
         <DsfrHead
           Link={Link}
           preloadFonts={[
-            //"Marianne-Light",
-            //"Marianne-Light_Italic",
-            "Marianne-Regular",
-            //"Marianne-Regular_Italic",
-            "Marianne-Medium",
-            //"Marianne-Medium_Italic",
             "Marianne-Bold",
-            //"Marianne-Bold_Italic",
-            //"Spectral-Regular",
-            //"Spectral-ExtraBold"
+            "Marianne-Medium",
+            "Marianne-Regular",
           ]}
         />
+        <Matomo />
       </head>
       <body>
         <DsfrProvider lang={lang}>

@@ -1497,6 +1497,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@socialgouv/matomo-next@npm:1.8.0":
+  version: 1.8.0
+  resolution: "@socialgouv/matomo-next@npm:1.8.0"
+  peerDependencies:
+    next: ">= 9.5.5"
+  checksum: 0e0d9da2bfa155584fc8f10a034dc46e78af9affd22f31f6d6d0249578540b2faf87ac22df244c3d225b53da14f865bfec961271bfe569138392e5bd8471e60c
+  languageName: node
+  linkType: hard
+
 "@swc/helpers@npm:0.5.2":
   version: 0.5.2
   resolution: "@swc/helpers@npm:0.5.2"
@@ -2560,6 +2569,7 @@ __metadata:
   resolution: "carnets@workspace:."
   dependencies:
     "@codegouvfr/react-dsfr": "npm:0.78.6"
+    "@socialgouv/matomo-next": "npm:1.8.0"
     "@testing-library/react": "npm:14.1.2"
     "@types/jsonwebtoken": "npm:9.0.5"
     "@types/node": "npm:20.10.4"
