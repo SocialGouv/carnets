@@ -554,9 +554,7 @@ exports[`Page 1`] = `
               <p
                 class="fr-footer__content-desc"
               >
-                Carnets est une application permettant de publier et
-  de mettre à jour les supports de présentation du standup hebdomadaire
-  de la Fabrique Numérique.
+                Carnets est une application permettant de publier et de mettre à jour les supports de présentation du standup de la Fabrique Numérique.
               </p>
               <ul
                 class="fr-footer__content-list"
