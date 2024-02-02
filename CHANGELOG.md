@@ -1,3 +1,10 @@
+## [2.0.8](https://github.com/SocialGouv/carnets/compare/v2.0.7...v2.0.8) (2024-02-02)
+
+
+### Bug Fixes
+
+* hasura secrets ([4a86782](https://github.com/SocialGouv/carnets/commit/4a8678250fe83b18ca3dcdfbefd38d40e4bd5035))
+
 ## [2.0.7](https://github.com/SocialGouv/carnets/compare/v2.0.6...v2.0.7) (2024-02-02)
 
 
