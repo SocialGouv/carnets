@@ -1,3 +1,10 @@
+## [2.0.9](https://github.com/SocialGouv/carnets/compare/v2.0.8...v2.0.9) (2024-02-02)
+
+
+### Bug Fixes
+
+* change host ([b003655](https://github.com/SocialGouv/carnets/commit/b003655794d80c48fa90df5e132e047e2a2a6ee4))
+
 ## [2.0.8](https://github.com/SocialGouv/carnets/compare/v2.0.7...v2.0.8) (2024-02-02)
 
 
