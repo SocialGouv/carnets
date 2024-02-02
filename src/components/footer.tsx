@@ -17,9 +17,7 @@ export default function Footer() {
       }}
       bottomItems={[headerFooterDisplayItem]}
       accessibility="partially compliant"
-      contentDescription="Carnets est une application permettant de publier et
-  de mettre à jour les supports de présentation du standup hebdomadaire
-  de la Fabrique Numérique."
+      contentDescription="Carnets est une application permettant de publier et de mettre à jour les supports de présentation du standup de la Fabrique Numérique."
     />
   );
 }
