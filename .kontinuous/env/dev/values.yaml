@@ -13,8 +13,3 @@ seeds:
 app:
   vars:
     ENV: review
-  envFrom:
-  - configMapRef:
-      name: app
-  - secretRef:
-      name: app
