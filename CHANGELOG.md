@@ -1,3 +1,10 @@
+## [2.0.16](https://github.com/SocialGouv/carnets/compare/v2.0.15...v2.0.16) (2024-02-05)
+
+
+### Bug Fixes
+
+* kontinuous vars ([d3adbf1](https://github.com/SocialGouv/carnets/commit/d3adbf118fdf9b7070ed42a76d8c99b25d613757))
+
 ## [2.0.15](https://github.com/SocialGouv/carnets/compare/v2.0.14...v2.0.15) (2024-02-05)
 
 
