@@ -1,3 +1,10 @@
+## [2.0.15](https://github.com/SocialGouv/carnets/compare/v2.0.14...v2.0.15) (2024-02-05)
+
+
+### Bug Fixes
+
+* kontinuous config ([fb5192c](https://github.com/SocialGouv/carnets/commit/fb5192c84e348b6727e810cae0b76f961dd8f35f))
+
 ## [2.0.14](https://github.com/SocialGouv/carnets/compare/v2.0.13...v2.0.14) (2024-02-02)
 
 
