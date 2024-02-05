@@ -7,14 +7,13 @@ app:
   - secretRef:
       name: app
   vars:
+    ENV: prod
     HASURA_URL: http://hasura/v1/graphql
     NEXTAUTH_URL: https://{{ .Values.global.host }}
   securityContext:
     fsGroup: 1000
     runAsUser: 1000
     runAsGroup: 1000
-  vars:
-    ENV: prod
 
 pg:
   ~chart: pg
