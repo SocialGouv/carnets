@@ -1,3 +1,10 @@
+## [2.0.18](https://github.com/SocialGouv/carnets/compare/v2.0.17...v2.0.18) (2024-02-05)
+
+
+### Bug Fixes
+
+* use carnets_new app ([18e93a5](https://github.com/SocialGouv/carnets/commit/18e93a56adcf4738c7179cd609fcad7c1b357e71))
+
 ## [2.0.17](https://github.com/SocialGouv/carnets/compare/v2.0.16...v2.0.17) (2024-02-05)
 
 
