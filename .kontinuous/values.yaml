@@ -4,8 +4,6 @@ app:
   probesPath: /healthz
   imagePackage: app
   envFrom:
-  - configMapRef:
-      name: app
   - secretRef:
       name: app
   vars:
@@ -15,6 +13,8 @@ app:
     fsGroup: 1000
     runAsUser: 1000
     runAsGroup: 1000
+  vars:
+    ENV: prod
 
 pg:
   ~chart: pg

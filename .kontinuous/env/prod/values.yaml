@@ -2,8 +2,10 @@ app:
   host: new-{{ .Values.global.host }}
   vars:
     NEXTAUTH_URL: https://new-{{ .Values.global.host }}
+
 hasura:
   host: new-hasura-{{ .Values.global.host }}
+
 jobs:
   runs:
     build-app:

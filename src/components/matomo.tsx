@@ -1,12 +1,12 @@
 "use client";
 
 import Script from "next/script";
-import { NODE_ENV } from "@/utils/env";
+import { ENV } from "@/utils/env";
 
 export default function Matomo() {
   return (
     <>
-      {NODE_ENV === "production" ? (
+      {ENV === "prod" ? (
         <Script
           id="matomo"
           onReady={() => {

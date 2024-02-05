@@ -92,7 +92,7 @@ const authOptions: NextAuthOptions = {
         sameSite: "strict",
         // App and Hasura may not be on the same subdomain
         domain:
-          NODE_ENV === "development" ? "localhost" : ".fabrique.social.gouv.fr",
+          NODE_ENV === "production" ? ".fabrique.social.gouv.fr" : "localhost",
       },
     },
   },
