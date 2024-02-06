@@ -20,7 +20,8 @@
 
 .posts {
   @apply mb-8;
-  @apply grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6;
+  @apply grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8;
+  /* @apply flex flex-col gap-y-6; */
 }
 
 article.post {
@@ -98,11 +99,12 @@ article.post .tab-panel .panels {
 }
 
 article.post .tab-panel .panels .panel {
-  @apply flex-1 hidden min-h-[180px] overflow-auto;
+  @apply flex-1 hidden min-h-[13rem] overflow-auto;
+  @apply flex-col max-h-52;
 }
 
 article.post .tab-panel .panels .panel.selected {
-  @apply flex flex-col max-h-40;
+  @apply flex;
 }
 
 article.post .footer {
