@@ -1,3 +1,10 @@
+## [2.0.20](https://github.com/SocialGouv/carnets/compare/v2.0.19...v2.0.20) (2024-02-06)
+
+
+### Bug Fixes
+
+* update secrets ([3b2059a](https://github.com/SocialGouv/carnets/commit/3b2059a330427e9a4a78d9d2fcc791d9a4d2851b))
+
 ## [2.0.19](https://github.com/SocialGouv/carnets/compare/v2.0.18...v2.0.19) (2024-02-06)
 
 
