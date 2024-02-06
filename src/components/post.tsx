@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { format } from "date-fns";
 import remarkGfm from "remark-gfm";
