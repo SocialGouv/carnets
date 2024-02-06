@@ -1,3 +1,10 @@
+## [2.0.19](https://github.com/SocialGouv/carnets/compare/v2.0.18...v2.0.19) (2024-02-06)
+
+
+### Bug Fixes
+
+* relocate deletion modal ([2c56550](https://github.com/SocialGouv/carnets/commit/2c565507ebb59b8f5ea8cd84fb17d6302647bb7a))
+
 ## [2.0.18](https://github.com/SocialGouv/carnets/compare/v2.0.17...v2.0.18) (2024-02-05)
 
 
