@@ -1,14 +1,14 @@
 app:
-  host: new-{{ .Values.global.host }}
+  host: {{ .Values.global.host }}
   vars:
-    NEXTAUTH_URL: https://new-{{ .Values.global.host }}
+    NEXTAUTH_URL: https://{{ .Values.global.host }}
 
 hasura:
-  host: new-hasura-{{ .Values.global.host }}
+  host: hasura-{{ .Values.global.host }}
 
 jobs:
   runs:
     build-app:
       with:
         buildArgs:
-          NEXT_PUBLIC_HASURA_URL: "https://new-hasura-{{ .Values.global.host }}/v1/graphql"
+          NEXT_PUBLIC_HASURA_URL: "https://hasura-{{ .Values.global.host }}/v1/graphql"
