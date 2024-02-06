@@ -1,3 +1,10 @@
+## [2.0.21](https://github.com/SocialGouv/carnets/compare/v2.0.20...v2.0.21) (2024-02-06)
+
+
+### Bug Fixes
+
+* update hasura url ([6491d9b](https://github.com/SocialGouv/carnets/commit/6491d9b6e6d3722dc0a3b5340b364ff4f0d56b78))
+
 ## [2.0.20](https://github.com/SocialGouv/carnets/compare/v2.0.19...v2.0.20) (2024-02-06)
 
 
