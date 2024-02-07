@@ -82,6 +82,8 @@ vi.mock("@/actions/get-team-posts", async (importOriginal) => {
 });
 
 test("Page", async () => {
-  const { container } = render(await Page({ params: { slug: "domifa" } }));
+  const { container } = render(
+    await Page({ params: { slug: "domifa" }, searchParams: { page: 1 } }),
+  );
   expect(container).toMatchSnapshot();
 });

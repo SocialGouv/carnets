@@ -8,7 +8,7 @@ exports[`Page 1`] = `
     <div />
   </aside>
   <main
-    class="flex-1 pt-12 "
+    class="flex-1 pt-12 mb-8"
   >
     <section
       class="posts"

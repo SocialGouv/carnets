@@ -8,7 +8,7 @@ exports[`Page 1`] = `
     <div />
   </aside>
   <main
-    class="flex-1 flex flex-col gap-y-6"
+    class="flex-1 flex flex-col gap-y-6 mb-4"
   >
     <div
       class="flex flex-col xl:flex-row gap-x-6"
@@ -134,164 +134,27 @@ exports[`Page 1`] = `
           </div>
         </div>
       </dialog>
-      <article
-        class="post"
-      >
-        <div
-          class="header"
-        >
-          <div
-            class="avatar"
-          >
-            <i
-              class="flex items-center before:w-10 before:h-10 fr-icon-cloudy-2-line"
-            />
-          </div>
-          <div
-            class="text"
-          >
-            SRE
-          </div>
-        </div>
-        <div
-          class="kpis"
-        >
-          <div
-            class="kpi"
-          >
-            <div
-              class="value"
-            >
-              46%
-            </div>
-            <div
-              class="name"
-            >
-              Migration OVH
-            </div>
-          </div>
-        </div>
-        <div
-          class="tab-panel"
-        >
-          <div
-            class="tabs"
-          >
-            <div
-              class="tab selected"
-            >
-              <button
-                class="fr-btn fr-btn--tertiary-no-outline"
-                id="fr-button-:r2:"
-              >
-                Priorités
-              </button>
-            </div>
-            <div
-              class="tab"
-            >
-              <button
-                class="fr-btn fr-btn--tertiary-no-outline"
-                disabled=""
-                id="fr-button-:r3:"
-              >
-                Besoins
-              </button>
-            </div>
-            <div
-              class="tab"
-            >
-              <button
-                class="fr-btn fr-btn--tertiary-no-outline"
-                disabled=""
-                id="fr-button-:r4:"
-              >
-                Échéances
-              </button>
-            </div>
-          </div>
-          <div
-            class="panels"
-          >
-            <div
-              class="panel selected"
-            >
-              <div
-                class="markdown-body"
-              >
-                <h2>
-                  WIP
-                </h2>
-                
-
-                <ul>
-                  
-
-                  <li>
-                    Migrations OVH en cours (46%) et progressivement dans les semaines à venir
-                  </li>
-                  
-
-                </ul>
-                
-
-                <h2>
-                  Nouveaux services
-                </h2>
-                
-
-                <ul>
-                  
-
-                  <li>
-                    BitWarden (gestion mots de passe équipes)
-                  </li>
-                  
-
-                  <li>
-                    Service d'antivirus pour les produits
-                  </li>
-                  
-
-                </ul>
-              </div>
-            </div>
-            <div
-              class="panel"
-            >
-              <div
-                class="markdown-body"
-              />
-            </div>
-            <div
-              class="panel"
-            >
-              <div
-                class="markdown-body"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="footer"
-        >
-          <div
-            class="info"
-          >
-            14/12/2023
-             - 
-            <a
-              class="mr-2"
-              href="https://github.com/revolunet"
-              rel="noreferrer"
-              target="_blank"
-            >
-              revolunet
-            </a>
-          </div>
-        </div>
-      </article>
     </section>
+    <div
+      class="pagination flex justify-between"
+    >
+      <a
+        aria-disabled="true"
+        class="fr-btn fr-btn--tertiary-no-outline fr-icon-arrow-left-line fr-btn--icon-left"
+        href="#"
+        id="fr-button-:r2:"
+      >
+        Précédent
+      </a>
+      <a
+        aria-disabled="false"
+        class="fr-btn fr-btn--tertiary-no-outline fr-icon-arrow-right-line fr-btn--icon-right"
+        href="/domifa?page=2"
+        id="fr-button-:r3:"
+      >
+        Suivant
+      </a>
+    </div>
   </main>
 </div>
 `;
