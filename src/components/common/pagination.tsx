@@ -10,10 +10,10 @@ export default function Pagination({
   currentPage: number;
 }) {
   const isFirstPage = currentPage - 1 < 1;
-  const isLastPage = currentPage + 1 >= totalPages;
+  const isLastPage = currentPage + 1 > totalPages;
 
   return (
-    <div className="pagination flex justify-between">
+    <div className="pagination flex">
       <Button
         iconPosition="left"
         priority="tertiary no outline"
@@ -25,6 +25,7 @@ export default function Pagination({
       >
         Précédent
       </Button>
+      <div className="flex flex-1 justify-center items-center text-sm">{`${currentPage} / ${totalPages}`}</div>
       <Button
         iconPosition="right"
         priority="tertiary no outline"

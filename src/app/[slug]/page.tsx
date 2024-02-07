@@ -48,7 +48,7 @@ export default async function Page({
         <Posts posts={posts} editable={isAuthorized} hideLogos={true} />
         <Pagination
           slug={slug}
-          totalPages={count / 5}
+          totalPages={Math.ceil(count / 5)}
           currentPage={+page || 1}
         />
       </main>
