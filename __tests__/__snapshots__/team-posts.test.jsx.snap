@@ -136,7 +136,7 @@ exports[`Page 1`] = `
       </dialog>
     </section>
     <div
-      class="pagination flex justify-between"
+      class="pagination flex"
     >
       <a
         aria-disabled="true"
@@ -146,6 +146,11 @@ exports[`Page 1`] = `
       >
         Précédent
       </a>
+      <div
+        class="flex flex-1 justify-center items-center text-sm"
+      >
+        1 / NaN
+      </div>
       <a
         aria-disabled="false"
         class="fr-btn fr-btn--tertiary-no-outline fr-icon-arrow-right-line fr-btn--icon-right"
