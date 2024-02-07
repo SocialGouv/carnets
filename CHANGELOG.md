@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/SocialGouv/carnets/compare/v2.0.22...v2.1.0) (2024-02-07)
+
+
+### Features
+
+* add posts paging ([c8f0088](https://github.com/SocialGouv/carnets/commit/c8f00888c7a8e3d3d999e51a3cced6f324dc4c80))
+
 ## [2.0.22](https://github.com/SocialGouv/carnets/compare/v2.0.21...v2.0.22) (2024-02-06)
 
 
