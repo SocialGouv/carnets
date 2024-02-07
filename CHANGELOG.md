@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/SocialGouv/carnets/compare/v2.1.1...v2.2.0) (2024-02-07)
+
+
+### Features
+
+* add pagination page count ([0e85dcc](https://github.com/SocialGouv/carnets/commit/0e85dcc5da306bb37215aee2248110f4db94eb59))
+
 ## [2.1.1](https://github.com/SocialGouv/carnets/compare/v2.1.0...v2.1.1) (2024-02-07)
 
 
