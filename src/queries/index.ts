@@ -9,8 +9,15 @@ export const getTeams = gql`
 `;
 
 export const getTeamPosts = gql`
-  query getTeamPosts($slug: String) {
+  query getTeamPosts($slug: String, $offset: Int) {
+    posts_aggregate(where: { team_slug: { _eq: $slug } }) {
+      aggregate {
+        count
+      }
+    }
     posts(
+      limit: 5
+      offset: $offset
       order_by: { created_at: desc }
       where: { team_slug: { _eq: $slug } }
     ) {

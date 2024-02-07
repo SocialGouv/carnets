@@ -49,6 +49,7 @@ select_permissions:
         - needs
         - author
       filter: {}
+      allow_aggregations: true
   - role: user
     permission:
       columns:
@@ -61,6 +62,7 @@ select_permissions:
         - created_at
         - id
       filter: {}
+      allow_aggregations: true
 update_permissions:
   - role: user
     permission:
@@ -73,9 +75,3 @@ update_permissions:
         team_slug:
           _in: x-hasura-allowed-teams
       check: null
-delete_permissions:
-  - role: user
-    permission:
-      filter:
-        team_slug:
-          _in: x-hasura-allowed-teams

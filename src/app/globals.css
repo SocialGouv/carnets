@@ -18,3 +18,9 @@ ul {
 .not-found h2 {
   @apply text-6xl mr-8;
 }
+
+a[aria-disabled="true"] {
+  color: currentColor;
+  pointer-events: none;
+  text-decoration: none;
+}

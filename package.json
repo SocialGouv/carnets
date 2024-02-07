@@ -17,8 +17,8 @@
     "build": "node --stack-size=2000 ./node_modules/.bin/next build"
   },
   "dependencies": {
-    "@codegouvfr/react-dsfr": "0.78.6",
-    "@sentry/nextjs": "^7.99.0",
+    "@codegouvfr/react-dsfr": "1.2.2",
+    "@sentry/nextjs": "7.100.0",
     "@socialgouv/matomo-next": "1.8.0",
     "chart.js": "4.4.1",
     "date-fns": "2.30.0",

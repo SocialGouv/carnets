@@ -2,15 +2,27 @@ import { cache } from "react";
 import fetcher from "@/utils/graphql-fetcher";
 import { getTeamPosts as getTeamPostsQuery } from "@/queries/index";
 
-type Data = Record<"posts", []>;
+interface Data {
+  posts: Post[];
+  posts_aggregate: {
+    aggregate: {
+      count: number;
+    };
+  };
+}
 
-const getTeamPosts = cache(async (slug: string) => {
-  const { posts } = (await fetcher({
+const getTeamPosts = cache(async (slug: string, offset: number) => {
+  const {
+    posts,
+    posts_aggregate: {
+      aggregate: { count },
+    },
+  } = (await fetcher({
     query: getTeamPostsQuery,
-    parameters: { slug },
+    parameters: { slug, offset },
   })) as Data;
 
-  return posts as Post[];
+  return { posts, count };
 });
 
 export default getTeamPosts;
