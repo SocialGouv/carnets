@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/SocialGouv/carnets/compare/v2.1.0...v2.1.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* update snapshots ([57e389c](https://github.com/SocialGouv/carnets/commit/57e389ca456777fa643cb9ea46173a92e7ab997b))
+
 # [2.1.0](https://github.com/SocialGouv/carnets/compare/v2.0.22...v2.1.0) (2024-02-07)
 
 
