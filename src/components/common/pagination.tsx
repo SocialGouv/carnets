@@ -25,7 +25,9 @@ export default function Pagination({
       >
         Précédent
       </Button>
-      <div className="flex flex-1 justify-center items-center text-sm">{`${currentPage} / ${totalPages}`}</div>
+      <div className="flex flex-1 justify-center items-center text-sm">
+        {`${currentPage} / ${totalPages}`}
+      </div>
       <Button
         iconPosition="right"
         priority="tertiary no outline"

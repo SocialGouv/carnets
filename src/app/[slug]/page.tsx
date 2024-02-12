@@ -36,8 +36,8 @@ export default async function Page({
           {isAuthorized && (
             <div className="actions flex flex-col items-center justify-center">
               <Button
-                iconId="fr-icon-add-line"
                 priority="tertiary"
+                iconId="fr-icon-add-line"
                 linkProps={{ href: `/${slug}/publish` }}
               >
                 Nouvelle publication
@@ -48,8 +48,8 @@ export default async function Page({
         <Posts posts={posts} editable={isAuthorized} hideLogos={true} />
         <Pagination
           slug={slug}
-          totalPages={Math.ceil(count / 5)}
           currentPage={+page || 1}
+          totalPages={Math.ceil(count / 5)}
         />
       </main>
     </>

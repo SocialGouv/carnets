@@ -38,6 +38,7 @@ const Header = ({ session }: { session: Session | null }) => (
             iconId: "fr-icon-user-line",
             text: session.user.name,
             buttonProps: {
+              className: "text-red-500",
               onClick: () => signOut(),
             },
           }
