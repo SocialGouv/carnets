@@ -4,7 +4,6 @@ import remarkGfm from "remark-gfm";
 import Markdown from "react-markdown";
 import Button from "@codegouvfr/react-dsfr/Button";
 import KPIs, { type KPI } from "@/components/common/kpis";
-import { useIsDark } from "@codegouvfr/react-dsfr/useIsDark";
 import Mood, { type Mood as MoodType } from "@/components/common/mood";
 import TabPanel, { Tab, Tabs, Panels } from "@/components/common/tab-panel";
 
@@ -32,11 +31,8 @@ export default function Post({
   hideLogo: boolean;
   onDeletion: (id?: string) => void;
 }) {
-  const { isDark } = useIsDark();
-  console.log("isDark", isDark);
-
   return (
-    <article className={`post ${isDark ? "dark" : ""}`}>
+    <article className="post">
       <div className="header">
         <div className="avatar">
           {hideLogo ? (
