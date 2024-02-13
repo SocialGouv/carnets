@@ -44,6 +44,10 @@ jobs:
         imagePackage: app
         buildArgs:
           NEXT_PUBLIC_HASURA_URL: "https://hasura-{{ .Values.global.host }}/v1/graphql"
+        secrets:
+          sentry_auth_token:
+            secretName: app
+            secretKey: SENTRY_AUTH_TOKEN
     build-hasura:
       use: build
       with:
