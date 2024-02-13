@@ -1,3 +1,10 @@
+## [2.2.4](https://github.com/SocialGouv/carnets/compare/v2.2.3...v2.2.4) (2024-02-13)
+
+
+### Bug Fixes
+
+* use github api teams ([cd7b8d9](https://github.com/SocialGouv/carnets/commit/cd7b8d909380b3c8b129a80dc56318278a3238b5))
+
 ## [2.2.3](https://github.com/SocialGouv/carnets/compare/v2.2.2...v2.2.3) (2024-02-13)
 
 
