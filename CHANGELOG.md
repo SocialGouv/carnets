@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/SocialGouv/carnets/compare/v2.2.2...v2.2.3) (2024-02-13)
+
+
+### Bug Fixes
+
+* upload sourcemaps ([#422](https://github.com/SocialGouv/carnets/issues/422)) ([0272931](https://github.com/SocialGouv/carnets/commit/0272931517b04ebf1080f5455b5991c7c9b7cdc8))
+
 ## [2.2.2](https://github.com/SocialGouv/carnets/compare/v2.2.1...v2.2.2) (2024-02-13)
 
 
