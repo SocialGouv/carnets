@@ -23,8 +23,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_HASURA_URL
 ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
 
-# RUN yarn install --frozen-lockfile
-RUN yarn build
+RUN --mount=type=secret,id=sentry_auth_token export SENTRY_AUTH_TOKEN="$(cat /run/secrets/sentry_auth_token)"; yarn build
 
 RUN yarn workspaces focus --production
 
