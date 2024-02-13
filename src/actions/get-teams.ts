@@ -2,10 +2,7 @@ import { cache } from "react";
 import fetcher from "@/utils/graphql-fetcher";
 import { getTeams as getTeamsQuery } from "@/queries/index";
 
-type Teams = Record<
-  "github_data",
-  Record<"admins_and_teams", Record<"teams", Team[]>>[]
->;
+type Teams = Record<"organization", Record<"teams", Record<"nodes", Team[]>>>;
 
 export async function getTeamBySlug(slug: string) {
   const teams = await getTeams();
@@ -14,11 +11,9 @@ export async function getTeamBySlug(slug: string) {
 
 const getTeams = cache(async () => {
   const {
-    github_data: [
-      {
-        admins_and_teams: { teams },
-      },
-    ],
+    organization: {
+      teams: { nodes: teams },
+    },
   } = (await fetcher({ query: getTeamsQuery })) as Teams;
 
   return teams;

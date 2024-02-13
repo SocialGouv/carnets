@@ -2,8 +2,21 @@ import { gql } from "graphql-request";
 
 export const getTeams = gql`
   query getTeams {
-    github_data {
-      admins_and_teams
+    organization(login: "SocialGouv") {
+      teams(
+        first: 100
+        privacy: VISIBLE
+        rootTeamsOnly: true
+        orderBy: { direction: ASC, field: NAME }
+      ) {
+        totalCount
+        nodes {
+          name
+          slug
+          avatarUrl
+          description
+        }
+      }
     }
   }
 `;
