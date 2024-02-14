@@ -1,3 +1,10 @@
+## [2.2.9](https://github.com/SocialGouv/carnets/compare/v2.2.8...v2.2.9) (2024-02-14)
+
+
+### Bug Fixes
+
+* delete post permission ([ada097f](https://github.com/SocialGouv/carnets/commit/ada097f0cfeb4ddffa3e899fbe30abd9bce6436e))
+
 ## [2.2.8](https://github.com/SocialGouv/carnets/compare/v2.2.7...v2.2.8) (2024-02-14)
 
 
