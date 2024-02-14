@@ -1,3 +1,10 @@
+## [2.2.5](https://github.com/SocialGouv/carnets/compare/v2.2.4...v2.2.5) (2024-02-14)
+
+
+### Bug Fixes
+
+* enable sentry on preprod ([28ad910](https://github.com/SocialGouv/carnets/commit/28ad91037991d1f1ba6b389f3d381cfebbdb3629))
+
 ## [2.2.4](https://github.com/SocialGouv/carnets/compare/v2.2.3...v2.2.4) (2024-02-13)
 
 
