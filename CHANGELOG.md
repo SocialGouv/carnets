@@ -1,3 +1,10 @@
+## [2.2.10](https://github.com/SocialGouv/carnets/compare/v2.2.9...v2.2.10) (2024-02-14)
+
+
+### Bug Fixes
+
+* markdown editor overflow ([7ee8522](https://github.com/SocialGouv/carnets/commit/7ee8522a74e47dbfea756869438e480286bdc7bd))
+
 ## [2.2.9](https://github.com/SocialGouv/carnets/compare/v2.2.8...v2.2.9) (2024-02-14)
 
 
