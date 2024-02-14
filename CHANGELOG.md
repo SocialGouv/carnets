@@ -1,3 +1,10 @@
+## [2.2.7](https://github.com/SocialGouv/carnets/compare/v2.2.6...v2.2.7) (2024-02-14)
+
+
+### Bug Fixes
+
+* dockerfile ([5b1a93e](https://github.com/SocialGouv/carnets/commit/5b1a93e9b529a368611a0933fb7c93c1905fbf65))
+
 ## [2.2.6](https://github.com/SocialGouv/carnets/compare/v2.2.5...v2.2.6) (2024-02-14)
 
 
