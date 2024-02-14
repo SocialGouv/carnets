@@ -23,7 +23,8 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_HASURA_URL
 ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
 
-RUN --mount=type=secret,id=sentry_auth_token export SENTRY_AUTH_TOKEN="$(cat /run/secrets/sentry_auth_token)"; yarn build
+# RUN --mount=type=secret,id=sentry_auth_token export SENTRY_AUTH_TOKEN="$(cat /run/secrets/sentry_auth_token)"; yarn build
+RUN yarn build
 
 RUN yarn workspaces focus --production
 
@@ -47,9 +48,12 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Add sharp
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/sharp ./node_modules/sharp
+RUN mkdir ./.next/cache && chown nextjs:nodejs ./.next/cache
 
 USER 1001
 EXPOSE 3000
 ENV PORT 3000
+
+RUN ls -lah && ls -lah .next && exit 1
 
 CMD ["node", "server.js"]
