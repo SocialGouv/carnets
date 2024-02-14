@@ -24,9 +24,11 @@
 }
 
 .publish-page form .markdown-editor .preview {
-  @apply flex-1 p-3;
-  @apply dark:bg-[color:var(--background-alt-grey)];
+  @apply flex-1 p-3 overflow-auto;
+  /* @apply dark:bg-[color:var(--background-alt-grey)]; */
+  color: var(--text-default-grey);
   filter: drop-shadow(var(--raised-shadow));
+  background-color: var(--background-alt-grey);
 }
 
 .publish-page form .markdown-editor .fr-input-group {

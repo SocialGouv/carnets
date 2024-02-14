@@ -117,10 +117,15 @@ article.post .actions {
   @apply flex justify-center gap-x-3;
 }
 
+.publish-page form .markdown-editor .preview {
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: auto;
+  background-color: orange;
+}
+
 .markdown-body {
   @apply flex-1 p-3;
-  @apply bg-white;
   color: var(--text-default-grey);
-
   background-color: var(--background-default-grey);
 }
