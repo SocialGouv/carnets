@@ -75,3 +75,9 @@ update_permissions:
         team_slug:
           _in: x-hasura-allowed-teams
       check: null
+delete_permissions:
+  - role: user
+    permission:
+      filter:
+        team_slug:
+          _in: x-hasura-allowed-teams
