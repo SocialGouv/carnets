@@ -13,7 +13,7 @@ export default function TeamTitle({ team }: { team?: Team }) {
         <h2>{team?.name}</h2>
         <div>{team?.description}</div>
         <div className="members">
-          {team?.members.nodes.map(({ name, avatarUrl, login }) => (
+          {team?.members?.nodes.map(({ name, avatarUrl, login }) => (
             <Image
               width={42}
               height={42}
