@@ -1,3 +1,10 @@
+## [2.2.6](https://github.com/SocialGouv/carnets/compare/v2.2.5...v2.2.6) (2024-02-14)
+
+
+### Bug Fixes
+
+* create sharp cache folder ([6c83c77](https://github.com/SocialGouv/carnets/commit/6c83c77c7b5c3211b6584fb8f430c197f85d81de))
+
 ## [2.2.5](https://github.com/SocialGouv/carnets/compare/v2.2.4...v2.2.5) (2024-02-14)
 
 
