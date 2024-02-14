@@ -21,7 +21,7 @@ const nextConfig = {
 
 module.exports = nextConfig;
 
-if (process.env.ENV === "prod") {
+if (process.env.NODE_ENV === "production") {
   // Injected content via Sentry wizard below
 
   const { withSentryConfig } = require("@sentry/nextjs");
