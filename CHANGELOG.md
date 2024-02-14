@@ -1,3 +1,10 @@
+## [2.2.8](https://github.com/SocialGouv/carnets/compare/v2.2.7...v2.2.8) (2024-02-14)
+
+
+### Bug Fixes
+
+* team title ([72054d2](https://github.com/SocialGouv/carnets/commit/72054d2cf78014440d631662b5f4499f5a4f135e))
+
 ## [2.2.7](https://github.com/SocialGouv/carnets/compare/v2.2.6...v2.2.7) (2024-02-14)
 
 
