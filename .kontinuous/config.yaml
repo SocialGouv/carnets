@@ -2,10 +2,6 @@ projectName: fabrique
 
 dependencies:
   fabrique:
-    patches:
-      setUndefinedStorageClassnameCnpg:
-        options:
-          defaultStorageClassName: csi-cinder-high-speed
     dependencies:
       contrib:
         preDeploy:
