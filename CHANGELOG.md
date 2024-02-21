@@ -1,3 +1,10 @@
+## [2.2.12](https://github.com/SocialGouv/carnets/compare/v2.2.11...v2.2.12) (2024-02-21)
+
+
+### Bug Fixes
+
+* Revert "fix: use default storage class" ([02b4954](https://github.com/SocialGouv/carnets/commit/02b495452a8d8b0117d009336344276f1a410c56))
+
 ## [2.2.11](https://github.com/SocialGouv/carnets/compare/v2.2.10...v2.2.11) (2024-02-21)
 
 
