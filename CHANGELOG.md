@@ -1,3 +1,10 @@
+## [2.2.17](https://github.com/SocialGouv/carnets/compare/v2.2.16...v2.2.17) (2024-03-15)
+
+
+### Bug Fixes
+
+* hasura permissions ([89dbde3](https://github.com/SocialGouv/carnets/commit/89dbde32e8d440638b73e85e4436320e02986565))
+
 ## [2.2.16](https://github.com/SocialGouv/carnets/compare/v2.2.15...v2.2.16) (2024-03-15)
 
 
