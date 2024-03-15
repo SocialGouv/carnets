@@ -1,3 +1,10 @@
+## [2.2.18](https://github.com/SocialGouv/carnets/compare/v2.2.17...v2.2.18) (2024-03-15)
+
+
+### Bug Fixes
+
+* sharp ([88b9466](https://github.com/SocialGouv/carnets/commit/88b94666f83afab27f254825ef8fc43f0c5d3f93))
+
 ## [2.2.17](https://github.com/SocialGouv/carnets/compare/v2.2.16...v2.2.17) (2024-03-15)
 
 
