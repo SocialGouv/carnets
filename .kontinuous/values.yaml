@@ -1,7 +1,7 @@
 app:
   ~chart: app
   ~needs: [build-app]
-  probesPath: /healthz
+  probesPath: /api/healthz
   imagePackage: app
   envFrom:
   - secretRef:

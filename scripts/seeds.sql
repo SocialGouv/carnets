@@ -1,3 +1,4 @@
+SET FOREIGN_KEY_CHECKS = 0;
 
 --
 -- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: -
@@ -13280,3 +13281,5 @@ INSERT INTO public.kpis VALUES ('db870a6b-b369-4f5c-a5c9-bbc10702f3ce', '2024-01
 INSERT INTO public.kpis VALUES ('37af7382-1b9b-4e38-9658-1c68a6d132c8', '2024-01-18 10:58:24.577522+00', 'En cours de tranfert', 'Phase', '0fd7145f-3618-4b62-8451-3944b8a0b977');
 INSERT INTO public.kpis VALUES ('672f8f2c-ff0e-490d-a168-bdf0f580bf52', '2024-01-18 11:05:14.865696+00', 'Utilisations de l''app sur 2023', '+ 26%', '188d3b6a-ca14-4c10-afb4-57cf7fa006ca');
 INSERT INTO public.kpis VALUES ('317a10b3-d3eb-47f2-b049-b1c447d726aa', '2024-01-18 11:05:14.865696+00', 'Arboresences analysés sur 2023', '+ 61%', '188d3b6a-ca14-4c10-afb4-57cf7fa006ca');
+
+SET FOREIGN_KEY_CHECKS = 1;
