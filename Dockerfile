@@ -1,5 +1,6 @@
-FROM node:18-alpine as base
-RUN apk add --no-cache libc6-compat
+ARG NODE_VERSION=lts-alpine3.18@sha256:acdf232a7bf5d32e2212134d50aee7deb9193908f1172e56fc865c51b0c6bfb0
+
+FROM node:$NODE_VERSION as base
 WORKDIR /app
 
 # Rebuild the source code only when needed
@@ -34,22 +35,23 @@ FROM base AS runner
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN addgroup --system --gid 1001 nodejs && \
-  adduser --system --uid 1001 nextjs
+# RUN addgroup --system --gid 1001 nodejs && \
+#   adduser --system --uid 1001 nextjs
 
 # You only need to copy next.config.js if you are NOT using the default configuration
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
+COPY --from=builder --chown=node:node /app/next.config.js ./
+COPY --from=builder --chown=node:node /app/public ./public
 
 # Automatically leverage output traces to reduce image size
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=node:node /app/.next/standalone ./
+RUN mkdir ./.next && chown node:node ./.next
+COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
 # Add sharp
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/sharp ./node_modules/sharp
-RUN mkdir ./.next/cache && chown nextjs:nodejs ./.next/cache
+# COPY --from=builder --chown=node:node /app/node_modules/sharp ./node_modules/sharp
+# RUN mkdir ./.next/cache && chown nextjs:nodejs ./.next/cache
 
-USER 1001
+USER 1000
 EXPOSE 3000
 ENV PORT 3000
 
