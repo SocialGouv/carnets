@@ -1,3 +1,10 @@
+## [2.2.14](https://github.com/SocialGouv/carnets/compare/v2.2.13...v2.2.14) (2024-03-15)
+
+
+### Bug Fixes
+
+* db seeds and healthz route ([e731387](https://github.com/SocialGouv/carnets/commit/e7313870e5520b2ee7756d2cb04df2e586859003))
+
 ## [2.2.13](https://github.com/SocialGouv/carnets/compare/v2.2.12...v2.2.13) (2024-03-15)
 
 
