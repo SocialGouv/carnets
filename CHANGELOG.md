@@ -1,3 +1,10 @@
+## [2.2.13](https://github.com/SocialGouv/carnets/compare/v2.2.12...v2.2.13) (2024-03-15)
+
+
+### Bug Fixes
+
+* update sentry.server.config.ts ([7e29b85](https://github.com/SocialGouv/carnets/commit/7e29b850e1eefef5c36335cd09b753acd62a347a))
+
 ## [2.2.12](https://github.com/SocialGouv/carnets/compare/v2.2.11...v2.2.12) (2024-02-21)
 
 
