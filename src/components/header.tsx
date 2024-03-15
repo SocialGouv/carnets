@@ -22,7 +22,7 @@ const Header = ({ session }: { session: Session | null }) => (
     serviceTagline="Carnets de bord des produits de la Fabrique Numérique"
     operatorLogo={{
       orientation: "vertical",
-      imgUrl: "/logo-fabrique.svg",
+      imgUrl: "/images/logo-fabrique.svg",
       alt: "logo de la Fabrique Numérique",
     }}
     quickAccessItems={[

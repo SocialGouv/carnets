@@ -397,7 +397,7 @@ exports[`Page 1`] = `
                         alt="logo de la Fabrique Numérique"
                         class="fr-responsive-img"
                         data-fr-js-ratio="true"
-                        src="/logo-fabrique.svg"
+                        src="/images/logo-fabrique.svg"
                         style="width: 3.5rem; height: 0px;"
                       />
                     </a>
