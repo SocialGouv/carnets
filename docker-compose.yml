@@ -7,7 +7,6 @@ services:
     ports:
       - "3000:3000"
     env_file: ./.env.docker
-    # network_mode: host
   postgres:
     image: postgres:11
     restart: always

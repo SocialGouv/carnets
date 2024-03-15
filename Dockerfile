@@ -24,7 +24,8 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_HASURA_URL
 ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
 
-RUN --mount=type=secret,id=sentry_auth_token export SENTRY_AUTH_TOKEN="$(cat /run/secrets/sentry_auth_token)"; yarn build
+# RUN --mount=type=secret,id=sentry_auth_token export SENTRY_AUTH_TOKEN="$(cat /run/secrets/sentry_auth_token)"; yarn build
+RUN yarn build
 
 RUN yarn workspaces focus --production
 
@@ -43,8 +44,8 @@ COPY --from=builder --chown=node:node /app/next.config.js ./
 COPY --from=builder --chown=node:node /app/public ./public
 
 # Automatically leverage output traces to reduce image size
-COPY --from=builder --chown=node:node /app/.next/standalone ./
 RUN mkdir ./.next && chown node:node ./.next
+COPY --from=builder --chown=node:node /app/.next/standalone ./
 COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
 # Add sharp
