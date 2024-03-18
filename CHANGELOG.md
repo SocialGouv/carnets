@@ -1,3 +1,10 @@
+## [2.2.19](https://github.com/SocialGouv/carnets/compare/v2.2.18...v2.2.19) (2024-03-18)
+
+
+### Bug Fixes
+
+* Reduce sentry transaction sampling ([#435](https://github.com/SocialGouv/carnets/issues/435)) ([a728a02](https://github.com/SocialGouv/carnets/commit/a728a02231b5164b6027e1372dd36716447934d9))
+
 ## [2.2.18](https://github.com/SocialGouv/carnets/compare/v2.2.17...v2.2.18) (2024-03-15)
 
 
