@@ -2,6 +2,12 @@
 export const ENV = process.env.ENV as string;
 export const NODE_ENV = process.env.NODE_ENV as string;
 
+// Matomo
+export const NEXT_PUBLIC_MATOMO_URL = process.env
+  .NEXT_PUBLIC_MATOMO_URL as string;
+export const NEXT_PUBLIC_MATOMO_SITE_ID = process.env
+  .NEXT_PUBLIC_MATOMO_SITE_ID as string;
+
 // Next Auth
 export const NEXTAUTH_URL = process.env.NEXTAUTH_URL as string;
 export const NEXTAUTH_SECRET = process.env.NEXTAUTH_SECRET as string;
