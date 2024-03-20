@@ -1,3 +1,10 @@
+## [2.2.20](https://github.com/SocialGouv/carnets/compare/v2.2.19...v2.2.20) (2024-03-20)
+
+
+### Bug Fixes
+
+* matomo prod ([f1de683](https://github.com/SocialGouv/carnets/commit/f1de683126c81d00dcc9e233664293e928d85fe0))
+
 ## [2.2.19](https://github.com/SocialGouv/carnets/compare/v2.2.18...v2.2.19) (2024-03-18)
 
 
