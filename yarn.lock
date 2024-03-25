@@ -1758,9 +1758,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:14.1.2":
-  version: 14.1.2
-  resolution: "@testing-library/react@npm:14.1.2"
+"@testing-library/react@npm:14.2.2":
+  version: 14.2.2
+  resolution: "@testing-library/react@npm:14.2.2"
   dependencies:
     "@babel/runtime": "npm:^7.12.5"
     "@testing-library/dom": "npm:^9.0.0"
@@ -1768,7 +1768,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: b5b0990d3aa0ea8b37c55804e0d5d584fc638a5c7d4df90da9a0fdb00bc981b27b6991468b2dc719982a5d0b0107a41596063ce51ad519eeab47b22bc04d6779
+  checksum: ab36707f6701a4a56dd217e16e00d6326e0f760bb2e716245422c7500a0b94efcd351d0aa89c4fab2916e6ebc68c983cec6b3ae0804de813cafc913a612668f6
   languageName: node
   linkType: hard
 
@@ -2814,7 +2814,7 @@ __metadata:
     "@codegouvfr/react-dsfr": "npm:1.2.2"
     "@sentry/nextjs": "npm:^7.101.0"
     "@socialgouv/matomo-next": "npm:1.8.0"
-    "@testing-library/react": "npm:14.1.2"
+    "@testing-library/react": "npm:14.2.2"
     "@types/jsonwebtoken": "npm:9.0.5"
     "@types/node": "npm:20.10.4"
     "@types/react": "npm:18.2.45"
