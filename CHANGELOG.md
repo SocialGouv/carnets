@@ -1,3 +1,10 @@
+## [2.2.21](https://github.com/SocialGouv/carnets/compare/v2.2.20...v2.2.21) (2024-04-15)
+
+
+### Bug Fixes
+
+* use otel for sentry performance tracking ([4af8d3d](https://github.com/SocialGouv/carnets/commit/4af8d3d47a5d85c4f7f1099a7a75c08a084e0bad))
+
 ## [2.2.20](https://github.com/SocialGouv/carnets/compare/v2.2.19...v2.2.20) (2024-03-20)
 
 
