@@ -27,4 +27,6 @@ Sentry.init({
       blockAllMedia: true,
     }),
   ],
+  environment: "otel_" + (process.env.NEXT_PUBLIC_ENV || "dev"),
+  instrumenter: "otel",
 });

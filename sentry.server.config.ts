@@ -6,10 +6,12 @@ import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
   dsn: "https://c96c9319e5654102b38b750ecba85712@sentry.fabrique.social.gouv.fr/101",
-  environment: process.env.ENV || "dev",
+  environment: "otel_" + (process.env.ENV || "dev"),
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 0.1,
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
+
+  instrumenter: "otel",
 });
