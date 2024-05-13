@@ -1,3 +1,10 @@
+## [2.2.22](https://github.com/SocialGouv/carnets/compare/v2.2.21...v2.2.22) (2024-05-13)
+
+
+### Bug Fixes
+
+* hasura migration timeout ([0d1548e](https://github.com/SocialGouv/carnets/commit/0d1548e161f243f9c16a54a766bedc214b08165e))
+
 ## [2.2.21](https://github.com/SocialGouv/carnets/compare/v2.2.20...v2.2.21) (2024-04-15)
 
 
