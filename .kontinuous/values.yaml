@@ -33,6 +33,11 @@ hasura:
     fsGroup: 1001
     runAsUser: 1001
     runAsGroup: 1001
+  startupProbe:
+    httpGet:
+      path: /healthz
+      port: http
+    failureThreshold: 120
 
 jobs:
   ~chart: jobs
