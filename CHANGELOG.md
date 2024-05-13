@@ -1,3 +1,10 @@
+## [2.2.23](https://github.com/SocialGouv/carnets/compare/v2.2.22...v2.2.23) (2024-05-13)
+
+
+### Bug Fixes
+
+* **hasura:** increase failure treshold ([f0bd5d9](https://github.com/SocialGouv/carnets/commit/f0bd5d96fc1d438bcecde25602c72ce9c7699480))
+
 ## [2.2.22](https://github.com/SocialGouv/carnets/compare/v2.2.21...v2.2.22) (2024-05-13)
 
 
