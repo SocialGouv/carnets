@@ -1,0 +1,35 @@
+on:
+  workflow_dispatch:
+name: Vault token
+jobs:
+  vault-login:
+    runs-on: ubuntu-latest
+    name: Vault
+    permissions:
+        contents: read
+        id-token: write
+    env:
+      VAULT_ADDR: "https://vault-dev.factory.social.gouv.fr"
+    steps:
+    - name: Install Vault CLI
+      run: |
+        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+        sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+        sudo apt-get update && sudo apt-get install vault
+    - name: 'Setup jq'
+      uses: dcarbone/install-jq-action@v2
+      with:
+        version: 1.7
+    - name: get_token
+      run: |
+    - name: Vault login
+      run: |
+        TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=fabrique")
+        TOKEN=$(jq -r '.value' <<< $TOKEN)
+        VAULT_RESPONSE=$(vault write -format=json auth/github-ci/login role=fabrique jwt=$TOKEN)
+        VAULT_TOKEN=$(echo $VAULT_RESPONSE | jq -r '.auth.client_token')
+        vault login $VAULT_TOKEN
+    - name: logout vault
+      run: |
+        vault write auth/ovh-dev/role/fabrique-carnets-vault bound_service_account_names=default bound_service_account_namespaces=carnets-vault  policies=fabrique-dev   ttl=10m
+        vault token revoke -self
