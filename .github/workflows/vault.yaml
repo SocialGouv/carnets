@@ -31,5 +31,5 @@ jobs:
         vault login $VAULT_TOKEN
     - name: logout vault
       run: |
-        vault write auth/ovh-dev/role/Fabrique-carnets-vault bound_service_account_names=default bound_service_account_namespaces=carnets-vault  policies=["fabrique-dev"]   ttl=10m
+        vault write auth/ovh-dev/role/Fabrique-carnets-vault bound_service_account_names=default bound_service_account_namespaces=carnets-vault  policies=fabrique-dev   ttl=10m
         vault token revoke -self
