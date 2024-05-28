@@ -26,7 +26,7 @@ jobs:
       run: |
         TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=fabrique")
         TOKEN=$(jq -r '.value' <<< $TOKEN)
-        VAULT_RESPONSE=$(vault write -format=json auth/github-ci/login role=fabrique jwt=$TOKEN)
+        VAULT_RESPONSE=$(vault write -format=json auth/github-ci/login role=carnets jwt=$TOKEN)
         VAULT_TOKEN=$(echo $VAULT_RESPONSE | jq -r '.auth.client_token')
         vault login $VAULT_TOKEN
     - name: logout vault
