@@ -1,3 +1,5 @@
+"use server";
+
 import Vault from "node-vault";
 
 var options = {
