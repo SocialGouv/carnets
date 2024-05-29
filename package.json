@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@codegouvfr/react-dsfr": "1.2.2",
+    "@litehex/node-vault": "0.2.4",
     "@opentelemetry/exporter-trace-otlp-http": "^0.50.0",
     "@opentelemetry/resources": "^1.23.0",
     "@opentelemetry/sdk-node": "^0.50.0",
