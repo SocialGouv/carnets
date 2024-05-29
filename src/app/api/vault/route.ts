@@ -5,9 +5,11 @@ var options = {
   endpoint: "https://vaul.fabrique.fr",
 };
 
+console.log("VAS Y FAIS UN TRUC !");
+
 export async function GET() {
   var vault = Vault(options);
-  console.log("VAULT", vault);
+  process.stdout.write("VAULT: " + JSON.stringify(vault));
 
   try {
     const result = await vault.init({ secret_shares: 1, secret_threshold: 1 });
