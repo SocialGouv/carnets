@@ -2,10 +2,8 @@ import Vault from "node-vault";
 
 var options = {
   apiVersion: "v1",
-  endpoint: "https://vaul.fabrique.fr",
+  endpoint: "https://vault-dev.factory.social.gouv.fr",
 };
-
-console.log("VAS Y FAIS UN TRUC !");
 
 export const dynamic = "force-dynamic";
 
