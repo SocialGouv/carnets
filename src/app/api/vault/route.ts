@@ -60,6 +60,7 @@ export async function GET() {
   } catch (error) {
     console.error("Error:", error);
   }
+  return new Response("It Works!", { status: 200 });
 }
 
 // main();
