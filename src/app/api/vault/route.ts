@@ -10,7 +10,7 @@ class VaultModule {
   constructor(vaultRole: string) {
     this.vaultClient = vault({
       apiVersion: "v1",
-      endpoint: "https://vaul.fabrique.fr",
+      endpoint: "https://vault-dev.factory.social.gouv.fr",
     });
     this.vaultRole = vaultRole;
     this.isKubelogged = false;
