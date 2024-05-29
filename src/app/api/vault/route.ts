@@ -1,20 +1,22 @@
-import { Client } from "@litehex/node-vault";
+import Vault from "node-vault";
 
-// Get a new instance of the client
-const vc = new Client({
+var options = {
   apiVersion: "v1",
   endpoint: "https://vaul.fabrique.fr",
-});
+};
 
 export async function GET() {
-  const init = await vc.init({ secret_shares: 1, secret_threshold: 1 });
-  console.log(init);
+  var vault = Vault(options);
 
-  const { keys, root_token } = init;
-  vc.token = root_token;
+  try {
+    const result = await vault.init({ secret_shares: 1, secret_threshold: 1 });
+    var keys = result.keys;
+    vault.token = result.root_token;
+    const secrets = vault.unseal({ secret_shares: 1, key: keys[0] });
+    console.log("SECRETS:", secrets);
+  } catch (error) {
+    console.log(error);
+  }
 
-  const unsealed = await vc.unseal({ key: keys[0] });
-
-  console.log(unsealed);
   return new Response("It Works!", { status: 200 });
 }
