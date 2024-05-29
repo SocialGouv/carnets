@@ -1,5 +1,3 @@
-"use server";
-
 import Vault from "node-vault";
 
 var options = {
@@ -8,6 +6,8 @@ var options = {
 };
 
 console.log("VAS Y FAIS UN TRUC !");
+
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   var vault = Vault(options);
