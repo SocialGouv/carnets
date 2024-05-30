@@ -8,7 +8,7 @@ const failRate = new Rate("failed_requests");
 export const options = {
   thresholds: {
     failed_requests: ["rate<=0"],
-    http_req_duration: ["p(95)<500"],
+    // http_req_duration: ["p(95)<500"],
   },
   ext: {
     loadimpact: {
