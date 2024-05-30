@@ -9,14 +9,14 @@ class VaultModule {
   private readonly kubernetesPath: string;
 
   constructor(vaultRole: string, kubernetesPath: string) {
+    this.vaultRole = vaultRole;
+    this.kubernetesPath = kubernetesPath;
+    this.isKubelogged = false;
     this.vaultClient = vault({
       apiVersion: "v1",
       endpoint: "https://vault-dev.factory.social.gouv.fr",
       kubernetesPath: this.kubernetesPath,
     });
-    this.vaultRole = vaultRole;
-    this.kubernetesPath = kubernetesPath;
-    this.isKubelogged = false;
   }
 
   async readSecret(path: string): Promise<any> {
