@@ -6,15 +6,16 @@ class VaultModule {
   private vaultClient: any;
   private readonly vaultRole: string;
   private isKubelogged: boolean;
-  private endpoint: string;
+  private readonly kubernetesPath: string;
 
-  constructor(vaultRole: string, endpoint: string) {
+  constructor(vaultRole: string, kubernetesPath: string) {
     this.vaultClient = vault({
       apiVersion: "v1",
       endpoint: "https://vault-dev.factory.social.gouv.fr",
+      kubernetesPath: this.endpoint,
     });
     this.vaultRole = vaultRole;
-    this.endpoint = endpoint;
+    this.kubernetesPath = kubernetesPath;
     this.isKubelogged = false;
   }
 
@@ -28,7 +29,7 @@ class VaultModule {
         const result = await this.vaultClient.kubernetesLogin({
           role: this.vaultRole,
           jwt: jwt.toString(),
-          kubernetesPath: this.endpoint
+          kubernetesPath: this.kubernetesPath,
         });
         this.vaultClient.token = result.auth.client_token;
       } catch (error) {
