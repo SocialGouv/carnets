@@ -6,6 +6,7 @@ class VaultModule {
   private vaultClient: any;
   private readonly vaultRole: string;
   private isKubelogged: boolean;
+  private endpoint: string;
 
   constructor(vaultRole: string, endpoint: string) {
     this.vaultClient = vault({
@@ -13,7 +14,7 @@ class VaultModule {
       endpoint: "https://vault-dev.factory.social.gouv.fr",
     });
     this.vaultRole = vaultRole;
-    this.path = endpoint;
+    this.endpoint = endpoint;
     this.isKubelogged = false;
   }
 
