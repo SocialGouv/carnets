@@ -28,7 +28,7 @@ class VaultModule {
         const result = await this.vaultClient.kubernetesLogin({
           role: this.vaultRole,
           jwt: jwt.toString(),
-          kubernetesPath: this.endpoint,
+          kubernetesPath: this.endpoint
         });
         this.vaultClient.token = result.auth.client_token;
       } catch (error) {
