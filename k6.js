@@ -6,6 +6,8 @@ import { check } from "k6";
 const failRate = new Rate("failed_requests");
 
 export const options = {
+  vus: 100,
+  duration: "10m",
   thresholds: {
     failed_requests: ["rate<=0"],
     // http_req_duration: ["p(95)<500"],
@@ -17,8 +19,14 @@ export const options = {
   },
 };
 
+const urls = [
+  "https://carnets.fabrique.social.gouv.fr/",
+  "https://carnets.fabrique.social.gouv.fr/sre",
+  "https://carnets.fabrique.social.gouv.fr/code-du-travail",
+];
+
 export default function test() {
-  const result = http.get("https://carnets.fabrique.social.gouv.fr/");
+  const result = http.batch(urls);
   check(result, {
     "http response status code is 200": result.status === 200,
   });
