@@ -14,7 +14,7 @@ class VaultModule {
     this.isKubelogged = false;
     this.vaultClient = vault({
       apiVersion: "v1",
-      endpoint: "https://vault-dev.factory.social.gouv.fr"
+      endpoint: "https://vault-dev.factory.social.gouv.fr",
     });
   }
 
@@ -29,6 +29,7 @@ class VaultModule {
           role: this.vaultRole,
           jwt: jwt.toString(),
           mount_point: this.kubernetesPath,
+          kubernetesPath: this.kubernetesPath,
         });
         this.vaultClient.token = result.auth.client_token;
       } catch (error) {
