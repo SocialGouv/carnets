@@ -7,12 +7,13 @@ class VaultModule {
   private readonly vaultRole: string;
   private isKubelogged: boolean;
 
-  constructor(vaultRole: string) {
+  constructor(vaultRole: string, endpoint: string) {
     this.vaultClient = vault({
       apiVersion: "v1",
       endpoint: "https://vault-dev.factory.social.gouv.fr",
     });
     this.vaultRole = vaultRole;
+    this.path = endpoint;
     this.isKubelogged = false;
   }
 
@@ -26,6 +27,7 @@ class VaultModule {
         const result = await this.vaultClient.kubernetesLogin({
           role: this.vaultRole,
           jwt: jwt.toString(),
+          path: this.endpoint,
         });
         this.vaultClient.token = result.auth.client_token;
       } catch (error) {
@@ -53,7 +55,7 @@ class VaultModule {
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const vaultModule = new VaultModule("fabrique-carnets-vault");
+  const vaultModule = new VaultModule("fabrique-carnets-vault", "ovh-dev");
   try {
     const secretData = await vaultModule.readSecret(
       "secret/fabrique/dev/data/toto",
