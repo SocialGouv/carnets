@@ -55,7 +55,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const vaultModule = new VaultModule("fabrique-carnets-vault");
   try {
-    const secretData = await vaultModule.readSecret("secret/fabrique/dev/toto");
+    const secretData = await vaultModule.readSecret("secret/fabrique/dev/data/toto");
     console.log("Read secret successfull", secretData);
   } catch (error) {
     console.error("Error:", error);
