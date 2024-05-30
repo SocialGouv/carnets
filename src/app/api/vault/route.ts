@@ -29,7 +29,6 @@ class VaultModule {
           role: this.vaultRole,
           jwt: jwt.toString(),
           mount_point: this.kubernetesPath,
-          kubernetesPath: this.kubernetesPath,
         });
         this.vaultClient.token = result.auth.client_token;
       } catch (error) {
