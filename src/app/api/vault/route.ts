@@ -12,7 +12,7 @@ class VaultModule {
     this.vaultClient = vault({
       apiVersion: "v1",
       endpoint: "https://vault-dev.factory.social.gouv.fr",
-      kubernetesPath: this.endpoint,
+      kubernetesPath: this.kubernetesPath,
     });
     this.vaultRole = vaultRole;
     this.kubernetesPath = kubernetesPath;
