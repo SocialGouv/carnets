@@ -26,9 +26,13 @@ const urls = [
 ];
 
 export default function test() {
-  const result = http.batch(urls);
-  check(result, {
-    "http response status code is 200": result.status === 200,
-  });
-  failRate.add(result.status !== 200);
+  // const result = http.batch(urls);
+  // check(result, {
+  //   "http response status code is 200": result.status === 200,
+  // });
+  const responses = http.batch(urls);
+  for (const response of responses) {
+    check(response, { "status 200": (r) => r.status == 200 });
+    failRate.add(result.status !== 200);
+  }
 }
