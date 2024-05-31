@@ -1,3 +1,10 @@
+## [2.2.24](https://github.com/SocialGouv/carnets/compare/v2.2.23...v2.2.24) (2024-05-31)
+
+
+### Bug Fixes
+
+* sentry project name ([72b13f7](https://github.com/SocialGouv/carnets/commit/72b13f799ed9238a721e2ac84e09b2f0e23e7001))
+
 ## [2.2.23](https://github.com/SocialGouv/carnets/compare/v2.2.22...v2.2.23) (2024-05-13)
 
 
