@@ -4,6 +4,10 @@ import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-http";
 import { Resource } from "@opentelemetry/resources";
 import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
 import { SimpleSpanProcessor } from "@opentelemetry/sdk-trace-node";
+
+import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
+import { NetInstrumentation } from "@opentelemetry/instrumentation-net";
+
 import {
   SentrySpanProcessor,
   SentryPropagator,
@@ -16,6 +20,8 @@ const sdk = new NodeSDK({
   // Sentry config
   spanProcessor: new SentrySpanProcessor(),
   textMapPropagator: new SentryPropagator(),
+
+  instrumentations: [new HttpInstrumentation(), new NetInstrumentation()],
 });
 
 sdk.start();
