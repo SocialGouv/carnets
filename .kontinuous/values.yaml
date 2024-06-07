@@ -22,6 +22,8 @@ hasura:
   ~chart: hasura
   ~needs: [build-hasura, pg]
   imagePackage: hasura
+  annotations:
+    "oblik.socialgouv.io/min-limit-memory": 950Mi
   envFrom:
   - secretRef:
       name: pg-app
