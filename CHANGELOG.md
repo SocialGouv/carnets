@@ -1,3 +1,10 @@
+## [2.2.25](https://github.com/SocialGouv/carnets/compare/v2.2.24...v2.2.25) (2024-06-11)
+
+
+### Bug Fixes
+
+* add missing sentry otel instrumentation ([#447](https://github.com/SocialGouv/carnets/issues/447)) ([0a22fb7](https://github.com/SocialGouv/carnets/commit/0a22fb75c17b068665ede3213b674e5a48db1a52))
+
 ## [2.2.24](https://github.com/SocialGouv/carnets/compare/v2.2.23...v2.2.24) (2024-05-31)
 
 
