@@ -18,8 +18,6 @@ hasura:
   resources:
     requests:
       cpu: 300m
-    limits:
-      cpu: 500m
 
 pg:
   cnpg-cluster:
