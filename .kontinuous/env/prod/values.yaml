@@ -17,7 +17,7 @@ hasura:
   host: hasura-{{ .Values.global.host }}
   resources:
     requests:
-      cpu: 100m
+      cpu: 300m
     limits:
       cpu: 500m
 
