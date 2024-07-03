@@ -2,9 +2,33 @@ app:
   host: {{ .Values.global.host }}
   vars:
     NEXTAUTH_URL: https://{{ .Values.global.host }}
+  resources:
+    requests:
+      cpu: 100m
+      memory: 386Mi
+    limits:
+      cpu: 200m
+      memory: 512Mi
+  autoscale:
+    enabled: true
+
 
 hasura:
   host: hasura-{{ .Values.global.host }}
+  resources:
+    requests:
+      cpu: 100m
+    limits:
+      cpu: 500m
+
+pg:
+  cnpg-cluster:
+    resources:
+      requests:
+        memory: 1Gi
+      limits:
+        cpu: "1"
+        memory: 1Gi
 
 jobs:
   runs:
