@@ -17,9 +17,7 @@ hasura:
   host: hasura-{{ .Values.global.host }}
   resources:
     requests:
-      cpu: 100m
-    limits:
-      cpu: 500m
+      cpu: 300m
 
 pg:
   cnpg-cluster:
