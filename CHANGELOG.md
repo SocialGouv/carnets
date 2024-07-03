@@ -1,3 +1,10 @@
+## [2.2.26](https://github.com/SocialGouv/carnets/compare/v2.2.25...v2.2.26) (2024-07-03)
+
+
+### Bug Fixes
+
+* carnets update resources ([#448](https://github.com/SocialGouv/carnets/issues/448)) ([cc0ea37](https://github.com/SocialGouv/carnets/commit/cc0ea37a4fa79e90d1f210d4335395e47778b817))
+
 ## [2.2.25](https://github.com/SocialGouv/carnets/compare/v2.2.24...v2.2.25) (2024-06-11)
 
 
