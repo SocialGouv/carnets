@@ -1,3 +1,10 @@
+## [2.2.27](https://github.com/SocialGouv/carnets/compare/v2.2.26...v2.2.27) (2024-07-03)
+
+
+### Bug Fixes
+
+* hasura ([#449](https://github.com/SocialGouv/carnets/issues/449)) ([bb8176b](https://github.com/SocialGouv/carnets/commit/bb8176b7482f170b91f25f01a154d44600da6809))
+
 ## [2.2.26](https://github.com/SocialGouv/carnets/compare/v2.2.25...v2.2.26) (2024-07-03)
 
 
