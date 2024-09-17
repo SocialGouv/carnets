@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/SocialGouv/carnets/compare/v2.2.27...v2.3.0) (2024-09-17)
+
+
+### Features
+
+* Carnet standup migration ([#451](https://github.com/SocialGouv/carnets/issues/451)) ([7252665](https://github.com/SocialGouv/carnets/commit/72526655fbf567db7c21a69c3cd3ecd30867b2a3))
+
 ## [2.2.27](https://github.com/SocialGouv/carnets/compare/v2.2.26...v2.2.27) (2024-07-03)
 
 
