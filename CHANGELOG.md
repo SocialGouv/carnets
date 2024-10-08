@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/SocialGouv/carnets/compare/v2.3.2...v2.3.3) (2024-10-08)
+
+
+### Bug Fixes
+
+* hasura startup probe ([00983cb](https://github.com/SocialGouv/carnets/commit/00983cb42cf6414c035bdfae8c2d7b9292863791))
+
 ## [2.3.2](https://github.com/SocialGouv/carnets/compare/v2.3.1...v2.3.2) (2024-10-08)
 
 
