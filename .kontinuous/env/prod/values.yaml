@@ -1,23 +1,14 @@
 app:
-  host: {{ .Values.global.host }}
+  annotations:
+    oblik.socialgouv.io/enabled: "true"
+  host: { { .Values.global.host } }
   vars:
     NEXTAUTH_URL: https://{{ .Values.global.host }}
-  resources:
-    requests:
-      cpu: 100m
-      memory: 386Mi
-    limits:
-      cpu: 200m
-      memory: 512Mi
-  autoscale:
-    enabled: true
-
 
 hasura:
+  annotations:
+    oblik.socialgouv.io/enabled: "true"
   host: hasura-{{ .Values.global.host }}
-  resources:
-    requests:
-      cpu: 300m
 
 pg:
   cnpg-cluster:
@@ -35,4 +26,5 @@ jobs:
         buildArgs:
           NEXT_PUBLIC_MATOMO_SITE_ID: "24"
           NEXT_PUBLIC_MATOMO_URL: "https://matomo.fabrique.social.gouv.fr/"
-          NEXT_PUBLIC_HASURA_URL: "https://hasura-{{ .Values.global.host }}/v1/graphql"
+          NEXT_PUBLIC_HASURA_URL:
+            "https://hasura-{{ .Values.global.host }}/v1/graphql"
