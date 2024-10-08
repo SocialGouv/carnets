@@ -1,3 +1,11 @@
+## [2.3.1](https://github.com/SocialGouv/carnets/compare/v2.3.0...v2.3.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* hasura startupProbe ([d90e36e](https://github.com/SocialGouv/carnets/commit/d90e36ee010c8d0bece237fc3927661107508217))
+* opt in oblik ([bbc0af1](https://github.com/SocialGouv/carnets/commit/bbc0af181bcf23549f83f050838049161b00f425))
+
 # [2.3.0](https://github.com/SocialGouv/carnets/compare/v2.2.27...v2.3.0) (2024-09-17)
 
 
