@@ -41,7 +41,8 @@ hasura:
     httpGet:
       path: /healthz
       port: http
-    failureThreshold: 5
+    failureThreshold: 10
+    periodSeconds: 20
 
 jobs:
   ~chart: jobs
