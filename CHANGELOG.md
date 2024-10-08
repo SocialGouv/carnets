@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/SocialGouv/carnets/compare/v2.3.1...v2.3.2) (2024-10-08)
+
+
+### Bug Fixes
+
+* hasura cpu ([74a3f6e](https://github.com/SocialGouv/carnets/commit/74a3f6e5f67ba4359c844ab6b8215ac4c36a0c4b))
+
 ## [2.3.1](https://github.com/SocialGouv/carnets/compare/v2.3.0...v2.3.1) (2024-10-08)
 
 
