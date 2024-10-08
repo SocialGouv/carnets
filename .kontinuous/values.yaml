@@ -23,8 +23,8 @@ hasura:
   ~needs: [build-hasura, pg]
   imagePackage: hasura
   annotations:
-    "oblik.socialgouv.io/min-limit-memory": 950Mi
-    "oblik.socialgouv.io/min-limit-cpu": 300m
+    "oblik.socialgouv.io/min-request-memory": 1Gi
+    "oblik.socialgouv.io/min-request-cpu": 300m
   envFrom:
     - secretRef:
         name: pg-app
