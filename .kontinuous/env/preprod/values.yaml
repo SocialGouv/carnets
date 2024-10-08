@@ -1,3 +1,19 @@
+pg:
+  cnpg-cluster:
+    backup:
+      barmanObjectStore:
+        ~tpl~destinationPath: "s3://fabrique-dev-backups/carnets-preprod"
+        s3Credentials:
+          accessKeyId:
+            ~tpl~name: fabrique-dev-backups-access-key
+            key: bucket_access_key
+          secretAccessKey:
+            ~tpl~name: fabrique-dev-backups-access-key
+            key: bucket_secret_key
+          region:
+            ~tpl~name: fabrique-dev-backups-access-key
+            key: bucket_region
+
 seeds:
   ~chart: jobs
   runs:
