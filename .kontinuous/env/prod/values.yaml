@@ -14,6 +14,19 @@ hasura:
 
 pg:
   cnpg-cluster:
+    backup:
+      barmanObjectStore:
+        ~tpl~destinationPath: "s3://fabrique-prod-backups/carnets-preprod"
+        s3Credentials:
+          accessKeyId:
+            ~tpl~name: fabrique-prod-backups-access-key
+            key: bucket_access_key
+          secretAccessKey:
+            ~tpl~name: fabrique-prod-backups-access-key
+            key: bucket_secret_key
+          region:
+            ~tpl~name: fabrique-prod-backups-access-key
+            key: bucket_region
     resources:
       requests:
         memory: 1Gi
