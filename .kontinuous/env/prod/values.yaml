@@ -9,6 +9,8 @@ hasura:
   annotations:
     oblik.socialgouv.io/enabled: "true"
   host: hasura-{{ .Values.global.host }}
+  startupProbe:
+    initialDelaySeconds: 300
 
 pg:
   cnpg-cluster:

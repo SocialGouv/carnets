@@ -4,8 +4,8 @@ app:
   probesPath: /api/healthz
   imagePackage: app
   envFrom:
-  - secretRef:
-      name: app
+    - secretRef:
+        name: app
   vars:
     ENV: prod
     HASURA_URL: http://hasura/v1/graphql
@@ -25,21 +25,22 @@ hasura:
   annotations:
     "oblik.socialgouv.io/min-limit-memory": 950Mi
   envFrom:
-  - secretRef:
-      name: pg-app
-  - configMapRef:
-      name: hasura
-  - secretRef:
-      name: hasura
+    - secretRef:
+        name: pg-app
+    - configMapRef:
+        name: hasura
+    - secretRef:
+        name: hasura
   securityContext:
     fsGroup: 1001
     runAsUser: 1001
     runAsGroup: 1001
   startupProbe:
+    initialDelaySeconds: 120
     httpGet:
       path: /healthz
       port: http
-    failureThreshold: 120
+    failureThreshold: 5
 
 jobs:
   ~chart: jobs
@@ -50,7 +51,8 @@ jobs:
       with:
         imagePackage: app
         buildArgs:
-          NEXT_PUBLIC_HASURA_URL: "https://hasura-{{ .Values.global.host }}/v1/graphql"
+          NEXT_PUBLIC_HASURA_URL:
+            "https://hasura-{{ .Values.global.host }}/v1/graphql"
         secrets:
           sentry_auth_token:
             secretName: app
