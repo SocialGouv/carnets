@@ -1,3 +1,10 @@
+## [2.3.4](https://github.com/SocialGouv/carnets/compare/v2.3.3...v2.3.4) (2024-10-08)
+
+
+### Bug Fixes
+
+* hasura resources ([0e29ac9](https://github.com/SocialGouv/carnets/commit/0e29ac94a5c754b615d983acac8bcc25c1a0df72))
+
 ## [2.3.3](https://github.com/SocialGouv/carnets/compare/v2.3.2...v2.3.3) (2024-10-08)
 
 
