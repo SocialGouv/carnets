@@ -1,3 +1,10 @@
+## [2.3.6](https://github.com/SocialGouv/carnets/compare/v2.3.5...v2.3.6) (2024-10-15)
+
+
+### Bug Fixes
+
+* update oblik labels ([ea54d54](https://github.com/SocialGouv/carnets/commit/ea54d54329a6559758832a918d6742936898ab90))
+
 ## [2.3.5](https://github.com/SocialGouv/carnets/compare/v2.3.4...v2.3.5) (2024-10-08)
 
 
