@@ -1,12 +1,12 @@
 app:
-  annotations:
+  labels:
     oblik.socialgouv.io/enabled: "true"
   host: { { .Values.global.host } }
   vars:
     NEXTAUTH_URL: https://{{ .Values.global.host }}
 
 hasura:
-  annotations:
+  labels:
     oblik.socialgouv.io/enabled: "true"
   host: hasura-{{ .Values.global.host }}
   startupProbe:
