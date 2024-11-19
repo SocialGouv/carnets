@@ -19,6 +19,7 @@ const blacklist = [
   "fce",
   "plateforme",
   "startup-bootstrap",
+  "carnets-standup",
 ];
 
 const getTeams = cache(async () => {
