@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/SocialGouv/carnets/compare/v2.3.6...v2.4.0) (2024-11-19)
+
+
+### Features
+
+* teams blacklist ([#453](https://github.com/SocialGouv/carnets/issues/453)) ([3642ca1](https://github.com/SocialGouv/carnets/commit/3642ca17a185fee324bf37a8e055c5e104290076))
+
 ## [2.3.6](https://github.com/SocialGouv/carnets/compare/v2.3.5...v2.3.6) (2024-10-15)
 
 
