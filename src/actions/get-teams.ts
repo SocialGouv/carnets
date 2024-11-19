@@ -9,6 +9,18 @@ export async function getTeamBySlug(slug: string) {
   return teams.find((team) => team.slug === slug);
 }
 
+const blacklist = [
+  "appel-a-idees-fabrique-numerique",
+  "data-ia",
+  "devops-psn",
+  "dora",
+  "evolution-plateforme",
+  "fabrique",
+  "fce",
+  "plateforme",
+  "startup-bootstrap",
+];
+
 const getTeams = cache(async () => {
   const {
     organization: {
@@ -16,7 +28,7 @@ const getTeams = cache(async () => {
     },
   } = (await fetcher({ query: getTeamsQuery })) as Teams;
 
-  return teams;
+  return teams.filter((team) => !blacklist.includes(team.slug));
 });
 
 export default getTeams;
