@@ -20,6 +20,16 @@ const blacklist = [
   "plateforme",
   "startup-bootstrap",
   "carnets-standup",
+  "maison-de-l-autisme",
+  "mano",
+  "nata",
+  "ozensemble",
+  "tumeplay",
+  "vao",
+  "appel-a-idees-fabrique-numerique",
+  "dora",
+  "evolution-plateforme",
+  "plateforme",
 ];
 
 const getTeams = cache(async () => {
