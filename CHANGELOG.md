@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/SocialGouv/carnets/compare/v2.4.0...v2.4.1) (2024-11-20)
+
+
+### Bug Fixes
+
+* update se list ([#454](https://github.com/SocialGouv/carnets/issues/454)) ([7330a14](https://github.com/SocialGouv/carnets/commit/7330a140737fcb56b3c0fda9b23209dfa80d7169))
+
 # [2.4.0](https://github.com/SocialGouv/carnets/compare/v2.3.6...v2.4.0) (2024-11-19)
 
 
