@@ -26,10 +26,6 @@ const blacklist = [
   "ozensemble",
   "tumeplay",
   "vao",
-  "appel-a-idees-fabrique-numerique",
-  "dora",
-  "evolution-plateforme",
-  "plateforme",
 ];
 
 const getTeams = cache(async () => {
