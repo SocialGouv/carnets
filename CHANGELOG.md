@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/SocialGouv/carnets/compare/v2.4.1...v2.4.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* resources peak ([#455](https://github.com/SocialGouv/carnets/issues/455)) ([2de9b7a](https://github.com/SocialGouv/carnets/commit/2de9b7a457ac2cddcd0a417f2c202c602b746ec3))
+
 ## [2.4.1](https://github.com/SocialGouv/carnets/compare/v2.4.0...v2.4.1) (2024-11-20)
 
 
