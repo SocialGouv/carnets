@@ -1,3 +1,10 @@
+## [2.4.3](https://github.com/SocialGouv/carnets/compare/v2.4.2...v2.4.3) (2024-11-25)
+
+
+### Bug Fixes
+
+* yaml ([f3ddba6](https://github.com/SocialGouv/carnets/commit/f3ddba6c088838231690c7e09e7cf6328cd423a0))
+
 ## [2.4.2](https://github.com/SocialGouv/carnets/compare/v2.4.1...v2.4.2) (2024-11-25)
 
 
