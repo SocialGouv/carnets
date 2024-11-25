@@ -1,6 +1,7 @@
 app:
   labels:
     oblik.socialgouv.io/enabled: "true"
+    oblik.socialgouv.io/request-apply-target: "peak"
   host: { { .Values.global.host } }
   vars:
     NEXTAUTH_URL: https://{{ .Values.global.host }}
@@ -8,6 +9,7 @@ app:
 hasura:
   labels:
     oblik.socialgouv.io/enabled: "true"
+    oblik.socialgouv.io/request-apply-target: "peak"
   host: hasura-{{ .Values.global.host }}
   startupProbe:
     initialDelaySeconds: 300
