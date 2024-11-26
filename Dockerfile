@@ -24,8 +24,12 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_HASURA_URL
 ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
 
-RUN --mount=type=secret,id=sentry_auth_token export SENTRY_AUTH_TOKEN="$(cat /run/secrets/sentry_auth_token)"; yarn build
-# RUN yarn build
+# ENV SENTRY_PROJECT=fabnum-carnets
+# ENV SENTRY_ORG=incubateur
+
+RUN --mount=type=secret,id=sentry_auth_token \
+  export SENTRY_AUTH_TOKEN=$(cat /run/secrets/sentry_auth_token); \
+  yarn build
 
 RUN yarn workspaces focus --production
 
