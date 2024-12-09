@@ -1,6 +1,7 @@
 app:
   labels:
     oblik.socialgouv.io/enabled: "true"
+  annotations:
     oblik.socialgouv.io/request-apply-target: "peak"
   host: "{{ .Values.global.host }}"
   vars:
@@ -9,6 +10,7 @@ app:
 hasura:
   labels:
     oblik.socialgouv.io/enabled: "true"
+  annotations:
     oblik.socialgouv.io/request-apply-target: "peak"
   host: hasura-{{ .Values.global.host }}
   startupProbe:
