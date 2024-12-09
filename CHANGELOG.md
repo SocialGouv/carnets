@@ -1,3 +1,10 @@
+## [2.4.4](https://github.com/SocialGouv/carnets/compare/v2.4.3...v2.4.4) (2024-12-09)
+
+
+### Bug Fixes
+
+* reco level ([#456](https://github.com/SocialGouv/carnets/issues/456)) ([d366169](https://github.com/SocialGouv/carnets/commit/d366169068da78b84190187102ece2ae55bc83bf))
+
 ## [2.4.3](https://github.com/SocialGouv/carnets/compare/v2.4.2...v2.4.3) (2024-11-25)
 
 
