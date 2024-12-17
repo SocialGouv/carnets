@@ -3,6 +3,10 @@ app:
     oblik.socialgouv.io/enabled: "true"
   annotations:
     oblik.socialgouv.io/request-apply-target: "peak"
+    oblik.socialgouv.io/increase-request-cpu-algo: "ratio"
+    oblik.socialgouv.io/increase-request-cpu-value: "0.1"
+    oblik.socialgouv.io/increase-request-memory-algo: "ratio"
+    oblik.socialgouv.io/increase-request-memory-value: "0.1"
   host: "{{ .Values.global.host }}"
   vars:
     NEXTAUTH_URL: https://{{ .Values.global.host }}
@@ -12,6 +16,10 @@ hasura:
     oblik.socialgouv.io/enabled: "true"
   annotations:
     oblik.socialgouv.io/request-apply-target: "peak"
+    oblik.socialgouv.io/increase-request-cpu-algo: "ratio"
+    oblik.socialgouv.io/increase-request-cpu-value: "0.1"
+    oblik.socialgouv.io/increase-request-memory-algo: "ratio"
+    oblik.socialgouv.io/increase-request-memory-value: "0.1"
   host: hasura-{{ .Values.global.host }}
   startupProbe:
     initialDelaySeconds: 300
