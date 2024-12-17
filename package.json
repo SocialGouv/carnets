@@ -1,7 +1,7 @@
 {
   "name": "carnets",
   "private": true,
-  "version": "2.4.4",
+  "version": "2.4.5",
   "homepage": "https://github.com/SocialGouv/carnets",
   "repository": "git@github.com:SocialGouv/carnets.git",
   "author": "Incubateur des Ministères Sociaux <dsi-incubateur@sg.social.gouv.fr> (https://incubateur.social.gouv.fr)",

@@ -1,3 +1,10 @@
+## [2.4.5](https://github.com/SocialGouv/carnets/compare/v2.4.4...v2.4.5) (2024-12-17)
+
+
+### Bug Fixes
+
+* oblik enable ([#457](https://github.com/SocialGouv/carnets/issues/457)) ([6ae2cc9](https://github.com/SocialGouv/carnets/commit/6ae2cc95de98ba1f814910cb2b7d75e85f7e5a45))
+
 ## [2.4.4](https://github.com/SocialGouv/carnets/compare/v2.4.3...v2.4.4) (2024-12-09)
 
 
