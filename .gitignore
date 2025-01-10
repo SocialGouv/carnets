@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Sentry Config File
 .sentryclirc
+
+# AI Digest
+codebase.md
