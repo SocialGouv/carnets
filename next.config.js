@@ -37,7 +37,7 @@ module.exports = withSentryConfig(
     silent: true,
     org: "incubateur",
     project: "fabnum-carnets",
-    url: "https://sentry.fabrique.social.gouv.fr/",
+    url: "https://sentry2.fabrique.social.gouv.fr/",
   },
   {
     // For all available options, see:
