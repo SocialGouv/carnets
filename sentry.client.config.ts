@@ -5,7 +5,7 @@
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
-  dsn: "https://c96c9319e5654102b38b750ecba85712@sentry.fabrique.social.gouv.fr/101",
+  dsn: "https://6d774872e77ac5020b94b6284a2e7514@sentry2.fabrique.social.gouv.fr/7",
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 0.1,
@@ -27,6 +27,4 @@ Sentry.init({
       blockAllMedia: true,
     }),
   ],
-  environment: "otel_" + (process.env.NEXT_PUBLIC_ENV || "dev"),
-  instrumenter: "otel",
 });
