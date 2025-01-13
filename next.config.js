@@ -36,7 +36,7 @@ module.exports = withSentryConfig(
     // Suppresses source map uploading logs during build
     silent: true,
     org: "incubateur",
-    project: "fabnum-carnets",
+    project: "fabnum-carnets-app",
     url: "https://sentry2.fabrique.social.gouv.fr",
   },
   {
