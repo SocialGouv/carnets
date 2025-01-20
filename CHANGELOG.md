@@ -1,3 +1,10 @@
+## [2.4.6](https://github.com/SocialGouv/carnets/compare/v2.4.5...v2.4.6) (2025-01-20)
+
+
+### Bug Fixes
+
+* **ci-cd:** use token-bureau ([#458](https://github.com/SocialGouv/carnets/issues/458)) ([489b06f](https://github.com/SocialGouv/carnets/commit/489b06fae273f3ae3451c57dbce1ede42a732b2e))
+
 ## [2.4.5](https://github.com/SocialGouv/carnets/compare/v2.4.4...v2.4.5) (2024-12-17)
 
 
