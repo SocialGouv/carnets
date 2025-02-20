@@ -10,4 +10,4 @@ node_modules
 .aidigestignore
 seeds.sql
 CHANGELOG.md
-readmex.md
+readme.md
