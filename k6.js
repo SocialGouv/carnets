@@ -24,6 +24,7 @@ const urls = [
   "https://carnets.fabrique.social.gouv.fr/code-du-travail",
 ];
 
+// run test
 export default function test() {
   const responses = http.batch(urls);
   for (const response of responses) {
