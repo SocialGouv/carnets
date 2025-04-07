@@ -1,3 +1,10 @@
+## [2.4.7](https://github.com/SocialGouv/carnets/compare/v2.4.6...v2.4.7) (2025-04-07)
+
+
+### Bug Fixes
+
+* test-ci ([#470](https://github.com/SocialGouv/carnets/issues/470)) ([4ab4f32](https://github.com/SocialGouv/carnets/commit/4ab4f32dfa878c23d4d6fb9d5e8d2c6abcd052af))
+
 ## [2.4.6](https://github.com/SocialGouv/carnets/compare/v2.4.5...v2.4.6) (2025-01-20)
 
 
