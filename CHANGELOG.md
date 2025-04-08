@@ -1,3 +1,10 @@
+## [2.4.8](https://github.com/SocialGouv/carnets/compare/v2.4.7...v2.4.8) (2025-04-08)
+
+
+### Bug Fixes
+
+* readme ([#471](https://github.com/SocialGouv/carnets/issues/471)) ([e9f400f](https://github.com/SocialGouv/carnets/commit/e9f400f50a0b7a351dae2eba5e7238bf57b6c667))
+
 ## [2.4.7](https://github.com/SocialGouv/carnets/compare/v2.4.6...v2.4.7) (2025-04-07)
 
 
