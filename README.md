@@ -5,7 +5,6 @@
 4. Create the 2 env files: `.env.local` & `.env-hasura.local`
 5. Start Postgres and Hasura via `docker compose up --build`
 6. Start the application via `yarn dev`
-7. 
 
 #### Application Environment Variables (`.env.local`)
 | Variable                   | Value                                                                                | Description                                                                  |
