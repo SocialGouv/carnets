@@ -7,7 +7,7 @@ const failRate = new Rate("failed_requests");
 
 export const options = {
   vus: 100,
-  duration: "10m",
+  duration: "11m",
   thresholds: {
     failed_requests: ["rate<=0"],
   },
