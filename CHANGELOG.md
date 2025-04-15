@@ -1,3 +1,10 @@
+## [2.4.9](https://github.com/SocialGouv/carnets/compare/v2.4.8...v2.4.9) (2025-04-15)
+
+
+### Bug Fixes
+
+* nextjs cve ([#472](https://github.com/SocialGouv/carnets/issues/472)) ([4bb95fd](https://github.com/SocialGouv/carnets/commit/4bb95fdb7a0945fbf272ec47621f1c82d3f365f9))
+
 ## [2.4.8](https://github.com/SocialGouv/carnets/compare/v2.4.7...v2.4.8) (2025-04-08)
 
 
