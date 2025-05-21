@@ -23,7 +23,7 @@ jobs:
           - name: app
             context: "."
             build-args-template: |
-              NEXT_PUBLIC_HASURA_URL="https://{{SUBDOMAIN_HASURA}}/v1/graphql"
+              NEXT_PUBLIC_HASURA_URL="https://$SUBDOMAIN_HASURA/v1/graphql"
             secrets: |
               SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
           - name: hasura
@@ -51,17 +51,17 @@ jobs:
         with:
           subdomain: hasura
 
-      # Prepare build args by replacing placeholders with actual values
+      # Prepare build args using envsubst
       - name: Prepare build args
         id: prepare-build-args
         if: matrix.build.build-args-template != ''
         run: |
-          # Get the template from matrix
-          TEMPLATE='${{ matrix.build.build-args-template }}'
+          # Export environment variables for envsubst
+          export SUBDOMAIN_HASURA="${{ steps.env.outputs.subdomain_hasura }}"
+          # Export more variables as needed
           
-          # Replace placeholders with actual values
-          BUILD_ARGS="${TEMPLATE//\{\{SUBDOMAIN_HASURA\}\}/${{ steps.env.outputs.subdomain_hasura }}}"
-          # Add more replacements as needed for other outputs
+          # Use envsubst to replace variables in the template
+          BUILD_ARGS=$(echo '${{ matrix.build.build-args-template }}' | envsubst)
           
           # Output the processed build args
           echo "build-args<<EOF" >> $GITHUB_OUTPUT
