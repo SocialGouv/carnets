@@ -10,7 +10,80 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.ref }}
 
 jobs:
+  build:
+    outputs:
+      tags: ${{ steps.meta.outputs.tags }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build:
+          - name: app
+            context: "."
+            build-args-template: |
+              NEXT_PUBLIC_HASURA_URL="https://{{SUBDOMAIN_HASURA}}/v1/graphql"
+            secrets: |
+              SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+          - name: hasura
+            context: ./packages/hasura
+            # No build-args needed for hasura
+    steps:
+      - name: ⏬ Checkout code repository
+        uses: actions/checkout@v4
+
+      - name: 📌 Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ secrets.REGISTRY_URL }}/${{ github.repository }}/${{ matrix.build.name }}
+          tags: |
+            type=semver,pattern={{version}},priority=900
+            type=semver,pattern=v{{version}},priority=900
+            type=sha,priority=890
+            type=ref,event=branch,priority=600
+            type=ref,event=pr,priority=600
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }},priority=200
+
+      - name: Env
+        id: env
+        uses: socialgouv/kontinuous/.github/actions/env@v1
+        with:
+          subdomain: hasura
+
+      # Prepare build args by replacing placeholders with actual values
+      - name: Prepare build args
+        id: prepare-build-args
+        if: matrix.build.build-args-template != ''
+        run: |
+          # Get the template from matrix
+          TEMPLATE='${{ matrix.build.build-args-template }}'
+          
+          # Replace placeholders with actual values
+          BUILD_ARGS="${TEMPLATE//\{\{SUBDOMAIN_HASURA\}\}/${{ steps.env.outputs.subdomain_hasura }}}"
+          # Add more replacements as needed for other outputs
+          
+          # Output the processed build args
+          echo "build-args<<EOF" >> $GITHUB_OUTPUT
+          echo "$BUILD_ARGS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: 📦 Build and push Docker image
+        uses: devthefuture-org/actions/buildkit@main
+        with:
+          context: ${{ matrix.build.context || '.' }}
+          dockerfile: ${{ matrix.build.dockerfile || 'Dockerfile' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          registry: "${{ secrets.REGISTRY_URL }}"
+          registry-username: "${{ secrets.REGISTRY_USERNAME }}"
+          registry-password: "${{ secrets.REGISTRY_PASSWORD }}"
+          buildkit-cert-ca: "${{ secrets.BUILDKIT_CERT_CA }}"
+          buildkit-cert: "${{ secrets.BUILDKIT_CERT }}"
+          buildkit-cert-key: "${{ secrets.BUILDKIT_CERT_KEY }}"
+          build-args: ${{ steps.prepare-build-args.outputs.build-args || '' }}
+          secrets: ${{ matrix.build.secrets || '' }}
+
   kontinuous:
+    needs: [build]
     name: "Deploy on Kubernetes 🐳"
     uses: socialgouv/workflows/.github/workflows/use-ks-gh-review-auto.yaml@v1
     secrets: inherit

@@ -43,24 +43,3 @@ hasura:
       port: http
     failureThreshold: 10
     periodSeconds: 20
-
-jobs:
-  ~chart: jobs
-  runs:
-    build-app:
-      use: build
-      memoryLimit: 8Gi
-      with:
-        imagePackage: app
-        buildArgs:
-          NEXT_PUBLIC_HASURA_URL:
-            "https://hasura-{{ .Values.global.host }}/v1/graphql"
-        secrets:
-          sentry_auth_token:
-            secretName: app
-            secretKey: SENTRY_AUTH_TOKEN
-    build-hasura:
-      use: build
-      with:
-        imagePackage: hasura
-        context: packages/hasura
