@@ -42,7 +42,7 @@ jobs:
           subdomain: hasura
 
       - name: 📦 Build and push Docker image for app
-        uses: socialgouv/workflows/actions/buildkit@v1
+        uses: socialgouv/workflows/actions/buildkit@fix-buildkit-action
         with:
           context: "."
           dockerfile: "Dockerfile"
