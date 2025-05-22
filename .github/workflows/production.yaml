@@ -23,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.REGISTRY_URL }}/${{ github.repository }}/app
+          images: ${{ vars.REGISTRY_URL }}/${{ github.repository }}/app
           tags: |
             type=semver,pattern={{version}},priority=900
             type=semver,pattern=v{{version}},priority=900
@@ -45,7 +45,7 @@ jobs:
           dockerfile: "Dockerfile"
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          registry: "${{ secrets.REGISTRY_URL }}"
+          registry: "${{ vars.REGISTRY_URL }}"
           registry-username: "${{ secrets.REGISTRY_USERNAME }}"
           registry-password: "${{ secrets.REGISTRY_PASSWORD }}"
           buildkit-cert-ca: "${{ secrets.BUILDKIT_CERT_CA }}"
@@ -71,7 +71,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.REGISTRY_URL }}/${{ github.repository }}/hasura
+          images: ${{ vars.REGISTRY_URL }}/${{ github.repository }}/hasura
           tags: |
             type=semver,pattern={{version}},priority=900
             type=semver,pattern=v{{version}},priority=900
@@ -87,7 +87,7 @@ jobs:
           dockerfile: "Dockerfile"
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          registry: "${{ secrets.REGISTRY_URL }}"
+          registry: "${{ vars.REGISTRY_URL }}"
           registry-username: "${{ secrets.REGISTRY_USERNAME }}"
           registry-password: "${{ secrets.REGISTRY_PASSWORD }}"
           buildkit-cert-ca: "${{ secrets.BUILDKIT_CERT_CA }}"
