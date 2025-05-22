@@ -59,7 +59,7 @@ jobs:
           build-args: |
             NEXT_PUBLIC_HASURA_URL=https://${{ steps.env.outputs.subdomain_hasura }}/v1/graphql
           secrets: |
-            sentry_auth_token=1234
+            SENTRY_AUTH_TOKEN=1234
 
   build-hasura:
     environment: review
