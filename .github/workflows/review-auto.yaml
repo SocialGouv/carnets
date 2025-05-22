@@ -11,6 +11,7 @@ concurrency:
 
 jobs:
   build:
+    environment: review-auto
     outputs:
       tags: ${{ steps.meta.outputs.tags }}
     runs-on: ubuntu-latest

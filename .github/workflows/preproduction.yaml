@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   build:
+    environment: preproduction
     outputs:
       tags: ${{ steps.meta.outputs.tags }}
     runs-on: ubuntu-latest
