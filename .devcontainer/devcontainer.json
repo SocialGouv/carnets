@@ -1,5 +1,2 @@
 {
-  "tasks": {
-    "build": "nvm install && nvm use && yarn install && yarn build"
-  }
 }
