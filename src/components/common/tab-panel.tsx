@@ -71,7 +71,7 @@ interface PanelsProps {
 export const Panels = ({
   children,
   selectedIndex = 0,
-  setSelectedIndex = ()_ => {}, // Added for consistency, though not used in current logic
+  setSelectedIndex = () => {}, // Added for consistency, though not used in current logic
 }: PanelsProps) => (
   <div className="panels">
     {children.map((child, i) => (
