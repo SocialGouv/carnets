@@ -1,7 +1,7 @@
 import Posts from "@/components/posts";
 import Teams from "@/components/teams";
 
-import "./styles.css";
+import "./styles.css"; // This imports global styles for this page/layout
 import getLastPosts from "@/actions/get-last-posts";
 
 export default async function Page() {
@@ -9,10 +9,10 @@ export default async function Page() {
 
   return (
     <>
-      <aside className="flex-initial w-80">
+      <aside className="hidden md:flex flex-initial w-80 flex-col">
         <Teams />
       </aside>
-      <main className="flex-1 pt-12 mb-8">
+      <main className="flex-1 pt-6 md:pt-12 mb-8 px-4 md:px-0">
         <Posts posts={posts} />
       </main>
     </>
