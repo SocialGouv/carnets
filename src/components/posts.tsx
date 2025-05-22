@@ -43,7 +43,7 @@ export default function Posts({
   }
 
   return (
-    <section className="posts">
+    <section className="posts gap-y-4">
       <modal.Component title="Suppression">
         <div className="relative">
           <div className={`${isLoading ? "invisible" : ""}`}>

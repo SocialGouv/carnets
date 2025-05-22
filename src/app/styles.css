@@ -1,5 +1,5 @@
 .team-title {
-  @apply flex flex-1 gap-x-6 mt-10;
+  @apply flex flex-1 gap-x-6 mt-10 w-12 h-12;
 }
 
 .team-title .name-description {
@@ -7,7 +7,7 @@
 }
 
 .team-title .name-description h2 {
-  @apply text-5xl;
+  @apply text-4xl;
 }
 
 .team-title .actions {
@@ -24,7 +24,7 @@
 
 article.post {
   @apply bg-gray-50;
-  @apply p-3 flex flex-col gap-y-6 rounded-sm;
+  @apply p-3 flex flex-col gap-y-4 rounded-sm;
   @apply dark:bg-[color:var(--background-raised-grey)];
 
   filter: drop-shadow(var(--raised-shadow));
@@ -40,7 +40,7 @@ article.post .header .text {
 }
 
 article.post .kpis {
-  @apply flex divide-x py-2;
+  @apply flex divide-x py-1;
 
   border: 1px solid var(--border-default-grey);
   background-color: var(--background-default-grey);
@@ -51,11 +51,11 @@ article.post .kpis .kpi {
 }
 
 article.post .kpis .kpi .value {
-  @apply text-center truncate font-semibold text-xl;
+  @apply text-center truncate font-semibold text-lg;
 }
 
 article.post .kpis .kpi .name {
-  @apply flex-1 truncate text-center;
+  @apply flex-1 truncate text-center text-sm;
 }
 
 article.post .tab-panel {
@@ -67,7 +67,7 @@ article.post .tab-panel .tabs {
 }
 
 article.post .tab-panel .tabs .tab {
-  @apply flex flex-1 text-center;
+  @apply flex flex-1 text-center text-sm;
   @apply relative top-px;
   @apply border;
   @apply rounded-t-sm;
@@ -97,7 +97,7 @@ article.post .tab-panel .panels {
 }
 
 article.post .tab-panel .panels .panel {
-  @apply flex-1 hidden min-h-[13rem] overflow-auto;
+  @apply flex-1 hidden min-h-[10rem] overflow-auto;
   @apply flex-col max-h-52;
 }
 
@@ -125,7 +125,7 @@ article.post .actions {
 }
 
 .markdown-body {
-  @apply flex-1 p-3;
+  @apply flex-1 p-3 leading-tight;
   color: var(--text-default-grey);
   background-color: var(--background-default-grey);
 }

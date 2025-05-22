@@ -32,7 +32,7 @@ export default function Post({
   onDeletion: (id?: string) => void;
 }) {
   return (
-    <article className="post">
+    <article className="post gap-y-4">
       <div className="header">
         <div className="avatar">
           {hideLogo ? (
@@ -52,18 +52,18 @@ export default function Post({
       <KPIs kpis={data.kpis?.slice(0, 3) || []}></KPIs>
       <TabPanel>
         <Tabs>
-          <Tab disabled={!data.priorities.length}>Priorités</Tab>
-          <Tab disabled={!data.needs.length}>Besoins</Tab>
-          <Tab disabled={!data.term.length}>Échéances</Tab>
+          <Tab disabled={!data.priorities.length} className="text-sm">Priorités</Tab>
+          <Tab disabled={!data.needs.length} className="text-sm">Besoins</Tab>
+          <Tab disabled={!data.term.length} className="text-sm">Échéances</Tab>
         </Tabs>
         <Panels>
-          <div className="markdown-body">
+          <div className="markdown-body leading-tight">
             <Markdown remarkPlugins={[remarkGfm]}>{data.priorities}</Markdown>
           </div>
-          <div className="markdown-body">
+          <div className="markdown-body leading-tight">
             <Markdown remarkPlugins={[remarkGfm]}>{data.needs}</Markdown>
           </div>
-          <div className="markdown-body">
+          <div className="markdown-body leading-tight">
             <Markdown remarkPlugins={[remarkGfm]}>{data.term}</Markdown>
           </div>
         </Panels>

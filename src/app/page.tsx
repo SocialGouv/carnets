@@ -9,7 +9,7 @@ export default async function Page() {
 
   return (
     <>
-      <aside className="flex-initial w-80">
+      <aside className="hidden md:block flex-initial w-80">
         <Teams />
       </aside>
       <main className="flex-1 pt-12 mb-8">

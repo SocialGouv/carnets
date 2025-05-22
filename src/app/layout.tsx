@@ -35,7 +35,7 @@ export default async function Layout({ children }: { children: JSX.Element }) {
       <body>
         <DsfrProvider lang={lang}>
           <Header session={session} />
-          <div className="fr-container flex">{children}</div>
+          <div className="fr-container flex p-4 md:p-6 lg:p-8">{children}</div>
           <Footer />
         </DsfrProvider>
       </body>
