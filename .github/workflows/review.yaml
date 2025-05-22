@@ -42,7 +42,7 @@ jobs:
           subdomain: hasura
 
       - name: 📦 Build and push Docker image for app
-        uses: socialgouv/workflows/actions/buildkit@master
+        uses: socialgouv/workflows/actions/buildkit@v1
         with:
           context: "."
           dockerfile: "Dockerfile"
@@ -59,7 +59,7 @@ jobs:
           build-args: |
             NEXT_PUBLIC_HASURA_URL=https://${{ steps.env.outputs.subdomain_hasura }}/v1/graphql
           secrets: |
-            SENTRY_AUTH_TOKEN=1234
+            sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}
 
   build-hasura:
     environment: review
