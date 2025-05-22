@@ -19,6 +19,7 @@ export const Tab = ({
       disabled={disabled}
       onClick={handleClick}
       priority="tertiary no outline"
+      size="sm"
     >
       {children}
     </Button>

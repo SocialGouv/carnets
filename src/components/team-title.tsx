@@ -4,19 +4,19 @@ export default function TeamTitle({ team }: { team?: Team }) {
   return (
     <div className="team-title">
       <Image
-        width={200}
-        height={200}
+        width={100}
+        height={100}
         alt="Picture of the team"
         src={team?.avatarUrl || ""}
       />
       <div className="name-description">
-        <h2>{team?.name}</h2>
+        <h2 className="text-3xl">{team?.name}</h2>
         <div>{team?.description}</div>
-        <div className="members">
+        <div className="members" style={{ marginTop: '0.25rem' }}>
           {team?.members?.nodes.map(({ name, avatarUrl, login }) => (
             <Image
-              width={42}
-              height={42}
+              width={32}
+              height={32}
               key={login}
               src={avatarUrl}
               title={name}

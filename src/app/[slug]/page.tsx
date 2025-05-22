@@ -27,14 +27,14 @@ export default async function Page({
 
   return (
     <>
-      <aside className="flex-initial w-80">
+      <aside className="hidden md:flex flex-initial w-80 flex-col">
         <Teams selectedTeamSlug={slug} />
       </aside>
-      <main className="flex-1 flex flex-col gap-y-6 mb-4">
-        <div className="flex flex-col xl:flex-row gap-x-6">
+      <main className="flex-1 flex flex-col gap-y-6 mb-4 px-4 md:px-0 pt-6 md:pt-0">
+        <div className="flex flex-col lg:flex-row gap-x-6">
           <TeamTitle team={team} />
           {isAuthorized && (
-            <div className="actions flex flex-col items-center justify-center">
+            <div className="actions flex flex-col items-center justify-center lg:pt-10">
               <Button
                 iconId="fr-icon-add-line"
                 priority="tertiary"

@@ -1,5 +1,5 @@
 .team-title {
-  @apply flex flex-1 gap-x-6 mt-10;
+  @apply flex flex-1 gap-x-6 mt-4;
 }
 
 .team-title .name-description {
@@ -7,7 +7,7 @@
 }
 
 .team-title .name-description h2 {
-  @apply text-5xl;
+  /* Font size is now controlled by text-3xl in the component JSX */
 }
 
 .team-title .actions {
@@ -15,7 +15,7 @@
 }
 
 .team-title .members {
-  @apply flex gap-x-1 mt-3;
+  @apply flex gap-x-1 mt-1;
 }
 
 .posts {
@@ -24,7 +24,7 @@
 
 article.post {
   @apply bg-gray-50;
-  @apply p-3 flex flex-col gap-y-6 rounded-sm;
+  @apply p-3 flex flex-col gap-y-3 rounded-sm; /* Reduced gap-y */
   @apply dark:bg-[color:var(--background-raised-grey)];
 
   filter: drop-shadow(var(--raised-shadow));
@@ -40,22 +40,22 @@ article.post .header .text {
 }
 
 article.post .kpis {
-  @apply flex divide-x py-2;
+  @apply flex divide-x py-1; /* Reduced padding y */
 
   border: 1px solid var(--border-default-grey);
   background-color: var(--background-default-grey);
 }
 
 article.post .kpis .kpi {
-  @apply flex-1 flex flex-col overflow-hidden pl-3 pr-3;
+  @apply flex-1 flex flex-col overflow-hidden px-2; /* Reduced padding x */
 }
 
 article.post .kpis .kpi .value {
-  @apply text-center truncate font-semibold text-xl;
+  @apply text-center truncate font-semibold text-lg; /* Reduced font size */
 }
 
 article.post .kpis .kpi .name {
-  @apply flex-1 truncate text-center;
+  @apply flex-1 truncate text-center text-sm; /* Reduced font size */
 }
 
 article.post .tab-panel {
@@ -97,8 +97,8 @@ article.post .tab-panel .panels {
 }
 
 article.post .tab-panel .panels .panel {
-  @apply flex-1 hidden min-h-[13rem] overflow-auto;
-  @apply flex-col max-h-52;
+  @apply flex-1 hidden min-h-[6rem] overflow-auto; /* Reduced min-height */
+  @apply flex-col max-h-40; /* Reduced max-height (10rem = 160px) */
 }
 
 article.post .tab-panel .panels .panel.selected {
@@ -125,7 +125,188 @@ article.post .actions {
 }
 
 .markdown-body {
-  @apply flex-1 p-3;
+  @apply flex-1 p-2 text-sm; /* Reduced padding and font size */
   color: var(--text-default-grey);
   background-color: var(--background-default-grey);
+}
+
+@media print {
+  /* General overrides for print friendliness */
+  body, html {
+    background-color: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important; /* Ensure background colors print in Chrome/Safari */
+    print-color-adjust: exact !important; /* Standard */
+  }
+
+  * {
+    color: black !important;
+    background-color: transparent !important; /* Transparent is often better than white for nested elements */
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important; /* For drop-shadow */
+    border-color: #ccc !important; /* Ensure borders are visible */
+  }
+
+  /* Hide elements */
+  aside, /* SideMenu in page.tsx and [slug]/page.tsx */
+  body > header, /* Assuming a global header exists, common pattern */
+  body > footer, /* Assuming a global footer exists */
+  .team-title + .actions, /* Button "Nouvelle publication" in [slug]/page.tsx */
+  article.post .footer .actions, /* Edit/delete post buttons */
+  .pagination, /* Pagination controls in [slug]/page.tsx */
+  article.post .tab-panel .tabs, /* Tab buttons */
+  article.post .header .avatar [class*="fr-icon-"], /* Mood icons in post header avatar (if that's where they are) */
+  article.post .header > [class*="fr-icon-"] /* Mood icons directly in post header */
+   {
+    display: none !important;
+  }
+
+  /* Layout adjustments */
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    flex: none !important; /* Override flex behavior if main is a flex item */
+  }
+  
+  /* Ensure the main layout container in app/layout.tsx (if any) also allows full width */
+  /* This often is the direct child of <body> or #__next */
+  body > div, #__next > div { /* Common Next.js patterns */
+    display: block !important; /* Override flex if it's preventing full width for main */
+  }
+
+
+  /* Post styling */
+  article.post {
+    border: 1px solid #ccc !important;
+    margin-bottom: 20px !important;
+    padding: 15px !important;
+    page-break-inside: avoid !important;
+    background-color: white !important; /* Ensure post background is white */
+  }
+  
+  article.post .header .text { /* Team name in post header */
+      font-size: 1.1rem !important; /* Adjust if needed */
+  }
+
+  /* KPIs styling for print */
+  article.post .kpis {
+    border: 1px solid #eee !important;
+    padding: 5px !important;
+    background-color: #f9f9f9 !important; /* Light gray for KPIs background */
+  }
+  article.post .kpis .kpi {
+    padding: 5px !important;
+  }
+  article.post .kpis .kpi .value {
+    font-size: 1rem !important;
+  }
+  article.post .kpis .kpi .name {
+    font-size: 0.8rem !important;
+  }
+
+
+  /* Tab panel adjustments */
+  article.post .tab-panel {
+    border: none !important; /* Remove border around tab panel itself if any */
+  }
+  article.post .tab-panel .panels {
+    border: none !important; /* Remove border from the panels container */
+  }
+  article.post .tab-panel .panels .panel {
+    display: block !important; /* Show all panels */
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin-bottom: 15px !important;
+    padding: 10px !important;
+    border: 1px solid #eee !important; /* Light border for each revealed panel */
+    background-color: white !important; /* Ensure panel background is white */
+  }
+  
+  /* Add titles to revealed tab panels */
+  article.post .tab-panel .panels .markdown-body:nth-of-type(1)::before {
+    content: "Priorités:" !important;
+    display: block !important;
+    font-weight: bold !important;
+    margin-bottom: 8px !important;
+    font-size: 1.1em !important;
+  }
+  article.post .tab-panel .panels .markdown-body:nth-of-type(2)::before {
+    content: "Besoins:" !important;
+    display: block !important;
+    font-weight: bold !important;
+    margin-bottom: 8px !important;
+    font-size: 1.1em !important;
+  }
+  article.post .tab-panel .panels .markdown-body:nth-of-type(3)::before {
+    content: "Échéances:" !important;
+    display: block !important;
+    font-weight: bold !important;
+    margin-bottom: 8px !important;
+    font-size: 1.1em !important;
+  }
+
+  /* Ensure markdown body content itself is styled for print */
+  .markdown-body, .markdown-body * {
+    color: black !important;
+    background-color: white !important;
+    font-size: 10pt !important; /* Adjust base font for markdown */
+    line-height: 1.3 !important;
+  }
+  .markdown-body p, .markdown-body ul, .markdown-body ol {
+    margin-bottom: 0.5em !important;
+  }
+  
+  /* Images */
+  img, svg {
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+    vertical-align: middle !important;
+  }
+  /* Hide decorative member avatars in TeamTitle if they are too much for print */
+  .team-title .members img {
+      display: none !important; /* Example: hiding member avatars */
+  }
+   /* Or make them smaller if preferred:
+   .team-title .members img {
+      width: 20px !important; height: 20px !important;
+   }
+   */
+  .team-title img { /* Main team avatar */
+      width: 60px !important; height: 60px !important;
+  }
+
+
+  /* Links */
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+  /* Optionally display href for links */
+  /*
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+  */
+
+  /* Team Title specific adjustments */
+  .team-title {
+    margin-top: 0 !important; /* Reset margin if needed */
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid #eee !important; /* Add a separator */
+    margin-bottom: 10px !important;
+  }
+  .team-title h2 {
+      font-size: 1.5rem !important; /* Adjust team name size */
+  }
+  .team-title .name-description div { /* Description */
+      font-size: 0.9rem !important;
+  }
+
 }
