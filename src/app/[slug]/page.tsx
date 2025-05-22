@@ -31,7 +31,10 @@ export default async function Page({
   // Ensure user and user.teams are defined before calling includes
   const isAuthorized = user?.teams?.includes(slug) || false;
   const currentPageNumber = Number(page) || 1;
-  const { posts, count } = await getTeamPosts(slug, 5 * (currentPageNumber - 1));
+  const { posts, count } = await getTeamPosts(
+    slug,
+    5 * (currentPageNumber - 1),
+  );
 
   return (
     <>
