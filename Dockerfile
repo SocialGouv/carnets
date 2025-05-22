@@ -24,7 +24,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_HASURA_URL
 ENV NEXT_PUBLIC_HASURA_URL $NEXT_PUBLIC_HASURA_URL
 
-RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN ls -lah /run/secrets; exit 1
+RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN,required ls -lah /run/secrets; exit 1
 # RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN export SENTRY_AUTH_TOKEN="$(cat /run/secrets/SENTRY_AUTH_TOKEN)"; yarn build
 # RUN yarn build
 
