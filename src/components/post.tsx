@@ -57,13 +57,13 @@ export default function Post({
           <Tab disabled={!data.term.length}>Échéances</Tab>
         </Tabs>
         <Panels>
-          <div className="markdown-body">
+          <div className="markdown-body" style={{ fontSize: "1.5rem" }}>
             <Markdown remarkPlugins={[remarkGfm]}>{data.priorities}</Markdown>
           </div>
-          <div className="markdown-body">
+          <div className="markdown-body" style={{ fontSize: "1.5rem" }}>
             <Markdown remarkPlugins={[remarkGfm]}>{data.needs}</Markdown>
           </div>
-          <div className="markdown-body">
+          <div className="markdown-body" style={{ fontSize: "1.5rem" }}>
             <Markdown remarkPlugins={[remarkGfm]}>{data.term}</Markdown>
           </div>
         </Panels>

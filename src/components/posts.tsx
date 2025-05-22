@@ -43,7 +43,7 @@ export default function Posts({
   }
 
   return (
-    <section className="posts">
+    <section className="posts" style={{ width: "80%" }}>
       <modal.Component title="Suppression">
         <div className="relative">
           <div className={`${isLoading ? "invisible" : ""}`}>
@@ -78,6 +78,7 @@ export default function Posts({
             editable={editable}
             hideLogo={hideLogos}
             onDeletion={showModal}
+            style={{ fontSize: "1.5rem" }}
           />
         ))}
     </section>

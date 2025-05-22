@@ -18,12 +18,17 @@ const Header = ({ session }: { session: Session | null }) => (
       title: "Accueil - La Fabrique Numérique des ministères sociaux",
     }}
     id="fr-header-simple-header"
-    serviceTitle="Carnets"
-    serviceTagline="Carnets de bord des produits de la Fabrique Numérique"
+    serviceTitle={<span style={{ fontSize: "1.5rem" }}>Carnets</span>}
+    serviceTagline={
+      <span style={{ fontSize: "1rem" }}>
+        Carnets de bord des produits de la Fabrique Numérique
+      </span>
+    }
     operatorLogo={{
       orientation: "vertical",
       imgUrl: "/images/logo-fabrique.svg",
       alt: "logo de la Fabrique Numérique",
+      style: { width: "50px", height: "50px" },
     }}
     quickAccessItems={[
       {

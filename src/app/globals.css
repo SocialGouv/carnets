@@ -24,3 +24,22 @@ a[aria-disabled="true"] {
   pointer-events: none;
   text-decoration: none;
 }
+
+/* Increase the size of priorities, needs, and terms sections */
+.markdown-body {
+  font-size: 1.25rem; /* Increase font size */
+}
+
+/* Decrease the size of the logo and other design elements */
+.header .avatar img {
+  width: 24px; /* Decrease logo size */
+  height: 24px; /* Decrease logo size */
+}
+
+.header .text {
+  font-size: 1rem; /* Decrease font size */
+}
+
+.header .mood {
+  font-size: 1rem; /* Decrease font size */
+}
