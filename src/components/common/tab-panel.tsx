@@ -17,7 +17,7 @@ export const Tab = ({
   children,
   selected,
   disabled = false,
-  handleClick = ()_ => {},
+  handleClick = () => {},
 }: TabProps) => (
   <div className={`tab${selected ? " selected" : ""}`}>
     <Button
