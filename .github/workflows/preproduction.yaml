@@ -67,7 +67,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: 📦 Build and push Docker image
-        uses: socialgouv/workflows/actions/buildkit@main
+        uses: socialgouv/workflows/actions/buildkit@v1
         with:
           context: ${{ matrix.build.context || '.' }}
           dockerfile: ${{ matrix.build.dockerfile || 'Dockerfile' }}
