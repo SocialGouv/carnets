@@ -11,22 +11,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.ref }}
 
 jobs:
-  build:
+  build-app:
     environment: preproduction
     outputs:
       tags: ${{ steps.meta.outputs.tags }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        build:
-          - name: app
-            context: "."
-            build-args-template: |
-              NEXT_PUBLIC_HASURA_URL="https://$SUBDOMAIN_HASURA/v1/graphql"
-            secrets: |
-              SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-          - name: hasura
-            context: ./packages/hasura
     steps:
       - name: ⏬ Checkout code repository
         uses: actions/checkout@v4
@@ -35,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.REGISTRY_URL }}/${{ github.repository }}/${{ matrix.build.name }}
+          images: ${{ secrets.REGISTRY_URL }}/${{ github.repository }}/app
           tags: |
             type=semver,pattern={{version}},priority=900
             type=semver,pattern=v{{version}},priority=900
@@ -50,28 +39,11 @@ jobs:
         with:
           subdomain: hasura
 
-      # Prepare build args using envsubst
-      - name: Prepare build args
-        id: prepare-build-args
-        if: matrix.build.build-args-template != ''
-        run: |
-          # Export environment variables for envsubst
-          export SUBDOMAIN_HASURA="${{ steps.env.outputs.subdomain_hasura }}"
-          # Export more variables as needed
-          
-          # Use envsubst to replace variables in the template
-          BUILD_ARGS=$(echo '${{ matrix.build.build-args-template }}' | envsubst)
-          
-          # Output the processed build args
-          echo "build-args<<EOF" >> $GITHUB_OUTPUT
-          echo "$BUILD_ARGS" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      - name: 📦 Build and push Docker image
+      - name: 📦 Build and push Docker image for app
         uses: socialgouv/workflows/actions/buildkit@v1
         with:
-          context: ${{ matrix.build.context || '.' }}
-          dockerfile: ${{ matrix.build.dockerfile || 'Dockerfile' }}
+          context: "."
+          dockerfile: "Dockerfile"
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           registry: "${{ secrets.REGISTRY_URL }}"
@@ -80,11 +52,49 @@ jobs:
           buildkit-cert-ca: "${{ secrets.BUILDKIT_CERT_CA }}"
           buildkit-cert: "${{ secrets.BUILDKIT_CERT }}"
           buildkit-cert-key: "${{ secrets.BUILDKIT_CERT_KEY }}"
-          build-args: ${{ steps.prepare-build-args.outputs.build-args || '' }}
-          secrets: ${{ matrix.build.secrets || '' }}
+          build-args: |
+            NEXT_PUBLIC_HASURA_URL=https://${{ steps.env.outputs.subdomain_hasura }}/v1/graphql
+          secrets: |
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+
+  build-hasura:
+    environment: preproduction
+    outputs:
+      tags: ${{ steps.meta.outputs.tags }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⏬ Checkout code repository
+        uses: actions/checkout@v4
+
+      - name: 📌 Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ secrets.REGISTRY_URL }}/${{ github.repository }}/hasura
+          tags: |
+            type=semver,pattern={{version}},priority=900
+            type=semver,pattern=v{{version}},priority=900
+            type=sha,priority=890
+            type=ref,event=branch,priority=600
+            type=ref,event=pr,priority=600
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }},priority=200
+
+      - name: 📦 Build and push Docker image for hasura
+        uses: socialgouv/workflows/actions/buildkit@v1
+        with:
+          context: "./packages/hasura"
+          dockerfile: "Dockerfile"
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          registry: "${{ secrets.REGISTRY_URL }}"
+          registry-username: "${{ secrets.REGISTRY_USERNAME }}"
+          registry-password: "${{ secrets.REGISTRY_PASSWORD }}"
+          buildkit-cert-ca: "${{ secrets.BUILDKIT_CERT_CA }}"
+          buildkit-cert: "${{ secrets.BUILDKIT_CERT }}"
+          buildkit-cert-key: "${{ secrets.BUILDKIT_CERT_KEY }}"
 
   kontinuous:
-    needs: [build]
+    needs: [build-app, build-hasura]
     name: "Deploy on Kubernetes 🐳"
     uses: socialgouv/workflows/.github/workflows/use-ks-gh-preproduction.yaml@v1
     secrets: inherit
