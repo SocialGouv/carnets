@@ -51,8 +51,8 @@ jobs:
           buildkit-cert-ca: "${{ secrets.BUILDKIT_CERT_CA }}"
           buildkit-cert: "${{ secrets.BUILDKIT_CERT }}"
           buildkit-cert-key: "${{ secrets.BUILDKIT_CERT_KEY }}"
-          buildkit-svc-count: ${{ variables.BUILDKIT_SVC_COUNT }}
-          buildkit-daemon-address: ${{ variables.BUILDKIT_DAEMON_ADDRESS }}
+          buildkit-svc-count: ${{ vars.BUILDKIT_SVC_COUNT }}
+          buildkit-daemon-address: ${{ vars.BUILDKIT_DAEMON_ADDRESS }}
           build-args: |
             NEXT_PUBLIC_HASURA_URL=https://${{ steps.env.outputs.subdomain_hasura }}/v1/graphql
             NEXT_PUBLIC_MATOMO_SITE_ID=24
@@ -95,8 +95,8 @@ jobs:
           buildkit-cert-ca: "${{ secrets.BUILDKIT_CERT_CA }}"
           buildkit-cert: "${{ secrets.BUILDKIT_CERT }}"
           buildkit-cert-key: "${{ secrets.BUILDKIT_CERT_KEY }}"
-          buildkit-svc-count: ${{ variables.BUILDKIT_SVC_COUNT }}
-          buildkit-daemon-address: ${{ variables.BUILDKIT_DAEMON_ADDRESS }}
+          buildkit-svc-count: ${{ vars.BUILDKIT_SVC_COUNT }}
+          buildkit-daemon-address: ${{ vars.BUILDKIT_DAEMON_ADDRESS }}
 
   kontinuous:
     needs: [build-app, build-hasura]
