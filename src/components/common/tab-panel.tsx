@@ -40,7 +40,7 @@ interface TabsProps {
 export const Tabs = ({
   children,
   selectedIndex = 0,
-  setSelectedIndex = ()_ => {},
+  setSelectedIndex = () => {},
 }: TabsProps) => (
   <div className="tabs">
     {children.map((child, i) =>
