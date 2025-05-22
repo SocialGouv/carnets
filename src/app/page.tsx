@@ -1,7 +1,7 @@
 import Posts from "@/components/posts";
 import Teams from "@/components/teams";
 
-import "./styles.css";
+import "./styles.css"; // This imports global styles for this page/layout
 import getLastPosts from "@/actions/get-last-posts";
 
 export default async function Page() {

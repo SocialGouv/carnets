@@ -10,20 +10,28 @@ import getTeamPosts from "@/actions/get-team-posts";
 import { Button } from "@codegouvfr/react-dsfr/Button";
 import Pagination from "@/components/common/pagination";
 
-import "../styles.css";
+import "../styles.css"; // Global styles for this page/layout
+
+interface PageProps {
+  params: {
+    slug: string;
+  };
+  searchParams: {
+    page: number; // Or string, depending on how Next.js passes it; then parse
+  };
+}
 
 export default async function Page({
   params: { slug },
   searchParams: { page },
-}: {
-  params: { slug: string };
-  searchParams: { page: number };
-}) {
+}: PageProps) {
   const session = await getServerSession(authOptions);
-  const user = session?.user as GithubUser;
+  const user = session?.user as GithubUser | undefined; // More type safety
   const team = await getTeamBySlug(slug);
-  const isAuthorized = user?.teams.includes(slug);
-  const { posts, count } = await getTeamPosts(slug, 5 * (page - 1));
+  // Ensure user and user.teams are defined before calling includes
+  const isAuthorized = user?.teams?.includes(slug) || false;
+  const currentPageNumber = Number(page) || 1;
+  const { posts, count } = await getTeamPosts(slug, 5 * (currentPageNumber - 1));
 
   return (
     <>
@@ -49,7 +57,7 @@ export default async function Page({
         <Pagination
           slug={slug}
           totalPages={Math.ceil(count / 5)}
-          currentPage={+page || 1}
+          currentPage={currentPageNumber}
         />
       </main>
     </>

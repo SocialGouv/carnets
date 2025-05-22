@@ -1,19 +1,24 @@
 "use client";
 
 import Button from "@codegouvfr/react-dsfr/Button";
-import { cloneElement, useState } from "react";
+import { cloneElement, useState, ReactElement } from "react";
+
+// Define more specific types for children where possible for better type safety.
+// For example, if Tab components are the only valid children for Tabs.
+
+interface TabProps {
+  selected?: boolean;
+  disabled?: boolean;
+  handleClick?: () => void;
+  children: string | ReactElement | ReactElement[];
+}
 
 export const Tab = ({
   children,
   selected,
   disabled = false,
-  handleClick = () => {},
-}: {
-  selected?: boolean;
-  disabled?: boolean;
-  handleClick?: () => void;
-  children: string | JSX.Element | JSX.Element[];
-}) => (
+  handleClick = ()_ => {},
+}: TabProps) => (
   <div className={`tab${selected ? " selected" : ""}`}>
     <Button
       disabled={disabled}
@@ -26,15 +31,17 @@ export const Tab = ({
   </div>
 );
 
+interface TabsProps {
+  selectedIndex?: number;
+  children: ReactElement<TabProps>[]; // Assuming children are Tab components
+  setSelectedIndex?: (index: number) => void;
+}
+
 export const Tabs = ({
   children,
   selectedIndex = 0,
-  setSelectedIndex = () => {},
-}: {
-  selectedIndex?: number;
-  children: JSX.Element[];
-  setSelectedIndex?: (index: number) => void;
-}) => (
+  setSelectedIndex = ()_ => {},
+}: TabsProps) => (
   <div className="tabs">
     {children.map((child, i) =>
       cloneElement(child, {
@@ -46,23 +53,26 @@ export const Tabs = ({
   </div>
 );
 
-const Panel = ({
-  children,
-  selected = false,
-}: {
+interface PanelProps {
   selected?: boolean;
-  children: JSX.Element[];
-}) => <div className={`panel${selected ? " selected" : ""}`}>{children}</div>;
+  children: ReactElement[]; // Or more specific type
+}
+
+const Panel = ({ children, selected = false }: PanelProps) => (
+  <div className={`panel${selected ? " selected" : ""}`}>{children}</div>
+);
+
+interface PanelsProps {
+  selectedIndex?: number;
+  children: ReactElement[]; // Or ReactElement containing markdown-body
+  setSelectedIndex?: (index: number) => void;
+}
 
 export const Panels = ({
   children,
   selectedIndex = 0,
-  setSelectedIndex = () => {},
-}: {
-  selectedIndex?: number;
-  children: JSX.Element[];
-  setSelectedIndex?: (index: number) => void;
-}) => (
+  setSelectedIndex = ()_ => {}, // Added for consistency, though not used in current logic
+}: PanelsProps) => (
   <div className="panels">
     {children.map((child, i) => (
       <Panel key={i} selected={i === selectedIndex}>
@@ -72,7 +82,11 @@ export const Panels = ({
   </div>
 );
 
-const TabPanel = ({ children }: { children: JSX.Element[] }) => {
+interface TabPanelProps {
+  children: ReactElement[]; // Expects Tabs and Panels as children
+}
+
+const TabPanel = ({ children }: TabPanelProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
