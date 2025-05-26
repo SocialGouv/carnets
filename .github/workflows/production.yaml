@@ -101,5 +101,5 @@ jobs:
   kontinuous:
     needs: [build-app, build-hasura]
     name: "Deploy on Kubernetes 🐳"
-    uses: socialgouv/workflows/.github/workflows/use-ks-gh-production.yaml@v1
+    uses: socialgouv/workflows/.github/workflows/use-ks-gh-production-atlas.yaml@v1
     secrets: inherit
