@@ -1,6 +1,5 @@
 app:
   ~chart: app
-  ~needs: [build-app]
   probesPath: /api/healthz
   imagePackage: app
   envFrom:
@@ -20,7 +19,7 @@ pg:
 
 hasura:
   ~chart: hasura
-  ~needs: [build-hasura, pg]
+  ~needs: [pg]
   imagePackage: hasura
   annotations:
     "oblik.socialgouv.io/min-request-memory": 1Gi
