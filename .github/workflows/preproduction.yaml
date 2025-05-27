@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   build-app:
-    environment: preproduction
+    environment: build-preproduction
     outputs:
       tags: ${{ steps.meta.outputs.tags }}
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
 
   build-hasura:
-    environment: preproduction
+    environment: build-preproduction
     outputs:
       tags: ${{ steps.meta.outputs.tags }}
     runs-on: ubuntu-latest

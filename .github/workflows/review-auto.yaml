@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   build-app:
-    environment: review-auto
+    environment: build-review-auto
     outputs:
       tags: ${{ steps.meta.outputs.tags }}
     runs-on: ubuntu-latest
@@ -61,7 +61,7 @@ jobs:
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
 
   build-hasura:
-    environment: review-auto
+    environment: build-review-auto
     outputs:
       tags: ${{ steps.meta.outputs.tags }}
     runs-on: ubuntu-latest
