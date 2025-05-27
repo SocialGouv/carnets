@@ -25,8 +25,6 @@ jobs:
         with:
           images: ${{ vars.REGISTRY_URL }}/${{ vars.PROJECT_NAME }}/${{ github.event.repository.name }}/app
           tags: |
-            type=semver,pattern=v{{version}},priority=900
-            type=raw,value=preprod-{{sha}},enable=${{ github.ref == 'refs/heads/preprod' }},priority=850
             type=raw,value=persist-{{sha}},enable=${{ 
               github.ref_name == 'dev' || 
               github.ref_name == 'develop' || 
@@ -36,8 +34,6 @@ jobs:
             }},priority=840
             type=sha,prefix=sha-,format=long,priority=890
             type=ref,event=branch,priority=600
-            type=ref,event=pr,priority=600
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }},priority=200
       - name: Env
         id: env
         uses: socialgouv/kontinuous/.github/actions/env@v1
@@ -79,8 +75,6 @@ jobs:
         with:
           images: ${{ vars.REGISTRY_URL }}/${{ vars.PROJECT_NAME }}/${{ github.event.repository.name }}/hasura
           tags: |
-            type=semver,pattern=v{{version}},priority=900
-            type=raw,value=preprod-{{sha}},enable=${{ github.ref == 'refs/heads/preprod' }},priority=850
             type=raw,value=persist-{{sha}},enable=${{ 
               github.ref_name == 'dev' || 
               github.ref_name == 'develop' || 
@@ -90,8 +84,6 @@ jobs:
             }},priority=840
             type=sha,prefix=sha-,format=long,priority=890
             type=ref,event=branch,priority=600
-            type=ref,event=pr,priority=600
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }},priority=200
       - name: 📦 Build and push Docker image for hasura
         uses: socialgouv/workflows/actions/buildkit@v1
         with:
