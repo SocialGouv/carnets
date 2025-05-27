@@ -1,3 +1,10 @@
+## [2.4.13](https://github.com/SocialGouv/carnets/compare/v2.4.12...v2.4.13) (2025-05-27)
+
+
+### Bug Fixes
+
+* build ([bac5afa](https://github.com/SocialGouv/carnets/commit/bac5afadd11ce3645a1957a828c2f78640a12cc7))
+
 ## [2.4.12](https://github.com/SocialGouv/carnets/compare/v2.4.11...v2.4.12) (2025-05-27)
 
 
