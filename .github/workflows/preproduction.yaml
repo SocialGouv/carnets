@@ -26,7 +26,7 @@ jobs:
         with:
           images: ${{ vars.REGISTRY_URL }}/${{ vars.PROJECT_NAME }}/${{ github.event.repository.name }}/app
           tags: |
-            type=raw,value=preprod-{{sha}}
+            type=raw,value=preprod-{{sha}},format=long,priority=850
             type=sha,prefix=sha-,format=long,priority=890
       - name: Env
         id: env
@@ -69,7 +69,7 @@ jobs:
         with:
           images: ${{ vars.REGISTRY_URL }}/${{ vars.PROJECT_NAME }}/${{ github.event.repository.name }}/hasura
           tags: |
-            type=raw,value=preprod-{{sha}},priority=850
+            type=raw,value=preprod-{{sha}},format=long,priority=850
             type=sha,prefix=sha-,format=long,priority=890
       - name: 📦 Build and push Docker image for hasura
         uses: socialgouv/workflows/actions/buildkit@v1
