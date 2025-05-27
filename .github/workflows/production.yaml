@@ -64,7 +64,7 @@ jobs:
             NEXT_PUBLIC_MATOMO_SITE_ID=24
             NEXT_PUBLIC_MATOMO_URL=https://matomo.fabrique.social.gouv.fr/
           secrets: |
-            sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
 
   build-hasura:
     environment: production
