@@ -1,3 +1,10 @@
+## [2.4.10](https://github.com/SocialGouv/carnets/compare/v2.4.9...v2.4.10) (2025-05-27)
+
+
+### Bug Fixes
+
+* **ci:** use buildkit from github ([#474](https://github.com/SocialGouv/carnets/issues/474)) ([c2c83a2](https://github.com/SocialGouv/carnets/commit/c2c83a29e928b5c377e09cfb2656e10fbe6befa9))
+
 ## [2.4.9](https://github.com/SocialGouv/carnets/compare/v2.4.8...v2.4.9) (2025-04-15)
 
 
