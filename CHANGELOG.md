@@ -1,3 +1,10 @@
+## [2.4.16](https://github.com/SocialGouv/carnets/compare/v2.4.15...v2.4.16) (2025-06-26)
+
+
+### Bug Fixes
+
+* preprod build args ([e342dae](https://github.com/SocialGouv/carnets/commit/e342dae095c10d16ba5cedf308778145719e3229))
+
 ## [2.4.15](https://github.com/SocialGouv/carnets/compare/v2.4.14...v2.4.15) (2025-05-27)
 
 
