@@ -56,7 +56,7 @@ jobs:
           buildkit-svc-count: ${{ vars.BUILDKIT_SVC_COUNT }}
           buildkit-daemon-address: ${{ vars.BUILDKIT_DAEMON_ADDRESS }}
           build-args: |
-            NEXT_PUBLIC_HASURA_URL=https://${{ steps.env.outputs.subdomain_hasura }}/v1/graphql
+            NEXT_PUBLIC_HASURA_URL=https://${{ steps.env.outputs.subdomain_hasura }}.ovh.fabrique.social.gouv.fr/v1/graphql
           secrets: |
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
 
