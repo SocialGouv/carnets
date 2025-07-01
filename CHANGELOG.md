@@ -1,3 +1,10 @@
+## [2.4.18](https://github.com/SocialGouv/carnets/compare/v2.4.17...v2.4.18) (2025-07-01)
+
+
+### Bug Fixes
+
+* **ci:** typo ([7b4fe72](https://github.com/SocialGouv/carnets/commit/7b4fe7269a49215209bf337da2038d3e28bfaa74))
+
 ## [2.4.17](https://github.com/SocialGouv/carnets/compare/v2.4.16...v2.4.17) (2025-07-01)
 
 
